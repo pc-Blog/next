@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ArticleVO } from "@/lib/types";
 import ViewCount from "./ViewCount";
+import { assetUrl } from "@/lib/asset-url";
 
 export default function ArticleCard({ article }: { article: ArticleVO }) {
   const date = article.createdAt
@@ -14,7 +15,7 @@ export default function ArticleCard({ article }: { article: ArticleVO }) {
           <div className="relative h-48 overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={article.coverImage}
+              src={assetUrl(article.coverImage)}
               alt={article.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

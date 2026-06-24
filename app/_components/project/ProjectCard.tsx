@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ProjectVO } from "@/lib/types";
+import { assetUrl } from "@/lib/asset-url";
 
 export default function ProjectCard({ project }: { project: ProjectVO }) {
   return (
@@ -9,7 +10,7 @@ export default function ProjectCard({ project }: { project: ProjectVO }) {
           <div className="relative h-44 overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={project.coverImage}
+              src={assetUrl(project.coverImage)}
               alt={project.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

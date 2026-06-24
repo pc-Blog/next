@@ -6,6 +6,7 @@ import type { Album, Photo } from "@/lib/types";
 import { getPublishedList, getPhotosByAlbum } from "@/lib/api/album";
 import Loading from "@/app/_components/common/Loading";
 import Portal from "@/app/_components/common/Portal";
+import { assetUrl } from "@/lib/asset-url";
 
 /* ── PhotoCard ── */
 function PhotoCard({ photo, index, onClick }: { photo: Photo; index: number; onClick: () => void }) {
@@ -30,7 +31,7 @@ function PhotoCard({ photo, index, onClick }: { photo: Photo; index: number; onC
       <div className="relative bg-white dark:bg-slate-800 p-2 pb-6 md:p-2.5 md:pb-8 rounded-sm shadow-lg dark:shadow-black/30 group-hover:shadow-2xl transition-shadow duration-300">
         <div className="relative overflow-hidden rounded-[1px] aspect-[4/3]">
           <img
-            src={photo.url}
+            src={assetUrl(photo.url)}
             alt="相册照片"
             loading="lazy"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -91,7 +92,7 @@ function AlbumCard({
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
               <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg ring-1 ring-black/5 dark:ring-white/10">
-                <img src={photo.url} alt={album.title} className="w-full h-full object-cover" />
+                <img src={assetUrl(photo.url)} alt={album.title} className="w-full h-full object-cover" />
               </div>
             </motion.div>
           ))}
@@ -189,7 +190,7 @@ function Lightbox({
             className="relative z-10 max-w-[90vw] max-h-[85vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={photo.url} alt="相片预览" className="max-h-[85vh] w-auto object-contain rounded-lg shadow-2xl" />
+            <img src={assetUrl(photo.url)} alt="相片预览" className="max-h-[85vh] w-auto object-contain rounded-lg shadow-2xl" />
           </motion.div>
 
           {photos.length > 1 && (

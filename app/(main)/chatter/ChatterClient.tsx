@@ -300,11 +300,11 @@ function ChatterContent() {
                           {hasImages && (
                             <div className={`grid gap-1.5 md:gap-2 mb-3 md:mb-4 ${moment.images.length <= 2 ? "grid-cols-2" : "grid-cols-3"}`}>
                               {moment.images.map((img, idx) => {
-                                const photos: Photo[] = moment.images.map((url, pi) => ({ id: `${moment.id}-${pi}`, url, caption: "", orientation: "landscape" as const }));
-                                return (
-                                  <div key={idx} onClick={(e) => { e.stopPropagation(); setLightbox({ photos, index: idx }); }}
-                                    className="relative rounded-lg md:rounded-xl overflow-hidden cursor-pointer group/img aspect-square">
-                                    <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105" />
+                                const photos: Photo[] = moment.images.map((url, pi) => ({ id: `${moment.id}-${pi}`, url: assetUrl(url), caption: "", orientation: "landscape" as const }));
+	                                return (
+	                                  <div key={idx} onClick={(e) => { e.stopPropagation(); setLightbox({ photos, index: idx }); }}
+	                                    className="relative rounded-lg md:rounded-xl overflow-hidden cursor-pointer group/img aspect-square">
+	                                    <img src={assetUrl(img)} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105" />
                                   </div>
                                 );
                               })}

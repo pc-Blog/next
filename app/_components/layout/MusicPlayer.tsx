@@ -2,6 +2,7 @@
 
 import { useAudioPlayer } from "@/lib/useAudioPlayer";
 import Tooltip from "@/app/_components/common/Tooltip";
+import { assetUrl } from "@/lib/asset-url";
 
 function fmt(sec: number) {
   if (!sec || isNaN(sec)) return "00:00";
@@ -44,7 +45,7 @@ export default function MusicPlayer() {
           </div>
           <div className="absolute inset-[3px] rounded-full overflow-hidden shadow-inner">
             {currentTrack.pictureUrl ? (
-              <img src={currentTrack.pictureUrl} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={assetUrl(currentTrack.pictureUrl)} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-2xl">🎵</div>
             )}

@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { assetUrl } from "@/lib/asset-url";
 
 export interface LightboxPhoto {
   id: string;
@@ -106,7 +107,7 @@ export default function Lightbox({
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={photo.url}
+              src={assetUrl(photo.url)}
               alt={photo.caption || "照片"}
               width={1600}
               height={1200}

@@ -13,6 +13,7 @@ import Loading from "@/app/_components/common/Loading";
 import { downloadContentAsZip, downloadMarkdown } from "@/lib/download-content";
 import { showSuccessToast, showErrorToast } from "@/lib/toast";
 import { jsonLdSchema } from "@/lib/seo";
+import { assetUrl } from "@/lib/asset-url";
 
 export default function ProjectDetailClient(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
@@ -49,7 +50,7 @@ export default function ProjectDetailClient(props: { params: Promise<{ id: strin
               project.name,
               project.summary,
               project.createdAt,
-              project.coverImage,
+              project.coverImage ? assetUrl(project.coverImage) : undefined,
             )),
           }}
         />
@@ -59,7 +60,7 @@ export default function ProjectDetailClient(props: { params: Promise<{ id: strin
           <article className="flex-1 min-w-0 bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 dark:border-white/10 overflow-hidden">
             {project.coverImage && (
               <div className="overflow-hidden">
-                <img src={project.coverImage} alt={`${project.name} 项目截图`} className="w-full aspect-video object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={assetUrl(project.coverImage)} alt={`${project.name} 项目截图`} className="w-full aspect-video object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             )}
 
@@ -112,7 +113,7 @@ export default function ProjectDetailClient(props: { params: Promise<{ id: strin
                         const res = await downloadContentAsZip({
                           title: project.name,
                           content: project.content || "",
-                          coverImage: project.coverImage,
+                          coverImage: project.coverImage ? assetUrl(project.coverImage) : undefined,
                           about,
                         });
                         const img = res.imageSuccess > 0 ? ` (${res.imageSuccess} images)` : "";

@@ -4,6 +4,8 @@
  * Download article/project content as a ZIP (markdown + images)
  */
 
+import { assetUrl } from "@/lib/asset-url";
+
 async function fetchImageAsBase64(url: string): Promise<string> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -80,7 +82,7 @@ export function downloadMarkdown(params: {
   // Convert relative image URLs to absolute so they work offline
   if (params.origin) {
     content = content.replace(/!\[([^\]]*)\]\((\/[^)]+)\)/g, (_, alt, url) => {
-      return `![${alt}](${params.origin!}${url})`;
+      return `![${alt}](${params.origin!}${assetUrl(url)})`;
     });
   }
 
@@ -108,27 +110,42 @@ export async function downloadContentAsZip(params: {
   // Download images in parallel, tolerant of failures
   const results = await Promise.allSettled(
     [...imageUrls].map(async (url) => {
-      const base64 = await fetchImageAsBase64(url);
+      const base64 = await fetchImageAsBase64(assetUrl(url));
       return { url, base64 };
     })
   );
 
-  // Create ZIP
-  const JSZip = (await import("jszip")).default;
-  const zip = new JSZip();
-
-  // Add markdown file (content + footer)
-  const safeName = title.replace(/[<>:"/\\|?*]/g, "_");
-  zip.file(`${safeName}.md`, content + buildFooter(about));
-
-  // Add images
+  // Build URL -> local filename mapping from successful downloads
+  const urlToFilename = new Map<string, string>();
   const seen = new Set<string>();
   for (const result of results) {
     if (result.status === "fulfilled") {
       const filename = result.value.url.split("/").pop() || "image";
       const deduped = seen.has(filename) ? `${seen.size}-${filename}` : filename;
       seen.add(filename);
-      zip.file(`media/${deduped}`, result.value.base64, { base64: true });
+      urlToFilename.set(result.value.url, deduped);
+    }
+  }
+
+  // Replace image URLs in content with local media/ references
+  let finalContent = content;
+  for (const [url, filename] of urlToFilename) {
+    finalContent = finalContent.replaceAll(url, `media/${filename}`);
+  }
+
+  // Create ZIP
+  const JSZip = (await import("jszip")).default;
+  const zip = new JSZip();
+
+  // Add markdown file with updated local paths (content + footer)
+  const safeName = title.replace(/[<>:"/\\|?*]/g, "_");
+  zip.file(`${safeName}.md`, finalContent + buildFooter(about));
+
+  // Add images
+  for (const [url, filename] of urlToFilename) {
+    const result = results.find(r => r.status === "fulfilled" && r.value.url === url);
+    if (result && result.status === "fulfilled") {
+      zip.file(`media/${filename}`, result.value.base64, { base64: true });
     }
   }
 

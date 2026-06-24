@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import type { Components } from "react-markdown";
+import { assetUrl } from "@/lib/asset-url";
 
 /* ── 代码块（含复制按钮） ── */
 function PreBlock({ children, ...props }: React.ComponentPropsWithoutRef<"pre">) {
@@ -98,12 +99,13 @@ export default function ArticleProse({ content }: { content: string }) {
   const components: Components = {
     pre: PreBlock,
     img({ src, alt, ...props }) {
+      const resolvedSrc = typeof src === "string" ? assetUrl(src) : src;
       return (
         <img
-          src={src}
+          src={resolvedSrc}
           alt={alt ?? ""}
           loading="lazy"
-          onClick={() => src && typeof src === "string" && openLightbox(src, alt ?? "")}
+          onClick={() => resolvedSrc && typeof resolvedSrc === "string" && openLightbox(resolvedSrc, alt ?? "")}
           className="cursor-zoom-in transition-transform duration-300 hover:scale-[1.02]"
           {...props}
         />

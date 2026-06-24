@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useMusicStore } from "@/stores/musicStore";
 import { getMusic } from "@/lib/api/op";
+import { assetUrl } from "@/lib/asset-url";
 
 let _sharedAudio: HTMLAudioElement | null = null;
 let _endedAttached = false;
@@ -36,7 +37,7 @@ export function useAudioPlayer() {
           if (t && _sharedAudio) {
             useMusicStore.getState().setTrack(t);
             useMusicStore.getState().play();
-            _sharedAudio.src = t.url;
+            _sharedAudio.src = assetUrl(t.url);
             _sharedAudio.play().catch(() => {});
           }
         }).catch(() => {});
@@ -68,7 +69,7 @@ export function useAudioPlayer() {
     const a = getAudio();
     if (a.getAttribute("data-track-id") === String(currentTrack.id)) return;
     a.setAttribute("data-track-id", String(currentTrack.id));
-    a.src = currentTrack.url;
+    a.src = assetUrl(currentTrack.url);
     if (isPlaying) {
       const onReady = () => { a.play().catch(() => {}); a.removeEventListener("canplay", onReady); };
       a.addEventListener("canplay", onReady);

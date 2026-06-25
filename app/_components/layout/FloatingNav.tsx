@@ -47,6 +47,9 @@ const CATEGORIES: Category[] = [
       { icon: "💣", label: "扫雷", desc: "经典扫雷推理游戏", href: "/tools/minesweeper" },
       { icon: "⚫", label: "五子棋", desc: "人机对战五子棋，AI 自动评估", href: "/tools/gomoku" },
       { icon: "🧩", label: "图片拼图", desc: "上传图片分割成拼图碎片，挑战复原", href: "/tools/image-puzzle" },
+      { icon: "🎯", label: "珠玑妙算", desc: "经典 Mastermind 破译密码游戏", href: "/tools/mastermind" },
+      { icon: "🧮", label: "数独", desc: "经典数独推理游戏，9x9 数字填格", href: "/tools/sudoku" },
+      { icon: "💡", label: "点灯游戏", desc: "经典 Lights Out 益智，熄灭所有灯", href: "/tools/lights-out" },
     ],
   },
   {

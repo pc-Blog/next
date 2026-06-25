@@ -84,7 +84,7 @@ var Paul_Pio = function (prop) {
             clearTimeout(this.t);
             this.t = setTimeout(function () {
                 dialog.classList.remove("active");
-            }, 3000);
+            }, 6000);
         },
         // 移除方法
         destroy: function () {

@@ -41,7 +41,7 @@ export function cacheableResponse<T>(
     status: 200,
     headers: {
       "Content-Type": "application/json",
-      "Cache-Control": `public, max-age=${maxAge}`,
+      "Cache-Control": `public, max-age=0, s-maxage=${maxAge}`,
       ...corsHeaders(origin),
     },
   });

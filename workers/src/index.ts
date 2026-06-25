@@ -4,7 +4,7 @@
  * 所有响应统一为 { code, data, msg } 格式。
  *
  * 环境变量（必填）:
- *   CF_API_TOKEN  — Cloudflare API Token（Analytics:Read 权限）
+ *   CF_API_TOKEN  — Cloudflare API Token（需 Cache:Purge + Analytics:Read 权限）
  *   CF_ZONE_ID    — Cloudflare 区域 ID
  *
  * 环境变量（选填——/platform 接口需要）:
@@ -17,6 +17,9 @@ import type { Env } from "./types";
 import { corsHeaders, respond } from "./utils/response";
 import { handleAnalytics } from "./analytics/handler";
 import { handlePlatform } from "./platform/handler";
+import { handleRss } from "./rss/handler";
+import { handlePurge } from "./purge/handler";
+import { handleChat } from "./chat/handler";
 
 export default {
   async fetch(
@@ -60,9 +63,24 @@ export default {
       return handlePlatform(request, env, ctx, origin);
     }
 
+    // GET /rss?url=... — RSS 代理（1h 缓存）
+    if (request.method === "GET" && url.pathname === "/rss") {
+      return handleRss(request, env, ctx, origin);
+    }
+
     // POST / — 获取完整分析数据
-    if (request.method === "POST") {
+    if (request.method === "POST" && url.pathname === "/") {
       return handleAnalytics(request, env, ctx, origin);
+    }
+
+    // POST /purge — 清空 CDN 缓存
+    if (request.method === "POST" && url.pathname === "/purge") {
+      return handlePurge(request, env, ctx, origin);
+    }
+
+    // POST /ai/chat — AI 看板娘对话（测试用）
+    if (request.method === "POST" && url.pathname === "/ai/chat") {
+      return handleChat(request, env, origin);
     }
 
     // 404 兜底

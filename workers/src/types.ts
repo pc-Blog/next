@@ -1,6 +1,7 @@
 // ── 环境变量 ──
 
 export interface Env {
+  AI: Ai;
   CF_API_TOKEN: string;
   CF_ZONE_ID: string;
   CSDN_USER?: string;

@@ -39,8 +39,8 @@ export const siteConfig = {
   /** 建站日期 */
   buildDate: "2026-05-21T00:00:00",
 
-  /** 获取站点流量的接口 */
-  analytics: "analytics.lxpavilion.top",
+  /** 获取站点流量/AI 聊天的接口 */
+  analytics: "api.lxpavilion.top",
 
   /** 仓库信息 */
   repo: "pc-Blog/next",

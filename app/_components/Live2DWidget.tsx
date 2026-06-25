@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./layout/ThemeProvider";
 import { get as getAbout } from "@/lib/api/about";
@@ -61,10 +61,93 @@ export default function Live2DWidget() {
   const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mouseoverRef = useRef<((e: MouseEvent) => void) | null>(null);
 
+  // AI 对话
+  const [inputOpen, setInputOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [inputPos, setInputPos] = useState({ x: 0, y: 0 });
+  const [aiInput, setAiInput] = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
+  const aiInputRef = useRef<HTMLInputElement>(null);
+  const inputContainerRef = useRef<HTMLDivElement>(null);
+  const inputOpenRef = useRef(false);
+
+  const closeInput = useCallback(() => {
+    setClosing(true);
+    setTimeout(() => { setClosing(false); setInputOpen(false); }, 200);
+  }, []);
+
+  useEffect(() => {
+    inputOpenRef.current = inputOpen;
+    if (inputOpen) setTimeout(() => aiInputRef.current?.focus(), 100);
+  }, [inputOpen]);
+
+  // 点击输入框外部关闭（排除 AI 按钮本身）
+  useEffect(() => {
+    if (!inputOpen) return;
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (target?.closest?.(".pio-ai")) return;
+      if (inputContainerRef.current && !inputContainerRef.current.contains(target)) {
+        closeInput();
+      }
+    };
+    setTimeout(() => document.addEventListener("mousedown", handler), 0);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [inputOpen]);
+
+  const sendAiChat = async () => {
+    const text = aiInput.trim();
+    if (!text || aiLoading) return;
+    const char = currentModel.current || (isDark ? "Ava" : "Diana");
+    setAiInput("");
+    setAiLoading(true);
+
+    // 读历史
+    const key = `chat_${char}`;
+    let history: { role: string; content: string }[] = [];
+    try { const h = localStorage.getItem(key); if (h) history = JSON.parse(h); } catch {}
+
+    try {
+      const res = await fetch(`https://${siteConfig.analytics}/ai/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, character: char, history }),
+      });
+      const json = await res.json();
+      const reply = json?.data?.reply || "(唔…不知道说什么了)";
+
+      // 存历史（保留最近3组 = 6条）
+      history.push({ role: "user", content: text }, { role: "assistant", content: reply });
+      if (history.length > 6) history = history.slice(-6);
+      try { localStorage.setItem(key, JSON.stringify(history)); } catch {}
+
+      const pio = window.pio_reference;
+      if (pio?.modules) pio.modules.render(reply);
+      // 随机动作
+      const model = live2dModel.current || pioRef.current?.model;
+      if (model) {
+        const name = model.internalModel?.settings?.name || char;
+        const tapMotions: Record<string, string[]> = {
+          Ava: ["Shake", "Tap右手", "Tap左手", "Tap嘴", "Tap胸口项链", "Tap中间刘海", "Tap右眼", "Tap左眼", "Tap腰", "Tap脖子", "Tap左马尾", "Tap右手臂"],
+          Diana: ["Shake", "Tap抱阿草-左手", "Tap右头发", "Tap左头发", "Tap笑- 脸", "Tap生气 -领结", "Tap= =  左蝴蝶结", "Tap哭 -眼角", "Tap摇头- 身体", "Tap耳朵-发卡", "Tap打瞌睡- 呆毛"],
+        };
+        const list = tapMotions[name] || ["Shake"];
+        if (list.length > 0) model.motion(list[Math.floor(Math.random() * list.length)]);
+      }
+    } catch {
+      const pio = window.pio_reference;
+      if (pio?.modules) pio.modules.render("哎呀，网络出问题了～(；′⌒`)");
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   const startIdleTimer = () => {
     if (idleTimer.current) clearTimeout(idleTimer.current);
     const delay = 15000 + Math.random() * 30000; // 15-45秒
     idleTimer.current = setTimeout(() => {
+      // 对话中不显示随机文本
+      if (inputOpenRef.current) { startIdleTimer(); return; }
       const pio = window.pio_reference;
       const model = live2dModel.current;
       if (model) {
@@ -200,6 +283,53 @@ export default function Live2DWidget() {
     });
     pioRef.current = window.pio_reference;
 
+    // 添加 AI 对话按钮到 Pio 菜单
+    const pioContainer = document.querySelector(".pio-container");
+    const menu = pioContainer?.querySelector(".pio-action");
+    if (menu && !document.querySelector(".pio-ai")) {
+      const btn = document.createElement("span");
+      btn.className = "pio-ai";
+      btn.title = "AI 聊天";
+      btn.onmouseover = () => {
+        const pio = window.pio_reference;
+        if (pio?.modules) pio.modules.render("要和我聊聊天吗？(๑•̀ㅂ•́)و✧");
+      };
+      btn.onclick = (e) => {
+        if (inputOpenRef.current) { closeInput(); return; }
+        setInputPos({ x: e.clientX, y: e.clientY });
+        setInputOpen(true);
+      };
+      menu.appendChild(btn);
+    }
+
+    // 动作测试按钮（顺序触发）
+    const motionList: Record<string, string[]> = {
+      Ava: ["Shake", "Tap右手", "Tap左手", "Tap嘴", "Tap胸口项链", "Tap中间刘海", "Tap右眼", "Tap左眼", "Tap腰", "Tap脖子", "Tap左马尾", "Tap右手臂"],
+      Diana: ["Shake", "Tap抱阿草-左手", "Tap右头发", "Tap左头发", "Tap笑- 脸", "Tap生气 -领结", "Tap= =  左蝴蝶结", "Tap哭 -眼角", "Tap摇头- 身体", "Tap耳朵-发卡", "Tap打瞌睡- 呆毛"],
+    };
+    let motionIdx = 0;
+    if (menu && !document.querySelector(".pio-motion")) {
+      const mBtn = document.createElement("span");
+      mBtn.className = "pio-motion";
+      mBtn.title = "测试动作";
+      mBtn.onmouseover = () => {
+        const pio = window.pio_reference;
+        if (pio?.modules) pio.modules.render("按顺序测试动作");
+      };
+      mBtn.onclick = () => {
+        const model = live2dModel.current || pioRef.current?.model;
+        if (!model) return;
+        const name = model.internalModel?.settings?.name || (isDark ? "Ava" : "Diana");
+        const list = motionList[name] || ["Shake"];
+        const motion = list[motionIdx % list.length];
+        motionIdx++;
+        model.motion(motion);
+        const pio = window.pio_reference;
+        if (pio?.modules) pio.modules.render("▶ " + motion);
+      };
+      menu.appendChild(mBtn);
+    }
+
     // 点击部位不同反应（多组对话，随机选取）
     const hitTexts: Record<string, Record<string, string[]>> = {
       Diana: {
@@ -329,5 +459,34 @@ export default function Live2DWidget() {
     initPio();
   }, [isDark]);
 
-  return null;
+  return (
+    <>
+      {inputOpen && (
+        <div
+          ref={inputContainerRef}
+          className={`fixed z-[9999] ${closing ? "animate-pio-chat-out" : "animate-pio-chat"}`}
+          style={{ left: inputPos.x + 15, top: inputPos.y - 22 }}
+        >
+          <div className="relative">
+            <input
+              ref={aiInputRef}
+              value={aiInput}
+              onChange={(e) => setAiInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") sendAiChat(); }}
+              placeholder="和看板娘聊天～"
+              disabled={aiLoading}
+              className="w-40 sm:w-48 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-xl px-3 py-2 pr-8 text-sm outline-none text-slate-700 dark:text-slate-200 placeholder-slate-400 border border-white/40 dark:border-white/10 shadow-lg"
+            />
+            <button
+              onClick={sendAiChat}
+              disabled={aiLoading || !aiInput.trim()}
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-slate-400 hover:text-indigo-500 disabled:opacity-30 transition-colors text-xs"
+            >
+              ↗
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }

@@ -242,6 +242,8 @@ export interface FriendLink {
   url: string;
   description?: string;
   avatar?: string;
+  rss?: string;
+  email?: string;
   themeColor?: string;
   sortOrder?: number;
   isPublished?: number;

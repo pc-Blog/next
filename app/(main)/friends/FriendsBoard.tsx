@@ -5,6 +5,7 @@ import type { FriendLink } from "@/lib/types";
 import { getPublishedList } from "@/lib/api/friend-link";
 import { siteConfig } from "@/lib/siteConfig";
 import Giscus from "@/app/_components/comment/Giscus";
+import RssPopover from "@/app/_components/common/RssPopover";
 import Link from "next/link";
 
 export default function FriendsBoard() {
@@ -20,7 +21,7 @@ export default function FriendsBoard() {
       .finally(() => setLoading(false));
   }, []);
 
-  const friendLinkFormat = `名称：${siteConfig.title}\n简介：${siteConfig.bio}\n链接：https://${siteConfig.blog}\n头像：https://${siteConfig.blog}${siteConfig.avatarUrl}`;
+  const friendLinkFormat = `名称：${siteConfig.title}\n简介：${siteConfig.bio}\n链接：https://${siteConfig.blog}\n头像：https://${siteConfig.blog}${siteConfig.avatarUrl}\nRSS：https://${siteConfig.blog}/feed.xml\n邮箱：${siteConfig.email}`;
 
   const handleCopy = async () => {
     try {
@@ -112,10 +113,45 @@ export default function FriendsBoard() {
                   </p>
                 )}
 
-                {/* Online indicator */}
-                <div className="absolute top-4 right-4 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[9px] font-bold text-green-500 uppercase tracking-wider hidden md:inline">Online</span>
+                {/* Top-right: Online indicator + RSS & Email (hover) */}
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  {/* RSS & Email — show on hover */}
+                  <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {friend.rss && (
+                      <RssPopover rssUrl={friend.rss}>
+                        <span
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(friend.rss, "_blank", "noopener");
+                          }}
+                          className="inline-flex items-center gap-1 text-orange-500/60 hover:text-orange-500 transition-colors cursor-pointer"
+                        >
+                          <span className="text-[9px] font-medium">查看订阅 →</span>
+                          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44m0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93v-2.83z" />
+                          </svg>
+                        </span>
+                      </RssPopover>
+                    )}
+                    {friend.email && (
+                      <span
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(`mailto:${friend.email}`);
+                        }}
+                        className="inline-flex items-center gap-1 text-blue-500/60 hover:text-blue-500 transition-colors cursor-pointer"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </span>
+                    )}
+                  </div>
+                  {/* Online dot */}
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-[9px] font-bold text-green-500 uppercase tracking-wider hidden md:inline">Online</span>
+                  </div>
                 </div>
               </a>
             ))}

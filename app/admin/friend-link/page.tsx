@@ -52,6 +52,8 @@ export default function AdminFriendLinkPage() {
   const [opacity, setOpacity] = useState(0.5);
   const [sortOrder, setSortOrder] = useState(0);
   const [isPublished, setIsPublished] = useState(1);
+  const [rss, setRss] = useState("");
+  const [email, setEmail] = useState("");
 
   const refresh = useCallback(async (kw?: string, pn?: number, ps?: number) => {
     try {
@@ -81,6 +83,8 @@ export default function AdminFriendLinkPage() {
     setOpacity(0.5);
     setSortOrder(0);
     setIsPublished(1);
+    setRss("");
+    setEmail("");
     setDialogOpen(true);
   };
 
@@ -96,6 +100,8 @@ export default function AdminFriendLinkPage() {
     setOpacity(initC?.a ?? 0.5);
     setSortOrder(f.sortOrder ?? 0);
     setIsPublished(f.isPublished ?? 1);
+    setRss(f.rss || "");
+    setEmail(f.email || "");
     setDialogOpen(true);
   };
 
@@ -118,6 +124,8 @@ export default function AdminFriendLinkPage() {
       url: url.trim(),
       description: description.trim() || undefined,
       avatar: avatar.trim() || undefined,
+      rss: rss.trim() || undefined,
+      email: email.trim() || undefined,
       themeColor: themeColor || undefined,
       sortOrder,
       isPublished,
@@ -188,6 +196,10 @@ export default function AdminFriendLinkPage() {
               {f.description && (
                 <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate">{f.description}</p>
               )}
+              <div className="flex gap-2 mt-0.5">
+                {f.rss && <span className="text-[10px] text-orange-500 font-bold">RSS</span>}
+                {f.email && <span className="text-[10px] text-blue-500 font-bold">Email</span>}
+              </div>
             </div>
 
             {/* Actions */}
@@ -226,6 +238,8 @@ export default function AdminFriendLinkPage() {
           <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Site URL * (https://...)" className="w-full glass-card !rounded-xl px-4 py-2.5 text-sm outline-none bg-white/50 dark:bg-slate-800/50" />
           <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" className="w-full glass-card !rounded-xl px-4 py-2.5 text-sm outline-none bg-white/50 dark:bg-slate-800/50" />
           <input value={avatar} onChange={(e) => setAvatar(e.target.value)} placeholder="Avatar URL" className="w-full glass-card !rounded-xl px-4 py-2.5 text-sm outline-none bg-white/50 dark:bg-slate-800/50" />
+          <input value={rss} onChange={(e) => setRss(e.target.value)} placeholder="RSS URL (optional)" className="w-full glass-card !rounded-xl px-4 py-2.5 text-sm outline-none bg-white/50 dark:bg-slate-800/50" />
+          <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email (optional)" className="w-full glass-card !rounded-xl px-4 py-2.5 text-sm outline-none bg-white/50 dark:bg-slate-800/50" />
           {/* Color picker */}
           <div className="glass-card !rounded-xl p-3 space-y-3 bg-white/50 dark:bg-slate-800/50">
             <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Theme Color</label>

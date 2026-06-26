@@ -145,11 +145,14 @@
 }
 
 .pio-container .pio-dialog {
-    top: -2em;
+    top: auto;
+    bottom: calc(100% - 0.5em);
     opacity: 0;
     z-index: -1;
     font-size: .8em;
     min-width: 12em;
+    max-height: 50vh;
+    overflow-y: auto;
     background: #fff;
     padding: .75em 1em;
     border-radius: 1em;

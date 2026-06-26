@@ -19,12 +19,7 @@ export async function handlePlatform(
       const data = (await cached.json()) as PlatformSummary;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (data as any)._cache = "hit";
-      return new Response(JSON.stringify(data), {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      return respond(data, "ok", 1, origin);
     }
 
     // ── 并发请求三个平台 ──
@@ -104,9 +99,9 @@ export async function handlePlatform(
       generatedAt: new Date().toISOString(),
     };
 
-    // 后台写缓存（3600s）
+    // 后台写缓存（3600s）— 只存纯数据，不包 respond 外层
     ctx.waitUntil(
-      caches.default.put(cacheKey, cacheableResponse(result, origin, 3600))
+      caches.default.put(cacheKey, cacheableResponse(result, origin))
     );
 
     return respond(result, "ok", 1, origin);

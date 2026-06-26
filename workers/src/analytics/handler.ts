@@ -37,14 +37,8 @@ export async function handleAnalytics(
       const data = (await cached.json()) as AnalyticsResult;
       data._cache = "hit";
       data._cachedAt = new Date().toISOString();
-      // 直接返回带 CORS 头的新 Response（避免从缓存 Response 中转发头）
-      return new Response(JSON.stringify(data), {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          ...corsHeaders(origin),
-        },
-      });
+      data.generatedAt = new Date().toISOString();
+      return respond(data, "ok", 1, origin);
     }
 
     // ── 每日 + 逐小时 ──
@@ -86,7 +80,7 @@ export async function handleAnalytics(
       _cache: "miss",
     };
 
-    // 写缓存（后台）
+    // 写缓存（后台）— 只存纯数据，不包 respond 外层
     ctx.waitUntil(
       cache.put(cacheKey, cacheableResponse(result, origin))
     );

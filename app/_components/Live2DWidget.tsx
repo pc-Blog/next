@@ -78,11 +78,6 @@ const PAGE_MESSAGES: Record<string, string[]> = {
     "数据可视化真好看～", "博客热度不错哦～", "又来看数据啦～", "每一个访问都很珍贵呢～",
     "数据背后都是真实的读者呢～", "分析页面最有意思了～",
   ],
-  admin: [
-    "悄悄管理后台呢～", "博主在偷偷干活～", "维护中请稍候～", "又在更新内容啦～",
-    "管理员辛苦了！", "后台搬砖中～", "又在写文章了呀～", "偷偷优化一下～",
-    "维护时间到～", "认真工作的样子真帅～",
-  ],
 };
 
 const FALLBACK_MESSAGES = [
@@ -286,6 +281,7 @@ export default function Live2DWidget() {
     } else {
       delay = 15000 + Math.random() * 30000;
     }
+    delay = 1000; // 测试用 — 测完删
     idleTimer.current = setTimeout(() => {
       // 对话中不显示随机文本
       if (inputOpenRef.current) { startIdleTimer(); return; }
@@ -557,24 +553,24 @@ export default function Live2DWidget() {
     // 事件委托悬浮提示（用 closest 支持子元素触发）
     const tooltipRules: { test: (el: Element) => string | null }[] = [
       { test: (el) => { const c = el.closest(".giscus-wrapper"); return c ? "来聊聊你的想法吧~" : null; }},
-      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/article/")) return null; const msgs = ["要不要读读看？", "这篇写得可好了！", "点进来看看嘛~", "不点进去看看吗？", "偷偷告诉你，这篇超精彩！"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
-      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/project/")) return null; const msgs = ["这个项目很有意思哦！", "不看看博主的代码吗？", "点进去了解一下？", "源码写得可棒了！", "来看看这个项目吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
-      { test: (el) => { const a = el.closest("a"); if (!a) return null; const h = a.getAttribute("href") || ""; if (!h.startsWith("/literature/")) return null; if (a.querySelector('h3')) return null; const titleEl = a.querySelector("article p:last-of-type"); const title = titleEl ? titleEl.textContent?.replace(/^——\s*/, "").split("·")[0].trim().slice(0, 20) || "" : ""; const withTitle = [`「${title}」写得真美呀~`, `这篇「${title}」很有意境呢！`, `「${title}」读起来好有感觉~`, `进来看看「${title}」吧~`, `「${title}」文笔超棒的！`]; const withoutTitle = ["文笔超棒的，不进来看看吗？", "每一篇都很有意境哦！", "感受一下文字的魅力吧~", "写得很有感觉呢~", "美文时间到~"]; const all = [...withTitle, ...withoutTitle]; return all[Math.floor(Math.random() * all.length)]; }},
-      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/gallery/")) return null; const msgs = ["照片拍得可美了！", "点开看看嘛~", "每一张都很惊艳哦！", "画面超有感觉的！", "来欣赏一下美图吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/timeline" ? "看看博主的学习历程~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/about" ? "想了解博主是什么样的人吗？" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/friends" ? "去交个朋友吧~" : null; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; const segs = (a.getAttribute("href") || "").split('/').filter(Boolean); if (segs[0] !== 'article' || segs.length < 2) return null; const msgs = ["要不要读读看？", "这篇写得可好了！", "点进来看看嘛~", "不点进去看看吗？", "偷偷告诉你，这篇超精彩！"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; const segs = (a.getAttribute("href") || "").split('/').filter(Boolean); if (segs[0] !== 'project' || segs.length < 2) return null; const msgs = ["这个项目很有意思哦！", "不看看博主的代码吗？", "点进去了解一下？", "源码写得可棒了！", "来看看这个项目吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; const segs = (a.getAttribute("href") || "").split('/').filter(Boolean); if (segs[0] !== 'literature' || segs.length < 2) return null; if (a.querySelector('h3')) return null; const titleEl = a.querySelector("article p:last-of-type"); const title = titleEl ? titleEl.textContent?.replace(/^——\s*/, "").split("·")[0].trim().slice(0, 20) || "" : ""; const withTitle = [`「${title}」写得真美呀~`, `这篇「${title}」很有意境呢！`, `「${title}」读起来好有感觉~`, `进来看看「${title}」吧~`, `「${title}」文笔超棒的！`]; const withoutTitle = ["文笔超棒的，不进来看看吗？", "每一篇都很有意境哦！", "感受一下文字的魅力吧~", "写得很有感觉呢~", "美文时间到~"]; const all = [...withTitle, ...withoutTitle]; return all[Math.floor(Math.random() * all.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; const segs = (a.getAttribute("href") || "").split('/').filter(Boolean); if (segs[0] !== 'gallery' || segs.length < 2) return null; const msgs = ["照片拍得可美了！", "点开看看嘛~", "每一张都很惊艳哦！", "画面超有感觉的！", "来欣赏一下美图吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "timeline" ? "看看博主的学习历程~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "about" ? "想了解博主是什么样的人吗？" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "friends" ? "去交个朋友吧~" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href")?.startsWith("/admin") ? "管理员入口，闲人勿入！" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/auth/login" || a?.getAttribute("href") === "/auth/register" ? "登录后可以管理博客哦~" : null; }},
       { test: (el) => { const a = el.closest("a"); const h = a?.getAttribute("href"); return h === "/" ? "回到首页看看有什么新鲜事~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/article" ? "来看看最新的文章~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/project" ? "博主的开源项目都在这里~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/tools" ? "玩个小游戏放松一下吧~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/gallery" ? "来欣赏美图吧~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/analytics" ? "来看看博客的访问数据~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/chatter" ? "看看博主最近说了什么~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/growth" ? "见证博客的成长历程~" : null; }},
-      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/literature" ? "感受文字的力量~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "article" ? "来看看最新的文章~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "project" ? "博主的开源项目都在这里~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "tools" ? "玩个小游戏放松一下吧~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "gallery" ? "来欣赏美图吧~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "analytics" ? "来看看博客的访问数据~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "chatter" ? "看看博主最近说了什么~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "growth" ? "见证博客的成长历程~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const s = a?.getAttribute("href")?.split('/').filter(Boolean)[0]; return s === "literature" ? "感受文字的力量~" : null; }},
       { test: (el) => el.closest("header")?.querySelector("a") && !el.closest("header")?.querySelector("[class*='glass-btn']") ? "想去哪里看看？" : null },
       { test: (el) => el.closest("footer") ? "到底部了呢，感谢阅读~" : null },
       { test: (el) => { const a = el.closest("a"); if (a && a.closest(".article-prose")) return "想了解一下 " + (a.textContent?.trim().slice(0, 20) || "") + " 吗？"; return null; }},

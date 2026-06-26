@@ -11,10 +11,10 @@ const repo = (raw.match(/repo:\s*"([^"]+)"/)?.[1]?.split("/")?.[1]) || "next";
 const prefix = hasDomain ? "" : `/${repo}`;
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   output: process.env.STATIC_EXPORT === "true" ? "export" : "standalone",
   ...(process.env.STATIC_EXPORT === "true"
     ? {
-        trailingSlash: true,
         images: { unoptimized: true },
         basePath: prefix,
         ...(prefix ? { assetPrefix: `${prefix}/` } : {}),

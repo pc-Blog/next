@@ -14,6 +14,7 @@ import { downloadContentAsZip, downloadMarkdown } from "@/lib/download-content";
 import { showSuccessToast, showErrorToast } from "@/lib/toast";
 import { jsonLdSchema } from "@/lib/seo";
 import { assetUrl } from "@/lib/asset-url";
+import { useContentStore } from "@/stores/contentStore";
 
 export default function ProjectDetailClient(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
@@ -35,6 +36,22 @@ export default function ProjectDetailClient(props: { params: Promise<{ id: strin
       }
     })();
   }, [id]);
+
+  // 分享内容给看板娘
+  useEffect(() => {
+    if (project) {
+      useContentStore.getState().setContent({
+        type: "project",
+        title: project.name,
+        summary: project.summary,
+        categoryName: project.categoryName,
+        tags: project.techs.map((t) => t.name),
+        hasDemo: !!project.demoUrl,
+        hasGithub: !!project.githubUrl,
+      });
+    }
+    return () => { useContentStore.getState().clearContent(); };
+  }, [project]);
 
   if (loading) return <div className="min-h-screen py-24"><Loading /></div>;
   if (!project) return <div className="text-center py-24 text-slate-400">Project not found.</div>;

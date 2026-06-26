@@ -10,6 +10,7 @@ import Loading from "@/app/_components/common/Loading";
 import Giscus from "@/app/_components/comment/Giscus";
 import { jsonLdSchema } from "@/lib/seo";
 import { tagIconMap } from "@/app/_components/literature/tag-icons";
+import { useContentStore } from "@/stores/contentStore";
 
 export default function LiteratureDetailPage(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
@@ -36,6 +37,22 @@ export default function LiteratureDetailPage(props: { params: Promise<{ id: stri
       }
     })();
   }, [id]);
+
+  // 分享文学内容给看板娘
+  useEffect(() => {
+    if (item) {
+      const names = allTags.filter((t) => item.tagIds.includes(t.id)).map((t) => t.name);
+      useContentStore.getState().setContent({
+        type: "literature",
+        title: item.title,
+        summary: "",
+        categoryName: names[0] || "",
+        tags: names,
+        content: item.content || "",
+      });
+    }
+    return () => { useContentStore.getState().clearContent(); };
+  }, [item, allTags]);
 
   const tagNames = useMemo(() => {
     if (!item) return [];

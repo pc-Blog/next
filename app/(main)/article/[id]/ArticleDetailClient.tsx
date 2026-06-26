@@ -15,6 +15,7 @@ import { downloadContentAsZip, downloadMarkdown } from "@/lib/download-content";
 import { showSuccessToast, showErrorToast } from "@/lib/toast";
 import { jsonLdSchema } from "@/lib/seo";
 import { assetUrl } from "@/lib/asset-url";
+import { useContentStore } from "@/stores/contentStore";
 
 export default function ArticleDetailClient(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
@@ -49,6 +50,20 @@ export default function ArticleDetailClient(props: { params: Promise<{ id: strin
       }
     })();
   }, [id]);
+
+  // 分享内容给看板娘
+  useEffect(() => {
+    if (article) {
+      useContentStore.getState().setContent({
+        type: "article",
+        title: article.title,
+        summary: article.summary,
+        categoryName: article.categoryName,
+        tags: article.tags.map((t) => t.name),
+      });
+    }
+    return () => { useContentStore.getState().clearContent(); };
+  }, [article]);
 
   if (loading) return <div className="min-h-screen py-24"><Loading /></div>;
   if (!article) return <div className="text-center py-24 text-slate-400">Article not found.</div>;

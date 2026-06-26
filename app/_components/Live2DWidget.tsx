@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./layout/ThemeProvider";
+import { useContentStore } from "@/stores/contentStore";
 import { get as getAbout } from "@/lib/api/about";
 import { siteConfig, loadConfig } from "@/lib/config";
 import { assetUrl } from "@/lib/asset-url";
@@ -178,6 +179,45 @@ export default function Live2DWidget() {
   const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mouseoverRef = useRef<((e: MouseEvent) => void) | null>(null);
 
+  // 文章/项目 AI 俏皮话缓存
+  const commentaryCache = useRef<{ lines: string[]; loading: boolean }>({ lines: [], loading: false });
+  const preloadCommentary = useCallback(async () => {
+    if (commentaryCache.current.loading) return;
+    const c = useContentStore.getState().content;
+    if (!c) return;
+    commentaryCache.current.loading = true;
+    try {
+      const res = await fetch(`https://${siteConfig.analytics}/ai/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          character: currentModel.current || (isDark ? "Ava" : "Diana"),
+          message: c.type === "about"
+            ? `名字：${c.title}\n简介：${c.summary}\n介绍：${c.content}`
+            : `标题：${c.title}\n简介：${c.summary}\n分类：${c.categoryName}\n标签：${c.tags.join("、")}`,
+          mode: c.type,
+        }),
+      });
+      const json = await res.json();
+      const reply = json?.data?.reply || "";
+      const lines = reply.split(/[。！？\n]/).map((s: string) => s.trim()).filter((s: string) => s.length > 0);
+      if (lines.length > 0) commentaryCache.current.lines = lines;
+    } catch { /* ignore */ }
+    finally { commentaryCache.current.loading = false; }
+  }, []);
+
+  // 监听 contentStore，进入文章/项目详情页时预加载俏皮话
+  useEffect(() => {
+    const unsub = useContentStore.subscribe((state) => {
+      if (state.content) {
+        preloadCommentary();
+      } else {
+        commentaryCache.current.lines = [];
+      }
+    });
+    return unsub;
+  }, [preloadCommentary]);
+
   // AI 对话
   const [inputOpen, setInputOpen] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -228,7 +268,7 @@ export default function Live2DWidget() {
       const res = await fetch(`https://${siteConfig.analytics}/ai/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, character: char, history }),
+        body: JSON.stringify({ message: text, character: char, history, mode: "chat" }),
       });
       const json = await res.json();
       const reply = json?.data?.reply || "(唔…不知道说什么了)";
@@ -281,7 +321,6 @@ export default function Live2DWidget() {
     } else {
       delay = 15000 + Math.random() * 30000;
     }
-    delay = 1000; // 测试用 — 测完删
     idleTimer.current = setTimeout(() => {
       // 对话中不显示随机文本
       if (inputOpenRef.current) { startIdleTimer(); return; }
@@ -298,17 +337,48 @@ export default function Live2DWidget() {
         }
       }
       if (pio?.modules) {
-        // 文学详情页进入循环朗读模式
         let msg: string | null = null;
         const p = pathnameRef.current;
+        // 文学详情页：90% AI 俏皮话，10% 朗读（朗读开始后不中断）
         if (p?.startsWith("/literature/") && p !== "/literature") {
-          msg = getLiteratureReaderMessage();
+          const readerPhase = literatureReaderRef.current.phase;
+          if (readerPhase === 'reading') {
+            msg = getLiteratureReaderMessage(); // 朗读中不打断
+          } else if (Math.random() < 0.85 && commentaryCache.current.lines.length > 0) {
+            msg = commentaryCache.current.lines.shift()!;
+            if (commentaryCache.current.lines.length <= 2) {
+              const c = useContentStore.getState().content;
+              if (c) preloadCommentary();
+            }
+          } else {
+            msg = getLiteratureReaderMessage();
+          }
+        }
+        // 文章/项目/关于详情页 AI 俏皮话
+        if (!msg && commentaryCache.current.lines.length > 0) {
+          msg = commentaryCache.current.lines.shift()!;
+          // 缓存将尽时静默续加载
+          if (commentaryCache.current.lines.length <= 2) {
+            const c = useContentStore.getState().content;
+            if (c) preloadCommentary();
+          }
         }
         if (!msg) {
           const msgArr = Math.random() < 0.8 ? getPageMessages() : FALLBACK_MESSAGES;
           msg = msgArr[Math.floor(Math.random() * msgArr.length)];
         }
         pio.modules.render(msg);
+        // 说话时随机触发动作
+        const m = live2dModel.current || pioRef.current?.model;
+        if (m) {
+          const name = m.internalModel?.settings?.name || (isDark ? "Ava" : "Diana");
+          const tapMotions: Record<string, string[]> = {
+            Ava: ["Shake", "Tap右手", "Tap左手", "Tap嘴", "Tap胸口项链", "Tap中间刘海", "Tap右眼", "Tap左眼", "Tap腰", "Tap脖子", "Tap左马尾", "Tap右手臂"],
+            Diana: ["Shake", "Tap抱阿草-左手", "Tap右头发", "Tap左头发", "Tap笑- 脸", "Tap生气 -领结", "Tap= =  左蝴蝶结", "Tap哭 -眼角", "Tap摇头- 身体", "Tap耳朵-发卡", "Tap打瞌睡- 呆毛"],
+          };
+          const list = tapMotions[name] || ["Shake"];
+          m.motion(list[Math.floor(Math.random() * list.length)]);
+        }
       }
       startIdleTimer();
     }, delay);

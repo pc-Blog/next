@@ -18,6 +18,6 @@
     "JWT_SECRET": "blog-jwt-secret-key-2026-please-change-in-production",
     "GITHUB_CLIENT_ID": "Iv23liAI2h53TjkCBu67",
     "GITHUB_REDIRECT_URI": "https://api.lxpavilion.top/api/auth/github/callback",
-    "FRONTEND_URL": "http://localhost:3000"
+    "FRONTEND_URL": "https://www.lxpavilion.top"
   }
 }

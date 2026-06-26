@@ -17,42 +17,164 @@ declare global {
   }
 }
 
-const IDLE_MESSAGES = [
-  "嗯…这里好像没什么人",
-  "好无聊啊，有谁陪我玩~",
-  "我是不是该做点什么？",
-  "今天也要加油鸭！",
-  "偷偷告诉你，其实我很厉害的！",
-  "你说，宇宙有没有尽头呢…",
-  "唔…想喝奶茶了",
-  "这样站着好累哦",
-  "我昨晚做了一个很有趣的梦~",
-  "哼！不跟你玩了！",
-  "你在看什么呢？",
-  "其实我是会魔法的哦！",
-  "好想出去玩啊…",
-  "我是不是长胖了？",
-  "你猜我现在在想什么？",
-  "今天天气真好啊~",
-  "人生就像一杯茶，慢慢品味…",
-  "噗嗤，你刚才的样子好逗！",
-  "我在想晚饭吃什么好呢？",
-  "你有没有听过一个故事…算了，不讲了",
-  "我是不是说话太多了？",
-  "你相信世界上有圣诞老人吗？",
-  "感觉好久没人跟我说话了",
-  "偷偷瞄你一眼~",
-  "唉…有点困了",
-  "我最近学了一首新歌，要听吗？",
-  "你专注的样子还挺好看的",
-  "唔…我在想怎么跟你搭话来着",
-  "感觉今天很适合出去走走！",
-  "偷偷告诉你，旁边的猫猫在看你呢~",
+const PAGE_MESSAGES: Record<string, string[]> = {
+  home: [
+    "欢迎回来呀～", "今天想看点什么？", "到处逛逛吧～", "有什么感兴趣的吗？",
+    "首页又更新啦～", "好久不见呀！", "今天心情不错呢～", "来看看有什么新东西吧～",
+    "欢迎来到栏轩阁！", "随便看看，别客气～",
+  ],
+  article: [
+    "又在看文章啦～", "认真学习呢！", "这篇文章不错吧～", "又学到新知识了呢～",
+    "读得好认真呀", "技术文看起来～", "慢慢看，不着急～", "今天也要进步一点点～",
+    "又在充电啦！", "好文章值得细读～",
+  ],
+  project: [
+    "在看博主的项目呀～", "这个项目挺酷的！", "代码写得不错吧～", "想试试自己做一个吗？",
+    "项目很有意思呢～", "又在研究项目啦～", "要不要自己也写一个？", "看项目可长见识了～",
+    "开源精神真好呀～", "这个项目看起来好好玩～",
+  ],
+  about: [
+    "想了解博主呀～", "来看看博主的介绍吧～", "了解一下背后的人～", "博主是个有趣的人哦～",
+    "想多知道一些吗？", "关于页面有彩蛋哦～", "看完就会更了解这里啦～", "博主的故事都在这里～",
+    "悄悄告诉你，博主很厉害的！", "来看看这个博客的故事～",
+  ],
+  friends: [
+    "在交新朋友吗？", "大家都好厉害呀～", "去串串门吧～", "友链都是宝藏呢～",
+    "交朋友最开心了～", "又认识了新伙伴！", "去别人家逛逛～", "友谊链接起来～",
+    "认识了好多有趣的人～", "友链圈越来越大啦～",
+  ],
+  tools: [
+    "在玩小游戏呢～", "要不要试试其他的？", "玩得开心吗～", "这关过了没？",
+    "小游戏好好玩呀～", "放松一下挺好的～", "玩累了就看看文章吧～", "又菜又爱玩～",
+    "这个游戏挺有意思的！", "偷偷玩一下不会被发现～",
+  ],
+  gallery: [
+    "照片真好看呀～", "在欣赏美图呢～", "每一张都很精彩！", "摄影技术越来越好了～",
+    "图片好美呀～", "看照片心情都会变好～", "记录生活的点滴～", "每一张都有故事呢～",
+    "风景真不错～", "发现好看的照片了！",
+  ],
+  chatter: [
+    "在看说说呢～", "碎碎念时间～", "博主的日常很有趣吧～", "又在刷动态了～",
+    "每一条都很有意思呢！", "看看最近发生了什么～", "碎碎念收集者～", "日常碎片好有趣～",
+    "又更新了说说呢～", "来看看今天说了什么～",
+  ],
+  timeline: [
+    "回顾成长之路呢～", "一路走来不容易呀～", "每一步都算数！", "看着这些很有感触吧～",
+    "成长轨迹好清晰～", "博主的进步好大！", "见证成长的时刻～", "回头看真的很棒呢～",
+    "一路坚持下来好厉害！", "时间看得见成长～",
+  ],
+  literature: [
+    "在看文学创作呢～", "好有文艺气息呀～", "博主的文笔不错吧～", "在欣赏美文呢～",
+    "文字好美呀～", "读诗的感觉真棒～", "文学时间到～", "静静品味文字的美好～",
+    "每一篇都很有意境呢～", "在感受文字的力量呢～",
+  ],
+  growth: [
+    "在看成长记录呢～", "见证了博客的成长呢～", "每一步都记录在这里～", "好有纪念意义呀～",
+    "从零到一的过程真棒～", "时间线满满的都是回忆～", "看着博客一点点长大呢～", "每个里程碑都值得纪念～",
+    "记录了所有的努力呢～", "成长的故事最动人了～",
+  ],
+  analytics: [
+    "在看统计数据呢～", "数据控上线了～", "流量分析中～", "看看今天有多少访客～",
+    "数据可视化真好看～", "博客热度不错哦～", "又来看数据啦～", "每一个访问都很珍贵呢～",
+    "数据背后都是真实的读者呢～", "分析页面最有意思了～",
+  ],
+  admin: [
+    "悄悄管理后台呢～", "博主在偷偷干活～", "维护中请稍候～", "又在更新内容啦～",
+    "管理员辛苦了！", "后台搬砖中～", "又在写文章了呀～", "偷偷优化一下～",
+    "维护时间到～", "认真工作的样子真帅～",
+  ],
+};
+
+const FALLBACK_MESSAGES = [
+  "嗯…这里好像没什么人", "好无聊啊，有谁陪我玩~", "我是不是该做点什么？", "今天也要加油鸭！",
+  "偷偷告诉你，其实我很厉害的！", "唔…想喝奶茶了", "这样站着好累哦", "我昨晚做了一个很有趣的梦~",
+  "哼！不跟你玩了！", "你在看什么呢？", "其实我是会魔法的哦！", "好想出去玩啊…",
+  "我是不是长胖了？", "你猜我现在在想什么？", "今天天气真好啊~", "人生就像一杯茶，慢慢品味…",
+  "噗嗤，你刚才的样子好逗！", "我在想晚饭吃什么好呢？", "我是不是说话太多了？",
+  "感觉好久没人跟我说活了", "偷偷瞄你一眼~", "唉…有点困了", "你专注的样子还挺好看的",
+  "感觉今天很适合出去走走！", "偷偷告诉你，旁边的猫猫在看你呢~",
 ];
 
 export default function Live2DWidget() {
   const { isDark } = useTheme();
   const pathname = usePathname();
+  const pathnameRef = useRef(pathname);
+  useEffect(() => { pathnameRef.current = pathname; }, [pathname]);
+  const getPageMessages = (): string[] => {
+    const p = pathnameRef.current;
+    if (!p) return FALLBACK_MESSAGES;
+    if (p === "/") return PAGE_MESSAGES.home;
+    if (p.startsWith("/analytics")) return PAGE_MESSAGES.analytics;
+    if (p.startsWith("/admin")) return PAGE_MESSAGES.admin;
+    if (p.startsWith("/article")) return PAGE_MESSAGES.article;
+    if (p.startsWith("/project")) return PAGE_MESSAGES.project;
+    if (p.startsWith("/about")) return PAGE_MESSAGES.about;
+    if (p.startsWith("/friends")) return PAGE_MESSAGES.friends;
+    if (p.startsWith("/tools")) return PAGE_MESSAGES.tools;
+    if (p.startsWith("/gallery")) return PAGE_MESSAGES.gallery;
+    if (p.startsWith("/chatter")) return PAGE_MESSAGES.chatter;
+    if (p.startsWith("/timeline")) return PAGE_MESSAGES.timeline;
+    if (p.startsWith("/growth")) return PAGE_MESSAGES.growth;
+    if (p.startsWith("/literature")) return PAGE_MESSAGES.literature;
+    return FALLBACK_MESSAGES;
+  };
+  /** 文学详情页循环朗读器 */
+  const literatureReaderRef = useRef<{
+    active: boolean;
+    phase: 'greeting' | 'reading' | 'ending';
+    sentences: string[];
+    index: number;
+    title: string;
+    lastPath: string;
+  }>({ active: false, phase: 'greeting', sentences: [], index: 0, title: '', lastPath: '' });
+
+  const getLiteratureReaderMessage = (): string | null => {
+    const p = pathnameRef.current;
+    if (!p?.startsWith("/literature/") || p === "/literature") {
+      literatureReaderRef.current.active = false;
+      return null;
+    }
+    const reader = literatureReaderRef.current;
+    // 首次、内容为空、或路径变化时重新初始化
+    if (!reader.active || reader.sentences.length === 0 || reader.lastPath !== p) {
+      const contentEl = document.querySelector('.whitespace-pre-wrap');
+      if (!contentEl?.textContent?.trim()) return null;
+      const text = contentEl.textContent.trim();
+      const byPeriod = text.split('。').map(s => s.trim()).filter(s => s.length > 0);
+      const byLine = text.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+      const titleEl = document.querySelector('h1');
+      reader.active = true;
+      reader.phase = 'greeting';
+      reader.sentences = byPeriod.length >= byLine.length ? byPeriod : byLine;
+      reader.index = 0;
+      reader.title = titleEl?.textContent?.trim() || '';
+      reader.lastPath = p;
+    }
+    const greetings = ["开始读啦~", "一起欣赏这篇美文吧~", "听听看，写得可好了~", "来读一篇美文~", "又到了文学时间~"];
+    const endings = ["读完了~好有感觉！", "今天的文学时间到这就结束啦~", "写得真棒呀~", "每一句都很有味道呢~", "美文欣赏完毕~"];
+    let msg: string;
+    if (reader.phase === 'greeting') {
+      msg = greetings[Math.floor(Math.random() * greetings.length)];
+      reader.phase = 'reading';
+      reader.index = 0;
+    } else if (reader.phase === 'reading') {
+      if (reader.index === 0) {
+        msg = `「${reader.title}」`;
+      } else {
+        const sentence = reader.sentences[reader.index - 1];
+        const last = sentence.slice(-1);
+        msg = '！？…！？)'.includes(last) ? sentence : sentence + '。';
+      }
+      reader.index++;
+      if (reader.index > reader.sentences.length) {
+        reader.phase = 'ending';
+      }
+    } else {
+      msg = endings[Math.floor(Math.random() * endings.length)];
+      reader.phase = 'greeting';
+    }
+    return msg;
+  };
   const githubRef = useRef(`https://github.com/${siteConfig.repo}`);
   const loaded = useRef(false);
   const currentModel = useRef<string | null>(null);
@@ -144,7 +266,26 @@ export default function Live2DWidget() {
 
   const startIdleTimer = () => {
     if (idleTimer.current) clearTimeout(idleTimer.current);
-    const delay = 15000 + Math.random() * 30000; // 15-45秒
+    const p = pathnameRef.current;
+    const isLitDetail = p?.startsWith("/literature/") && p !== "/literature";
+    let delay: number;
+    if (isLitDetail) {
+      const reader = literatureReaderRef.current;
+      if (reader.phase === 'reading') {
+        // 根据句子长度动态计算朗读间隔
+        let textLength: number;
+        if (reader.index === 0) {
+          textLength = reader.title.length + 2; // 「」
+        } else {
+          textLength = reader.sentences[reader.index - 1]?.length || 10;
+        }
+        delay = Math.max(2000, Math.min(15000, 2000 + textLength * 120)) + Math.random() * 1000;
+      } else {
+        delay = 6000 + Math.random() * 2000; // 寒暄 / 结尾 6-8s
+      }
+    } else {
+      delay = 15000 + Math.random() * 30000;
+    }
     idleTimer.current = setTimeout(() => {
       // 对话中不显示随机文本
       if (inputOpenRef.current) { startIdleTimer(); return; }
@@ -161,7 +302,16 @@ export default function Live2DWidget() {
         }
       }
       if (pio?.modules) {
-        const msg = IDLE_MESSAGES[Math.floor(Math.random() * IDLE_MESSAGES.length)];
+        // 文学详情页进入循环朗读模式
+        let msg: string | null = null;
+        const p = pathnameRef.current;
+        if (p?.startsWith("/literature/") && p !== "/literature") {
+          msg = getLiteratureReaderMessage();
+        }
+        if (!msg) {
+          const msgArr = Math.random() < 0.8 ? getPageMessages() : FALLBACK_MESSAGES;
+          msg = msgArr[Math.floor(Math.random() * msgArr.length)];
+        }
         pio.modules.render(msg);
       }
       startIdleTimer();
@@ -407,12 +557,24 @@ export default function Live2DWidget() {
     // 事件委托悬浮提示（用 closest 支持子元素触发）
     const tooltipRules: { test: (el: Element) => string | null }[] = [
       { test: (el) => { const c = el.closest(".giscus-wrapper"); return c ? "来聊聊你的想法吧~" : null; }},
-      { test: (el) => { const a = el.closest("a"); if (!a) return null; const h = a.getAttribute("href") || ""; return h.startsWith("/article/") || h.startsWith("/project/") || h.startsWith("/literature/") || h.startsWith("/gallery") ? a.textContent?.trim().slice(0, 30) || "去看看~" : null; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/article/")) return null; const msgs = ["要不要读读看？", "这篇写得可好了！", "点进来看看嘛~", "不点进去看看吗？", "偷偷告诉你，这篇超精彩！"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/project/")) return null; const msgs = ["这个项目很有意思哦！", "不看看博主的代码吗？", "点进去了解一下？", "源码写得可棒了！", "来看看这个项目吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; const h = a.getAttribute("href") || ""; if (!h.startsWith("/literature/")) return null; if (a.querySelector('h3')) return null; const titleEl = a.querySelector("article p:last-of-type"); const title = titleEl ? titleEl.textContent?.replace(/^——\s*/, "").split("·")[0].trim().slice(0, 20) || "" : ""; const withTitle = [`「${title}」写得真美呀~`, `这篇「${title}」很有意境呢！`, `「${title}」读起来好有感觉~`, `进来看看「${title}」吧~`, `「${title}」文笔超棒的！`]; const withoutTitle = ["文笔超棒的，不进来看看吗？", "每一篇都很有意境哦！", "感受一下文字的魅力吧~", "写得很有感觉呢~", "美文时间到~"]; const all = [...withTitle, ...withoutTitle]; return all[Math.floor(Math.random() * all.length)]; }},
+      { test: (el) => { const a = el.closest("a"); if (!a) return null; if (!a.getAttribute("href")?.startsWith("/gallery/")) return null; const msgs = ["照片拍得可美了！", "点开看看嘛~", "每一张都很惊艳哦！", "画面超有感觉的！", "来欣赏一下美图吧~"]; return msgs[Math.floor(Math.random() * msgs.length)]; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/timeline" ? "看看博主的学习历程~" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/about" ? "想了解博主是什么样的人吗？" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/friends" ? "去交个朋友吧~" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href")?.startsWith("/admin") ? "管理员入口，闲人勿入！" : null; }},
       { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/auth/login" || a?.getAttribute("href") === "/auth/register" ? "登录后可以管理博客哦~" : null; }},
+      { test: (el) => { const a = el.closest("a"); const h = a?.getAttribute("href"); return h === "/" ? "回到首页看看有什么新鲜事~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/article" ? "来看看最新的文章~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/project" ? "博主的开源项目都在这里~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/tools" ? "玩个小游戏放松一下吧~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/gallery" ? "来欣赏美图吧~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/analytics" ? "来看看博客的访问数据~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/chatter" ? "看看博主最近说了什么~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/growth" ? "见证博客的成长历程~" : null; }},
+      { test: (el) => { const a = el.closest("a"); return a?.getAttribute("href") === "/literature" ? "感受文字的力量~" : null; }},
       { test: (el) => el.closest("header")?.querySelector("a") && !el.closest("header")?.querySelector("[class*='glass-btn']") ? "想去哪里看看？" : null },
       { test: (el) => el.closest("footer") ? "到底部了呢，感谢阅读~" : null },
       { test: (el) => { const a = el.closest("a"); if (a && a.closest(".article-prose")) return "想了解一下 " + (a.textContent?.trim().slice(0, 20) || "") + " 吗？"; return null; }},
@@ -422,9 +584,12 @@ export default function Live2DWidget() {
     const mouseoverHandler = (e: MouseEvent) => {
       const target = e.target as Element;
       if (!target || !window.pio_reference?.modules) return;
-      if ((mouseoverHandler as any)._lastTarget === target) return;
-      (mouseoverHandler as any)._lastTarget = target;
-      setTimeout(() => { (mouseoverHandler as any)._lastTarget = null; }, 300);
+      // 用 closest("a") 去重，同一链接内的子元素只触发一次
+      const link = target.closest("a");
+      const key = link || target;
+      if ((mouseoverHandler as any)._lastKey === key) return;
+      (mouseoverHandler as any)._lastKey = key;
+      setTimeout(() => { (mouseoverHandler as any)._lastKey = null; }, 300);
       for (const rule of tooltipRules) {
         const msg = rule.test(target);
         if (msg) {

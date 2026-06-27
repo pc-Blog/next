@@ -8,6 +8,46 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[使用 Giscus 为博客搭建评论系统：从入门到放弃]]></title>
+      <link>https://www.lxpavilion.top/article/47/</link>
+      <guid>https://www.lxpavilion.top/article/47/</guid>
+      <pubDate>Sat, 27 Jun 2026 22:54:37 GMT</pubDate>
+      <description><![CDATA[不想自己搭后端，又想让评论数据握在自己手里？Giscus 看似完美：免费、无服务器、数据存 GitHub Discussions。但我用了一个月后，还是决定拆掉它。本文完整记录了从“一行 script 接入”到“因无法忍受而自建”的全过程——配置细节、样式定制、踩坑点、以及最终决策逻辑。如果你正在纠结评论方案，这篇能帮你省下至少一周的试错时间。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[为我的博客自建评论系统，摆脱 Giscus 局限]]></title>
+      <link>https://www.lxpavilion.top/article/46/</link>
+      <guid>https://www.lxpavilion.top/article/46/</guid>
+      <pubDate>Sat, 27 Jun 2026 21:48:15 GMT</pubDate>
+      <description><![CDATA[告别 Giscus 的样式局限与登录孤岛，用 Cloudflare Workers + GitHub App 打通 GitHub Discussions API，实现统一登录、自由样式、多账号体系兼容的评论区]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[为博客搭建 GitHub 登录系统，打通 OAuth 完整流程]]></title>
+      <link>https://www.lxpavilion.top/article/45/</link>
+      <guid>https://www.lxpavilion.top/article/45/</guid>
+      <pubDate>Sat, 27 Jun 2026 21:45:35 GMT</pubDate>
+      <description><![CDATA[为博客搭建统一的登录系统，用 GitHub OAuth 实现 GitHub 一键登录和账号密码登录，衔接自建评论系统]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[上手 Cloudflare D1：无服务器数据库入门与博客实战]]></title>
+      <link>https://www.lxpavilion.top/article/44/</link>
+      <guid>https://www.lxpavilion.top/article/44/</guid>
+      <pubDate>Sat, 27 Jun 2026 21:43:08 GMT</pubDate>
+      <description><![CDATA[博客想加登录、评论、浏览量统计，却一直卡在“没有数据库”？Cloudflare D1 提供了免费的无服务器 SQLite 数据库，边缘节点毫秒级响应，免费额度足够个人博客挥霍。本文从建库、建表到登录接口实战，手把手带你搞定博客的后端基础设施。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新]]></title>
+      <link>https://www.lxpavilion.top/article/43/</link>
+      <guid>https://www.lxpavilion.top/article/43/</guid>
+      <pubDate>Sat, 27 Jun 2026 21:34:21 GMT</pubDate>
+      <description><![CDATA[传统爬虫发现新内容需要数天甚至数周。IndexNow 协议让你在发布、修改或删除文章的瞬间主动通知搜索引擎，收录耗时从几天压缩到几分钟。本文从需求场景出发，逐一拆解 Cloudflare Crawler Hints 一键开启、Bing IndexNow API 手动提交、Next.js 自动集成三种落地方式，并对比各自的优缺点与适用场景。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Spring AI RAG 生产级实战：从 PDF 解析到精准回答的完整流水线指南]]></title>
       <link>https://www.lxpavilion.top/article/42/</link>
       <guid>https://www.lxpavilion.top/article/42/</guid>

@@ -1,6 +1,170 @@
 {
-  "total": 9,
+  "total": 14,
   "rows": [
+    {
+      "categoryId": 40,
+      "categoryName": "后端",
+      "commentCount": 0,
+      "coverImage": "/data/media/457.png",
+      "createdAt": "2026-06-27T22:54:37.898256",
+      "id": 47,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "不想自己搭后端，又想让评论数据握在自己手里？Giscus 看似完美：免费、无服务器、数据存 GitHub Discussions。但我用了一个月后，还是决定拆掉它。本文完整记录了从“一行 script 接入”到“因无法忍受而自建”的全过程——配置细节、样式定制、踩坑点、以及最终决策逻辑。如果你正在纠结评论方案，这篇能帮你省下至少一周的试错时间。",
+      "tags": [
+        {
+          "id": 48,
+          "name": "OAuth"
+        },
+        {
+          "id": 50,
+          "name": "评论系统"
+        },
+        {
+          "id": 51,
+          "name": "Guscus"
+        },
+        {
+          "id": 27,
+          "name": "Github"
+        }
+      ],
+      "title": "使用 Giscus 为博客搭建评论系统：从入门到放弃",
+      "updateTime": "2026-06-27T22:56:36.934401",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 40,
+      "categoryName": "后端",
+      "commentCount": 0,
+      "coverImage": "/data/media/452.png",
+      "createdAt": "2026-06-27T21:48:15.132624",
+      "id": 46,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "告别 Giscus 的样式局限与登录孤岛，用 Cloudflare Workers + GitHub App 打通 GitHub Discussions API，实现统一登录、自由样式、多账号体系兼容的评论区",
+      "tags": [
+        {
+          "id": 47,
+          "name": "Worker"
+        },
+        {
+          "id": 49,
+          "name": "GraphQL"
+        },
+        {
+          "id": 50,
+          "name": "评论系统"
+        },
+        {
+          "id": 28,
+          "name": "Cloudflare"
+        },
+        {
+          "id": 30,
+          "name": "博客"
+        }
+      ],
+      "title": "为我的博客自建评论系统，摆脱 Giscus 局限",
+      "updateTime": "2026-06-27T22:01:52.468013",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 40,
+      "categoryName": "后端",
+      "commentCount": 0,
+      "coverImage": "/data/media/453.png",
+      "createdAt": "2026-06-27T21:45:35.477096",
+      "id": 45,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "为博客搭建统一的登录系统，用 GitHub OAuth 实现 GitHub 一键登录和账号密码登录，衔接自建评论系统",
+      "tags": [
+        {
+          "id": 48,
+          "name": "OAuth"
+        },
+        {
+          "id": 27,
+          "name": "Github"
+        },
+        {
+          "id": 30,
+          "name": "博客"
+        }
+      ],
+      "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
+      "updateTime": "2026-06-27T21:52:54.510434",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/454.png",
+      "createdAt": "2026-06-27T21:43:08.753466",
+      "id": 44,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "博客想加登录、评论、浏览量统计，却一直卡在“没有数据库”？Cloudflare D1 提供了免费的无服务器 SQLite 数据库，边缘节点毫秒级响应，免费额度足够个人博客挥霍。本文从建库、建表到登录接口实战，手把手带你搞定博客的后端基础设施。",
+      "tags": [
+        {
+          "id": 41,
+          "name": "D1"
+        },
+        {
+          "id": 47,
+          "name": "Worker"
+        },
+        {
+          "id": 28,
+          "name": "Cloudflare"
+        },
+        {
+          "id": 30,
+          "name": "博客"
+        }
+      ],
+      "title": "上手 Cloudflare D1：无服务器数据库入门与博客实战",
+      "updateTime": "2026-06-27T21:53:04.420937",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 38,
+      "categoryName": "网站部署",
+      "commentCount": 0,
+      "coverImage": "/data/media/455.png",
+      "createdAt": "2026-06-27T21:34:21.78203",
+      "id": 43,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "传统爬虫发现新内容需要数天甚至数周。IndexNow 协议让你在发布、修改或删除文章的瞬间主动通知搜索引擎，收录耗时从几天压缩到几分钟。本文从需求场景出发，逐一拆解 Cloudflare Crawler Hints 一键开启、Bing IndexNow API 手动提交、Next.js 自动集成三种落地方式，并对比各自的优缺点与适用场景。",
+      "tags": [
+        {
+          "id": 25,
+          "name": "Bing"
+        },
+        {
+          "id": 26,
+          "name": "SEO"
+        },
+        {
+          "id": 28,
+          "name": "Cloudflare"
+        },
+        {
+          "id": 29,
+          "name": "域名"
+        },
+        {
+          "id": 30,
+          "name": "博客"
+        }
+      ],
+      "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
+      "updateTime": "2026-06-27T21:53:12.731127",
+      "viewCount": 0
+    },
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
@@ -31,7 +195,7 @@
       ],
       "title": "Spring AI RAG 生产级实战：从 PDF 解析到精准回答的完整流水线指南",
       "updateTime": "2026-06-16T20:33:33.84941",
-      "viewCount": 1
+      "viewCount": 3
     },
     {
       "categoryId": 37,
@@ -83,7 +247,7 @@
       ],
       "title": "Cloudflare R2 使用指南：零成本管理博客媒体文件",
       "updateTime": "2026-06-15T09:00:57.939972",
-      "viewCount": 1
+      "viewCount": 3
     },
     {
       "categoryId": 37,
@@ -171,7 +335,7 @@
       ],
       "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
       "updateTime": "2026-06-11T08:26:47.002639",
-      "viewCount": 5
+      "viewCount": 6
     },
     {
       "categoryId": 38,

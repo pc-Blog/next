@@ -1,6 +1,6 @@
 {
-  "articleCount": 9,
-  "commentCount": 21,
+  "articleCount": 14,
+  "commentCount": 3,
   "latestComments": [],
   "projectCount": 7,
   "skillCount": 8,
@@ -22,15 +22,15 @@
       "viewCount": 7
     },
     {
-      "id": 36,
-      "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
+      "id": 37,
+      "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
       "viewCount": 6
     },
     {
-      "id": 37,
-      "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
-      "viewCount": 5
+      "id": 36,
+      "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
+      "viewCount": 6
     }
   ],
-  "totalViews": 211
+  "totalViews": 216
 }

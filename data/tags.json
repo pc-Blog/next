@@ -1,6 +1,20 @@
 {
-  "total": 23,
+  "total": 25,
   "rows": [
+    {
+      "createTime": "2026-06-28T21:23:46.83319",
+      "deleted": 0,
+      "id": 53,
+      "name": "Newsletter",
+      "updateTime": "2026-06-28T21:23:46.833316"
+    },
+    {
+      "createTime": "2026-06-28T14:44:37.980446",
+      "deleted": 0,
+      "id": 52,
+      "name": "邮件",
+      "updateTime": "2026-06-28T14:44:37.981296"
+    },
     {
       "createTime": "2026-06-27T22:54:45.473852",
       "deleted": 0,

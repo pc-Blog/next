@@ -8,7 +8,10 @@
   "id": 47,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 48,
+    "title": "你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站"
+  },
   "prev": {
     "id": 46,
     "title": "为我的博客自建评论系统，摆脱 Giscus 局限"
@@ -33,6 +36,6 @@
     }
   ],
   "title": "使用 Giscus 为博客搭建评论系统：从入门到放弃",
-  "updateTime": "2026-06-27T23:14:55.09848",
+  "updateTime": "2026-06-28T09:34:25.527012",
   "viewCount": 0
 }

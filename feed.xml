@@ -8,6 +8,38 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）]]></title>
+      <link>https://www.lxpavilion.top/article/51/</link>
+      <guid>https://www.lxpavilion.top/article/51/</guid>
+      <pubDate>Sun, 28 Jun 2026 21:25:18 GMT</pubDate>
+      <description><![CDATA[从 Buttondown 迁移到 MailerLite 的完整教程：涵盖注册配置、自定义域名验证、订阅表单嵌入、分组管理、RSS 自动推送（免费）等核心功能，并附上与 Buttondown 的详细对比分析。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录]]></title>
+      <link>https://www.lxpavilion.top/article/50/</link>
+      <guid>https://www.lxpavilion.top/article/50/</guid>
+      <pubDate>Sun, 28 Jun 2026 21:23:42 GMT</pubDate>
+      <description><![CDATA[从选型对比（MailChannels vs Resend vs MailerLite vs Buttondown）到域名配置、订阅表单嵌入、API 自动化推送，再到账户被锁、浏览器缓存踩坑，一篇覆盖 Newsletter 搭建全流程的实战记录。虽然最终选择了 MailerLite 作为主力方案，但 Buttondown 的探索过程同样有价值。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[选择cloudflare，给我的博客带来了什么]]></title>
+      <link>https://www.lxpavilion.top/article/49/</link>
+      <guid>https://www.lxpavilion.top/article/49/</guid>
+      <pubDate>Sun, 28 Jun 2026 21:20:54 GMT</pubDate>
+      <description><![CDATA[我的个人博客「栏轩阁」完全基于 Cloudflare 生态搭建后端：Workers 做运行时、D1 做数据库、Email Routing 做邮件系统、Workers AI 做看板娘对话。一篇覆盖架构设计、服务清单、真实体验与成本分析的全景式总结。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站]]></title>
+      <link>https://www.lxpavilion.top/article/48/</link>
+      <guid>https://www.lxpavilion.top/article/48/</guid>
+      <pubDate>Sun, 28 Jun 2026 14:44:58 GMT</pubDate>
+      <description><![CDATA[想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。]]></description>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[使用 Giscus 为博客搭建评论系统：从入门到放弃]]></title>
       <link>https://www.lxpavilion.top/article/47/</link>
       <guid>https://www.lxpavilion.top/article/47/</guid>

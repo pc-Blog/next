@@ -1,5 +1,5 @@
 {
-  "total": 70,
+  "total": 79,
   "rows": [
     {
       "duration": 161,
@@ -26,6 +26,14 @@
       "url": "/data/music/292.mp3"
     },
     {
+      "duration": 173,
+      "favorite": false,
+      "id": 312,
+      "pictureUrl": "/data/music/312-cover.png",
+      "title": "Shape Of You",
+      "url": "/data/music/312.mp3"
+    },
+    {
       "duration": 71,
       "favorite": false,
       "id": 324,
@@ -34,12 +42,12 @@
       "url": "/data/music/324.mp3"
     },
     {
-      "duration": 272,
+      "duration": 189,
       "favorite": false,
-      "id": 377,
-      "pictureUrl": "/data/music/377-cover.png",
-      "title": "Too bad",
-      "url": "/data/music/377.mp3"
+      "id": 370,
+      "pictureUrl": "/data/music/370-cover.png",
+      "title": "tired of california",
+      "url": "/data/music/370.mp3"
     },
     {
       "duration": 155,
@@ -72,6 +80,14 @@
       "pictureUrl": "/data/music/469-cover.png",
       "title": "爸爸妈妈",
       "url": "/data/music/469.mp3"
+    },
+    {
+      "duration": 128,
+      "favorite": false,
+      "id": 513,
+      "pictureUrl": "/data/music/513-cover.png",
+      "title": "春",
+      "url": "/data/music/513.flac"
     },
     {
       "duration": 246,
@@ -114,6 +130,22 @@
       "url": "/data/music/802.mp3"
     },
     {
+      "duration": 181,
+      "favorite": false,
+      "id": 806,
+      "pictureUrl": "/data/music/806-cover.png",
+      "title": "视奸",
+      "url": "/data/music/806.mp3"
+    },
+    {
+      "duration": 161,
+      "favorite": false,
+      "id": 817,
+      "pictureUrl": "/data/music/817-cover.png",
+      "title": "瞬间的永恒",
+      "url": "/data/music/817.flac"
+    },
+    {
       "duration": 100,
       "favorite": false,
       "id": 826,
@@ -136,6 +168,22 @@
       "pictureUrl": "/data/music/903-cover.png",
       "title": "乡关何处是",
       "url": "/data/music/903.mp3"
+    },
+    {
+      "duration": 156,
+      "favorite": false,
+      "id": 942,
+      "pictureUrl": "/data/music/942-cover.png",
+      "title": "夜空的寂静",
+      "url": "/data/music/942.flac"
+    },
+    {
+      "duration": 174,
+      "favorite": false,
+      "id": 1040,
+      "pictureUrl": "/data/music/1040-cover.png",
+      "title": "土坡上的狗尾草",
+      "url": "/data/music/1040.mp3"
     },
     {
       "duration": 73,
@@ -170,6 +218,14 @@
       "url": "/data/music/1110.mp3"
     },
     {
+      "duration": 167,
+      "favorite": false,
+      "id": 1117,
+      "pictureUrl": "/data/music/1117-cover.png",
+      "title": "Despacito",
+      "url": "/data/music/1117.mp3"
+    },
+    {
       "duration": 163,
       "favorite": false,
       "id": 1118,
@@ -192,6 +248,22 @@
       "pictureUrl": "/data/music/1121-cover.png",
       "title": "0.0000%",
       "url": "/data/music/1121.mp3"
+    },
+    {
+      "duration": 184,
+      "favorite": false,
+      "id": 1122,
+      "pictureUrl": "/data/music/1122-cover.png",
+      "title": "22才の别れ",
+      "url": "/data/music/1122.mp3"
+    },
+    {
+      "duration": 186,
+      "favorite": false,
+      "id": 1123,
+      "pictureUrl": "/data/music/1123-cover.png",
+      "title": "Ojos Tristes",
+      "url": "/data/music/1123.mp3"
     },
     {
       "duration": 165,

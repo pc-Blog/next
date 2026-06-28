@@ -1,6 +1,15 @@
 {
-  "total": 12,
+  "total": 13,
   "rows": [
+    {
+      "createTime": "2026-06-28T14:44:28.426901",
+      "deleted": 0,
+      "id": 41,
+      "name": "技术教程",
+      "sortOrder": 0,
+      "type": "ARTICLE",
+      "updateTime": "2026-06-28T14:44:28.438475"
+    },
     {
       "createTime": "2026-06-27T21:44:58.614234",
       "deleted": 0,

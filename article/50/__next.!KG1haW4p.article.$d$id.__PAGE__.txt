@@ -1,7 +1,386 @@
 1:"$Sreact.fragment"
-2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/05voo58jq2tzr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-4:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录\",\"item\":\"https://www.lxpavilion.top/article/50\"}]}"}}],["$","$L2",null,{"params":"$@3"}]],[["$","script","script-0",{"src":"/_next/static/chunks/05voo58jq2tzr.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k4oiu22FO8B4Y-jqSkMBe"}
+2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/0afr6c44bbz35.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T3e91,
+## 为什么你需要一份 Newsletter？
+
+作为一个独立博客作者，我有一个很实际的痛点：**文章写好了，读者却不知道**。
+
+SEO 需要时间积累、社交媒体推送依赖算法、RSS 订阅器越来越小众——唯独邮件，是几乎人人都在用的信息入口，而且**送达率几乎 100%**。一封 Newsletter 到达订阅者收件箱，打开率通常在 20%-40%，远高于社交媒体的算法推荐点击率。
+
+所以，搭建一个 Newsletter 系统，是我为博客做的回报率最高的投资之一。
+
+但问题来了：怎么选工具？怎么配置？过程中会遇到哪些坑？
+
+这篇文章就是我的完整搭建实录，从**背景调研 → 工具选型 → 域名配置 → 订阅测试 → API 自动化 → 踩坑修复**，一条龙拆解。
+
+> **注：** 这篇记录的是我探索 Buttondown 的完整过程。最终我选择了 MailerLite 作为主力方案，详细的选型对比和迁移过程可见另一篇文章：[免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）](https://www.lxpavilion.top/article/51/)。
+
+---
+
+## 前提背景：为什么不用 Cloudflare 免费方案？
+
+现状：我已经在使用 Cloudflare 生态（Worker、Pages、Email Routing），按理说 Cloudflare + MailChannels 可以免费发邮件，为什么还要额外找 Newsletter 平台？
+
+### 🔴 核心红线：MailChannels 的可接受使用策略（AUP）
+
+MailChannels 提供给 Cloudflare 用户的免费发信通道，明确禁止发送 **"批量邮件"**，它们的定义是：
+
+> **内容相似、一次发送给多个收件人的非事务性邮件**
+
+你的"新文章通知"正好完全踩中这条红线——同样是"文章更新了"，同样发给所有订阅者，不是由每个用户单独触发的独特内容。
+
+如果强行用 Worker + MailChannels 做订阅推送，后果是：
+
+- MailChannels 检测到批量 + 相似内容 → **封禁发信权限**，连带你的事务邮件功能也可能被关停
+- 甚至可能影响你的域名信誉，导致正常的邮件也被标记为垃圾
+
+### ✅ 为什么 Resend / MailerLite / Buttondown 允许？
+
+因为它们定位不同：
+
+- **Resend** 虽是开发者邮件 API，条款中明确允许发送**双方有明确订阅关系**的邮件（如 Newsletter），前提是不垃圾、合规
+- **MailerLite** 专做 Newsletter / 营销邮件的平台，完全鼓励订阅推送，并提供退订链接等合规工具
+- **Buttondown** 也是一个专注于 Newsletter 的平台，天然支持订阅推送场景
+
+而 MailChannels 通过 Cloudflare 的集成是**完全免费的，但严格限定在"事务"范围内**——这个免费的代价就是不能做订阅推送。
+
+### 💡 方案对比
+
+| 方案 | 能否做 Newsletter | 成本 | 风险 |
+|------|:---:|:---:|:---:|
+| Cloudflare + MailChannels | ❌ 政策禁止 | 免费 | 被封禁 |
+| Cloudflare + Resend | ✅ 允许 | 有免费额度 | 低 |
+| MailerLite | ✅ **最终选择** | 有免费层 | 低 |
+| Buttondown | ✅ 可考虑 | 免费层 1000 订阅 | 低 |
+| 自建邮件服务器 | ✅ 技术上可以 | 高维护成本 | 域名信誉风险 |
+
+---
+
+## 为什么考察 Buttondown？
+
+在对比了 MailerLite、Buttondown、ConvertKit 等主流 Newsletter 平台后，Buttondown 有几个吸引我的点：
+
+### Buttondown 的核心优势
+
+- **最多 1,000 名订阅者** — 免费层对于个人博客早期完全够用
+- **无品牌标志** — 邮件底部不加"由 XXX 提供"之类的广告
+- **RSS 转邮件** — 支持自动从 RSS 抓取内容发送，不过这是付费功能（可替代方案：用 API 自行实现）
+- **有完整 API** — 可以和你的 Worker 联动，实现自定义自动化
+- **界面极简** — 专注写作本身，没有花哨的营销功能干扰
+- **支持自定义发件人域名** — 搭配 Cloudflare DNS 验证，完全去掉"代发"字样，显得专业
+
+### 数据流
+
+```
+博客 RSS 更新 → Buttondown 检测到 → 自动发送（需付费版）
+或：你的 Worker 调 Buttondown API 触发发送
+发信服务器：Buttondown
+发件人：noreply@lxpavilion.top（DNS 验证后无 via 标记）
+```
+
+### 与 MailerLite 的对比考量
+
+| 对比维度 | Buttondown | MailerLite |
+|---------|-----------|------------|
+| 免费层订阅数 | 1,000 | 1,000 |
+| RSS 自动转邮件 | ⚠️ 付费功能 | ✅ 免费支持 |
+| 自动化工作流 | 较少 | 丰富（条件分支、触发器等） |
+| 界面风格 | 极简写作风 | 功能完整型 |
+| 品牌标志 | 无 | 免费层有品牌标志 |
+| API | 完整 | 完整 |
+
+最终我选择 MailerLite 的原因主要是：**RSS 自动转邮件在免费版中就支持**，自动化工作流更丰富，虽然免费层邮件底部有品牌标志，但对我来说功能优先级高于无标。详细的对比分析见：[免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）](https://www.lxpavilion.top/article/51/)。
+
+---
+
+## 第一步：注册与基础配置
+
+### 1. 官网注册
+
+进入 [Buttondown](https://buttondown.com/) 官网，使用邮箱注册登录。
+
+### 2. 控制台基础设置
+
+登录后进入控制台，先配置个人基础信息：
+
+| 字段 | 建议填法 | 读者在哪里看到 |
+|------|---------|--------------|
+| 用户名 | `lxpavilion` | 默认网址 `buttondown.com/lxpavilion` |
+| 通讯名称 | `LXPavilion` | 邮件顶部、订阅页标题 |
+| 作者姓名 | `ppd` | 邮件发件人旁 |
+
+**Timezone** 选择 `Asia/Shanghai (GMT+8)`，确保发送时间按照北京时间计算。
+
+![image.png](/data/media/470.png)
+
+---
+
+## 第二步：配置发件人域名（关键步骤）
+
+这是让邮件看起来专业的关键一步。如果你用自己的域名发邮件，收件人看到的是 `noreply@lxpavilion.top`，而不是 `lxpavilion@buttondown.email`。
+
+### 场景一：没有自己的域名
+
+如果你没有自己的域名，Buttondown 会使用默认的 `buttondown.email` 后缀，如 `lxpavilion@buttondown.email`。这也能正常工作，只是不够个性化。
+
+### 场景二：有自己的域名（推荐）
+
+这是更专业的做法。我的域名 `lxpavilion.top` 在 Cloudflare 托管，配置过程如下：
+
+1. 在 Buttondown 设置页添加你的域名
+2. Buttondown 会自动检测你的 DNS 服务商，并显示需要添加的 DNS 记录
+3. 前往 Cloudflare DNS 管理页，添加这些 DNS 记录
+
+![image.png](/data/media/471.png)
+
+我的域名使用 Cloudflare 托管，所以在 Cloudflare 中添加相应的 DNS 记录：
+
+![image.png](/data/media/472.png)
+
+当 DNS 记录显示为绿色即表示配置成功：
+
+![image.png](/data/media/473.png)
+
+**小提示：** DNS 记录添加后通常需要几分钟到几小时才能全球生效，但 Cloudflare 的生效速度通常很快，几分钟即可。
+
+---
+
+## 第三步：嵌入订阅表单到博客
+
+为了让读者能方便地订阅你的 Newsletter，需要在博客中嵌入订阅表单。
+
+Buttondown 提供官方文档可以参考：[Building your subscriber base](https://docs.buttondown.com/building-your-subscriber-base)
+
+下面是我的博客中使用的示例代码：
+
+```html
+<form action="https://buttondown.com/api/emails/embed-subscribe/lxpavilion" method="post" style="max-width: 400px; margin: 20px 0;">
+  <div style="display: flex; gap: 8px;">
+    <input type="email" name="email" placeholder="输入你的邮箱" required style="flex: 1; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; outline: none;">
+    <button type="submit" style="padding: 10px 20px; background-color: #2563eb; color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">订阅</button>
+  </div>
+  <p style="font-size: 12px; color: #6b7280; margin-top: 8px;">新文章直接送达邮箱，可随时退订。</p>
+</form>
+```
+
+这段代码生成了一个简洁的嵌入式表单，读者在输入框输入邮箱后点击"订阅"即可。
+
+### 订阅测试全流程
+
+**步骤一：输入邮箱并点击订阅**
+
+![image.png](/data/media/474.png)
+
+**步骤二：确认订阅意图**
+
+首次订阅时，Buttondown 会要求再次输入邮箱确认，防止误操作或恶意订阅：
+
+![image.png](/data/media/475.png)
+
+**步骤三：邮件确认（Double Opt-in）**
+
+此时 Buttondown 会发送一封确认邮件到你的邮箱，点击邮件中的确认链接：
+
+![image.png](/data/media/477.png)
+
+**步骤四：订阅成功**
+
+点击确认链接后，会弹出已确认的页面，表示订阅成功：
+
+![image.png](/data/media/478.png)
+
+**步骤五：查看订阅结果**
+
+在 Buttondown 后台可以看到订阅者列表：
+
+![image.png](/data/media/479.png)
+
+---
+
+## 第四步：发送测试邮件
+
+配置完成后，发送一封测试邮件验证整个链路是否正常。
+
+**在控制台发送：**
+
+![image.png](/data/media/480.png)
+
+**在收件箱接收：**
+
+![image.png](/data/media/481.png)
+
+**检查要点：**
+- 邮件是否正常到达（包括垃圾邮件文件夹）
+- 发件人是否显示为你配置的域名
+- 邮件排版是否正常
+- 退订链接是否可用
+
+---
+
+## 🚧 踩坑日记（重要）
+
+在实际配置和测试过程中，我遇到了以下几个坑，希望你能避开：
+
+### 坑 1：重复订阅触发限制
+
+如果使用同一个设备、同一个 IP 重复订阅多个邮箱，Buttondown 会触发限流机制，无法继续发送订阅请求。
+
+**解决方法：** 使用浏览器的**无痕模式/隐私模式**进行测试。
+
+### 坑 2：登录状态干扰订阅测试
+
+如果你的电脑上已经登录了 Buttondown 账号，此时使用另一个邮箱进行订阅操作会出现异常——因为系统认为你是在用已登录账号操作。
+
+![image.png](/data/media/482.png)
+
+**解决方法：** 退出 Buttondown 登录，或者使用其他浏览器进行测试。
+
+### 坑 3：账号被锁定
+
+测试时可能因为发送了过多测试邮件，或者触发了平台的安全机制，导致账号被锁定。我的账号就在测试阶段被锁定了。
+
+![image.png](/data/media/486.png)
+
+**解决方法：** 在控制台主页提交审核信息，说明你的用途，通常很快就能恢复。
+
+### 坑 4：DNS 记录未生效
+
+添加 DNS 记录后，如果 Buttondown 没有立即显示绿色验证通过，可能是 DNS 还在传播中。使用 `dig` 或在线 DNS 查询工具检查记录是否已生效。
+
+---
+
+## 第五步：API 自动化（重要）
+
+手动发邮件只是基本操作，真正的价值在于**自动化**——当我发布新博客文章时，自动给所有订阅者发送通知。
+
+虽然 Buttondown 官方支持 RSS 转邮件，但这是付费功能。免费版可以通过 API 自行实现，这也是一个很好的学习机会。
+
+### 获取 API Key
+
+在 Buttondown 的 API 设置页面创建新的 API Key，默认选项即可：
+
+![image.png](/data/media/484.png)
+
+有了 API Key，你就可以通过代码管理邮件和订阅服务了。
+
+### Python 示例 1：创建邮件草稿
+
+```python
+import requests
+
+API_KEY = "你的API_KEY"  # 替换为你的真实 API Key
+BUTTONDOWN_URL = "https://api.buttondown.email/v1/emails"
+
+headers = {
+    "Authorization": f"Token {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+# 测试邮件内容
+payload = {
+    "subject": "[测试] 来自 Buttondown API 的问候",
+    "body": """
+        <h2>这是一封测试邮件</h2>
+        <p>如果你看到这封邮件，说明 Buttondown API 配置成功。</p>
+        <p>发件人地址：mail@lxpavilion.top（无代发字样则 DNS 验证通过）</p>
+        <p><a href="https://lxpavilion.top">访问博客</a></p>
+    """
+}
+
+response = requests.post(BUTTONDOWN_URL, json=payload, headers=headers)
+
+if response.status_code == 201:
+    print("✅ 邮件发送成功！请检查收件箱（包括垃圾邮件）。")
+    print("邮件 ID:", response.json()["id"])
+else:
+    print(f"❌ 发送失败，状态码：{response.status_code}")
+    print("错误信息：", response.json())
+```
+
+![image.png](/data/media/485.png)
+
+### Python 示例 2：定时发送邮件
+
+```python
+from datetime import datetime, timedelta, timezone
+import requests
+
+API_KEY = "你的API_KEY"
+BUTTONDOWN_URL = "https://api.buttondown.email/v1/emails"
+
+headers = {
+    "Authorization": f"Token {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+# 设置发送时间为 1 分钟后
+future_utc = (datetime.now(timezone.utc) + timedelta(minutes=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+payload = {
+    "subject": "[测试] 来自 Buttondown API 的问候",
+    "body": """
+        <h2>这是一封测试邮件</h2>
+        <p>如果你看到这封邮件，说明 Buttondown API 配置成功。</p>
+        <p>发件人地址：mail@lxpavilion.top（无代发字样则 DNS 验证通过）</p>
+        <p><a href="https://lxpavilion.top">访问博客</a></p>
+    """,
+    "status": "scheduled",
+    "publish_date": future_utc    # 必须是将来的时间
+}
+
+response = requests.post(BUTTONDOWN_URL, json=payload, headers=headers)
+
+if response.status_code == 201:
+    print("✅ 邮件已创建并进入发送队列，1 分钟后发出。")
+    print("邮件 ID:", response.json()["id"])
+else:
+    print(f"❌ 发送失败，状态码：{response.status_code}")
+    print("错误信息：", response.json())
+```
+
+### 用 API 替代 RSS 自动转邮件
+
+因为 Buttondown 官方 RSS 转邮件是付费功能，免费用户需要用 API 曲线救国——但这也给了你更大的灵活性。假如你选择用 API 方案实现自动化推送，思路如下：
+
+1. 在博客的构建流程（或 Cloudflare Worker）中监听新文章发布
+2. 通过 Buttondown API 自动创建邮件并发送
+3. 邮件内容自定义包含文章摘要和原文链接
+
+不过就我的最终选择而言，**MailerLite 免费版原生支持 RSS 自动转邮件**，省去了自己维护这套流程的成本。如果你也是免费用户且重视 RSS 自动推送，MailerLite 在这方面更有优势。
+
+---
+
+## 一些运营建议
+
+搭建完 Newsletter 只是开始，如何让它真正发挥作用，这里分享几点经验：
+
+1. **不要频繁发送** — 每周 1 封是比较合理的频率，太频繁会导致退订率上升
+2. **内容要有差异化** — Newsletter 不只是"文章推送"，可以添加一些博客上没有的补充内容或个人思考
+3. **优化订阅入口** — 把订阅表单放在博客的显眼位置（侧边栏、文章末尾、导航栏）
+4. **关注打开率** — 通过 Newsletter 后台分析打开率，如果低于 20% 需要优化标题和内容
+5. **善用欢迎邮件** — 设置自动发送的欢迎邮件，让新订阅者第一时间了解你和你的博客
+
+---
+
+## 结语
+
+从最初纠结于"能不能用 Cloudflare 免费方案"，到先后体验 Buttondown 和 MailerLite，整个过程让我意识到：**有时候花最小的成本（甚至免费）使用专业的 SaaS 服务，远比强行 DIY 要明智**。MailChannels 的 AUP 不是想限制你，而是商业产品必须有明确的边界。
+
+最终我选择了 **MailerLite** 作为博客的 Newsletter 主力方案——免费版原生支持 RSS 自动转邮件、自动化工作流更丰富，虽然邮件底部有品牌标志，但功能优先级对我来说更高。但探索 Buttondown 的过程同样收获颇丰：它的极简界面、API 设计、DNS 自定义域名配置等经验，放在任何 Newsletter 平台上都是通用的。
+
+整个搭建探索过程配置下来不超过两小时，而带来的读者留存和互动效果的思考，远远超出了投入的时间成本。
+
+**延伸阅读：**
+- [免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）](https://www.lxpavilion.top/article/51/) — 我的最终选型方案
+- [选择 Cloudflare，给我的博客带来了什么](https://www.lxpavilion.top/article/49/) — 我的博客底层基础设施
+
+如果你也在搭建自己的 Newsletter，或者在选型中遇到了类似的问题，欢迎交流分享。🚀
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录\",\"item\":\"https://www.lxpavilion.top/article/50\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Z2ToGtAFczE_wiOOhJ4Fp"}
 3:{"id":"50"}
-6:null
+5:["$","script","script-0",{"src":"/_next/static/chunks/0afr6c44bbz35.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

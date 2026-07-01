@@ -13,7 +13,7 @@
 :HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"P":null,"c":["","article","48",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","48","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/05g~q8zlq9d2u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0bbsbytqu_125.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"k4oiu22FO8B4Y-jqSkMBe"}
+0:{"P":null,"c":["","article","48",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","48","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/05g~q8zlq9d2u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0bbsbytqu_125.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Z2ToGtAFczE_wiOOhJ4Fp"}
 17:I[6521,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
 18:I[8123,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
 19:I[18233,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js"],"default"]
@@ -31,7 +31,7 @@ d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{
 e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0vqchy__vpwst.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," 栏轩阁. Built with Next.js & Tailwind CSS."]}]}]]]}]
 f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
 10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/05voo58jq2tzr.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0afr6c44bbz35.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
 26:[]
 12:"$W26"
 13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
@@ -42,10 +42,343 @@ f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"clas
 1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-2b:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/05voo58jq2tzr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站\",\"item\":\"https://www.lxpavilion.top/article/48\"}]}"}}],["$","$L2b",null,{"params":"$@2c"}]]
+2b:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/0afr6c44bbz35.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T32a3,## 概述
+
+**Cloudflare Email Routing** 是 Cloudflare 提供的一项免费邮件路由服务。它让你可以在自定义域名下接收邮件，然后自动转发到你的任意私人邮箱（Gmail、QQ邮箱、Outlook 等）。免费额度对个人博客完全够用——不限转发量，只收域名本身的流量费（零成本）。
+
+---
+
+## 为什么选它，而不是私人邮箱
+
+大多数人习惯直接用私人邮箱联系，但对拥有独立域名的开发者来说，Email Routing 有几个实实在在的好处：
+
+- **自定义域名 = 专业形象**。`contact@yourdomain.com` 比 `yourname@gmail.com` 更像一个正经项目或品牌的联系地址。
+- **换服务商零成本**。今天用 QQ 邮箱收信，明天想切到 Gmail——在 Cloudflare 后台改一个目标地址就行，不需要通知任何人。邮件地址永远是你的域名。
+- **与 Worker 无缝集成**。这是最大的亮点——你可以在邮件到达目标邮箱之前，用 Worker 截获、解析、过滤、归档。本文的**进阶部分**会重点展开。
+- **Catch-all 兜底**。无论发信人把地址拼成什么，你都不会丢信。
+- **管理界面简洁**。路由规则、目标地址、DNS 记录都在同一个页面，一目了然。
+
+---
+
+## 前置条件
+
+你需要一个托管在 Cloudflare 的自定义域名，并已启用 Cloudflare 代理（橙色云）。
+
+---
+
+## 开始配置
+
+### DNS 自动配置
+
+进入 Cloudflare Dashboard → 你的域名 → **Email** → **Email Routing**，启用服务。
+
+![image.png](/data/media/458.png)
+
+选择你的域名，Cloudflare 会自动添加以下三条 DNS 记录：
+
+![image.png](/data/media/459.png)
+
+- **MX 记录**：将邮件路由到 Cloudflare 的邮件服务器
+- **SPF TXT 记录**：授权 Cloudflare 代为转发邮件
+- **DKIM TXT 记录**：为转发邮件提供签名验证，降低被标记为垃圾邮件的概率
+
+> DNS 生效通常需要 5–15 分钟，最长不超过 24 小时。生效前 DNS 记录状态显示为"未设置"是正常的。
+
+| DNS records | Locked | ✅ Cloudflare 已自动配置 MX/SPF/DKIM 记录并锁定，防止误改，这是正常的保护机制 |
+| ----------- | ------ | --------------------------------------------------- |
+
+### 添加目标邮箱
+
+在 Email Routing 页面切换到 **Destination Addresses**，添加你的真实邮箱地址，例如 `your-personal@qq.com`。
+
+### 配置路由
+
+切换到 **Routing rules**，设置一条规则：将发往 `@yourdomain.com` 的邮件转发到刚才添加的目标地址。
+
+![image.png](/data/media/460.png)
+
+### 开启 Catch-all
+
+Catch-all 规则会捕获所有发送到你域名的邮件，包括拼写错误的地址。例如：别人误写成 `ifno@yourdomain.com`，Catch-all 仍能收到这封邮件。
+
+激活后配置一个目标地址即可。
+
+![image.png](/data/media/461.png)
+
+最终配置完成的效果：
+
+![image.png](/data/media/462.png)
+
+---
+
+## 测试
+
+1. 用另一个邮箱（不要和目标地址相同）发送一封测试邮件到 `hello@yourdomain.com`
+2. 检查目标邮箱是否收到转发邮件
+3. 如果没收到，检查垃圾邮件文件夹
+
+例如我使用微软邮箱向自定义邮箱发送消息，最终 QQ 邮箱成功接收到了转发：
+
+![image.png](/data/media/463.png)
+
+---
+
+## 进阶：Worker 中转处理
+
+基础的转发功能足以应付日常通信，但如果你对邮件有更进一步的需求——比如过滤垃圾邮件、解析内容、自动归档——就需要 Worker 上场了。
+
+### 为什么需要 Worker
+
+默认情况下，Email Routing 只做一件事：收到邮件 → 转发到目标邮箱。你不能在中间插入任何逻辑。
+
+有了 Worker 作为**中转层**，你可以在邮件到达目标邮箱之前：
+
+- 检查发件人、主题、正文，决定放行还是拒收
+- 将正文解析后存入数据库（见下一节）
+- 根据自定义规则将不同邮件转发到不同地址
+- 甚至触发 Webhook 通知到其他服务
+
+
+### wrangler.json 配置
+
+对应的 `wrangler.json` 配置：
+
+```json
+{
+  "name": "blog-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-10",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "blog-database",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
+```
+
+不需要特殊的 `send_email` binding——只用 `message.forward()` 转发，`email()` 入口本身由 Email Routing 自动触发。
+
+### email() 入口
+
+Worker 的 `email()` 函数会在每次收到邮件时**自动触发**，不需要 HTTP 路径，也不需要任何额外请求。这是 Email Routing 特有的入口函数。
+
+```typescript
+export default {
+  async email(message, env, ctx) {
+    // message 是 ForwardableEmailMessage 对象
+  }
+};
+```
+
+### 简单的过滤示例
+
+以下示例检查发件人或主题是否包含广告关键词，是则拒收，否则正常转发：
+
+```typescript
+export default {
+  async email(message, env, ctx) {
+    const from = message.from;
+    const subject = message.headers.get('subject') || '(无主题)';
+
+    // 过滤垃圾邮件
+    if (subject.includes('广告') || from.includes('spam.com')) {
+      console.log('丢弃垃圾邮件');
+      message.setReject('垃圾邮件已过滤');
+      return; // 不转发
+    }
+
+    // 正常转发（保留原始发件人）
+    await message.forward('your-email@gmail.com');
+  }
+};
+```
+
+### 一个容易被忽略的关键点：转发地址从配置中来
+
+上面的示例硬编码了转发地址。更好的做法是把转发地址存在 D1 数据库（见下一节），通过一个简单的管理 API 动态修改，不用改一次地址就重新部署一次 Worker。
+
+---
+
+## 进阶：D1 自主归档
+
+如果你和我一样，希望所有邮件**完全由自己管理**，不依赖任何第三方邮箱的历史记录、搜索或导出功能，那就用 D1 把邮件存下来。
+
+### emails 表：核心字段
+
+```sql
+CREATE TABLE emails (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  message_id  TEXT NOT NULL,       -- 原始 Message-ID（去重）
+  from_addr   TEXT NOT NULL,       -- 发件人
+  to_addr     TEXT NOT NULL,       -- 收件人（你的域名邮箱）
+  forward_to  TEXT NOT NULL DEFAULT '',  -- 最终转发目标
+  subject     TEXT DEFAULT '',
+  text_body   TEXT DEFAULT '',
+  html_body   TEXT DEFAULT '',
+  headers     TEXT DEFAULT '{}',   -- 完整原始 headers（JSON）
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE UNIQUE INDEX idx_emails_message_id ON emails(message_id);
+```
+
+- `message_id` 加了唯一索引，避免同一封邮件被重复归档
+- `text_body` 和 `html_body` 分别存储纯文本和 HTML 版本
+- `headers` 以 JSON 形式保留完整的邮件头部，方便日后调试
+
+### settings 表：动态转发地址
+
+```sql
+CREATE TABLE settings (
+  key   TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+```
+
+典型的用法是一行记录：`('forward_email', 'your-personal@qq.com')`。
+
+这样做的最大好处是：**改转发地址只需调用一次 API，不需要改代码、不需要重新部署 Worker**。
+
+### Worker 中的处理流程
+
+在 `email()` 入口中，结合 D1 的完整处理流程如下：
+
+```typescript
+import PostalMime from "postal-mime";
+
+export async function handleEmail(message, env, ctx) {
+  // 1. 读取并解析原始邮件（注意：message.raw 是 ReadableStream，只能读一次）
+  const raw = await new Response(message.raw).arrayBuffer();
+  const parsed = await PostalMime.parse(raw);
+
+  // 2. 从 D1 settings 表获取动态转发地址
+  const row = await env.DB
+    .prepare("SELECT value FROM settings WHERE key = ?")
+    .bind("forward_email")
+    .first();
+  const forwardTo = row?.value;
+
+  // 3. 归档到 D1（INSERT OR IGNORE 保证幂等）
+  await env.DB.prepare(
+    `INSERT OR IGNORE INTO emails (message_id, from_addr, to_addr, forward_to, subject, text_body, html_body, headers)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+  ).bind(
+    parsed.messageId, parsed.from?.address, message.to,
+    forwardTo, parsed.subject, parsed.text, parsed.html,
+    JSON.stringify(Object.fromEntries(message.headers))
+  ).run();
+
+  // 4. 原样转发（保留原始发件人和正文）
+  await message.forward(forwardTo);
+}
+```
+
+### 5 条管理 API
+
+配合 HTTP 入口，可以暴露一组简单的 REST API 来管理邮件数据：
+
+| 方法 | 路径 | 功能 |
+|------|------|------|
+| `GET` | `/api/email/list` | 分页列表 |
+| `GET` | `/api/email/detail` | 查看单封邮件详情 |
+| `DELETE` | `/api/email/delete` | 删除邮件 |
+| `GET` | `/api/email/forward` | 查看当前转发目标 |
+| `PUT` | `/api/email/forward` | 更新转发目标（无需重新部署） |
+
+```typescript
+// PUT /api/email/forward 示例
+export async function handleSetForward(request, env) {
+  const body = await request.json(); // { address: "..." }
+  await env.DB
+    .prepare("INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)")
+    .bind("forward_email", body.address)
+    .run();
+  return new Response(JSON.stringify({ address: body.address }));
+}
+```
+
+---
+
+## ⚠️ 两个重要概念，不要混淆
+
+| | `message.forward()` | `EMAIL.send()` |
+|---|---|---|
+| 发件人 | **保留原始发件人**，收件人看到的 From 是写信人 | 发件人必须是你的域名地址 |
+| 正文 | 原样转发，不能修改 | 可自定义内容和标题 |
+| 附件 | 完整保留 | 可重制 |
+| 是否需要额外配置 | 不需要 | 需启用 Email Sending 服务 |
+| 适用场景 | **中转、归档、过滤**（本文核心） | 主动发送新邮件（通知、验证码等） |
+
+简单记忆：`forward()` 是**邮递员**，原封不动把信送到指定地址；`send()` 是**写信人**，以你的身份主动发信。
+
+---
+
+## 扩展：Worker 主动发信
+
+除了接收和转发，Cloudflare 还提供了通过 Worker **主动发送**邮件的功能，用于自动回复、评论通知、表单确认等场景。
+
+不过这里有一个**很多人踩过的坑**——Cloudflare Worker 发信实际上有两套通道，它们的政策限制完全不同。
+
+### 两条通道，分清楚
+
+| | MailChannels（免费内置） | Cloudflare Email Sending |
+|---|---|---|
+| 配置方式 | **零配置**，开箱即用 | 需在 Dashboard 启用并验证域名 |
+| 免费额度 | 不限量，但有严格政策限制 | Free 版 **每天 2000 封** |
+| 用途限制 | ❌ **严禁批量/营销/订阅类邮件** | ⚠️ 定位为事务性邮件，也不建议做订阅推送 |
+| 违规后果 | 封禁发信通道，影响域名信誉 | 账号层面限制 |
+
+你的 Worker 默认走的其实是 **MailChannels 通道**（哪怕你没显式配置过它）。而 EMAIL.send() 绑定使用的是 Cloudflare Email Sending。
+
+### 与私人邮箱的区别
+
+| | Worker 主动发信 | 私人邮箱（Gmail/QQ） |
+|---|---|---|
+| 发件人地址 | 必须是你的域名邮箱，需先验证 | 通常是服务商分配的地址 |
+| 每日上限 | Free 版 2000 封 | 通常 500–2000 封 |
+| 送达率 | 依赖 SPF/DKIM 配置 | 服务商已有良好信誉 |
+| 邮件头部 | 部分自定义受限 | 完整控制 |
+
+### 那订阅推送（Newsletter）呢？
+
+这是最容易被问到的需求："我能不能用 Worker 给所有订阅者发新文章通知？"
+
+**技术上可以，但政策上不行。**
+
+MailChannels 的 Acceptable Use Policy（AUP）明确禁止发送"内容相似、一次发送给多个收件人的非事务性邮件"。新文章通知正好踩中这条红线——同样的内容，主动推送给全列表。
+
+如果强行使用，后果包括：
+- MailChannels 封禁发信权限，连事务邮件也被关停
+- 可能影响你的域名信誉，导致正常邮件也被拒收
+
+**正确的做法**：使用专业的 Newsletter 服务（**MailerLite** / **Buttondown** / **Resend**），配合 Cloudflare 完成域名验证（SPF/DKIM）。收件人看到的发件人仍然是 
+oreply@yourdomain.com，品牌统一，退订合规。
+
+| 方案 | 免费额度 | 适合谁 |
+|---|---|---|
+| **MailerLite** | 1000 订阅者，月 12000 封 | 想少写代码，专注写作 |
+| **Resend** | 每天 100 封 | 想在 Worker 里完全掌控发信逻辑 |
+| **Buttondown** | 1000 订阅者 | 极简 Newsletter 工具 |
+
+### ✅ 适用场景总结
+
+- **Worker 主动发信（免费）→ 事务性邮件**：评论通知、联系表单回执、密码重置、订单确认
+- **专业服务（免费层）→ 订阅推送**：新文章通知、周报、Newsletter
+- **邮箱服务商 → 日常通信**：收发私人邮件
+
+---
+## 结语
+
+Cloudflare Email Routing 是一个极简但强大的工具。基础配置五分钟就能搞定，加上 Worker 和 D1 后，它变成了一个完全由你掌控的邮件系统——自动归档、动态路由、按需过滤，全部免费。
+
+对于拥有个人域名的开发者来说，花一个下午搭好这套体系，从此你的联系地址就是 `you@yourdomain.com`，不受任何邮箱服务商的绑架。
+
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站\",\"item\":\"https://www.lxpavilion.top/article/48\"}]}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站","initialContent":"$2d"}]]
 2c:{"id":"48"}
 28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-2d:I[27201,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"IconMark"]
+2e:I[27201,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"IconMark"]
 25:null
-2a:[["$","title","0",{"children":"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,个人博客,技术博客,前端开发,全栈开发,Web开发,JavaScript,TypeScript,React,Next.js,编程,项目实践,学习笔记"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"property":"og:title","content":"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","5",{"property":"og:description","content":"想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。"}],["$","meta","6",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/466.png"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","11",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","12",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","13",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","14",{"rel":"icon","href":"/icon.png?icon.08x5me3_ut4tp.png","sizes":"1080x1080","type":"image/png"}],["$","$L2d","15",{}]]
+2a:[["$","title","0",{"children":"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,个人博客,技术博客,前端开发,全栈开发,Web开发,JavaScript,TypeScript,React,Next.js,编程,项目实践,学习笔记"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"property":"og:title","content":"你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","5",{"property":"og:description","content":"想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。"}],["$","meta","6",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/466.png"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","11",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","12",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","13",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","14",{"rel":"icon","href":"/icon.png?icon.08x5me3_ut4tp.png","sizes":"1080x1080","type":"image/png"}],["$","$L2e","15",{}]]

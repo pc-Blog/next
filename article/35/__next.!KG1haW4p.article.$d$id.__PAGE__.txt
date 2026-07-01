@@ -1,7 +1,145 @@
 1:"$Sreact.fragment"
-2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/05voo58jq2tzr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-4:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"将个人网址录入Bing搜索引擎\",\"item\":\"https://www.lxpavilion.top/article/35\"}]}"}}],["$","$L2",null,{"params":"$@3"}]],[["$","script","script-0",{"src":"/_next/static/chunks/05voo58jq2tzr.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k4oiu22FO8B4Y-jqSkMBe"}
+2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/0afr6c44bbz35.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+5:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+4:Tf21,
+
+---
+
+## 一、Bing Webmaster Tools 简介
+
+Bing Webmaster Tools（必应网站管理员工具）是微软提供的免费服务，帮助网站所有者：
+
+- 向 Bing 提交网站和网址
+- 提交站点地图（Sitemap）
+- 查看搜索流量和关键词数据
+- 检查网站抓取错误和安全问题
+- 管理搜索结果的展示方式
+
+> 🔗 官网入口：[https://www.bing.com/webmaster](https://www.bing.com/webmaster)
+
+![1.png](/data/media/42.png)
+
+---
+
+## 二、准备工作
+
+在开始之前，请确保你已准备好以下文件：
+
+### 1. BingSiteAuth.xml（验证文件）
+
+这是 Bing 验证你对网站所有权时使用的文件，**不需要手动创建**——在添加网站并选择验证方式后，Bing 会自动生成并提供下载。
+
+### 2. robots.txt
+
+告诉搜索引擎哪些页面可以抓取、哪些不可以。一个简单的示例：
+
+```txt
+User-agent: *
+Allow: /
+Sitemap: https://你的域名/sitemap.xml
+```
+
+将 `https://你的域名` 替换为你的实际网址。
+
+### 3. sitemap.xml（站点地图）
+
+列出你网站上所有页面的 XML 文件，帮助搜索引擎更快发现内容。你可以：
+
+- 使用在线工具生成（如 XML-Sitemaps.com）
+- 如果使用博客平台（如 WordPress、Hugo、Hexo 等），通常有插件或插件自动生成
+
+示例结构：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://你的域名/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://你的域名/about/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+```
+
+---
+
+## 三、添加网站
+
+1. 登录后，在仪表盘页面点击 **"添加网站"**（Add a site）
+2. 在弹出的输入框中输入你的完整网站地址（例如 `https://example.com`）
+3. 点击 **"添加"** 按钮
+
+![2.png](/data/media/48.png)
+
+---
+
+## 四、验证网站
+
+**XML 文件验证（推荐，最简单）**
+
+下载 `BingSiteAuth.xml` 文件放在网站根目录，然后验证。
+
+> **注意：** 如果使用 Hugo 等静态站点生成器，需要将验证文件放到 `static` 文件夹下，然后重新构建部署。
+
+---
+
+## 五、提交站点地图（Sitemap）
+
+验证成功后：
+
+1. 在左侧菜单点击 **"Sitemaps"**（站点地图）
+2. 在输入框中填写站点地图的 URL（如 `https://你的域名/sitemap.xml`）
+3. 点击 **"提交"**（Submit）
+4. 等待 Bing 抓取和处理，通常几分钟到几小时
+
+![3.png](/data/media/43.png)
+
+> 💡 **提示：** 提交后可以在 Sitemaps 页面查看状态，显示"成功"表示已正常处理。
+
+---
+
+## 六、提交单个网址（URL Submission）
+
+如果需要快速让 Bing 收录某篇新文章，可以手动提交单个网址：
+
+1. 在左侧菜单点击 **"URL 检查"**（URL Inspection）
+2. 输入要提交的完整网址
+3. 点击 **"现场抓取"**（Live Fetch）→ **"请求编制索引"**（Request Indexing）
+
+![4.png](/data/media/44.png)
+
+---
+
+## 七、检查收录状态
+
+提交后，建议定期回来检查收录情况：
+
+1. 在 **"URL 检查"** 中输入你的网址
+2. 查看显示的状态：
+   - **"已编制索引"**（Indexed）→ 收录成功 ✅
+   - **"已发现，未编制索引"**（Discovered, not indexed）→ 已发现但尚未处理，请等待
+   - **"找不到"**（Not found）→ 检查网址是否正确
+   - **"已被阻止"**（Blocked）→ 检查 robots.txt 是否误拦截
+
+![PixPin_2026-06-06_15-56-12.png](/data/media/214.png)
+
+你还可以在 **"网站诊断" → "索引页面"** 中查看整体收录数量。
+
+---
+
+## 八、在搜索引擎检索验证
+
+完成以上步骤后，在 Bing 搜索框中搜索你的网站地址或网站名称，确认是否已经成功收录。
+
+![PixPin_2026-06-06_15-57-48.png](/data/media/215.png)
+
+---
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"将个人网址录入Bing搜索引擎\",\"item\":\"https://www.lxpavilion.top/article/35\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"将个人网址录入Bing搜索引擎","initialContent":"$4"}]],[["$","script","script-0",{"src":"/_next/static/chunks/0afr6c44bbz35.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Z2ToGtAFczE_wiOOhJ4Fp"}
 3:{"id":"35"}
-6:null
+7:null

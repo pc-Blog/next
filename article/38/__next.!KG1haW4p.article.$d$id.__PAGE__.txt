@@ -1,7 +1,560 @@
 1:"$Sreact.fragment"
-2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/05voo58jq2tzr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-4:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本\",\"item\":\"https://www.lxpavilion.top/article/38\"}]}"}}],["$","$L2",null,{"params":"$@3"}]],[["$","script","script-0",{"src":"/_next/static/chunks/05voo58jq2tzr.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k4oiu22FO8B4Y-jqSkMBe"}
+2:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/0afr6c44bbz35.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T48f6,## 前言
+
+在上一篇[给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息](https://www.lxpavilion.top/article/37/)中，我们介绍了 Cloudflare Analytics 的基本概念、GraphQL API 的调用方式，以及如何创建一个 Hello World 级别的 Worker。
+
+但生产环境和 Hello World 之间，隔着不少距离：
+
+- 如何一次查询多个维度的数据（国家、设备、浏览器、OS、缓存状态、HTTP 协议）？
+- 如何拉取 30 天的细分数据而不触发 API 限频？
+- 如何让 POST 请求也能被 Cloudflare CDN 缓存？
+- 返回的数据如何直接被前端图表库消费？
+
+本篇将基于我博客实际在用的 `cf-analytics-worker.js` 脚本，完整拆解一个**生产级流量分析 Worker** 的设计与实现。
+
+> 本 Worker 服务于 [lxpavilion.top/analytics](https://www.lxpavilion.top/analytics/)，每日处理博客流量数据汇总与展示。
+
+---
+
+## 一、项目结构速览
+
+项目只有两个核心文件：
+
+```
+workers/
+├── cf-analytics-worker.js   # Worker 入口脚本（约 270 行）
+└── wrangler.json             # 部署配置
+```
+
+### wrangler.json
+
+```json
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cf-analytics",
+  "main": "cf-analytics-worker.js",
+  "compatibility_date": "2026-06-10",
+  "placement": { "mode": "smart" },
+  "vars": {
+    "CF_API_TOKEN": "cfut_YOUR_TOKEN_HERE",
+    "CF_ZONE_ID": "your_zone_id_here"
+  }
+}
+```
+
+两个关键环境变量：
+
+- `CF_ZONE_ID`：你的域名 Zone ID
+- `CF_API_TOKEN`：具有 Analytics Read 权限的 API Token
+
+> **⚠️ 安全提醒**：上面写 `vars` 只是为了方便演示。生产环境请务必使用 `wrangler secret put CF_API_TOKEN` 单独加密存储，不要硬编码在配置文件中。
+
+---
+
+## 二、核心查询设计：三条 GraphQL 查询撑起所有数据
+
+整个 Worker 的核心是三条 GraphQL 查询语句，分别负责不同时间粒度和维度的数据。
+
+### 2.1 日级 + 小时级数据（一次请求）
+
+函数 `buildDailyHourlyQuery` 通过 GraphQL 的**别名（alias）**机制，在**一次请求**中同时获取日级和小时级数据：
+
+```js
+function buildDailyHourlyQuery(zoneId, days) {
+  const endDate = new Date();
+  const startDate = new Date(Date.now() - days * 86400000);
+  const startStr = startDate.toISOString().slice(0, 10);
+  const endStr = endDate.toISOString().slice(0, 10);
+
+  // 小时数据只能查最近 3 天
+  const hStart = new Date(Math.max(startDate.getTime(), Date.now() - 3 * 86400000));
+  const hStartDt = hStart.toISOString().replace(/\.\d{3}Z$/, "Z");
+  const endDt = endDate.toISOString().replace(/\.\d{3}Z$/, "Z");
+
+  return `{
+    viewer {
+      zones(filter: {zoneTag: "${zoneId}"}) {
+        daily: httpRequests1dGroups(
+          limit: ${Math.min(days + 1, 365)},
+          filter: {date_geq: "${startStr}", date_leq: "${endStr}"},
+          orderBy: [date_ASC]
+        ) {
+          dimensions { date }
+          sum { requests cachedRequests cachedBytes bytes pageViews }
+          uniq { uniques }
+        }
+        hourly: httpRequests1hGroups(
+          limit: 120,
+          filter: {datetime_gt: "${hStartDt}", datetime_lt: "${endDt}"},
+          orderBy: [datetime_ASC]
+        ) {
+          dimensions { datetime }
+          sum { requests cachedRequests bytes pageViews }
+          uniq { uniques }
+        }
+      }
+    }
+  }`;
+}
+```
+
+**要点：**
+
+| 字段 | 含义 | 时间范围 |
+|------|------|---------|
+| `daily` | 每日汇总（请求数、缓存、带宽、浏览量、独立访客） | 最长 **364 天** |
+| `hourly` | 每小时粒度数据 | 最长 **3 天**（Cloudflare API 限制） |
+| `orderBy: [date_ASC]` | 按日期升序排列，前端直接渲染折线图无需再排序 | |
+
+### 2.2 六维度细分数据（按天粒度）
+
+函数 `buildBreakdownQuery` 针对某一天的请求，请求 **6 个维度**的分布情况：
+
+```js
+function buildBreakdownQuery(zoneId, dateStr) {
+  const startMs = new Date(dateStr).getTime();
+  const endMs = startMs + 86400000;
+
+  return `{
+    viewer {
+      zones(filter: {zoneTag: "${zoneId}"}) {
+        byCountry: httpRequestsAdaptiveGroups(
+          limit: 100,
+          filter: {datetime_geq: "${new Date(startMs).toISOString()}",
+                   datetime_lt: "${new Date(endMs).toISOString()}"},
+          orderBy: [count_DESC]
+        ) {
+          count
+          dimensions { clientCountryName }
+        }
+        byDevice: httpRequestsAdaptiveGroups(limit: 10, ...) {
+          count dimensions { clientDeviceType }
+        }
+        byBrowser: httpRequestsAdaptiveGroups(limit: 10, ...) {
+          count dimensions { userAgentBrowser }
+        }
+        byOS: httpRequestsAdaptiveGroups(limit: 10, ...) {
+          count dimensions { userAgentOS }
+        }
+        byCache: httpRequestsAdaptiveGroups(limit: 10, ...) {
+          count dimensions { cacheStatus }
+        }
+        byHTTP: httpRequestsAdaptiveGroups(limit: 10, ...) {
+          count dimensions { clientRequestHTTPProtocol }
+        }
+      }
+    }
+  }`;
+}
+```
+
+**六个维度一览：**
+
+| GraphQL 别名  | 维度      | 字段                          | 说明                              |
+| ----------- | ------- | --------------------------- | ------------------------------- |
+| `byCountry` | 国家分布    | `clientCountryName`         | 访客来自哪些国家                        |
+| `byDevice`  | 设备类型    | `clientDeviceType`          | desktop / mobile / tablet       |
+| `byBrowser` | 浏览器     | `userAgentBrowser`          | Chrome / Firefox / Safari 等     |
+| `byOS`      | 操作系统    | `userAgentOS`               | Windows / macOS / iOS / Android |
+| `byCache`   | 缓存状态    | `cacheStatus`               | hit / miss / dynamic            |
+| `byHTTP`    | HTTP 协议 | `clientRequestHTTPProtocol` | HTTP/1.1 / HTTP/2 / HTTP/3      |
+
+> **注意**：`httpRequestsAdaptiveGroups` 的时间范围上限是 **24 小时**，无法一次性查询过去一周的按国家分布。这意味着如果要展示"近 7 天访客国家分布"，需要逐天请求再自行汇总。
+
+---
+
+## 三、并发控制：pMapSerial 的原理与实现
+
+逐天请求带来一个问题：如果需要拉取 30 天的 6 维度数据，就要发送 **30 次 GraphQL 请求**。全部串行太慢，全部并发又可能触发 Cloudflare API 速率限制。
+
+解决方案是 **pMapSerial**——按并发度分片执行：
+
+```js
+async function pMapSerial(items, concurrency, fn) {
+  const results = [];
+  for (let i = 0; i < items.length; i += concurrency) {
+    const batch = items.slice(i, i + concurrency).map((item, idx) =>
+      fn(item, i + idx).catch(() => null)   // 单条失败不阻塞整体
+    );
+    const batchResults = await Promise.all(batch);
+    results.push(...batchResults);
+  }
+  return results;
+}
+```
+
+**为什么不用 `Promise.all` 全量并发？**
+
+因为 Cloudflare GraphQL API 有速率限制，一次性发出 30 个并行请求很可能被限频（429 Too Many Requests）。`pMapSerial` 以 **5 路并发**逐批执行，既提升了速度，又留有余量。
+
+实际调用代码：
+
+```js
+const zones = await pMapSerial(dayDates, 5, async (dateStr) => {
+  const bJson = await callCF(buildBreakdownQuery(env.CF_ZONE_ID, dateStr), env);
+  return bJson?.data?.viewer?.zones?.[0] || null;
+});
+```
+
+每条失败时返回 `null` 而不是抛异常——这种**容错设计**确保某一天的数据拉取失败不会让整个请求崩溃。
+
+---
+
+## 四、缓存策略：用 SHA-256 让 POST 请求也能被缓存
+
+### 挑战
+
+Worker 的接口是 `POST` 方法（通过 body 传 `{ days: 7 }`），而 Cloudflare CDN 默认**不会缓存 POST 请求**。如果不用缓存，每次前端刷新页面都会触发一次完整的 API 调用链（最多 30 次 GraphQL 请求），既不经济也不快。
+
+### 解决方案
+
+利用 Workers 的 **Cache API**，将 POST 请求的响应手动写入缓存，**以请求 body 的 SHA-256 hash 作为缓存 key**：
+
+```js
+// 1. 计算缓存 key
+const bodyText = JSON.stringify(body);
+const hash = await sha256(bodyText);
+const cacheUrl = new URL(request.url);
+cacheUrl.pathname = "/analytics/" + hash;
+const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
+
+// 2. 尝试命中缓存
+let cached = await cache.match(cacheKey);
+if (cached) {
+  const data = await cached.json();
+  data._cache = "hit";           // 调试标记
+  return new Response(JSON.stringify(data), { ... });
+}
+
+// 3. ... 获取数据 ...
+
+// 4. 异步写入缓存（不阻塞响应）
+const cacheResponse = new Response(response.clone().body, {
+  headers: {
+    "Cache-Control": "public, max-age=3600",
+    ...
+  },
+});
+ctx.waitUntil(cache.put(cacheKey, cacheResponse));
+```
+
+**设计要点：**
+
+| 做法 | 原因 |
+|------|------|
+| 用 `GET` 请求作为缓存 key | Cache API 只对 GET 请求生效 |
+| `ctx.waitUntil` 写入 | 不阻塞主响应，用户拿到数据时缓存可能还没写完，但下次一定命中 |
+| `max-age=3600` | 1 小时过期，流量数据不需要秒级更新 |
+| `_cache: "hit"/"miss"` | 调试时一眼看出是否命中缓存 |
+
+### SHA-256 辅助函数
+
+```js
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+  return [...new Uint8Array(hashBuffer)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+```
+
+利用 Cloudflare Workers 内置的 **Web Crypto API**，无需引入任何依赖。
+
+---
+
+## 五、数据处理管线：从原始 API 到前端可消费的 JSON
+
+原始 Cloudflare GraphQL 返回的字段名和嵌套结构对前端不够友好，需要进行清洗和计算。
+
+### 5.1 每日数据解析
+
+```js
+function parseDailyHourly(json) {
+  const zones = json?.data?.viewer?.zones?.[0];
+  if (!zones) throw new Error("No data returned from CF API");
+
+  const totals = { requests: 0, uniques: 0, pageViews: 0, cachedRequests: 0, bytes: 0, cachedBytes: 0 };
+
+  const daily = (zones.daily || []).map((d) => {
+    const req = d.sum.requests || 0;
+    const pv = d.sum.pageViews || 0;
+    const bw = d.sum.bytes || 0;
+    const cached = d.sum.cachedRequests || 0;
+    const cachedBytes = d.sum.cachedBytes || 0;
+
+    totals.requests += req;
+    totals.uniques += d.uniq.uniques || 0;
+    totals.pageViews += pv;
+    totals.cachedRequests += cached;
+    totals.bytes += bw;
+    totals.cachedBytes += cachedBytes;
+
+    return {
+      date: d.dimensions.date,
+      requests: req,
+      uniqueVisitors: d.uniq.uniques || 0,
+      pageViews: pv,
+      cachedRequests: cached,
+      cacheHitRate: req ? Math.round((cached / req) * 10000) / 100 : 0,
+      cacheHitRateBytes: bw ? Math.round((cachedBytes / bw) * 10000) / 100 : 0,
+      bandwidthBytes: bw,
+      bandwidthMB: Math.round((bw / 1024 / 1024) * 100) / 100,
+    };
+  });
+  // ...
+}
+```
+
+**几个值得注意的计算细节：**
+
+- **缓存命中率** = `cachedRequests / requests`，保留两位小数（乘以 10000 再除以 100）
+- **带宽换算**：bytes → MB，除以 1024 两次
+- **除零保护**：`req ? ... : 0`，避免没有任何请求的日子报错
+- **边界情况**：`d.sum.requests || 0`，某些字段可能为 `null`，用 `|| 0` 兜底
+
+### 5.2 细分数据汇总
+
+30 天的细分数据通过 `Map` 累加：
+
+```js
+function accumulateGroups(z, maps) {
+  for (const key of ["byCountry", "byDevice", "byBrowser", "byOS", "byCache", "byHTTP"]) {
+    const groups = z[key] || [];
+    for (const item of groups) {
+      const name = item.dimensions[dimKey] || "Unknown";
+      maps[key].set(name, (maps[key].get(name) || 0) + item.count);
+    }
+  }
+}
+```
+
+`accumulateGroups` 用 **Map** 而不是普通对象来累加，原因很简单：Map 的 key 不受对象属性名限制，且 `entries()` 遍历能保留插入顺序。
+
+汇总完成后，`toBreakdown` 将 Map 转换为前端友好的数组格式，并计算百分比：
+
+```js
+function toBreakdown(map) {
+  const total = [...map.values()].reduce((s, v) => s + v, 0);
+  return [...map.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, value]) => ({
+      name,
+      value,
+      pct: total ? Math.round((value / total) * 1000) / 10 : 0,
+    }));
+}
+```
+
+### 5.3 最终返回的数据结构
+
+```json
+{
+  "daily": [{ "date": "2026-06-09", "requests": 9830, "uniqueVisitors": 190, "pageViews": 1087, "cacheHitRate": 45.23, "bandwidthMB": 156.78 }, ...],
+  "hourly": [{ "datetime": "2026-06-10T00:00:00Z", ... }, ...],
+  "totals": { "requests": 14612, "uniqueVisitors": 373, "pageViews": 1526, "cacheHitRate": 48.5, "bandwidthMB": 234.56 },
+  "byCountry": [{ "name": "United States", "value": 5846, "pct": 40.0 }, ...],
+  "byDevice": [{ "name": "desktop", "value": 7312, "pct": 50.1 }, ...],
+  "byBrowser": [{ "name": "Chrome", "value": 4235, "pct": 29.0 }, ...],
+  "byOS": [{ "name": "Windows", "value": 3512, "pct": 24.0 }, ...],
+  "byCacheStatus": [{ "name": "hit", "value": 7080, "pct": 48.5 }, ...],
+  "byHTTPProtocol": [{ "name": "HTTP/2", "value": 8900, "pct": 60.9 }, ...],
+  "generatedAt": "2026-06-10T12:00:00.000Z",
+  "_cache": "miss"
+}
+```
+
+前端拿到这个数据结构后，可以直接传给 ECharts 或 Chart.js 渲染——`daily` 给折线图，`byCountry` 给地图或饼图，`byDevice` / `byBrowser` / `byOS` 给饼图，`byCacheStatus` 给缓存效率面板。
+
+---
+
+## 六、CORS 与路由设计
+
+Worker 需要同时处理三种请求：
+
+```js
+async fetch(request, env, ctx) {
+  const url = new URL(request.url);
+  const origin = request.headers.get("Origin") || "*";
+
+  // 1. OPTIONS 预检
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders(origin) });
+  }
+
+  // 2. Ping 健康检查
+  if (request.method === "GET" && url.pathname === "/ping") {
+    return new Response(JSON.stringify({ status: "ok", message: "Worker is alive" }), { ... });
+  }
+
+  // 3. POST 获取数据
+  if (request.method === "POST") {
+    // ... 核心逻辑 ...
+  }
+
+  return new Response("Not Found", { status: 404 });
+}
+```
+
+CORS 头通过动态 Origin 处理：
+
+```js
+function corsHeaders(origin) {
+  return {
+    "Access-Control-Allow-Origin": origin || "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+```
+
+`Origin` 来自请求头，而不是硬编码——这样你的 Worker 可以服务于多个前端域名而无需修改代码。
+
+---
+
+## 七、部署与配置
+
+### 7.1 创建 Secret
+
+为了安全，API Token 不要放在 `wrangler.json` 的 `vars` 中，而是通过 wrangler secret 加密存储：
+
+```bash
+wrangler secret put CF_API_TOKEN
+# 然后粘贴你的 Token
+wrangler secret put CF_ZONE_ID
+```
+
+### 7.2 部署
+
+```bash
+wrangler deploy
+```
+
+### 7.3 配置自定义域名
+
+在 Cloudflare Dashboard 中给 Worker 绑定一个子域名，例如 `analytics.lxpavilion.top`。这样前端就可以通过这个域名访问 API。
+
+---
+
+## 八、前端对接
+
+我博客的前端通过一个简单的 `fetch` 调用 Worker，完整的类型定义和调用代码：
+
+### TypeScript 类型定义
+
+```typescript
+export interface DailyData {
+  date: string;
+  requests: number;
+  uniqueVisitors: number;
+  pageViews: number;
+  cachedRequests: number;
+  cacheHitRate: number;
+  bandwidthMB: number;
+}
+
+export interface BreakdownItem {
+  name: string;
+  value: number;
+  pct: number;
+}
+
+export interface AnalyticsData {
+  daily: DailyData[];
+  hourly: HourlyData[];
+  totals: { requests: number; uniqueVisitors: number; pageViews: number; cacheHitRate: number; bandwidthMB: number };
+  byCountry: BreakdownItem[];
+  byDevice: BreakdownItem[];
+  byBrowser: BreakdownItem[];
+  byOS: BreakdownItem[];
+  byCacheStatus: BreakdownItem[];
+  byHTTPProtocol: BreakdownItem[];
+  generatedAt: string;
+}
+```
+
+### 调用函数
+
+```typescript
+const WORKER_URL = "https://analytics.lxpavilion.top";
+
+export async function fetchAnalytics(days: number = 7): Promise<AnalyticsData> {
+  const resp = await fetch(WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ days: Math.min(days, 364) }),
+  });
+
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error((err as any).error || `API error: ${resp.status}`);
+  }
+
+  return resp.json();
+}
+```
+
+调用方式非常简单：
+
+```typescript
+const data = await fetchAnalytics(7);
+// data.daily             -> 折线图数据
+// data.byCountry         -> 国家分布饼图
+// data.byDevice          -> 设备分布饼图
+// data.totals.cacheHitRate -> 缓存效率指标卡
+```
+
+---
+
+## 九、效果展示
+
+以下是我博客中数据分析页面的实际效果截图。
+
+![image.png](/data/media/318.png)
+
+![image.png](/data/media/320.png)
+
+![image.png](/data/media/321.png)
+
+数据看板展示近 7 天的请求趋势、访客变化以及缓存效率等关键指标，你可以在 [lxpavilion.top/analytics](https://www.lxpavilion.top/analytics/) 查看完整页面。
+
+---
+
+## 十、总结与设计思路回顾
+
+整个 Worker 的设计围绕三个核心目标展开：
+
+| 目标 | 实现方式 |
+|------|---------|
+| **数据全面** | 一次请求出日级 + 小时级数据，六维度细分数据逐天拉取 |
+| **性能可控** | `pMapSerial` 5 路并发，SHA-256 缓存 key + 1 小时 TTL |
+| **前端友好** | 返回结构化 JSON，字段名直接对应图表需求 |
+
+对比 Hello World 级别的 Worker，这份脚本多出的核心工程考量：
+
+1. **容错设计**：单天数据拉取失败不阻塞整体，`|| 0` 防 `null`，除零保护
+2. **缓存穿透防护**：缓存 miss 时才请求 CF API，`ctx.waitUntil` 异步写缓存
+3. **边界处理**：`Math.min(days, 364)` 防止超范围查询，`Array.from` 生成精确 30 天日期序列
+4. **调试友好**：`_cache` 标记标明 hit/miss，`generatedAt` 记录生成时间
+
+### 完整脚本
+
+
+完整的 `cf-analytics-worker.js` 约 270 行已上传至[GitHub Gist / 仓库]( https://github.com/pc-Blog/next/tree/master/workers)，所有代码已部署在 [analytics.lxpavilion.top](https://analytics.lxpavilion.top/ping)，前端效果可见 [lxpavilion.top/analytics](https://www.lxpavilion.top/analytics/)。
+
+---
+
+**相关阅读：**
+
+- [给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息](https://www.lxpavilion.top/article/37/)（入门篇）
+- [Cloudflare GraphQL Analytics API 官方文档](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/)
+- [Workers Cache API 文档](https://developers.cloudflare.com/workers/runtime-apis/cache/)0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本\",\"item\":\"https://www.lxpavilion.top/article/38\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Z2ToGtAFczE_wiOOhJ4Fp"}
 3:{"id":"38"}
-6:null
+5:["$","script","script-0",{"src":"/_next/static/chunks/0afr6c44bbz35.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

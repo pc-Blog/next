@@ -13,7 +13,7 @@
 :HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"P":null,"c":["","article","57",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","57","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/05g~q8zlq9d2u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0bbsbytqu_125.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"k4oiu22FO8B4Y-jqSkMBe"}
+0:{"P":null,"c":["","article","57",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","57","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/05g~q8zlq9d2u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0bbsbytqu_125.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Z2ToGtAFczE_wiOOhJ4Fp"}
 17:I[6521,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
 18:I[8123,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
 19:I[18233,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js"],"default"]
@@ -31,7 +31,7 @@ d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{
 e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0vqchy__vpwst.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," 栏轩阁. Built with Next.js & Tailwind CSS."]}]}]]]}]
 f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
 10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/05voo58jq2tzr.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0afr6c44bbz35.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
 26:[]
 12:"$W26"
 13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
@@ -42,10 +42,658 @@ f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"clas
 1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-2b:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/05voo58jq2tzr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Hotspot 技术实现全解：从零搭建自动化热点追踪系统\",\"item\":\"https://www.lxpavilion.top/article/57\"}]}"}}],["$","$L2b",null,{"params":"$@2c"}]]
+2b:I[17467,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/0vqchy__vpwst.js","/_next/static/chunks/0afr6c44bbz35.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T5ea4,## 项目概览
+
+Hotspot 是一个基于 DeepSeek 免费网页版的自动化技术热点搜索工具。纯免费，不需要 API Key，不需要付费订阅。
+
+从技术角度看，核心挑战是：**如何让 AI 网页版成为可靠的结构化数据源？** 这涉及浏览器自动化、反检测、流式内容捕获、JSON 解析容错、URL 可信验证等一系列问题。
+
+![image.png](/data/media/519.png)
+
+> **系列导读**
+>
+> 本文是 Hotspot 项目的「技术实现篇」，聚焦底层原理、代码设计与工程复盘。如果你想先了解工具的功能特性、使用场景与差异化价值，可先阅读姊妹篇：[《Hotspot — 零成本热点追踪工具（功能篇）》](https://www.lxpavilion.top/article/56)
+
+## 技术架构
+
+```
+hotspot/
+├── cli.py          # 主流程编排（日志、启动、登录、搜索、报告生成）
+├── deepseek.py     # 浏览器自动化基座（Playwright Chromium）
+├── hotspotter.py   # 业务逻辑（提示词构建、JSON 解析、URL 验证、报告渲染）
+├── config.json     # 配置（关键词、账号密码、提示词模板）
+├── template.html   # HTML 报告模板
+└── deploy.bat      # 本地一键部署脚本
+```
+
+整个项目就是 **一个 Python 包 + 一个 HTML 模板 + 一个部署脚本**。没有外部框架，没有复杂依赖。
+
+核心依赖：
+
+- `playwright` — 浏览器自动化
+- `httpx` — URL 可用性验证（HTTP HEAD/GET）
+- `demjson3` — JSON 宽松解析兜底
+- `BeautifulSoup (lxml)` — HTML 解析提取引用链接
+
+![image.png](/data/media/520.png)
+
+## 浏览器自动化（Playwright 基座）
+
+### 浏览器内核隔离
+
+项目使用 Playwright 自带的 Chromium 浏览器内核（约 200MB），放在 `browsers/` 目录下。通过环境变量指定路径：
+
+```bash
+set PLAYWRIGHT_BROWSERS_PATH=./browsers
+```
+
+这个内核与本地安装的 Chrome 无关，是 Playwright 专门用于自动化的版本。这样做有两个好处：
+
+1. **不污染日常浏览器** — 自动化产生的 Cookie、缓存、扩展配置不会影响日常使用的 Chrome
+2. **版本可控** — 不会因为浏览器自动更新导致选择器失效或行为变化
+
+### DeepSeekBot 生命周期管理
+
+`deepseek.py` 中的 `DeepSeekBot` 类封装了完整的浏览器生命周期：
+
+```python
+class DeepSeekBot:
+    def __init__(self, headless: bool = True):
+        self.headless = headless
+        # 四个内部状态：Page / BrowserContext / Browser / Playwright
+
+    def start(self) -> Page:
+        """启动浏览器并恢复 session（如有），返回 Page"""
+        self._playwright = sync_playwright().start()
+        self._browser = self._playwright.chromium.launch(
+            headless=self.headless,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        storage = self._load_session()
+        self._context = self._browser.new_context(storage_state=storage or None)
+        self._page = self._context.new_page()
+        self._page.add_init_script(ANTI_DETECTION)
+        self._page.set_default_timeout(30000)
+        return self._page
+```
+
+`start()` 方法按序执行：启动 Playwright → 启动浏览器 → 加载已保存的 Session → 创建页面 → 注入反检测脚本。`_load_session()` 检测本地 `storage_state.json`，有则跳过登录页。
+
+![image.png](/data/media/521.png)
+
+### Session 持久化机制
+
+`session/storage_state.json` 保存了 DeepSeek 的登录态 Cookie。核心设计是**登录成功后立即保存**，即使后续被封禁也能跳过登录：
+
+```python
+def login(self, account: str, password: str) -> bool:
+    page = self._page
+    page.goto("https://chat.deepseek.com")
+
+    # 检测 Cloudflare 拦截
+    if "ERROR" in page.title() or "request could not be satisfied" in page.content()[:500]:
+        logger.error("❌ Cloudflare 拦截：无法访问 DeepSeek")
+        return False
+
+    # 如果已有 session 直接进入聊天页
+    if "sign_in" not in page.url:
+        logger.info("已有有效 session，跳过登录")
+        # 还要检测是否被封禁
+        return True
+
+    # ... 执行登录操作 ...
+    self.save_session()  # 登录成功立即保存
+    return True
+```
+
+登录逻辑覆盖了 4 种情况：Cloudflare 拦截、已有有效 Session、首次登录、账号被封禁。退出登录态的判断依据是 URL 中是否包含 `sign_in` 路径。
+
+## 反检测技术
+
+Playwright 启动的浏览器默认会暴露自动化特征，DeepSeek 会检测到并拒绝服务或弹出验证码。必须从两个层面隐藏。
+
+### 启动参数层面
+
+```python
+self._browser = self._playwright.chromium.launch(
+    args=["--disable-blink-features=AutomationControlled"],
+)
+```
+
+这个启动参数告诉 Chromium 内核不要暴露 `AutomationControlled` 特性，是基础防护。
+
+### 脚本注入层面
+
+在页面创建后、加载任何外部 JS 之前，注入反检测脚本：
+
+```javascript
+Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+Object.defineProperty(navigator, 'plugins', {
+    get: () => [
+        { name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' },
+        { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' },
+        { name: 'Native Client', filename: 'pnacl' },
+    ],
+});
+Object.defineProperty(navigator, 'languages', { get: () => ['zh-CN', 'zh'] });
+window.chrome = window.chrome || {};
+window.chrome.runtime = {};
+```
+
+通过 `page.add_init_script()` 注入，覆盖了 4 个检测维度：
+
+| 检测维度 | 正常值 | 自动化时的特征 |
+|----------|--------|----------------|
+| `navigator.webdriver` | `undefined` | `true` |
+| `navigator.plugins` | 有内容的数组 | 空数组 |
+| `navigator.languages` | 用户语言设置 | 空或默认值 |
+| `window.chrome.runtime` | 存在 | 不存在 |
+
+这两个措施缺一不可。不加的话 DeepSeek 会直接拒绝服务或弹出验证码。
+
+## DeepSeek 网页结构分析
+
+自动化操作 DeepSeek 网页版，需要知道页面元素的位置和选择器。以下是关键界面元素的映射。
+
+### 登录页
+
+| 操作 | 选择器 | 说明 |
+|------|--------|------|
+| 切到密码登录 | `page.get_by_role("button", name="密码登录")` | 默认是手机号+验证码，需点击切换 |
+| 账号输入框 | `input[type="text"]` | 输入手机号或邮箱 |
+| 密码输入框 | `input[type="password"]` | 输入密码 |
+| 登录按钮 | `div.ds-button--filled` | 有 `--filled` 类名的是提交按钮 |
+| 封禁提示 | `.ds-alert__content:text("违反")` | 账号被封时出现的警告 |
+
+### 聊天页
+
+| 操作 | 选择器 | 说明 |
+|------|--------|------|
+| 输入框 | `textarea[name="search"]` | 聊天输入框 |
+| 发送方式 | 直接按 `Enter` | DeepSeek 没有独立的发送按钮 |
+| 深度思考按钮 | `div.ds-toggle-button:text("深度思考")` | `aria-pressed="true"` 为开启 |
+| 智能搜索按钮 | `div.ds-toggle-button:text("智能搜索")` | `aria-pressed="true"` 为开启 |
+| AI 回复容器 | `div.ds-markdown.ds-assistant-message-main-content` | 最后一条回复的内容容器 |
+
+切换开关状态的方法：
+
+```python
+btn = page.locator('div.ds-toggle-button:has-text("深度思考")')
+is_on = btn.get_attribute("aria-pressed") == "true"
+if not is_on:
+    btn.click()
+```
+
+### 侧边栏（对话管理）
+
+| 操作 | 选择器 | 说明 |
+|------|--------|------|
+| 当前对话链接 | `a[href*="{chat_id}"]` | `chat_id` 从 URL 提取的 UUID |
+| 更多操作按钮 | 当前对话链接内的 `div.ds-button` | 每个对话右侧的按钮 |
+| 删除菜单项 | `div.ds-dropdown-menu-option__label:text("删除")` | 点击更多后弹出的菜单 |
+| 确认删除 | `button:has-text("删除")` | 弹窗中的确认按钮 |
+
+对话 ID 从 URL 中提取：`https://chat.deepseek.com/a/chat/s/{uuid}`。
+
+## 流式回复的稳定检测算法
+
+DeepSeek 采用流式生成，文本会逐步出现在回复框中。不能等固定时间（太短截断、太长浪费时间），也不能只靠一次检测（流式写入可能短暂停顿）。
+
+### 算法设计
+
+```python
+def chat(self, message: str, timeout: int = 120) -> dict:
+    textarea = self._page.locator('textarea[name="search"]')
+    textarea.fill(message)
+    self._page.wait_for_timeout(300)
+    textarea.press("Enter")
+
+    start = time.time()
+    reply = self._page.locator("div.ds-markdown.ds-assistant-message-main-content")
+    last_len = 0
+    stable_polls = 0
+
+    while time.time() - start < timeout:
+        if reply.count() > 0:
+            text = reply.last.text_content() or ""
+            current_len = len(text.strip())
+
+            if current_len > 3:
+                if current_len == last_len:
+                    stable_polls += 1
+                else:
+                    stable_polls = 0
+
+                if stable_polls >= 3:
+                    elapsed = time.time() - start
+                    logger.info(f"回复完成 ({elapsed:.1f}秒, {current_len}字)")
+                    return self._get_reply_with_links()
+
+                last_len = current_len
+
+        self._page.wait_for_timeout(500)
+```
+
+核心思想：**每 500ms 轮询一次回复框的文本长度，连续 3 次（即 1.5 秒）长度不再变化才认为生成完毕。**
+
+![image.png](/data/media/523.png)
+
+几个关键设计决策：
+
+- **为什么是 500ms 轮询？** 太快（100ms）增加 CPU 开销且容易被短暂停顿误判，太慢（1s+）延长检测时间。500ms 在实测中平衡了响应速度和误判率。
+- **为什么是 3 次稳定？** 1 次太容易误判（流式生成可能在两个 token 之间暂停），3 次（1.5s）基本能确认生成结束。实测 20-60 秒内完成检测。
+- **超时兜底：** 120 秒超时后，如果有内容就返回已有内容，不空手而归。
+
+## 引用链接匹配算法
+
+DeepSeek 回复的一个特色是引用标记系统——正文中的 `-8`、`--5` 标记对应回复底部的引用链接列表。
+
+### 原文格式
+
+回复文本：`Docker Engine 29系列是当前核心版本，最新为v29.6.0（2026年6月18日发布）-8。`
+
+底部引用：
+```json
+{"text": "-8", "url": "https://versionlog.com/docker-engine/"}
+```
+
+### 匹配实现
+
+```python
+def _match_reference_links(data: dict, links: list):
+    """用引用链接填补无效 URL，同时清理摘要中的 -N / --N 标记"""
+    import re
+    if not links or "hotspots" not in data:
+        return
+
+    # 构建引用字典 {"13": "https://...", "4": "https://..."}
+    ref_map = {}
+    for link in links:
+        m = re.search(r'(\d+)', link.get("text", ""))
+        if m:
+            ref_map[m.group(1)] = link["url"]
+
+    for h in data["hotspots"]:
+        summary = h.get("summary", "")
+        if not summary:
+            continue
+
+        # 查找所有 -N / --N / -N- 标记
+        marker_map = {}
+        for m in re.finditer(r'-{1,2}(\d+)-?', summary):
+            num = m.group(1)
+            marker_map[num] = m.group(0)
+
+        # 如果热点 URL 无效，尝试用引用链接填补
+        url = h.get("url", "")
+        if not url or url == "null":
+            for num, marker in marker_map.items():
+                if num in ref_map:
+                    ref_url = ref_map[num]
+                    h["url"] = ref_url
+                    break
+
+        # 清理摘要中的标记
+        cleaned = summary
+        for marker in marker_map.values():
+            cleaned = cleaned.replace(marker, "")
+        h["summary"] = cleaned.strip()
+```
+
+算法做了两件事：
+
+1. **URL 填补**：热点 URL 为 `null` 时，在摘要中找数字标记，到底部引用列表里找真实链接填进去
+2. **摘要清理**：从摘要中移除 `-8`、`--5`、`-6-` 等标记，保持摘要干净可读
+
+正则 `r'-{1,2}(\d+)-?'` 覆盖了三种标记格式：`-8`、`--5`、`-6-`。
+
+## JSON 解析与容错
+
+DeepSeek 的输出有时带 `` ```json `` 包裹，有时中文引号用了 ASCII 双引号，导致 `json.loads` 报错。
+
+### 双层解析策略
+
+```python
+def parse_json_reply(text: str) -> Optional[dict]:
+    """从 DeepSeek 回复中提取 JSON（去掉 markdown 包裹后解析）"""
+    text = text.strip()
+    if text.startswith("```json"):
+        text = text[len("```json"):]
+    if text.endswith("```"):
+        text = text[:-3]
+    text = text.strip()
+
+    # 第一层：标准 JSON 解析
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # 第二层：demjson3 宽松模式兜底
+    try:
+        import demjson3
+        data = demjson3.decode(text, encoding="utf-8")
+        if isinstance(data, dict):
+            logger.info("JSON 解析成功（demjson3 宽松模式）")
+            return data
+    except ImportError:
+        pass
+    except Exception as e:
+        logger.warning(f"demjson3 解析也失败: {e}")
+
+    logger.warning("JSON 解析失败")
+    return None
+```
+
+第一层去掉 Markdown 包裹后调用标准 `json.loads`。第二层用 `demjson3` 做宽松模式解析（容忍非标准引号、多余逗号）。两层都不通过才判定为失败。
+
+这种方式将 JSON 解析成功率从约 60% 提升到 95% 以上。每次解析失败时，原始回复会保存为 `{keyword}_raw.txt`，方便后续排查和调试。
+
+![image.png](/data/media/524.png)
+
+## URL 可用性验证
+
+AI 编造链接是大模型搜索的核心痛点之一。Hotspot 使用 httpx 库对每个 URL 发 HEAD 请求验证。
+
+### 请求策略
+
+```python
+def _check_url(url: str, timeout: int = 8) -> str:
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/148.0.0.0 Safari/537.36"
+        ),
+    }
+    try:
+        resp = httpx.head(url, headers=headers, timeout=timeout, follow_redirects=True)
+        code = resp.status_code
+    except httpx.ConnectError:
+        return "连接失败"
+    except httpx.TimeoutException:
+        return "超时"
+    except Exception:
+        try:
+            resp = httpx.get(url, headers=headers, timeout=timeout, follow_redirects=True)
+            code = resp.status_code
+        except:
+            return "错误"
+```
+
+关键设计点：
+
+- **HEAD 优先，GET 降级**：HEAD 请求只返回响应头不下载内容，速度快、省带宽。部分 CDN 不支持 HEAD，降级为 GET
+- **8 秒超时**：给每个链接 8 秒的响应窗口，超时标记为"超时"而不是直接判为无效
+- **追踪重定向**：`follow_redirects=True` 拿到最终状态码
+- **UA 伪装**：用真实 Chrome User-Agent 避免被反爬
+
+### 三层防护体系
+
+| 层级 | 手段 | 作用 |
+|------|------|------|
+| 第一层 | 提示词约束 | 从源头减少假链接，要求"宁可 null 不要假链接" |
+| 第二层 | 引用链接匹配 | 用 DeepSeek 底部的真实引用填补空 URL |
+| 第三层 | HEAD 请求验证 | 物理验证每个链接，404/超时/连接失败直接剔除 |
+
+只有三层的状态码通过（2xx 或 30x）的链接才会出现在最终报告中。
+
+![image.png](/data/media/525.png)
+## 提示词工程设计
+
+提示词是提升输出质量最重要的杠杆。同样的需求不同的措辞，JSON 解析成功率和 URL 可信度差别巨大。
+
+### 模板结构
+
+```
+请务必使用联网搜索功能，完成以下任务：
+
+根据我提供的关键词，搜索 {week_range}（尤其是最近24-48小时）
+的全网最新热点事件、新闻或高热度讨论，并严格按照下方
+的 JSON 格式输出整理结果。
+当前日期：{today}（以此为基准计算时间范围）
+
+【我的关键词】
+{keyword}
+
+【JSON 输出格式】
+{严格的 JSON schema}
+
+【具体要求】
+1. 热点列表至少5条，不足则以实际数量为准
+2. 每个热点的 perspectives 列出不同立场
+3. 直接输出 JSON，不要使用 ```json 包裹
+4. 中文引号用「」代替，不要用 ASCII 双引号
+5. URL 必须填写完整文章链接（含具体路径），不确定时填 null
+6. 宁可少几条热点，也不要出现假链接
+7. 全程使用中文，字段名保持英文
+```
+
+### 运行时变量注入
+
+```python
+def build_prompt(keyword: str) -> str:
+    template = load_config().get("prompt", "")
+    today = time.strftime("%Y-%m-%d")
+    week_range = (
+        f"近7天内（"
+        f"{time.strftime('%m月%d日', time.localtime(time.time() - 7*86400))} "
+        f"至 {time.strftime('%m月%d日')}）"
+    )
+    return (
+        template
+        .replace("{keyword}", keyword)
+        .replace("{today}", today)
+        .replace("{week_range}", week_range)
+    )
+```
+
+三个运行时变量：`{keyword}`（当前搜索词）、`{today}`（当天日期）、`{week_range}`（近 7 天时间范围字符串）。
+
+### 关键约束分析
+
+提示词中最重要的几个约束：
+
+- **"不要使用 ```json 包裹"**：减少标准 JSON 解析前的预处理步骤
+- **"中文引号用「」代替"**：从根本上解决了 ASCII 双引号导致的 JSON 解析失败问题
+- **"宁可少几条热点，也不要出现假链接"**：大幅降低了 URL 编造率
+- **"列出不同立场"**：触发 DeepSeek 的多角度分析能力，而不仅仅是信息罗列
+
+## HTML 报告生成
+
+报告采用**字符串替换模板渲染**方案，没有用 Jinja2 等外部依赖。
+
+### 模板引擎
+
+```python
+def generate_html_report(report_data: dict, output_path: str):
+    template_path = os.path.join(os.path.dirname(__file__), "template.html")
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    html = html.replace("{overview_time}", f'🕐 {esc(start)} — {esc(end)}')
+    html = html.replace("{overview_duration}", f'⏱ 总耗时 {sec}s')
+    html = html.replace("{overview_count}", f'📄 {done}/{total} 成功 · {hs} 条热点')
+    html = html.replace("{tabs}", tabs_html)
+    html = html.replace("{panes}", panes_html)
+    html = html.replace("{footer}", f"由 Hotspot 自动生成 · {time_str}")
+```
+
+### 前端技术细节
+
+`template.html` 中涉及的前端技术：
+
+- **Flexbox 布局**：卡片式响应式布局
+- **CSS 自定义属性**（`var()`）：全局主题色管理
+- **毛玻璃效果**：`backdrop-filter: blur(28px)` 实现毛玻璃卡片
+- **深色主题**：`#0b1120` 底色 + `#818cf8` 紫色强调色
+- **原生 JS Tab 切换**：无框架依赖，通过 dataset 绑定 Tab 和面板
+
+![image.png](/data/media/529.png)
+
+Tab 切换的核心 JS（模板中内联）：
+
+```javascript
+document.querySelectorAll('.tab').forEach(function(t) {
+    t.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(function(b) {
+            b.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-pane').forEach(function(p) {
+            p.classList.remove('active');
+        });
+        t.classList.add('active');
+        document.querySelector('.tab-pane[data-tab="' + t.dataset.tab + '"]').classList.add('active');
+    });
+});
+```
+
+无热点数据时显示空状态界面，防止空白页：
+
+```javascript
+if (tabs.children.length === 0) {
+    tabs.style.display = 'none';
+    panes.style.display = 'none';
+    // 显示空状态
+}
+```
+
+## 搜索管线与重试机制
+
+每个关键词的完整搜索管线，是串联前面所有技术的核心流程。
+
+### search_single 管线
+
+```python
+def search_single(bot, keyword: str) -> dict:
+    prompt = build_prompt(keyword)
+    max_retries = load_config().get("max_retries", 3)
+
+    for attempt in range(1, max_retries + 1):
+        if attempt > 1:
+            bot.new_chat()  # 重试时开新对话避免上下文污染
+
+        result = bot.chat(prompt, timeout=180)
+        reply_text = result["text"]
+        reply_links = result["links"]
+
+        data = parse_json_reply(reply_text)
+        if data:
+            break
+
+        # 保存原始回复供调试
+        debug_path = os.path.join(get_run_dir(), f"{keyword}_raw.txt")
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(reply_text)
+
+    # 引用链接填补
+    _match_reference_links(data, reply_links)
+
+    # URL 去重
+    # ...
+
+    # URL 可用性验证
+    data = validate_urls(data)
+
+    # 过滤不可达链接
+    data["hotspots"] = [
+        h for h in data.get("hotspots", [])
+        if h.get("url_status", "").startswith("2") or h.get("url_status") == "30x"
+    ]
+
+    # 保存结果
+    path = save_result(keyword, data)
+```
+
+![image.png](/data/media/522.png)
+
+### run_all 多关键词编排
+
+```python
+def run_all(bot) -> list:
+    keywords = load_keywords()
+    stats = []
+    for i, kw in enumerate(keywords):
+        if i > 0:
+            bot.new_chat()  # 每个关键词开新对话，避免上下文污染
+        r = search_single(bot, kw)
+        stats.append(r)
+    return stats
+```
+
+每个关键词之间通过 `new_chat()` 创建新对话隔离上下文，避免上一个关键词的搜索结果影响下一个。
+
+## 一键部署脚本
+
+![image.png](/data/media/526.png)
+
+`deploy.bat` 是 Windows 环境下的一键部署方案，解决了 CI 环境无法访问 DeepSeek 的问题。
+
+```bat
+@echo off
+cd /d "%~dp0"
+
+rmdir /s /q results >nul 2>&1
+
+set PLAYWRIGHT_BROWSERS_PATH=./browsers
+uv run python -m hotspot
+if %errorlevel% neq 0 goto end
+
+python -c "import json,glob; files=sorted(glob.glob('results/**/report.json', recursive=True)); exit(1) if not files else exit(0 if json.load(open(files[-1],'r')).get('total_hotspots',0) > 0 else 1)"
+if %errorlevel% neq 0 goto end
+
+git fetch origin gh-pages
+git worktree add gh-pages-copy origin/gh-pages 2>nul || git worktree prune && git worktree add gh-pages-copy origin/gh-pages
+xcopy /e /i /y results\* gh-pages-copy\ >nul 2>&1
+echo hotspot.lxpavilion.top > gh-pages-copy\CNAME
+echo. > gh-pages-copy\.nojekyll
+cd gh-pages-copy
+git add -A
+git commit -m "update report"
+git push origin gh-pages
+cd ..
+rmdir /s /q gh-pages-copy
+
+:end
+pause
+```
+
+关键技术点：
+
+- **`git worktree`**：在不切换当前分支的情况下拉取 `gh-pages` 分支到独立目录，避免工作区文件混乱
+- **空数据保护**：搜索完成后用 Python 内联脚本检查是否有热点数据，无数据则跳过部署，保留线上上次的报告
+- **`PLAYWRIGHT_BROWSERS_PATH`**：将浏览器内核路径锁定到项目内，不依赖系统安装的 Chrome
+
+## 关键问题与解决方案汇总
+
+| 问题 | 现象 | 解决方案 |
+|------|------|----------|
+| JSON 解析失败 | ASCII 双引号导致 `json.loads` 报错 | 提示词约束 + `demjson3` 宽松解析兜底 |
+| URL 编造 | AI 返回 `ithome.com/0/000/000.htm` 假链接 | 提示词约束 + 引用匹配 + HEAD 验证三重防护 |
+| Headless 验证码 | 无头模式触发 Cloudflare | Session 持久化 + 封禁检测 + 推荐本地部署 |
+| 账号封禁 | 自动化触发风控，账号被禁言 | 封禁状态识别 + 生成空报告不卡死 |
+| CI 被拦截 | GitHub Actions 美国 IP 被 Cloudflare 挡 | 放弃 CI → 提供 `deploy.bat` 本地方案 |
+| 浏览器内存溢出 | 搜索多个关键词后历史对话堆积 | 自动 `delete_chat()` 清理侧边栏 |
+
+## 总结
+
+从技术角度看，这个项目最有价值的几点认知：
+
+- **AI 网页版自动化是双刃剑**：能零成本获取 AI 能力，但要付出反检测、容错、稳定性维护的成本
+- **提示词是最重要的技术杠杆**：一个好的约束（"用「」代替双引号"）比一万行数据处理代码都有用
+- **容错设计决定了项目的可靠性**：JSON 解析失败 → 宽松模式兜底 → 保存原始数据 → 重试 → 生成空报告。每一层都在处理上一层的失败
+- **简单方案往往更可靠**：`deploy.bat` 本地推送到 gh-pages 比 CI/CD 流水线更稳定。不需要为了技术先进性牺牲可用性
+
+🔗 **延伸阅读**
+
+如果你想快速了解 Hotspot 的功能定位、核心能力与实际使用效果，可阅读姊妹篇：[《Hotspot — 零成本热点追踪工具（功能篇）》](https://www.lxpavilion.top/article/56)
+
+项目地址: [https://github.com/PC2005-cloud/hotspot](https://github.com/PC2005-cloud/hotspot)
+示例网站: [https://hotspot.lxpavilion.top](https://hotspot.lxpavilion.top)
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Hotspot 技术实现全解：从零搭建自动化热点追踪系统\",\"item\":\"https://www.lxpavilion.top/article/57\"}]}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Hotspot 技术实现全解：从零搭建自动化热点追踪系统","initialContent":"$2d"}]]
 2c:{"id":"57"}
 28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-2d:I[27201,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"IconMark"]
+2e:I[27201,["/_next/static/chunks/0bbsbytqu_125.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"IconMark"]
 25:null
-2a:[["$","title","0",{"children":"Hotspot 技术实现全解：从零搭建自动化热点追踪系统 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,个人博客,技术博客,前端开发,全栈开发,Web开发,JavaScript,TypeScript,React,Next.js,编程,项目实践,学习笔记"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"property":"og:title","content":"Hotspot 技术实现全解：从零搭建自动化热点追踪系统 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","5",{"property":"og:description","content":"承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。"}],["$","meta","6",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/533.jpg"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","11",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","12",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","13",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","14",{"rel":"icon","href":"/icon.png?icon.08x5me3_ut4tp.png","sizes":"1080x1080","type":"image/png"}],["$","$L2d","15",{}]]
+2a:[["$","title","0",{"children":"Hotspot 技术实现全解：从零搭建自动化热点追踪系统 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,个人博客,技术博客,前端开发,全栈开发,Web开发,JavaScript,TypeScript,React,Next.js,编程,项目实践,学习笔记"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"property":"og:title","content":"Hotspot 技术实现全解：从零搭建自动化热点追踪系统 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","5",{"property":"og:description","content":"承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。"}],["$","meta","6",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/533.jpg"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","11",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","12",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","13",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","14",{"rel":"icon","href":"/icon.png?icon.08x5me3_ut4tp.png","sizes":"1080x1080","type":"image/png"}],["$","$L2e","15",{}]]

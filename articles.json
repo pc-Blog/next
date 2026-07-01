@@ -1,6 +1,206 @@
 {
-  "total": 18,
+  "total": 25,
   "rows": [
+    {
+      "categoryId": 42,
+      "categoryName": "Cloudflare 教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/537.png",
+      "createdAt": "2026-07-01T15:18:12.085345",
+      "id": 58,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始使用 Cloudflare Workers AI 为博客 Live2D 看板娘接入 AI 对话能力，涵盖产品选型、模型选择（Qwen3-30B-A3B）、Wrangler 配置、提示词设计、Token 分级管理、额度超限降级等完整实践。",
+      "tags": [
+        {
+          "id": 47,
+          "name": "Worker"
+        },
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 58,
+          "name": "Worker AI"
+        },
+        {
+          "id": 28,
+          "name": "Cloudflare"
+        }
+      ],
+      "title": "不用花一分钱，我让博客看板娘学会了聊天 | 用 Workers AI 实现自由对话",
+      "updateTime": "2026-07-01T15:18:12.092362",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "commentCount": 0,
+      "coverImage": "/data/media/533.jpg",
+      "createdAt": "2026-07-01T13:39:20.940707",
+      "id": 57,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。",
+      "tags": [
+        {
+          "id": 54,
+          "name": "热点爬取"
+        },
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "Hotspot 技术实现全解：从零搭建自动化热点追踪系统",
+      "updateTime": "2026-07-01T13:57:24.431101",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "commentCount": 0,
+      "coverImage": "/data/media/532.png",
+      "createdAt": "2026-07-01T13:32:25.921334",
+      "id": 56,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "针对社交热榜技术内容匮乏、搜索引擎信息杂乱的痛点，Hotspot 自动化技术热点追踪工具。基于 DeepSeek 免费网页版实现零成本搜索，支持多关键词批量处理、链接去重验真、时间排序与多视角观点提取，自动输出 JSON 与 HTML 双格式报告。",
+      "tags": [
+        {
+          "id": 54,
+          "name": "热点爬取"
+        },
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "告别无效刷榜：免费 AI 工具，自动追踪纯技术热点生成报告",
+      "updateTime": "2026-07-01T13:59:30.358941",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/518.png",
+      "createdAt": "2026-07-01T12:07:06.814138",
+      "id": 55,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "基于实际项目经验的 MailerLite v2/v3 API 集成全记录，涵盖订阅者管理、Automation、Campaign 创建与发送、邮件模板、数据一致性校验等核心场景，以及 API 方案 vs 原生 RSS Campaign 的对比分析。",
+      "tags": [
+        {
+          "id": 52,
+          "name": "邮件"
+        },
+        {
+          "id": 53,
+          "name": "Newsletter"
+        },
+        {
+          "id": 56,
+          "name": "MailerLite"
+        },
+        {
+          "id": 57,
+          "name": "邮订阅件"
+        }
+      ],
+      "title": "个人博客邮件订阅系统实战：MailerLite API 集成与避坑指南",
+      "updateTime": "2026-07-01T12:18:03.821115",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/517.png",
+      "createdAt": "2026-07-01T10:01:08.877968",
+      "id": 54,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "为什么社交热榜TrendRadar无法满足程序员博客的内容需求？从数据源、过滤机制、适用场景三个角度对比分析，记录技术博客热点方案的选型过程。",
+      "tags": [
+        {
+          "id": 54,
+          "name": "热点爬取"
+        },
+        {
+          "id": 55,
+          "name": "AI应用"
+        }
+      ],
+      "title": "为什么 TrendRadar 的社交热榜满足不了技术博客——我的热点方案选型记录",
+      "updateTime": "2026-07-01T10:02:07.745102",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/516.png",
+      "createdAt": "2026-07-01T09:46:24.671531",
+      "id": 53,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "给自定义域名邮箱配置 Gravatar/Cravatar 头像，让每一封邮件都带上专属标识，无论发到哪都认得你。",
+      "tags": [
+        {
+          "id": 52,
+          "name": "邮件"
+        },
+        {
+          "id": 29,
+          "name": "域名"
+        }
+      ],
+      "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
+      "updateTime": "2026-07-01T09:58:38.436744",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 42,
+      "categoryName": "Cloudflare 教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/514.png",
+      "createdAt": "2026-07-01T09:06:07.57209",
+      "id": 52,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "有了自己的域名放在 Cloudflare 后，你可以用它做什么——站点入口、邮箱身份、API 统一、品牌标识，以及域名作为数字资产的核心价值。",
+      "tags": [
+        {
+          "id": 52,
+          "name": "邮件"
+        },
+        {
+          "id": 28,
+          "name": "Cloudflare"
+        },
+        {
+          "id": 29,
+          "name": "域名"
+        },
+        {
+          "id": 30,
+          "name": "博客"
+        }
+      ],
+      "title": "博客、API、邮箱全掌控：Cloudflare 让一个域名的价值彻底放大",
+      "updateTime": "2026-07-01T15:18:37.317621",
+      "viewCount": 0
+    },
     {
       "categoryId": 41,
       "categoryName": "技术教程",
@@ -66,8 +266,8 @@
       "viewCount": 0
     },
     {
-      "categoryId": 38,
-      "categoryName": "网站部署",
+      "categoryId": 42,
+      "categoryName": "Cloudflare 教程",
       "commentCount": 0,
       "coverImage": "/data/media/505.png",
       "createdAt": "2026-06-28T21:20:54.494226",
@@ -110,12 +310,12 @@
         }
       ],
       "title": "选择cloudflare，给我的博客带来了什么",
-      "updateTime": "2026-06-28T21:58:08.687792",
+      "updateTime": "2026-07-01T15:18:49.782057",
       "viewCount": 0
     },
     {
-      "categoryId": 41,
-      "categoryName": "技术教程",
+      "categoryId": 42,
+      "categoryName": "Cloudflare 教程",
       "commentCount": 0,
       "coverImage": "/data/media/466.png",
       "createdAt": "2026-06-28T14:44:58.495133",
@@ -138,7 +338,7 @@
         }
       ],
       "title": "你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站",
-      "updateTime": "2026-06-28T14:46:44.853358",
+      "updateTime": "2026-07-01T15:19:00.680919",
       "viewCount": 0
     },
     {

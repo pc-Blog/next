@@ -1,6 +1,26 @@
 {
-  "total": 7,
+  "total": 8,
   "rows": [
+    {
+      "categoryId": 33,
+      "categoryName": "Ai智能体",
+      "coverImage": "",
+      "createTime": "2026-07-01T14:08:52.172064",
+      "demoUrl": "https://hotspot.lxpavilion.top",
+      "githubUrl": "https://github.com/PC2005-cloud/hotspot",
+      "id": 23,
+      "isPublished": 1,
+      "name": "Hotspot",
+      "sortOrder": 0,
+      "summary": "零成本 AI 热点追踪工具，让 DeepSeek 免费版替你搜遍全网",
+      "techs": [
+        {
+          "id": 9,
+          "name": "Python"
+        }
+      ],
+      "updateTime": "2026-07-01T14:10:16.1189"
+    },
     {
       "categoryId": 34,
       "categoryName": "全栈",

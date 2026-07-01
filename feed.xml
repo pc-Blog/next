@@ -8,6 +8,18 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[博文已索引但不展示：一次 Bing SEO 问题排查记录]]></title>
+      <link>https://www.lxpavilion.top/article/59/</link>
+      <guid>https://www.lxpavilion.top/article/59/</guid>
+      <pubDate>Wed, 01 Jul 2026 16:54:31 GMT</pubDate>
+      <description><![CDATA[Bing 索引了页面却不在搜索结果中出现，因为爬虫拿到的 HTML 只有标题没有正文。一个成本几乎为零的改动，解决页面在搜索引擎中"隐身"的问题。]]></description>
+      <category>开发拾遗</category>
+      <tag>Next.js</tag>
+      <tag>SSR</tag>
+      <tag>SEO</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[不用花一分钱，我让博客看板娘学会了聊天 | 用 Workers AI 实现自由对话]]></title>
       <link>https://www.lxpavilion.top/article/58/</link>
       <guid>https://www.lxpavilion.top/article/58/</guid>
@@ -247,19 +259,6 @@
       <tag>对象存储</tag>
       <tag>Cloudflare</tag>
       <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Claude Code 安装及接入 DeepSeek 教程]]></title>
-      <link>https://www.lxpavilion.top/article/39/</link>
-      <guid>https://www.lxpavilion.top/article/39/</guid>
-      <pubDate>Sun, 14 Jun 2026 15:14:11 GMT</pubDate>
-      <description><![CDATA[详细介绍 Claude Code CLI 的安装、通过 CC Switch 中转接入 DeepSeek 模型的完整流程，以及在终端、VS Code、JetBrains 中的使用配置。]]></description>
-      <category>Ai编程</category>
-      <tag>deepseek</tag>
-      <tag>Claude Code</tag>
-      <tag>VS Code</tag>
-      <tag>JetBrains</tag>
       <author>ppc</author>
     </item>
   </channel>

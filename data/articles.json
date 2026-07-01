@@ -1,6 +1,34 @@
 {
-  "total": 25,
+  "total": 26,
   "rows": [
+    {
+      "categoryId": 43,
+      "categoryName": "开发拾遗",
+      "commentCount": 0,
+      "coverImage": "/data/media/538.png",
+      "createdAt": "2026-07-01T16:54:31.450107",
+      "id": 59,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "Bing 索引了页面却不在搜索结果中出现，因为爬虫拿到的 HTML 只有标题没有正文。一个成本几乎为零的改动，解决页面在搜索引擎中\"隐身\"的问题。",
+      "tags": [
+        {
+          "id": 59,
+          "name": "Next.js"
+        },
+        {
+          "id": 60,
+          "name": "SSR"
+        },
+        {
+          "id": 26,
+          "name": "SEO"
+        }
+      ],
+      "title": "博文已索引但不展示：一次 Bing SEO 问题排查记录",
+      "updateTime": "2026-07-01T16:56:51.086839",
+      "viewCount": 0
+    },
     {
       "categoryId": 42,
       "categoryName": "Cloudflare 教程",

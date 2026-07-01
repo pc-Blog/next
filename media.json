@@ -1,6 +1,19 @@
 {
-  "total": 426,
+  "total": 427,
   "rows": [
+    {
+      "createTime": "2026-07-01T16:56:10.516864",
+      "deleted": 0,
+      "filePath": "202607/94abf2613ffd46748fb9ed3bec066f5e.png",
+      "fileSize": 182317,
+      "fileUrl": "/data/media/538.png",
+      "filename": "94abf2613ffd46748fb9ed3bec066f5e.png",
+      "id": 538,
+      "mimeType": "image/png",
+      "originalFilename": "OIP-C (8)_processed.png",
+      "relationType": null,
+      "updateTime": "2026-07-01T16:56:10.517116"
+    },
     {
       "createTime": "2026-07-01T15:17:48.710286",
       "deleted": 0,

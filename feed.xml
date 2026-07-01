@@ -8,6 +8,91 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[不用花一分钱，我让博客看板娘学会了聊天 | 用 Workers AI 实现自由对话]]></title>
+      <link>https://www.lxpavilion.top/article/58/</link>
+      <guid>https://www.lxpavilion.top/article/58/</guid>
+      <pubDate>Wed, 01 Jul 2026 15:18:12 GMT</pubDate>
+      <description><![CDATA[从零开始使用 Cloudflare Workers AI 为博客 Live2D 看板娘接入 AI 对话能力，涵盖产品选型、模型选择（Qwen3-30B-A3B）、Wrangler 配置、提示词设计、Token 分级管理、额度超限降级等完整实践。]]></description>
+      <category>Cloudflare 教程</category>
+      <tag>Worker</tag>
+      <tag>AI应用</tag>
+      <tag>Worker AI</tag>
+      <tag>Cloudflare</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Hotspot 技术实现全解：从零搭建自动化热点追踪系统]]></title>
+      <link>https://www.lxpavilion.top/article/57/</link>
+      <guid>https://www.lxpavilion.top/article/57/</guid>
+      <pubDate>Wed, 01 Jul 2026 13:39:20 GMT</pubDate>
+      <description><![CDATA[承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。]]></description>
+      <category>Ai编程</category>
+      <tag>热点爬取</tag>
+      <tag>AI应用</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[告别无效刷榜：免费 AI 工具，自动追踪纯技术热点生成报告]]></title>
+      <link>https://www.lxpavilion.top/article/56/</link>
+      <guid>https://www.lxpavilion.top/article/56/</guid>
+      <pubDate>Wed, 01 Jul 2026 13:32:25 GMT</pubDate>
+      <description><![CDATA[针对社交热榜技术内容匮乏、搜索引擎信息杂乱的痛点，Hotspot 自动化技术热点追踪工具。基于 DeepSeek 免费网页版实现零成本搜索，支持多关键词批量处理、链接去重验真、时间排序与多视角观点提取，自动输出 JSON 与 HTML 双格式报告。]]></description>
+      <category>Ai编程</category>
+      <tag>热点爬取</tag>
+      <tag>AI应用</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[个人博客邮件订阅系统实战：MailerLite API 集成与避坑指南]]></title>
+      <link>https://www.lxpavilion.top/article/55/</link>
+      <guid>https://www.lxpavilion.top/article/55/</guid>
+      <pubDate>Wed, 01 Jul 2026 12:07:06 GMT</pubDate>
+      <description><![CDATA[基于实际项目经验的 MailerLite v2/v3 API 集成全记录，涵盖订阅者管理、Automation、Campaign 创建与发送、邮件模板、数据一致性校验等核心场景，以及 API 方案 vs 原生 RSS Campaign 的对比分析。]]></description>
+      <category>技术教程</category>
+      <tag>邮件</tag>
+      <tag>Newsletter</tag>
+      <tag>MailerLite</tag>
+      <tag>邮订阅件</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[为什么 TrendRadar 的社交热榜满足不了技术博客——我的热点方案选型记录]]></title>
+      <link>https://www.lxpavilion.top/article/54/</link>
+      <guid>https://www.lxpavilion.top/article/54/</guid>
+      <pubDate>Wed, 01 Jul 2026 10:01:08 GMT</pubDate>
+      <description><![CDATA[为什么社交热榜TrendRadar无法满足程序员博客的内容需求？从数据源、过滤机制、适用场景三个角度对比分析，记录技术博客热点方案的选型过程。]]></description>
+      <category>技术教程</category>
+      <tag>热点爬取</tag>
+      <tag>AI应用</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[别让你的域名邮箱 "裸奔"！3 分钟添上专属头像]]></title>
+      <link>https://www.lxpavilion.top/article/53/</link>
+      <guid>https://www.lxpavilion.top/article/53/</guid>
+      <pubDate>Wed, 01 Jul 2026 09:46:24 GMT</pubDate>
+      <description><![CDATA[给自定义域名邮箱配置 Gravatar/Cravatar 头像，让每一封邮件都带上专属标识，无论发到哪都认得你。]]></description>
+      <category>技术教程</category>
+      <tag>邮件</tag>
+      <tag>域名</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[博客、API、邮箱全掌控：Cloudflare 让一个域名的价值彻底放大]]></title>
+      <link>https://www.lxpavilion.top/article/52/</link>
+      <guid>https://www.lxpavilion.top/article/52/</guid>
+      <pubDate>Wed, 01 Jul 2026 09:06:07 GMT</pubDate>
+      <description><![CDATA[有了自己的域名放在 Cloudflare 后，你可以用它做什么——站点入口、邮箱身份、API 统一、品牌标识，以及域名作为数字资产的核心价值。]]></description>
+      <category>Cloudflare 教程</category>
+      <tag>邮件</tag>
+      <tag>Cloudflare</tag>
+      <tag>域名</tag>
+      <tag>博客</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）]]></title>
       <link>https://www.lxpavilion.top/article/51/</link>
       <guid>https://www.lxpavilion.top/article/51/</guid>
@@ -39,7 +124,7 @@
       <guid>https://www.lxpavilion.top/article/49/</guid>
       <pubDate>Sun, 28 Jun 2026 21:20:54 GMT</pubDate>
       <description><![CDATA[我的个人博客「栏轩阁」完全基于 Cloudflare 生态搭建后端：Workers 做运行时、D1 做数据库、Email Routing 做邮件系统、Workers AI 做看板娘对话。一篇覆盖架构设计、服务清单、真实体验与成本分析的全景式总结。]]></description>
-      <category>网站部署</category>
+      <category>Cloudflare 教程</category>
       <tag>D1</tag>
       <tag>IndexNow</tag>
       <tag>Worker</tag>
@@ -56,7 +141,7 @@
       <guid>https://www.lxpavilion.top/article/48/</guid>
       <pubDate>Sun, 28 Jun 2026 14:44:58 GMT</pubDate>
       <description><![CDATA[想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。]]></description>
-      <category>技术教程</category>
+      <category>Cloudflare 教程</category>
       <tag>D1</tag>
       <tag>邮件</tag>
       <tag>Cloudflare</tag>
@@ -175,65 +260,6 @@
       <tag>Claude Code</tag>
       <tag>VS Code</tag>
       <tag>JetBrains</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本]]></title>
-      <link>https://www.lxpavilion.top/article/38/</link>
-      <guid>https://www.lxpavilion.top/article/38/</guid>
-      <pubDate>Wed, 10 Jun 2026 21:32:19 GMT</pubDate>
-      <description><![CDATA[基于博客实际在用的生产级 Worker 脚本（约 270 行），围绕三个核心主题展开：并发拉取（pMapSerial 分片限流，30 天 × 6 维度数据逐天拉取汇总）、缓存策略（SHA-256 作为 POST 请求的缓存 key，Cache API + ctx.waitUntil 异步写入）、数据处理管线（从原始 GraphQL 响应到前端可直接消费的 JSON，涵盖缓存命中率计算、带宽换算、多维度分布汇总）。同时覆盖 wrangler 配置、CORS 处理、前端 TypeScript 类型定义与调用函数。适合已经掌握基础操作、想了解生产级 Worker 设计的读者。]]></description>
-      <category>网站部署</category>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息]]></title>
-      <link>https://www.lxpavilion.top/article/37/</link>
-      <guid>https://www.lxpavilion.top/article/37/</guid>
-      <pubDate>Wed, 10 Jun 2026 21:20:34 GMT</pubDate>
-      <description><![CDATA[介绍了三种获取 Cloudflare 网站流量数据的方式：Cloudflare 控制台直接查看（零代码）、GraphQL API 编程获取（Python 示例）、部署 Worker 作为数据中间层。涵盖 Zone ID 和 API Token 的获取、GraphQL 查询语句编写、API 维度说明（按天/按小时/按国家），以及通过 Wrangler 本地构建 Worker 的完整流程。适合首次接触 Cloudflare Analytics 的读者。]]></description>
-      <category>网站部署</category>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速]]></title>
-      <link>https://www.lxpavilion.top/article/36/</link>
-      <guid>https://www.lxpavilion.top/article/36/</guid>
-      <pubDate>Tue, 09 Jun 2026 12:41:52 GMT</pubDate>
-      <description><![CDATA[在阿里云购买域名，交给 Cloudflare 托管 DNS 并开启 CDN 加速，最后绑定到 GitHub Pages——手把手教你让你的博客拥有自定义域名，兼顾专业感与访问速度。全文涵盖域名购买、DNS 托管、解析配置、SSL 证书、性能优化及常见排错。]]></description>
-      <category>网站部署</category>
-      <tag>Github</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[将个人网址录入Bing搜索引擎]]></title>
-      <link>https://www.lxpavilion.top/article/35/</link>
-      <guid>https://www.lxpavilion.top/article/35/</guid>
-      <pubDate>Tue, 26 May 2026 20:16:47 GMT</pubDate>
-      <description><![CDATA[本教程将指导你如何将个人网站/博客提交到 Bing 搜索引擎，让 Bing 用户能够搜索到你的内容]]></description>
-      <category>网站部署</category>
-      <tag>Bing</tag>
-      <tag>SEO</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[codex安装及接入deepseek教程]]></title>
-      <link>https://www.lxpavilion.top/article/33/</link>
-      <guid>https://www.lxpavilion.top/article/33/</guid>
-      <pubDate>Tue, 26 May 2026 10:23:39 GMT</pubDate>
-      <description><![CDATA[本教程将指导你完成 Codex 的安装，并通过 **CCX + CCSwitch** 将其接入 DeepSeek 等自定义 API。]]></description>
-      <category>Ai编程</category>
-      <tag>codex</tag>
-      <tag>deepseek</tag>
       <author>ppc</author>
     </item>
   </channel>

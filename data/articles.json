@@ -1,6 +1,30 @@
 {
-  "total": 26,
+  "total": 27,
   "rows": [
+    {
+      "categoryId": 43,
+      "categoryName": "开发拾遗",
+      "commentCount": 0,
+      "coverImage": "/data/media/539.png",
+      "createdAt": "2026-07-02T14:09:31.144178",
+      "id": 60,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "在 MailerLite 免费计划下，通过保留 {$unsubscribe} 和品牌图片标记配合 CSS 隐藏，绕过平台强制注入退订链接与品牌广告，同时自建退订确认页实现完全自定义的退订流程。涵盖邮件模板改造、退订页开发、MailerLite API 双端删除、隐藏品牌标识的具体代码实现，适合用 MailerLite 发送 Newslette 的独立开发者参考。",
+      "tags": [
+        {
+          "id": 56,
+          "name": "MailerLite"
+        },
+        {
+          "id": 57,
+          "name": "邮订阅件"
+        }
+      ],
+      "title": "在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告",
+      "updateTime": "2026-07-02T14:09:31.153896",
+      "viewCount": 0
+    },
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",

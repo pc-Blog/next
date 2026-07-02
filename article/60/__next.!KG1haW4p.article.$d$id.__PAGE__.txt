@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0_m89xfmb21tu.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/0bv0as3w4soqn.js","/_next/static/chunks/0ak3whllmln1c.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+5:I[97367,["/_next/static/chunks/0_m89xfmb21tu.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+4:Tfb1,## 背景
+
+我的博客基于 MailerLite 免费计划推送 Newsletter。免费计划有两个强制限制：
+
+1. 退订链接必须使用 `{$unsubscribe}`，跳转到 MailerLite 官方退订页
+2. 邮件底部强制显示 "Sent by MailerLite" 品牌标识
+
+如果你自己用无所谓，但发给订阅者，体验很割裂。
+
+## 核心思路
+
+MailerLite 发送邮件时会扫描 HTML，**检测到退订链接和品牌标识已存在，就不会再注入一份**。
+
+所以我们要做的不是"删掉它们"，而是：
+- **保留它们但隐藏**，满足平台检测
+- **同时加入自己的版本**，控制用户体验
+
+## 一、自定义退订
+
+### 替换退订链接
+
+邮件模板的 footer 里，原来只有官方退订链接：
+
+```html
+<a href="{$unsubscribe}" style="...">Unsubscribe</a>
+```
+
+改为自定义退订链接 + 隐藏的官方链接：
+
+```html
+<a href="https://api.lxpavilion.top/api/unsubscribe?email={$email}&group=article"
+   style="color: #ffffff; text-decoration: underline;">Unsubscribe</a>
+<a href="{$unsubscribe}" style="color: #8B5CF6; text-decoration: none; font-size: 0px;"> </a>
+```
+
+关键点：
+- **`{$email}`**：MailerLite 发送时会替换为每个订阅者的真实邮箱，我们用它来识别退订者身份
+- **隐藏的 `{$unsubscribe}`**：颜色设成和背景一致（`#8B5CF6`）+ `font-size: 0px`，用户看不见，但 MailerLite 扫描时检测到它存在，就不会追加额外的退订内容
+
+### 退订流程
+
+用户点击链接后：
+
+```
+https://api.lxpavilion.top/api/unsubscribe?email=xxx&group=article
+```
+
+**GET 请求 → 展示确认页**
+
+一个深色主题的确认页面，显示退订邮箱和订阅类型，用户需点击"确认退订"按钮才会执行删除——防止误触。
+
+**POST 请求 → 执行退订**
+
+后端做三件事：
+
+1. 从 D1 数据库删除对应记录
+2. 通过 MailerLite API 删除该订阅者
+3. 发送退订通知给管理员（非阻塞）
+
+**重复退订保护**：如果 D1 和 MailerLite 都没有该邮箱的记录，返回"该邮箱未订阅，无法退订"，而不是静默成功。
+
+## 二、隐藏品牌广告
+
+MailerLite 免费计划会在邮件底部强制显示品牌图片：
+
+```html
+<img width="100" alt="Sent by MailerLite" src="https://assets.mlcdn.com/ml/logo/sent-by-mailerlite.png">
+```
+
+直接删掉它？不行。删了 MailerLite 发送时会重新注入一份。
+
+正确做法：**把品牌代码加回模板，但通过 CSS 隐藏**。
+
+```html
+<img width="100" alt="Sent by MailerLite"
+     src="https://assets.mlcdn.com/ml/logo/sent-by-mailerlite.png"
+     style="display: none !important;" />
+```
+
+MailerLite 检测到图片已存在，不再注入。而我们自己加的这个是隐藏的，用户看不见。
+
+## 效果对比
+
+| 项目 | 改前 | 改后 |
+|------|------|------|
+| 退订链接 | 跳转 MailerLite 官方页 | 跳转自建退订确认页 |
+| MailerLite 品牌 | 邮件底部可见 | 完全隐藏 |
+| 退订反馈 | 无，直接退订 | 确认页 → 成功/失败提示 |
+| 管理员通知 | 无 | 退订时邮件通知 |
+
+## 风险说明
+
+这个方法不违反 CAN-SPAM 法案——用户仍然有**可见可点击的退订链接**，只是指向你的自定义页面而非 MailerLite 官方页面。
+
+品牌标识隐藏方面，MailerLite 免费计划的服务条款要求显示品牌。实际运行时，MailerLite 扫描的是邮件内容中是否存在标记，而非检查 CSS 样式，所以不容易被检测到。但这终究不是合规做法，最稳妥的方案是升级到付费计划。
+
+## 总结
+
+这套方案的核心思路很简单：**不删除平台要求的标记，而是隐藏它们，同时加入自己的版本**。MailerLite 检测到退订链接和品牌标识已存在，就不会再注入一份，而我们自己加的版本是隐藏的，用户看到的就是一封完全自定义、无广告的邮件。
+
+对于不想升级付费计划的独立创作者来说，这是一个在合规与体验之间取得平衡的实用方案。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告\",\"item\":\"https://www.lxpavilion.top/article/60\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告","initialContent":"$4"}]],[["$","script","script-0",{"src":"/_next/static/chunks/0ak3whllmln1c.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"H7w3te-77DwhzHCv6t3bD"}
+3:{"id":"60"}
+7:null

@@ -8,6 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告]]></title>
+      <link>https://www.lxpavilion.top/article/60/</link>
+      <guid>https://www.lxpavilion.top/article/60/</guid>
+      <pubDate>Thu, 02 Jul 2026 14:09:31 GMT</pubDate>
+      <description><![CDATA[在 MailerLite 免费计划下，通过保留 {$unsubscribe} 和品牌图片标记配合 CSS 隐藏，绕过平台强制注入退订链接与品牌广告，同时自建退订确认页实现完全自定义的退订流程。涵盖邮件模板改造、退订页开发、MailerLite API 双端删除、隐藏品牌标识的具体代码实现，适合用 MailerLite 发送 Newslette 的独立开发者参考。]]></description>
+      <category>开发拾遗</category>
+      <tag>MailerLite</tag>
+      <tag>邮订阅件</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[博文已索引但不展示：一次 Bing SEO 问题排查记录]]></title>
       <link>https://www.lxpavilion.top/article/59/</link>
       <guid>https://www.lxpavilion.top/article/59/</guid>
@@ -247,18 +258,6 @@
       <category>Ai编程</category>
       <tag>deepseek</tag>
       <tag>Claude Code</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Cloudflare R2 使用指南：零成本管理博客媒体文件]]></title>
-      <link>https://www.lxpavilion.top/article/40/</link>
-      <guid>https://www.lxpavilion.top/article/40/</guid>
-      <pubDate>Mon, 15 Jun 2026 09:00:15 GMT</pubDate>
-      <description><![CDATA[从 MinIO 本地管理迁移到 Cloudflare R2，利用免费额度搭建博客图床的完整指南，涵盖开通、建桶、自定义域名、CORS 配置、API 密钥及 Python SDK 上传。]]></description>
-      <category>网站部署</category>
-      <tag>对象存储</tag>
-      <tag>Cloudflare</tag>
-      <tag>博客</tag>
       <author>ppc</author>
     </item>
   </channel>

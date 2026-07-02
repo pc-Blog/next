@@ -8,6 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道]]></title>
+      <link>https://www.lxpavilion.top/article/61/</link>
+      <guid>https://www.lxpavilion.top/article/61/</guid>
+      <pubDate>Thu, 02 Jul 2026 16:48:48 GMT</pubDate>
+      <description><![CDATA[ Cloudflare Workers 日志功能完整教程。教你如何开启 Workers Logs、使用 console.log 结构化日志输出、通过 Dashboard 和 wrangler tail 实时查看日志、利用三个 API 接口程序化查询日志数据。免费额度每天 20 万条，附日志格式规范与最佳实践，帮你从零搭建 Worker 可观测体系。]]></description>
+      <category>开发拾遗</category>
+      <tag>Worker</tag>
+      <tag>Claude Code</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告]]></title>
       <link>https://www.lxpavilion.top/article/60/</link>
       <guid>https://www.lxpavilion.top/article/60/</guid>
@@ -247,17 +258,6 @@
       <tag>Spring AI</tag>
       <tag>检索增强生成</tag>
       <tag>Redis</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生]]></title>
-      <link>https://www.lxpavilion.top/article/41/</link>
-      <guid>https://www.lxpavilion.top/article/41/</guid>
-      <pubDate>Tue, 16 Jun 2026 16:27:16 GMT</pubDate>
-      <description><![CDATA[用 Playwright 把 DeepSeek 网页版包装成 Anthropic Messages API 兼容的 HTTP 服务，让 Claude Code 可以直接把 DeepSeek 当后端模型使用——协议翻译、工具调用桥梁、PoW 绕过，三个环节拼出一个能跑的系统。]]></description>
-      <category>Ai编程</category>
-      <tag>deepseek</tag>
-      <tag>Claude Code</tag>
       <author>ppc</author>
     </item>
   </channel>

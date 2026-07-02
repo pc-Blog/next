@@ -1,6 +1,30 @@
 {
-  "total": 27,
+  "total": 28,
   "rows": [
+    {
+      "categoryId": 43,
+      "categoryName": "开发拾遗",
+      "commentCount": 0,
+      "coverImage": "/data/media/540.png",
+      "createdAt": "2026-07-02T16:48:48.05911",
+      "id": 61,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": " Cloudflare Workers 日志功能完整教程。教你如何开启 Workers Logs、使用 console.log 结构化日志输出、通过 Dashboard 和 wrangler tail 实时查看日志、利用三个 API 接口程序化查询日志数据。免费额度每天 20 万条，附日志格式规范与最佳实践，帮你从零搭建 Worker 可观测体系。",
+      "tags": [
+        {
+          "id": 47,
+          "name": "Worker"
+        },
+        {
+          "id": 32,
+          "name": "Claude Code"
+        }
+      ],
+      "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
+      "updateTime": "2026-07-02T16:48:48.139246",
+      "viewCount": 0
+    },
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",

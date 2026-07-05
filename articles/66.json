@@ -1,0 +1,45 @@
+{
+  "categoryId": 39,
+  "categoryName": "数据库",
+  "commentCount": 0,
+  "content": "openGauss 是一款开源的关系型数据库管理系统，由华为基于 PostgreSQL 内核开发，深度融合了华为在数据库领域多年的技术积累。它具备**高性能、高可用、高安全、易运维**等特点，支持 x86 和 ARM 架构，广泛应用于金融、政府、电信等企业级核心场景。\n\n> **核心特性：**\n> - **高性能**：支持多核并行、智能索引、LLVM 编译加速等技术，TPC-C 性能优异\n> - **高可用**：支持主备同步/异步复制、故障自动切换、两地三中心部署\n> - **高安全**：全密态计算、RBAC 权限控制、审计日志、透明加密\n> - **兼容性**：兼容 PostgreSQL 语法，迁移成本低\n\n---\n\n## 一、安装：基于 Docker（推荐）\n\n使用 Docker 安装 openGauss 是最快捷的方式，无需手动处理系统依赖和编译配置。\n\n### 官方文档\n\n参考 openGauss 官方容器化部署文档：\n[容器镜像安装 | openGauss文档 | openGauss社区](https://docs.opengauss.org/zh/docs/latest/installation_guide/installing_the_container_image.html)\n\n### Docker Compose 配置\n\n创建 `docker-compose.yml` 文件，内容如下：\n\n```yaml\nservices:  \n  mt-opengauss:  \n    image: opengauss/opengauss-server:latest  \n    container_name: mt-opengauss  \n    privileged: true            # 容器内需要内核参数调整，须提权\n    environment:  \n      GS_PASSWORD: Gauss@123    # 数据库超级用户 gaussdb 的密码（必填）\n      GS_DB: fitarena          # 初始化时自动创建的数据库名\n      TZ: Asia/Shanghai        # 时区设置为中国标准时间\n    ports:  \n      - \"25433:5432\"           # 宿主机 25433 端口映射到容器 5432\n    volumes:  \n      - /volume/MilkTea/opengauss/data:/var/lib/opengauss  # 持久化数据目录\n```\n\n#### 配置说明\n\n| 配置项 | 说明 |\n|--------|------|\n| `image` | 使用 openGauss 官方最新镜像 |\n| `privileged` | openGauss 需要调整内核参数（如共享内存），必须开启提权模式 |\n| `GS_PASSWORD` | 必填环境变量，设置数据库超级用户 `gaussdb` 的密码 |\n| `GS_DB` | 可选，容器启动时自动创建的数据库名称 |\n| `ports` | 容器内部 openGauss 默认端口为 `5432`，映射到宿主机 `25433` |\n| `volumes` | 将数据持久化到宿主机，防止容器删除后数据丢失 |\n\n启动容器：\n\n```bash\ndocker compose up -d\n```\n\n---\n\n## 二、数据库连接方式\n\n### 1. 容器内连接\n\n直接进入容器，使用 `gsql` 命令行工具连接数据库：\n\n```bash\n# 进入容器\ndocker exec -it mt-opengauss bash\n\n# 切换为操作系统超级用户 omm\nsu - omm\n\n# 使用 gsql 连接数据库（默认端口 5432）\ngsql -d postgres -p 5432\n```\n\n连接成功后的输出如下：\n\n![image.png](/data/media/581.png)\n\n> **提示：** `-d postgres` 表示连接到 postgres 数据库（openGauss 默认自带的系统数据库），`-p 5432` 指定容器内部端口。\n\n---\n\n### 2. 宿主机连接（使用 psql）\n\nopenGauss 兼容 PostgreSQL 协议，因此可以直接使用 `psql` 客户端连接。\n\n#### 安装 psql 客户端\n\n```bash\nsudo apt update\nsudo apt install -y postgresql-client\n```\n\n#### 连接命令\n\n```bash\nPGPASSWORD=\"Gauss@123\" psql -h localhost -p 25433 -U gaussdb -d postgres\n```\n\n| 参数 | 说明 |\n|------|------|\n| `PGPASSWORD` | 环境变量方式传入密码（避免交互输入） |\n| `-h localhost` | 宿主机地址 |\n| `-p 25433` | 映射到宿主机的端口 |\n| `-U gaussdb` | openGauss 默认的数据库超级用户名 |\n| `-d postgres` | 要连接的数据库名称 |\n\n连接成功输出如下：\n\n![image.png](/data/media/582.png)\n\n---\n\n### 3. IntelliJ IDEA 连接\n\nIDEA 默认不支持 openGauss，需要手动添加 JDBC 驱动。\n\n#### 3.1 下载 openGauss JDBC 驱动\n\n访问 openGauss 官方下载页面，获取最新的 JDBC 驱动 JAR 包：\n[openGauss软件 | openGauss下载 | openGauss软件包 | openGauss社区官网](https://opengauss.org/zh/download/)\n\n![image.png](/data/media/578.png)\n\n#### 3.2 在 IDEA 中添加驱动\n\n打开 **Database** 工具窗口（View → Tool Windows → Database），点击 **+ → Driver → PostgreSQL**（因为 openGauss 兼容 PG 协议，选择 PG 模板修改更方便）：\n\n![image.png](/data/media/579.png)\n\n在驱动设置页面：\n1. 添加下载好的 openGauss JDBC JAR 包\n2. 将 **Class** 设置为 `org.opengauss.Driver`\n\n![image.png](/data/media/580.png)\n\n#### 3.3 创建数据库连接\n\n添加新数据源，填写连接信息：\n\n- **Host：** `localhost`\n- **Port：** `25433`\n- **Database：** `postgres`\n- **User：** `gaussdb`\n- **Password：** `Gauss@123`\n- **JDBC URL：** `jdbc:opengauss://localhost:25433/postgres`\n\n> ⚠️ **注意：** JDBC URL 路径中必须指定数据库名称，这里使用默认的 `postgres` 数据库。如果不指定会连接失败。\n\n![image.png](/data/media/583.png)\n\n点击 **Test Connection** 验证连接成功后即可使用 IDEA 的 Database 工具浏览和管理数据库。\n\n---\n\n## 三、常用操作示例\n\n连接成功后，可以尝试以下基本操作：\n\n### 查看数据库列表\n\n```sql\n\\l\n```\n\n### 创建数据库和表\n\n```sql\n-- 创建数据库\nCREATE DATABASE mydb;\n\n-- 切换到 mydb\n\\c mydb\n\n-- 创建表\nCREATE TABLE user_info (\n    id SERIAL PRIMARY KEY,\n    name VARCHAR(100) NOT NULL,\n    email VARCHAR(200),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n### 插入和查询数据\n\n```sql\n-- 插入数据\nINSERT INTO user_info (name, email) VALUES ('Alice', 'alice@example.com');\nINSERT INTO user_info (name, email) VALUES ('Bob', 'bob@example.com');\n\n-- 查询数据\nSELECT * FROM user_info;\n```\n\n>注意：IDEA 中数据库操作以连接配置里指定的库为准。即便在图形界面切换了数据库，SQL 仍会在配置库中执行，界面仅做展示更新。\n---\n\n## 四、总结\n\n本文介绍了使用 Docker 快速部署 openGauss 的完整流程，涵盖了以下内容：\n\n| 内容 | 说明 |\n|------|------|\n| ✅ Docker Compose 部署 | 一键启动 openGauss 容器 |\n| ✅ 容器内连接 | 使用 `gsql` 命令行操作 |\n| ✅ 宿主机连接 | 通过 `psql` 客户端远程连接 |\n| ✅ IDEA 集成 | 手动配置 JDBC 驱动可视化操作 |\n| ✅ 基础 SQL 操作 | 建库建表、数据增删查改 |\n\nopenGauss 作为一款企业级开源数据库，在国产数据库生态中占据重要地位。通过 Docker 可以快速上手体验，后续可进一步探索主备部署、性能调优、全密态计算等高级特性。",
+  "coverImage": "/data/media/584.png",
+  "createdAt": "2026-07-05T15:18:02.690984",
+  "id": 66,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 67,
+    "title": "FinalShell 自定义背景图片教程"
+  },
+  "prev": {
+    "id": 65,
+    "title": "Kubeshere学习笔记：部署mysql"
+  },
+  "summary": "从零开始上手 openGauss 企业级开源数据库！本文详细介绍 Docker Compose 部署、gsql/psql 连接、IDEA 可视化配置及常用 SQL 操作，带你快速搭建国产数据库开发环境。",
+  "tags": [
+    {
+      "id": 61,
+      "name": "WSL"
+    },
+    {
+      "id": 62,
+      "name": "Docker"
+    },
+    {
+      "id": 63,
+      "name": "Linux"
+    },
+    {
+      "id": 67,
+      "name": "OpenGauss"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
+  "updateTime": "2026-07-05T17:24:04.305224",
+  "viewCount": 0
+}

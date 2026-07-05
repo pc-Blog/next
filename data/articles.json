@@ -1,6 +1,189 @@
 {
-  "total": 28,
+  "total": 34,
   "rows": [
+    {
+      "categoryId": 45,
+      "categoryName": "工具教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/586.png",
+      "createdAt": "2026-07-05T17:24:56.51034",
+      "id": 67,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "无需付费即可替换 FinalShell 背景图片——通过修改 jar 包资源文件，绕过付费限制的完整操作步骤与踩坑记录。",
+      "tags": [],
+      "title": "FinalShell 自定义背景图片教程",
+      "updateTime": "2026-07-05T17:26:28.731088",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/584.png",
+      "createdAt": "2026-07-05T15:18:02.690984",
+      "id": 66,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始上手 openGauss 企业级开源数据库！本文详细介绍 Docker Compose 部署、gsql/psql 连接、IDEA 可视化配置及常用 SQL 操作，带你快速搭建国产数据库开发环境。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 67,
+          "name": "OpenGauss"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
+      "updateTime": "2026-07-05T17:24:04.305224",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/577.jpeg",
+      "createdAt": "2026-07-05T09:01:45.317128",
+      "id": 65,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始在 KubeSphere 上部署 MySQL，涵盖配置字典、持久卷声明、工作负载、LoadBalancer 外部访问等完整流程。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        },
+        {
+          "id": 66,
+          "name": "Mysql"
+        }
+      ],
+      "title": "Kubeshere学习笔记：部署mysql",
+      "updateTime": "2026-07-05T09:02:19.970803",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/557.png",
+      "createdAt": "2026-07-04T11:36:05.395082",
+      "id": 64,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "KubeSphere 完整入门教程，从 Helm 安装开始到 DevOps 插件配置。涵盖 K8s 环境检查、镜像超时排错（含 containerd 加速方案）、LoadBalancer 端口冲突解决、社区免费激活全流程，助你快速搭建 K8s 可视化管理平台。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        }
+      ],
+      "title": "KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台",
+      "updateTime": "2026-07-05T08:25:58.725541",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/549.jpg",
+      "createdAt": "2026-07-04T09:54:11.839918",
+      "id": 63,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "Windows 下 Docker Desktop 启用 K8s 完整教程。从 K8s 基础概念到 kubectl 配置，再到 Nginx 部署访问，附 WSL 镜像网络配置与 kubeconfig 同步方案，适合初学者入门本地 Kubernetes 集群搭建与测试。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        }
+      ],
+      "title": "Docker Desktop 内置 K8s 从入门到实战：部署你的第一个 Nginx 集群",
+      "updateTime": "2026-07-05T09:00:19.856098",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 41,
+      "categoryName": "技术教程",
+      "commentCount": 0,
+      "coverImage": "/data/media/544.png",
+      "createdAt": "2026-07-04T08:28:28.698165",
+      "id": 62,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始，在 Windows 上搭建 WSL2 + Ubuntu + Docker Desktop 完整开发环境。涵盖 WSL 激活、Ubuntu 安装、Docker 配置、镜像加速、数据迁移、SSH 连接及开发工作流最佳实践，附性能对比与选型建议。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        }
+      ],
+      "title": "Windows 下 WSL2 + Docker Desktop + Ubuntu 开发环境搭建指南",
+      "updateTime": "2026-07-04T08:29:34.920937",
+      "viewCount": 0
+    },
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",

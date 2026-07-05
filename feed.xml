@@ -8,6 +8,83 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[FinalShell 自定义背景图片教程]]></title>
+      <link>https://www.lxpavilion.top/article/67/</link>
+      <guid>https://www.lxpavilion.top/article/67/</guid>
+      <pubDate>Sun, 05 Jul 2026 17:24:56 GMT</pubDate>
+      <description><![CDATA[无需付费即可替换 FinalShell 背景图片——通过修改 jar 包资源文件，绕过付费限制的完整操作步骤与踩坑记录。]]></description>
+      <category>工具教程</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[从零上手 openGauss：Docker 部署 + 全场景连接教程]]></title>
+      <link>https://www.lxpavilion.top/article/66/</link>
+      <guid>https://www.lxpavilion.top/article/66/</guid>
+      <pubDate>Sun, 05 Jul 2026 15:18:02 GMT</pubDate>
+      <description><![CDATA[从零开始上手 openGauss 企业级开源数据库！本文详细介绍 Docker Compose 部署、gsql/psql 连接、IDEA 可视化配置及常用 SQL 操作，带你快速搭建国产数据库开发环境。]]></description>
+      <category>数据库</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>OpenGauss</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Kubeshere学习笔记：部署mysql]]></title>
+      <link>https://www.lxpavilion.top/article/65/</link>
+      <guid>https://www.lxpavilion.top/article/65/</guid>
+      <pubDate>Sun, 05 Jul 2026 09:01:45 GMT</pubDate>
+      <description><![CDATA[从零开始在 KubeSphere 上部署 MySQL，涵盖配置字典、持久卷声明、工作负载、LoadBalancer 外部访问等完整流程。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Kubernetes</tag>
+      <tag>KubeSphere</tag>
+      <tag>Mysql</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台]]></title>
+      <link>https://www.lxpavilion.top/article/64/</link>
+      <guid>https://www.lxpavilion.top/article/64/</guid>
+      <pubDate>Sat, 04 Jul 2026 11:36:05 GMT</pubDate>
+      <description><![CDATA[KubeSphere 完整入门教程，从 Helm 安装开始到 DevOps 插件配置。涵盖 K8s 环境检查、镜像超时排错（含 containerd 加速方案）、LoadBalancer 端口冲突解决、社区免费激活全流程，助你快速搭建 K8s 可视化管理平台。]]></description>
+      <category>技术教程</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Kubernetes</tag>
+      <tag>KubeSphere</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Docker Desktop 内置 K8s 从入门到实战：部署你的第一个 Nginx 集群]]></title>
+      <link>https://www.lxpavilion.top/article/63/</link>
+      <guid>https://www.lxpavilion.top/article/63/</guid>
+      <pubDate>Sat, 04 Jul 2026 09:54:11 GMT</pubDate>
+      <description><![CDATA[Windows 下 Docker Desktop 启用 K8s 完整教程。从 K8s 基础概念到 kubectl 配置，再到 Nginx 部署访问，附 WSL 镜像网络配置与 kubeconfig 同步方案，适合初学者入门本地 Kubernetes 集群搭建与测试。]]></description>
+      <category>技术教程</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Kubernetes</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Windows 下 WSL2 + Docker Desktop + Ubuntu 开发环境搭建指南]]></title>
+      <link>https://www.lxpavilion.top/article/62/</link>
+      <guid>https://www.lxpavilion.top/article/62/</guid>
+      <pubDate>Sat, 04 Jul 2026 08:28:28 GMT</pubDate>
+      <description><![CDATA[从零开始，在 Windows 上搭建 WSL2 + Ubuntu + Docker Desktop 完整开发环境。涵盖 WSL 激活、Ubuntu 安装、Docker 配置、镜像加速、数据迁移、SSH 连接及开发工作流最佳实践，附性能对比与选型建议。]]></description>
+      <category>技术教程</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道]]></title>
       <link>https://www.lxpavilion.top/article/61/</link>
       <guid>https://www.lxpavilion.top/article/61/</guid>
@@ -179,85 +256,6 @@
       <tag>D1</tag>
       <tag>邮件</tag>
       <tag>Cloudflare</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[使用 Giscus 为博客搭建评论系统：从入门到放弃]]></title>
-      <link>https://www.lxpavilion.top/article/47/</link>
-      <guid>https://www.lxpavilion.top/article/47/</guid>
-      <pubDate>Sat, 27 Jun 2026 22:54:37 GMT</pubDate>
-      <description><![CDATA[不想自己搭后端，又想让评论数据握在自己手里？Giscus 看似完美：免费、无服务器、数据存 GitHub Discussions。但我用了一个月后，还是决定拆掉它。本文完整记录了从“一行 script 接入”到“因无法忍受而自建”的全过程——配置细节、样式定制、踩坑点、以及最终决策逻辑。如果你正在纠结评论方案，这篇能帮你省下至少一周的试错时间。]]></description>
-      <category>后端</category>
-      <tag>OAuth</tag>
-      <tag>评论系统</tag>
-      <tag>Guscus</tag>
-      <tag>Github</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[为我的博客自建评论系统，摆脱 Giscus 局限]]></title>
-      <link>https://www.lxpavilion.top/article/46/</link>
-      <guid>https://www.lxpavilion.top/article/46/</guid>
-      <pubDate>Sat, 27 Jun 2026 21:48:15 GMT</pubDate>
-      <description><![CDATA[告别 Giscus 的样式局限与登录孤岛，用 Cloudflare Workers + GitHub App 打通 GitHub Discussions API，实现统一登录、自由样式、多账号体系兼容的评论区]]></description>
-      <category>后端</category>
-      <tag>Worker</tag>
-      <tag>GraphQL</tag>
-      <tag>评论系统</tag>
-      <tag>Cloudflare</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[为博客搭建 GitHub 登录系统，打通 OAuth 完整流程]]></title>
-      <link>https://www.lxpavilion.top/article/45/</link>
-      <guid>https://www.lxpavilion.top/article/45/</guid>
-      <pubDate>Sat, 27 Jun 2026 21:45:35 GMT</pubDate>
-      <description><![CDATA[为博客搭建统一的登录系统，用 GitHub OAuth 实现 GitHub 一键登录和账号密码登录，衔接自建评论系统]]></description>
-      <category>后端</category>
-      <tag>OAuth</tag>
-      <tag>Github</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[上手 Cloudflare D1：无服务器数据库入门与博客实战]]></title>
-      <link>https://www.lxpavilion.top/article/44/</link>
-      <guid>https://www.lxpavilion.top/article/44/</guid>
-      <pubDate>Sat, 27 Jun 2026 21:43:08 GMT</pubDate>
-      <description><![CDATA[博客想加登录、评论、浏览量统计，却一直卡在“没有数据库”？Cloudflare D1 提供了免费的无服务器 SQLite 数据库，边缘节点毫秒级响应，免费额度足够个人博客挥霍。本文从建库、建表到登录接口实战，手把手带你搞定博客的后端基础设施。]]></description>
-      <category>数据库</category>
-      <tag>D1</tag>
-      <tag>Worker</tag>
-      <tag>Cloudflare</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新]]></title>
-      <link>https://www.lxpavilion.top/article/43/</link>
-      <guid>https://www.lxpavilion.top/article/43/</guid>
-      <pubDate>Sat, 27 Jun 2026 21:34:21 GMT</pubDate>
-      <description><![CDATA[传统爬虫发现新内容需要数天甚至数周。IndexNow 协议让你在发布、修改或删除文章的瞬间主动通知搜索引擎，收录耗时从几天压缩到几分钟。本文从需求场景出发，逐一拆解 Cloudflare Crawler Hints 一键开启、Bing IndexNow API 手动提交、Next.js 自动集成三种落地方式，并对比各自的优缺点与适用场景。]]></description>
-      <category>网站部署</category>
-      <tag>Bing</tag>
-      <tag>SEO</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Spring AI RAG 生产级实战：从 PDF 解析到精准回答的完整流水线指南]]></title>
-      <link>https://www.lxpavilion.top/article/42/</link>
-      <guid>https://www.lxpavilion.top/article/42/</guid>
-      <pubDate>Tue, 16 Jun 2026 20:30:12 GMT</pubDate>
-      <description><![CDATA[本文基于 Spring AI 1.1.2 + Redis + DashScope 构建的生产级 RAG 项目，完整拆解了从 PDF 文档解析、父子分层分段、向量化存储，到查询扩展、多库并发检索、上下文增强、LLM 流式生成的全链路实现。涵盖 MinerU 云端文档解析、HNSW 向量索引配置、父子分层分段策略、LLM 查询扩展、多存储并发检索、文档 ID 溯源等关键技术的实战经验，以及 5 个常见踩坑与解决方案。适合正在将 RAG 从 Demo 推向生产的技术团队参考。]]></description>
-      <category>Ai编程</category>
-      <tag>RAG</tag>
-      <tag>Spring AI</tag>
-      <tag>检索增强生成</tag>
-      <tag>Redis</tag>
       <author>ppc</author>
     </item>
   </channel>

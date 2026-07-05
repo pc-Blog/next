@@ -1,0 +1,323 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/0ak3whllmln1c.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T2be8,## 一、KubeSphere 是什么？
+**KubeSphere** 是一个面向云原生应用的开源容器混合云平台，支持 Kubernetes 多集群管理。它在原生 K8s 的基础上提供了可视化的 Web 控制台，让开发者可以通过图形界面管理集群资源。
+
+### 核心功能
+
+- **Web 控制台**：可视化查看和管理 Deployment、Pod、Service、ConfigMap 等 K8s 资源
+- **多集群管理**：一个控制台同时管理多个 K8s 集群
+- **可观测性**：内置监控、日志、告警功能
+- **DevOps**：内置 CI/CD 流水线引擎
+- **应用商店**：一键部署中间件（MySQL、Redis、Nginx 等）
+- **多租户管理**：项目、角色、权限管控
+
+官网：[KubeSphere 官网](https://www.kubesphere.io/zh/)
+
+---
+
+## 二、为什么要使用 KubeSphere 而不直接操作 K8s？
+
+| 场景 | 直接操作 K8s | 使用 KubeSphere |
+|------|-------------|-----------------|
+| 查看 Pod 状态 | `kubectl get pods`，想看日志再加 `kubectl logs` | Web 页面点几下就行 |
+| 部署应用 | 编写 Deployment YAML → `kubectl apply` | 应用商店一键部署 |
+| 监控资源 | 需额外部署 Prometheus + Grafana | 内置监控面板 |
+| 多团队协作 | 需手动配置 RBAC | 内置多租户管理 |
+| 发布流水线 | 需单独搭建 Jenkins 等 | 内置 DevOps 引擎 |
+
+**总结**：K8s 本身是命令行工具，KubeSphere 在其之上提供了一个图形化管理界面。如果你习惯命令行，只用 K8s 完全够用；如果你想要可视化操作和开箱即用的附加功能（监控、日志、DevOps），KubeSphere 可以大大降低管理成本。
+
+---
+
+## 三、安装环境确认
+
+本文的安装环境如下：
+
+```
+宿主机：Windows 11 + WSL 2 Ubuntu 22.04
+Docker Desktop：已启用 K8s 集群
+K8s 节点：1 control-plane（单节点）
+```
+
+> 安装文档参考：[KubeSphere 官方安装指南](https://docs.kubesphere.com.cn/v4.2.0/03-installation-and-upgrade/02-install-kubesphere/01-online-install-kubernetes-and-kubesphere/#_%E5%AE%89%E8%A3%85_kubesphere)
+
+---
+
+## 四、安装 KubeSphere
+
+### 4.1 确认基础环境
+
+打开 FinalShell（或 WSL Ubuntu 终端），先检查环境是否满足要求。
+
+**检查 K8s 集群状态：**
+
+```bash
+kubectl get nodes
+kubectl get pods -n kube-system
+```
+
+节点应为 **Ready** 状态，系统组件全部 **Running**。
+
+**检查 Helm 是否已安装：**
+
+```bash
+helm version
+```
+
+**Helm 是什么？**
+
+Helm 是 K8s 的包管理器，类似 Ubuntu 的 `apt` 或 CentOS 的 `yum`。KubeSphere 通过 Helm Chart 进行安装和管理。
+
+如果未安装 Helm，执行以下命令安装：
+
+```bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version
+```
+
+### 4.2 执行安装命令
+
+确认环境正常后，运行以下命令安装 KubeSphere：
+
+```bash
+chart=oci://hub.kubesphere.com.cn/kse/ks-core
+version=1.2.3-20251118
+helm upgrade --install -n kubesphere-system --create-namespace ks-core $chart \
+  --debug --wait --version $version --reset-values \
+  --set extension.imageRegistry=swr.cn-north-9.myhuaweicloud.com/ks
+```
+
+**命令参数说明：**
+
+| 参数 | 作用 |
+|------|------|
+| `chart=oci://hub.kubesphere.com.cn/kse/ks-core` | 指定 KubeSphere Helm Chart 的 OCI 仓库地址 |
+| `version=1.2.3-20251118` | 指定安装版本 |
+| `--namespace kubesphere-system --create-namespace` | 在 `kubesphere-system` 命名空间中安装 |
+| `--debug --wait` | 输出调试信息，等待安装完成 |
+| `--set extension.imageRegistry=swr.cn-north-9.myhuaweicloud.com/ks` | 指定镜像仓库为华为云（国内加速） |
+
+### 4.3 安装过程排错：镜像拉取超时
+
+安装过程中如果卡住或超时，最常见的原因是**镜像拉取失败**（国内网络问题导致）。
+
+排查方法：
+
+```bash
+# 查看 Pod 状态，找到异常的 Pod
+kubectl get pods -n kubesphere-system
+
+# 查看具体原因
+kubectl describe pod -n kubesphere-system <异常的Pod名称>
+```
+
+我安装时就遇到了 `extensions-museum:v11.1.2` 这个镜像拉取超时。解决方法是**手动用 Docker 拉取**（Docker 配置了镜像加速器，拉取速度更快）：
+
+```bash
+# 手动拉取（注意版本和仓库路径与原始一致）
+docker pull registry.cn-beijing.aliyuncs.com/kse/extensions-museum:v11.1.2
+
+# 拉取完成后重新检查 Pod，KubeSphere 会自动重试
+kubectl get pods -n kubesphere-system
+```
+
+> **原理**：Docker Desktop 启用了 containerd 镜像存储后（Settings → General → Use containerd），Docker 拉取的镜像会缓存到 containerd 中，K8s 可以直接复用，不需要重新拉取。
+
+### 4.4 确认安装完成
+
+当终端输出以下信息时，表示 `ks-core` 安装成功：
+
+```
+NOTES:
+Thank you for choosing KubeSphere Helm Chart.
+
+1. Wait for Deployment Completion
+   kubectl get pods -n kubesphere-system
+
+2. Access the KubeSphere Console
+   http://192.168.6.10:30880
+
+3. Login to KubeSphere Console
+   Account: admin    Password: P@88w0rd
+```
+
+查看所有组件的运行状态：
+
+```bash
+kubectl -n kubesphere-system get pods
+```
+
+所有 Pod 应为 **Running** 或 **Completed** 状态：
+
+```
+NAME                                         READY   STATUS      RESTARTS   AGE
+extensions-museum-56c6b698dc-hmwrj           1/1     Running     0          99s
+helm-install-ks-console-embed-kpr7s4-65swb   0/1     Completed   0          5m36s
+ks-apiserver-84fc8cd9f-7ktgl                 1/1     Running     0          99s
+ks-console-64bb4fd85c-4cbch                  1/1     Running     0          5m36s
+ks-console-embed-6b44dbf4db-tj9k7            1/1     Running     0          112s
+ks-controller-manager-565bbfcbcd-6t8tf       1/1     Running     0          99s
+ks-posthog-8bb9b99-c4sd7                     1/1     Running     0          13m
+```
+
+---
+
+## 五、访问 KubeSphere 控制台
+
+### 5.1 查看端口信息
+
+```bash
+kubectl get svc -n kubesphere-system ks-console
+```
+
+输出示例：
+
+```
+NAME         TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+ks-console   NodePort   10.96.127.214   <none>        80:30880/TCP   20m
+```
+
+可以看到 Service 类型为 `NodePort`，将 K8s 内部端口 **80** 映射到了宿主机的 **30880**。
+
+### 5.2 为什么无法直接访问 30880？
+
+在 **Docker Desktop 的 kind 集群**中，NodePort 绑定在 K8s 节点（Docker 容器）内部网络，宿主机的 `localhost:30880` 访问不到。这就是为什么浏览器打开无响应。
+
+### 5.3 LoadBalancer 是什么？
+
+**LoadBalancer** 是 K8s Service 的四种类型之一：
+
+| 类型 | 作用 | 宿主机能否访问 |
+|------|------|--------------|
+| ClusterIP（默认） | 集群内部访问 | ❌ |
+| **NodePort** | 每台节点上开一个端口 | ⚠️ kind 集群中受限 |
+| **LoadBalancer** | 云平台分配公网 IP，本地映射到 localhost | ✅ |
+| ExternalName | DNS 别名 | ❌ |
+
+在 Docker Desktop 的 kind 集群中，将 Service 改为 LoadBalancer 类型后，云控制器会自动创建代理容器，将宿主机端口映射到集群内部。
+
+### 5.4 解决方式：改为 LoadBalancer
+
+一般情况下，将 Service 切换为 LoadBalancer 后云控制器会自动创建代理，`localhost` 直接访问即可。
+
+```bash
+# 将 NodePort 改为 LoadBalancer
+kubectl patch svc -n kubesphere-system ks-console -p '{"spec":{"type":"LoadBalancer"}}'
+```
+
+查看是否分配了 External-IP：
+
+```bash
+kubectl get svc -n kubesphere-system ks-console
+```
+
+正常情况下 `EXTERNAL-IP` 会显示一个 IP 地址（如 `172.18.0.5`），此时浏览器打开 `http://localhost:30880` 即可访问。
+
+> ⚠️ **特殊情况**：如果你的宿主机 80 端口已被占用，LoadBalancer 默认绑定的 80 端口会冲突，导致 `EXTERNAL-IP` 一直 `<pending>`。此时需要将端口改为其他未被占用的端口：
+>
+> 修改后云控制器会重新创建代理，即可正常访问。
+
+```bash
+kubectl patch svc -n kubesphere-system ks-console --type='json' \
+-p='[{"op":"replace","path":"/spec/ports/0/port","value":30880}]'
+```
+### 5.5 登录系统
+
+浏览器打开 [http://localhost:30880/login](http://localhost:30880/login)，看到登录页面：
+
+![KubeSphere 登录页](/data/media/550.png)
+
+默认账号密码：
+
+| 账号 | 密码 |
+|------|------|
+| `admin` | `P@88w0rd` |
+
+> ⚠️ 首次登录后强烈建议修改默认密码。
+
+---
+
+## 六、激活 KubeSphere
+
+### 6.1 为什么要激活？
+
+KubeSphere 社区版免费使用，但需要通过激活来启用**扩展中心**，否则无法安装插件（如 DevOps、应用商店等）。激活后可以享受完整的插件生态。
+
+### 6.2 激活步骤
+
+**第一步**：登录 KubeSphere 控制台后，顶部会提示激活信息，点击进入激活页面。获取**集群 ID**。
+
+**第二步**：访问 [KubeSphere 社区版 License 申请页面](https://kubesphere.com.cn/apply-license/)，输入以下信息：
+
+- 集群 ID（从 KubeSphere 页面复制）
+- 邮箱地址
+- 其他必要信息
+
+提交后，激活码会发送到你的邮箱。
+
+![License 申请](/data/media/551.png)
+
+**第三步**：将收到的激活码填入 KubeSphere 激活页面，即可完成激活。
+
+---
+
+## 七、插件管理：以 DevOps 为例
+
+激活后，可以通过扩展中心安装各种官方插件来扩展功能。
+
+### 7.1 DevOps 是什么？
+
+**DevOps（开发运维一体化）** 是将开发（Development）和运维（Operations）整合的一套实践。在 KubeSphere 中，DevOps 插件提供了内置的 CI/CD 流水线功能，可以自动完成代码构建、镜像打包、部署发布等流程。
+
+### 7.2 安装 DevOps 插件
+
+**第一步**：在 KubeSphere 控制台顶部菜单找到 **扩展中心**。
+
+![扩展中心](/data/media/552.png)
+
+**第二步**：在扩展中心搜索 "DevOps"，点击 **安装**。
+
+![安装插件](/data/media/554.png)
+
+**第三步**：选择要安装到的集群，配置参数后确认安装。
+
+![配置到集群](/data/media/555.png)
+
+![安装确认](/data/media/556.png)
+
+**第四步**：等待安装完成。可以在扩展中心查看安装进度。安装完成后，左侧导航栏会出现 DevOps 入口，即可创建和管理流水线。
+
+### 7.3 其他插件
+
+DevOps 插件的安装流程适用于其他所有插件，如：
+
+- **应用商店**：一键部署 MySQL、Redis、Nginx 等中间件
+- **告警与通知**：配置告警规则和通知渠道
+- **日志系统**：集中管理集群和应用日志
+- **服务网格**：Istio 集成，管理微服务流量
+
+---
+
+## 八、总结
+
+本文从安装到使用，完整覆盖了 KubeSphere 的入门流程：
+
+| 阶段 | 操作 | 关键点 |
+|------|------|--------|
+| 安装 | Helm 部署 ks-core | 指定国内镜像仓库加速 |
+| 排错 | 镜像拉取超时 | Docker 手动拉取后 K8s 自动重试 |
+| 访问 | NodePort → LoadBalancer | 端口冲突时手动指定端口 |
+| 激活 | 申请免费 License | 获取集群 ID，填入激活码 |
+| 插件 | 扩展中心安装 DevOps | 可视化操作，一键部署 |
+
+KubeSphere 将 K8s 的复杂操作封装成了直观的图形界面，让开发者可以更专注于业务本身。基于这个环境，你可以进一步探索应用商店、多集群管理、监控告警等更多功能。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台\",\"item\":\"https://www.lxpavilion.top/article/64\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"m_fY_BBwt9yM-gjJVooQS"}
+3:{"id":"64"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0ak3whllmln1c.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

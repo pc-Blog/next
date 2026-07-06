@@ -8,6 +8,33 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Jenkins学习笔记：Docker 部署与第一个 Pipeline 任务]]></title>
+      <link>https://www.lxpavilion.top/article/69/</link>
+      <guid>https://www.lxpavilion.top/article/69/</guid>
+      <pubDate>Mon, 06 Jul 2026 14:48:20 GMT</pubDate>
+      <description><![CDATA[从零开始，用 Docker 部署 Jenkins，完成初始化配置，并创建你的第一个 Pipeline 流水线任务，掌握 CI/CD 自动化构建基础。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Jenkins</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[KubeSphere学习笔记：部署nginx]]></title>
+      <link>https://www.lxpavilion.top/article/68/</link>
+      <guid>https://www.lxpavilion.top/article/68/</guid>
+      <pubDate>Mon, 06 Jul 2026 13:58:09 GMT</pubDate>
+      <description><![CDATA[通过 KubeSphere 可视化平台在本地 Docker Desktop K8s 集群上完整部署 Nginx 网站的实战记录，涵盖 ConfigMap 配置管理、PVC 持久化存储、LoadBalancer 服务暴露、kubectl cp 文件上传及踩坑修复]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Kubernetes</tag>
+      <tag>KubeSphere</tag>
+      <tag>nginx</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[FinalShell 自定义背景图片教程]]></title>
       <link>https://www.lxpavilion.top/article/67/</link>
       <guid>https://www.lxpavilion.top/article/67/</guid>
@@ -32,7 +59,7 @@
       <author>ppc</author>
     </item>
     <item>
-      <title><![CDATA[Kubeshere学习笔记：部署mysql]]></title>
+      <title><![CDATA[KubeSphere学习笔记：部署mysql]]></title>
       <link>https://www.lxpavilion.top/article/65/</link>
       <guid>https://www.lxpavilion.top/article/65/</guid>
       <pubDate>Sun, 05 Jul 2026 09:01:45 GMT</pubDate>
@@ -227,35 +254,6 @@
       <tag>Newsletter</tag>
       <tag>Cloudflare</tag>
       <tag>域名</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[选择cloudflare，给我的博客带来了什么]]></title>
-      <link>https://www.lxpavilion.top/article/49/</link>
-      <guid>https://www.lxpavilion.top/article/49/</guid>
-      <pubDate>Sun, 28 Jun 2026 21:20:54 GMT</pubDate>
-      <description><![CDATA[我的个人博客「栏轩阁」完全基于 Cloudflare 生态搭建后端：Workers 做运行时、D1 做数据库、Email Routing 做邮件系统、Workers AI 做看板娘对话。一篇覆盖架构设计、服务清单、真实体验与成本分析的全景式总结。]]></description>
-      <category>Cloudflare 教程</category>
-      <tag>D1</tag>
-      <tag>IndexNow</tag>
-      <tag>Worker</tag>
-      <tag>评论系统</tag>
-      <tag>邮件</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站]]></title>
-      <link>https://www.lxpavilion.top/article/48/</link>
-      <guid>https://www.lxpavilion.top/article/48/</guid>
-      <pubDate>Sun, 28 Jun 2026 14:44:58 GMT</pubDate>
-      <description><![CDATA[想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。]]></description>
-      <category>Cloudflare 教程</category>
-      <tag>D1</tag>
-      <tag>邮件</tag>
-      <tag>Cloudflare</tag>
       <author>ppc</author>
     </item>
   </channel>

@@ -13,7 +13,7 @@
 :HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"P":null,"c":["","article","63",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","63","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0vnme7b_klyxs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06jjoo_8xgzyj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/09k2slgobs143.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"1My3ZGfUX_C0IDDsNg25G"}
+0:{"P":null,"c":["","article","63",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","63","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0vnme7b_klyxs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06jjoo_8xgzyj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/09k2slgobs143.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"9RTGlnk1FYHLSQSn7N5sd"}
 17:I[6521,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"default"]
 18:I[8123,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"default"]
 19:I[18233,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js"],"default"]
@@ -43,7 +43,7 @@ f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"clas
 20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
 2b:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/0ak3whllmln1c.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-2d:T2cdf,## 一、什么是 K8s？
+2d:T427b,## 一、什么是 K8s？
 
 **Kubernetes（简称 K8s）** 是一个开源的容器编排平台，最初由 Google 设计并捐赠给 Cloud Native Computing Foundation（CNCF）管理。它用于自动化容器化应用的部署、扩缩容和管理。
 
@@ -82,10 +82,9 @@ Docker 和 K8s 解决的是不同层面问题，两者互补：
 宿主机：Windows 11
 WSL 2：Ubuntu 22.04
 Docker Desktop：已安装，启用 WSL 2 后端
-FinalShell：SSH 连接工具
 ```
 
-> ⚠️ 如果你用的是真实的 Linux 系统或传统虚拟机（如 VMware、VirtualBox），操作步骤会有所不同。本文基于 **WSL + Docker Desktop** 的组合，K8s 集群运行在 Windows 宿主机上，而 `kubectl` 命令在 WSL Ubuntu 中执行，因此需要额外配置网络互通。
+> ⚠️ 如果你用的是真实的 Linux 系统或传统虚拟机（如 VMware、VirtualBox），操作步骤会有所不同。本文基于 **WSL + Docker Desktop** 的组合。
 
 ---
 
@@ -112,24 +111,20 @@ docker version
    - **Nodes**：1（单节点已涵盖运行应用所需的所有组件）
 5. 点击 **Create**，等待 1~2 分钟创建完成
 
-> 也可以选择 `kind` 预配器，支持多节点集群（1 control-plane + N worker），资源消耗更大，适合学习 Pod 调度原理，初学阶段用 kubeadm 即可。
-
 两种模式的对比如下：
 
 | 特性 | kubeadm 模式 | kind 模式 |
 |------|-------------|----------|
 | 节点名 | `docker-desktop` | `desktop-control-plane` |
 | API Server 地址 | `kubernetes.docker.internal:6443`（固定） | `127.0.0.1:XXXXX`（随机端口，重启会变） |
-| Docker Desktop 重启后数据 | 保留 ✅ | 丢失 ❌ |
-| LoadBalancer 端口映射 | ❌ 只映射 80 端口 | ✅ 所有端口都自动映射 |
+| Docker Desktop 普通重启（Restart）后数据 | 保留 ✅ | 保留 ✅ |
+| K8s 界面点 Stop 后数据 | 保留 ✅ | **丢失 ❌**（有明确提示） |
 | 最大节点数 | 单节点 | 支持多节点 |
-| 适用场景 | 日常开发、数据持久化 | 多服务 LoadBalancer、学习调度原理 |
+| 适用场景 | 日常开发、数据持久化 | 多节点调度、学习 Pod 调度原理 |
 
 > ⚠️ **重要提醒**：两种模式各有优劣，根据需求选择：
-> - **`kubeadm` 模式**：重启后数据保留，API 地址固定。但 LoadBalancer **只映射 80 端口**，多个服务需要使用 `port-forward` 或 Ingress 等方式访问
-> - **`kind` 模式**：重启后数据会丢失，端口会变化。但 LoadBalancer **所有端口都能映射**，多服务部署更灵活，配合 `cloud-provider-kind` 自动创建代理容器
-> 
-> 如果你主要用 `port-forward` 访问服务，选 kubeadm 更省心；如果你要用 LoadBalancer 暴露多个服务端口，kind 更合适。
+> - **`kubeadm` 模式**：重启或 Stop 后数据均保留，API 地址固定。WSL 中可通过 `kubernetes.docker.internal:6443` 固定地址访问，**推荐日常开发使用**
+> - **`kind` 模式**：**区分两种操作**——点击 Docker Desktop 的 Restart 按钮不会释放资源；但在 K8s 界面点击 **Stop** 会清除所有运行中的资源（Docker Desktop 会提示 "Stopping the Kubernetes cluster removes all running resources."）。此外，API Server 端口每次创建都是随机的，导致 **WSL 子系统中的 kubectl 无法自动感知新地址**。支持多节点（1 control-plane + N worker），适合学习 Pod 调度原理
 
 ![Docker Desktop Kubernetes 视图](/data/media/545.png)
 
@@ -177,33 +172,77 @@ docker-desktop   Ready    control-plane   10m     v1.34.1
 
 **kubectl** 是 K8s 的命令行客户端工具，通过调用 K8s API Server 来管理集群资源（节点、Pod、Service 等）。所有对集群的操作几乎都可以通过 `kubectl` 完成。
 
-### 6.2 环境问题：WSL 无法直连 K8s API
+### 6.2 问题本质：kubeconfig 与环境隔离
 
-由于 K8s 集群运行在 **Windows 宿主机** 的 Docker Desktop 中，而 `kubectl` 在 **WSL Ubuntu 子系统** 中执行，两个环境网络隔离：
-
-```
-WSL Ubuntu 中的 kubectl → 127.0.0.1:6443 → WSL 自己的 loopback ❌
-Windows PowerShell 中的 kubectl → 127.0.0.1:6443 → Windows 的 loopback ✅
-```
-
-直接运行会报错：
+kubectl 通过读取 **kubeconfig 配置文件**（默认位置 `~/.kube/config`）来连接集群。Docker Desktop 启用 K8s 后，会在 Windows 侧**自动生成**这个配置：
 
 ```
-The connection to the server kubernetes.docker.internal:6443 was refused
+Windows 路径：C:\Users\<用户名>\.kube\config ✅ 自动生成，开箱即用
+WSL 路径：/root/.kube/config        ❌ 不存在，需手动处理
 ```
 
-解决需要 **两步**：打通网络 + 同步配置。
+所以关键点就一个：**kubectl 在哪运行，就得让对应的 .kube/config 里有正确的集群信息。**
 
-### 6.3 第一步：打通网络（永久方案）
+### 6.3 推荐方案：在 Windows 中使用 kubectl（零配置 ⭐）
 
-编辑 Windows 上的 `.wslconfig` 文件（路径：`C:\Users\<你的用户名>\.wslconfig`），写入：
+Docker Desktop 启动 K8s 后，**Windows 上的 kubectl 已经可以直接使用**，完全不需要任何配置。
+
+**第一步：打开 PowerShell 或 CMD**
+
+Windows 自带的 PowerShell 或命令提示符即可，无需管理员权限。
+
+**第二步：运行 kubectl 命令验证**
+
+```powershell
+kubectl get nodes
+```
+
+![image.png](/data/media/587.png)
+
+如果提示 `kubectl` 不是系统命令，说明还没安装 kubectl。有两种安装方式：
+
+**方式 A：通过 Docker Desktop 自带版本**
+
+```powershell
+# Docker Desktop 自带 kubectl，在 Docker 资源目录下
+& "C:\Program Files\Docker\Docker\resources\kubectl.exe" get nodes
+```
+
+**方式 B：单独安装 kubectl（推荐）**
+
+从 Kubernetes 官方下载：
+
+```powershell
+# 下载最新稳定版 kubectl
+curl.exe -LO "https://dl.k8s.io/release/v1.35.0/bin/windows/amd64/kubectl.exe"
+```
+
+将 `kubectl.exe` 所在目录添加到系统 PATH，或直接放到 `C:\Windows\System32\` 目录下。
+
+验证安装：
+
+```powershell
+kubectl version --client
+```
+
+> 💡 **为什么 Windows 上能直接用？**
+>
+> Docker Desktop 在启动 K8s 集群后，会自动将连接的 kubeconfig 写入 `C:\Users\<用户名>\.kube\config`，并且 API Server 地址 `kubernetes.docker.internal:6443` 在 Windows 网络中是可达的。**整个过程完全自动化，用户无需干预。**
+
+### 6.4 备选方案：在 WSL 中使用 kubectl
+
+如果你习惯在 WSL Ubuntu 终端中操作，可以在 WSL 中配置 kubectl。相比 Windows 方案，需要额外两步：**打通网络 + 同步配置**。
+
+**步骤一：打通网络（永久方案）**
+
+WSL 2 默认使用 NAT 网络模式，无法直接访问 Windows 上的 localhost 服务。编辑 Windows 上的 `.wslconfig` 文件（路径：`C:\Users\<你的用户名>\.wslconfig`），写入：
 
 ```ini
 [wsl2]
 networkingMode=mirrored
 ```
 
-**`networkingMode=mirrored`**（镜像网络模式）让 WSL 2 与 Windows 共享网络命名空间，WSL 中的 `127.0.0.1` 将直接指向 Windows 宿主机。该配置修改一次永久生效。
+**`networkingMode=mirrored`**（镜像网络模式）让 WSL 2 与 Windows 共享网络命名空间，WSL 中的 `127.0.0.1` 将直接指向 Windows 宿主机。
 
 使配置生效：
 
@@ -214,17 +253,9 @@ wsl --shutdown
 
 重新打开 WSL Ubuntu 即可。
 
-### 6.4 第二步：同步 kubeconfig（通用方案）
+**步骤二：同步 kubeconfig**
 
-Docker Desktop 启用 K8s 后，会在 Windows 侧自动生成正确的 K8s 连接配置（`C:\Users\<用户名>\.kube\config`），但 WSL 中不会自动同步。需要手动复制。
-
-先在 **Windows PowerShell** 中确认 K8s 能正常连接：
-
-```powershell
-kubectl get nodes
-```
-
-确认输出正常后，到 **WSL Ubuntu** 中执行：
+在 WSL Ubuntu 中执行：
 
 ```bash
 # 1. 确认 kubectl 是否已安装
@@ -236,13 +267,17 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
 # 2. 创建 .kube 目录（如果不存在）
-mkdir -p /root/.kube
+mkdir -p ~/.kube
 
 # 3. 复制 Windows 的 K8s 配置到 WSL
-cp /mnt/c/Users/<你的Windows用户名>/.kube/config /root/.kube/config
+cp /mnt/c/Users/<你的Windows用户名>/.kube/config ~/.kube/config
 ```
 
-> 如果 WSL 使用普通用户而非 root，将配置复制到 `/home/<你的WSL用户名>/.kube/config`
+> 如果 WSL 使用 root 用户登录，则路径为 `/root/.kube/config`；如果使用普通用户，则为 `/home/<用户名>/.kube/config`。
+
+**为什么需要同步配置？**
+
+Windows 和 WSL 是两套独立的文件系统，各自的 `~/.kube/config` 互不相干。Docker Desktop 只自动维护 Windows 侧的配置，WSL 侧需要手动复制。如果是 kind 模式，由于 API Server 端口每次随机，WSL 中的旧配置还需要重新同步才能继续使用。
 
 ### 6.5 验证连接
 
@@ -305,7 +340,7 @@ kubectl get pods,svc
 
 `svc` 是 Service 的缩写，Service 为 Pod 提供一个稳定的入口地址。刚创建时只有默认的 `kubernetes` 服务。
 
-### 7.4 访问 Nginx（端口转发）
+### 7.4 访问 Nginx：方式一（端口转发）
 
 因为 Pod 运行在 K8s 集群内部网络，不能直接从宿主机访问。使用 `port-forward` 将本地端口映射到 Pod 端口：
 
@@ -319,7 +354,72 @@ kubectl port-forward deployment/k8s-test 8080:80
 
 ![Nginx 欢迎页](/data/media/548.png)
 
-### 7.5 查看 Pod 日志
+> `port-forward` 适合快速调试，终端关闭后转发即停止。
+
+### 7.5 访问 Nginx：方式二（LoadBalancer 服务）
+
+上一节的 `port-forward` 是临时调试手段，终端关闭就失效。更接近生产环境的方式是为 Deployment 创建一个 **Service**，类型设为 `LoadBalancer`。
+
+**为什么需要 LoadBalancer？——理解 Docker Desktop 的网络隔离**
+
+K8s 集群运行在 Docker Desktop 的容器环境中，与 Windows 宿主机之间存在**网络隔离**：
+
+- Pod 的 **Cluster IP** 是 Docker 内部网络的私有地址，宿主机无法直接访问
+- **NodePort** 类型的 Service 在真实的 Linux 集群中可以通过 `节点IP:NodePort` 直接访问。但 Docker Desktop 中的"节点"本身是 Docker 容器，Windows 宿主机无法直接到达容器内部，所以 NodePort 在这里行不通
+- 简单说：**Cluster IP 和 NodePort 都是 Docker 容器网络的内部地址，Windows 根本看不见它们**
+
+Docker Desktop 也考虑到了这个问题，所以它**内置了 LoadBalancer 支持**——当你创建 LoadBalancer 类型的 Service 时，Docker Desktop 会自动在宿主机上创建代理容器（如 `docker-desktop-lb` 或 `kindccm-xxx`，实质上是 **Envoy** 代理），直接在 Windows 宿主机上监听端口，并将收到的流量转发到 K8s 集群内部。相当于在 Windows 和 K8s 集群之间搭了一座桥。
+
+这也是为什么在 Docker Desktop 上开发时，**推荐用 LoadBalancer 而非 NodePort**。
+
+```bash
+kubectl expose deployment k8s-test --type=LoadBalancer --port=8888 --target-port=80
+```
+
+- `--type=LoadBalancer`：创建一个负载均衡器类型的 Service
+- `--port=8888`：Service 对外暴露的端口号
+- `--target-port=80`：转发到 Pod 内部的 80 端口（Nginx 默认端口）
+
+查看 Service 状态：
+
+```bash
+kubectl get svc k8s-test
+```
+
+输出示例：
+
+```
+NAME        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+k8s-test    LoadBalancer   10.108.248.16    localhost     8888:31812/TCP   30s
+```
+
+当 `EXTERNAL-IP` 显示为 `localhost` 时，直接在浏览器访问 **http://localhost:8888** 即可看到 Nginx 欢迎页。
+
+> **工作原理**：Docker Desktop 检测到 LoadBalancer 类型的 Service 后，会自动在宿主机上创建 Envoy 代理容器（kubeadm 模式下为 `docker-desktop-lb`，kind 模式下为 `kindccm-xxx`），将宿主机的 8888 端口流量转发到集群内部的 Service。相比 `port-forward`，这种方式是持久化的，终端关闭后服务依然可访问。可以在 Docker Desktop 的 Containers 视图中看到这些 `envoyproxy` 类型的代理容器。
+
+![image.png](/data/media/598.png)
+
+**排查技巧：端口冲突与代理容器清理**
+
+如果端口已被其他程序占用，代理容器会创建失败，表现为 `EXTERNAL-IP` 一直处于 `<pending>` 状态。
+
+正确的操作顺序如下（**顺序很重要**）：
+
+```bash
+# 1. 查找旧的代理容器
+docker ps -a --filter "name=kindccm"
+
+# 2. 删除旧容器（Docker Desktop 会自动重建）
+docker rm -f kindccm-LXUFEC6ZYEIUPGUBRWB556226BYGOZKZSQBDOQZS
+
+# 3. 修改 Service 端口（避开被占用的端口）
+kubectl patch svc k8s-test --type='json' \
+  -p='[{"op":"replace","path":"/spec/ports/0/port","value":8888}]'
+```
+
+> ⚠️ **关键顺序**：**先删除旧容器 → 再修改端口**，这样 Docker Desktop 会自动创建新的代理容器。如果先改端口再删旧容器，新容器不会自动创建，需要重启 Docker Desktop。
+
+### 7.6 查看 Pod 日志
 
 ```bash
 kubectl logs k8s-test-66588d67cf-stvgs
@@ -327,13 +427,19 @@ kubectl logs k8s-test-66588d67cf-stvgs
 
 可以看到 Nginx 的访问日志，便于调试。
 
-### 7.6 清理测试资源
+### 7.7 清理测试资源
+
+依次删除 Service 和 Deployment：
 
 ```bash
+# 删除 Service（停止端口映射）
+kubectl delete svc k8s-test
+
+# 删除 Deployment（终止并清除 Pod）
 kubectl delete deployment k8s-test
 ```
 
-删除后，K8s 会自动终止并清除对应的 Pod。
+先删 Service 再删 Deployment，确保流量先断开，再终止 Pod，避免资源竞争。
 
 ---
 
@@ -347,8 +453,10 @@ kubectl delete deployment k8s-test
 | `kubectl get svc` | 查看所有 Service |
 | `kubectl get all` | 查看当前命名空间的所有资源 |
 | `kubectl create deployment <名称> --image=<镜像>` | 创建 Deployment |
+| `kubectl expose deployment <名称> --type=LoadBalancer --port=对外端口 --target-port=容器端口` | 将 Deployment 暴露为 Service |
 | `kubectl port-forward deployment/<名称> 本地端口:容器端口` | 将本地端口转发到 Pod |
 | `kubectl delete deployment <名称>` | 删除 Deployment |
+| `kubectl delete svc <名称>` | 删除 Service |
 | `kubectl logs <Pod名称>` | 查看 Pod 日志 |
 | `kubectl describe pod <Pod名称>` | 查看 Pod 详细信息（事件、状态等） |
 | `kubectl get events` | 查看集群事件（排错常用） |
@@ -362,11 +470,11 @@ kubectl delete deployment k8s-test
 | 步骤 | 操作 | 验证方式 |
 |------|------|---------|
 | 启用 K8s | Docker Desktop → Kubernetes → Create cluster | 界面显示集群运行中 |
-| 打通网络 | 配置 `.wslconfig` 启用镜像网络 | WSL 中 `127.0.0.1` 指向 Windows |
-| 安装 kubectl | 下载 kubectl 二进制文件 | `kubectl version --client` |
-| 同步配置 | 复制 Windows 的 kubeconfig 到 WSL | `kubectl get nodes` 返回节点信息 |
+| 配置 kubectl（推荐） | 直接在 Windows PowerShell 中使用，零配置 | `kubectl get nodes` 返回节点信息 |
+| 配置 kubectl（备选） | WSL 配置镜像网络 + 同步 kubeconfig | `kubectl get nodes` 返回节点信息 |
 | 部署应用 | `kubectl create deployment` | `kubectl get pods` 显示 Running |
-| 访问验证 | `kubectl port-forward` | 浏览器访问 localhost:8080 |
+| 访问验证（调试） | `kubectl port-forward` | 浏览器访问 localhost:8080 |
+| 访问验证（持久化） | `kubectl expose` 创建 LoadBalancer Service | 浏览器访问 localhost:8888 |
 
 以上步骤验证了 Docker Desktop 内置的 K8s 集群可以正常使用。基于这个环境，可以进一步学习：
 

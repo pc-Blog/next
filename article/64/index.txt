@@ -13,7 +13,7 @@
 :HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"P":null,"c":["","article","64",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","64","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0vnme7b_klyxs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06jjoo_8xgzyj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/09k2slgobs143.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"1My3ZGfUX_C0IDDsNg25G"}
+0:{"P":null,"c":["","article","64",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","64","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0vnme7b_klyxs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06jjoo_8xgzyj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/09k2slgobs143.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"9RTGlnk1FYHLSQSn7N5sd"}
 17:I[6521,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"default"]
 18:I[8123,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"default"]
 19:I[18233,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js"],"default"]
@@ -43,7 +43,7 @@ f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"clas
 20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
 21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
 2b:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/0ak3whllmln1c.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
-2d:T2be8,## 一、KubeSphere 是什么？
+2d:T3514,## 一、KubeSphere 是什么？
 **KubeSphere** 是一个面向云原生应用的开源容器混合云平台，支持 Kubernetes 多集群管理。它在原生 K8s 的基础上提供了可视化的 Web 控制台，让开发者可以通过图形界面管理集群资源。
 
 ### 核心功能
@@ -91,7 +91,7 @@ K8s 节点：1 control-plane（单节点）
 
 ### 4.1 确认基础环境
 
-打开 FinalShell（或 WSL Ubuntu 终端），先检查环境是否满足要求。
+打开 FinalShell（或 WSL  终端），先检查环境是否满足要求。
 
 **检查 K8s 集群状态：**
 
@@ -112,16 +112,34 @@ helm version
 
 Helm 是 K8s 的包管理器，类似 Ubuntu 的 `apt` 或 CentOS 的 `yum`。KubeSphere 通过 Helm Chart 进行安装和管理。
 
-如果未安装 Helm，执行以下命令安装：
+如果未安装 Helm，根据你的环境选择安装方式：
+
+**WSL / Linux 环境：**
 
 ```bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 helm version
 ```
 
+**Windows 环境：**
+
+1. 访问 [Helm 官方 GitHub Releases](https://github.com/helm/helm/releases) 下载适合 Windows 的安装包（如 `helm-v3.x.x-windows-amd64.zip`）
+2. 解压安装包，将解压目录中的 `helm.exe` 所在路径添加到系统环境变量 `PATH` 中
+3. 重新打开 PowerShell 验证安装：
+
+![PixPin_2026-07-05_20-16-58.png](/data/media/588.png)
+
+   ```powershell
+   helm version
+   ```
+
+![PixPin_2026-07-05_20-21-52.png](/data/media/589.png)
+
 ### 4.2 执行安装命令
 
-确认环境正常后，运行以下命令安装 KubeSphere：
+确认环境正常后，运行以下命令安装 KubeSphere。
+
+**在 WSL / Linux 终端中执行：**
 
 ```bash
 chart=oci://hub.kubesphere.com.cn/kse/ks-core
@@ -130,6 +148,17 @@ helm upgrade --install -n kubesphere-system --create-namespace ks-core $chart \
   --debug --wait --version $version --reset-values \
   --set extension.imageRegistry=swr.cn-north-9.myhuaweicloud.com/ks
 ```
+
+**在 Windows PowerShell 中执行：**
+
+```powershell
+helm upgrade --install -n kubesphere-system --create-namespace ks-core `
+  oci://hub.kubesphere.com.cn/kse/ks-core --debug --wait `
+  --version 1.2.3-20251118 --reset-values `
+  --set extension.imageRegistry=swr.cn-north-9.myhuaweicloud.com/ks
+```
+
+> ⚠️ **注意**：后续的 `kubectl patch` 等命令涉及单引号和特殊字符，Windows PowerShell 兼容性较差，推荐在 **WSL 终端**中执行。因此建议安装步骤也在 WSL 中完成，保持环境统一。
 
 **命令参数说明：**
 
@@ -223,31 +252,38 @@ ks-console   NodePort   10.96.127.214   <none>        80:30880/TCP   20m
 
 可以看到 Service 类型为 `NodePort`，将 K8s 内部端口 **80** 映射到了宿主机的 **30880**。
 
+![image.png](/data/media/593.png)
+
 ### 5.2 为什么无法直接访问 30880？
 
-在 **Docker Desktop 的 kind 集群**中，NodePort 绑定在 K8s 节点（Docker 容器）内部网络，宿主机的 `localhost:30880` 访问不到。这就是为什么浏览器打开无响应。
+在 Docker Desktop 中，K8s 集群运行在容器环境中，与 Windows 宿主机存在**网络隔离**。NodePort 类型的 Service 将端口绑定在 K8s 节点的网络内部，而 Docker Desktop 的"节点"本身就是 Docker 容器，Windows 宿主机的 `localhost:30880` 无法直接到达容器内部。
+### 5.3 方案一：端口转发（快速调试）
 
-### 5.3 LoadBalancer 是什么？
+不修改 Service 类型，直接用 `port-forward` 将本地端口流量转发到集群内部：
 
-**LoadBalancer** 是 K8s Service 的四种类型之一：
+```bash
+kubectl port-forward -n kubesphere-system svc/ks-console 30880:80 --address 0.0.0.0
+```
 
-| 类型 | 作用 | 宿主机能否访问 |
-|------|------|--------------|
-| ClusterIP（默认） | 集群内部访问 | ❌ |
-| **NodePort** | 每台节点上开一个端口 | ⚠️ kind 集群中受限 |
-| **LoadBalancer** | 云平台分配公网 IP，本地映射到 localhost | ✅ |
-| ExternalName | DNS 别名 | ❌ |
+- `svc/ks-console`：直接转发 Service，K8s 会自动解析到后端 Pod
+- `--address 0.0.0.0`：绑定所有网络接口，局域网内其他设备也可访问
 
-在 Docker Desktop 的 kind 集群中，将 Service 改为 LoadBalancer 类型后，云控制器会自动创建代理容器，将宿主机端口映射到集群内部。
+终端保持打开状态，浏览器访问 **http://localhost:30880** 即可。
 
-### 5.4 解决方式：改为 LoadBalancer
+> `port-forward` 适合快速验证，终端关闭后转发即停止，不适合长期使用。
 
-一般情况下，将 Service 切换为 LoadBalancer 后云控制器会自动创建代理，`localhost` 直接访问即可。
+### 5.4 方案二（推荐）：改为 LoadBalancer 类型
+
+Docker Desktop **内置了 LoadBalancer 支持**——将 Service 改为 LoadBalancer 类型后，它会自动在宿主机上创建 **Envoy 代理容器**（kubeadm 模式下为 `docker-desktop-lb`，kind 模式下为 `kindccm-xxx`），直接在 Windows 上监听端口，将流量转发到集群内部。这种方式终端关闭后依然可用，适合长期使用。
 
 ```bash
 # 将 NodePort 改为 LoadBalancer
 kubectl patch svc -n kubesphere-system ks-console -p '{"spec":{"type":"LoadBalancer"}}'
 ```
+
+![修改后效果](/data/media/595.png)
+
+> ⚠️ **Windows 命令兼容性**：Windows 的 PowerShell 对单引号和特殊字符兼容较差，推荐在 **WSL 终端**中执行上述命令。
 
 查看是否分配了 External-IP：
 
@@ -255,21 +291,39 @@ kubectl patch svc -n kubesphere-system ks-console -p '{"spec":{"type":"LoadBalan
 kubectl get svc -n kubesphere-system ks-console
 ```
 
-正常情况下 `EXTERNAL-IP` 会显示一个 IP 地址（如 `172.18.0.5`），此时浏览器打开 `http://localhost:30880` 即可访问。
+正常情况下 `EXTERNAL-IP` 会显示 `localhost`，此时浏览器打开 **http://localhost:30880** 即可访问。
 
-> ⚠️ **特殊情况**：如果你的宿主机 80 端口已被占用，LoadBalancer 默认绑定的 80 端口会冲突，导致 `EXTERNAL-IP` 一直 `<pending>`。此时需要将端口改为其他未被占用的端口：
->
-> 修改后云控制器会重新创建代理，即可正常访问。
+**端口冲突处理**：如果该端口已被占用，代理容器会创建失败，`EXTERNAL-IP` 会一直处于 `<pending>` 状态。
+
+正确的操作顺序如下（**顺序很重要**）：
 
 ```bash
+# 1. 查找旧的代理容器
+docker ps -a --filter "name=kindccm"
+
+# 2. 删除旧容器（Docker Desktop 会自动重建）
+docker rm -f kindccm-LXUFEC6ZYEIUPGUBRWB556226BYGOZKZSQBDOQZS
+
+# 3. 修改 Service 端口（避开被占用的端口）
 kubectl patch svc -n kubesphere-system ks-console --type='json' \
--p='[{"op":"replace","path":"/spec/ports/0/port","value":30880}]'
+  -p='[{"op":"replace","path":"/spec/ports/0/port","value":30880}]'
 ```
+
+等待几分钟后再次查看运行状态：
+
+```bash
+kubectl get svc -n kubesphere-system ks-console
+```
+
+![运行状态](/data/media/596.png)
+
+> ⚠️ **关键顺序**：**先删除旧容器 → 再修改端口**，这样 Docker Desktop 会自动创建新的代理容器。如果先改端口再删旧容器，新容器不会自动创建，需要重启 Docker Desktop。
+
 ### 5.5 登录系统
 
 浏览器打开 [http://localhost:30880/login](http://localhost:30880/login)，看到登录页面：
 
-![KubeSphere 登录页](/data/media/550.png)
+![KubeSphere 登录页](https://www.lxpavilion.top/data/media/550.png)
 
 默认账号密码：
 
@@ -299,7 +353,7 @@ KubeSphere 社区版免费使用，但需要通过激活来启用**扩展中心*
 
 提交后，激活码会发送到你的邮箱。
 
-![License 申请](/data/media/551.png)
+![License 申请](https://www.lxpavilion.top/data/media/551.png)
 
 **第三步**：将收到的激活码填入 KubeSphere 激活页面，即可完成激活。
 
@@ -317,17 +371,17 @@ KubeSphere 社区版免费使用，但需要通过激活来启用**扩展中心*
 
 **第一步**：在 KubeSphere 控制台顶部菜单找到 **扩展中心**。
 
-![扩展中心](/data/media/552.png)
+![扩展中心](https://www.lxpavilion.top/data/media/552.png)
 
 **第二步**：在扩展中心搜索 "DevOps"，点击 **安装**。
 
-![安装插件](/data/media/554.png)
+![安装插件](https://www.lxpavilion.top/data/media/554.png)
 
 **第三步**：选择要安装到的集群，配置参数后确认安装。
 
-![配置到集群](/data/media/555.png)
+![配置到集群](https://www.lxpavilion.top/data/media/555.png)
 
-![安装确认](/data/media/556.png)
+![安装确认](https://www.lxpavilion.top/data/media/556.png)
 
 **第四步**：等待安装完成。可以在扩展中心查看安装进度。安装完成后，左侧导航栏会出现 DevOps 入口，即可创建和管理流水线。
 

@@ -1,6 +1,74 @@
 {
-  "total": 34,
+  "total": 36,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/612.png",
+      "createdAt": "2026-07-06T14:48:20.977231",
+      "id": 69,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始，用 Docker 部署 Jenkins，完成初始化配置，并创建你的第一个 Pipeline 流水线任务，掌握 CI/CD 自动化构建基础。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 70,
+          "name": "Jenkins"
+        }
+      ],
+      "title": "Jenkins学习笔记：Docker 部署与第一个 Pipeline 任务",
+      "updateTime": "2026-07-06T14:48:46.623221",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/577.jpeg",
+      "createdAt": "2026-07-06T13:58:09.128236",
+      "id": 68,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "通过 KubeSphere 可视化平台在本地 Docker Desktop K8s 集群上完整部署 Nginx 网站的实战记录，涵盖 ConfigMap 配置管理、PVC 持久化存储、LoadBalancer 服务暴露、kubectl cp 文件上传及踩坑修复",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        },
+        {
+          "id": 69,
+          "name": "nginx"
+        }
+      ],
+      "title": "KubeSphere学习笔记：部署nginx",
+      "updateTime": "2026-07-06T15:02:59.668411",
+      "viewCount": 0
+    },
     {
       "categoryId": 45,
       "categoryName": "工具教程",
@@ -84,8 +152,8 @@
           "name": "Mysql"
         }
       ],
-      "title": "Kubeshere学习笔记：部署mysql",
-      "updateTime": "2026-07-05T09:02:19.970803",
+      "title": "KubeSphere学习笔记：部署mysql",
+      "updateTime": "2026-07-06T15:03:07.975213",
       "viewCount": 0
     },
     {
@@ -121,7 +189,7 @@
         }
       ],
       "title": "KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台",
-      "updateTime": "2026-07-05T08:25:58.725541",
+      "updateTime": "2026-07-06T10:55:11.327867",
       "viewCount": 0
     },
     {
@@ -153,7 +221,7 @@
         }
       ],
       "title": "Docker Desktop 内置 K8s 从入门到实战：部署你的第一个 Nginx 集群",
-      "updateTime": "2026-07-05T09:00:19.856098",
+      "updateTime": "2026-07-06T10:46:33.064628",
       "viewCount": 0
     },
     {

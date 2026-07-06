@@ -1,6 +1,20 @@
 {
-  "total": 39,
+  "total": 41,
   "rows": [
+    {
+      "createTime": "2026-07-06T14:48:29.773857",
+      "deleted": 0,
+      "id": 70,
+      "name": "Jenkins",
+      "updateTime": "2026-07-06T14:48:29.77391"
+    },
+    {
+      "createTime": "2026-07-06T13:56:49.721753",
+      "deleted": 0,
+      "id": 69,
+      "name": "nginx",
+      "updateTime": "2026-07-06T13:56:49.722077"
+    },
     {
       "createTime": "2026-07-05T15:14:15.993271",
       "deleted": 0,

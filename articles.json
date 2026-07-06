@@ -1,6 +1,42 @@
 {
-  "total": 36,
+  "total": 37,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/577.jpeg",
+      "createdAt": "2026-07-06T17:19:41.590298",
+      "id": 70,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "KubeSphere DevOps 模块从安装到流水线运行的完整实战记录，涵盖插件安装、凭证配置、代码仓库绑定、流水线创建及各种踩坑修复",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        },
+        {
+          "id": 70,
+          "name": "Jenkins"
+        }
+      ],
+      "title": "KubeSphere学习笔记：DevOps基本使用",
+      "updateTime": "2026-07-06T17:19:53.953122",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

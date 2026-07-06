@@ -1,0 +1,224 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/0ak3whllmln1c.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/09k2slgobs143.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1ac9,
+## 一、DevOps 是什么
+
+DevOps（Development 和 Operations 的组合）是一种将开发与运维整合的实践。在 KubeSphere 中，DevOps 模块基于 **Jenkins** 提供 CI/CD 流水线能力，可以实现：
+
+- **自动拉取代码**：从 Git 仓库拉取源代码
+- **自动构建**：编译代码、构建 Docker 镜像
+- **自动部署**：将新版本部署到 K8s 集群
+- **流水线可视化**：在 Web 控制台查看构建进度和日志
+
+## 二、安装 DevOps 插件
+
+### 2.1 前提条件
+
+KubeSphere 已安装并**激活**（需申请免费 License，否则扩展中心不可用）。
+
+### 2.2 安装步骤
+
+在 KubeSphere 控制台进入 **扩展中心**，搜索 `devops`，找到 DevOps 插件点击安装。
+
+> ⚠️ **注意：** 默认的 `ks-core` 安装后不包含 DevOps 功能，需要单独安装 DevOps 扩展组件。
+
+### 2.3 创建企业空间
+
+安装 DevOps 插件后，**默认的企业空间无法创建 DevOps 项目**。需要创建一个新的企业空间：
+
+1. **平台管理 → 企业空间 → 创建企业空间**
+2. 填写名称后进入新建的企业空间
+3. 在左侧菜单应该能看到 **DevOps 项目** 选项
+4. 如果还是没有出现，尝试**重启 KubeSphere 的相关 Pod** 或等待组件就绪
+
+![image.png](/data/media/613.png)
+
+---
+
+## 三、创建 DevOps 项目
+
+进入企业空间 → **DevOps 项目** → **创建**，这是后续所有操作（凭证、流水线等）的容器。
+
+![image.png](/data/media/614.png)
+
+---
+
+## 四、凭证管理
+
+在 DevOps 项目中进入 **凭证 → 创建**，KubeSphere 支持多种凭证类型：
+
+### 4.1 Git 凭证（HTTPS 账号密码）
+
+| 字段 | 说明 |
+|------|------|
+| 类型 | **账号密码** |
+| 用户名 | Git 平台用户名 |
+| 密码 | **Personal Access Token**（不是登录密码） |
+
+> ⚠️ **GitHub 已不支持用密码操作 Git**，必须使用 Personal Access Token。在 GitHub 设置中生成 token 时，需勾选 `repo` 权限（私有仓库必须）。
+
+### 4.2 Git 凭证（SSH 密钥）
+
+| 字段 | 说明 |
+|------|------|
+| 类型 | **SSH 密钥** |
+| 用户名 | 固定为 `git` |
+| 私钥 | 本地私钥文件内容（`cat ~/.ssh/id_rsa`） |
+
+SSH 方式需要把公钥添加到 Git 平台，且私钥格式需为 PEM（Jenkins 不支持 OpenSSH 新格式）：
+
+```bash
+# 如果私钥是 OpenSSH 格式，转为 PEM 格式
+ssh-keygen -p -m PEM -f ~/.ssh/id_rsa
+```
+
+### 4.3 K8s 部署凭证
+
+| 字段 | 说明 |
+|------|------|
+| 类型 | **kubeconfig** |
+| ID | `kubeconfig-auth` |
+| 内容 | 集群 kubeconfig → 控制台 → 集群管理 → 导出 kubeconfig |
+
+![image.png](/data/media/616.png)
+
+---
+
+## 五、网络问题与仓库选择
+
+### 5.1 GitHub 连接问题
+
+在实际操作中，GitHub 经常会遇到连接问题：
+
+| 问题 | 原因 | 解决方案 |
+|------|------|---------|
+| `Failed to connect to github.com port 443` | 国内网络限制 | 换用 Gitee |
+| `tls: failed to verify certificate` | SteamTools 等代理拦截 HTTPS | 关闭代理或添加证书 |
+| `authorization failed` | 凭证类型或权限不对 | 使用 PAT token 并勾选 `repo` |
+
+### 5.2 推荐：使用 Gitee（码云）
+
+Gitee 在国内访问稳定，兼容性好。推荐使用 **HTTPS + 账号密码** 方式：
+
+| 凭证类型 | 用户名 | 密码 |
+|---------|--------|------|
+| 账号密码 | Gitee 用户名 | Gitee 登录密码（支持直接使用密码） |
+
+### 5.3 加速器的坑
+
+如果使用 SteamTools 等加速器，Jenkins 容器内可能会出现 SSL 证书错误：
+
+```
+tls: failed to verify certificate: x509: certificate signed by unknown authority
+```
+
+这是因为加速器劫持了 HTTPS 流量，用自签名证书替代了原始证书。Jenkins 容器不认识这个证书。解决方案：
+
+1. **关闭加速器**（最简单）
+2. 或将加速器的根证书添加到 Jenkins 容器的 CA 信任链中
+
+---
+
+## 六、创建代码仓库
+
+在 DevOps 项目中进入 **代码仓库 → 创建**，可以选择不同类型：
+
+| 仓库类型 | 说明 |
+|---------|------|
+| **Git** | 通用 Git 仓库，手动输入地址（推荐） |
+| GitHub | 通过 OAuth 集成，但国内网络不稳定 |
+| Gitee | 通过 OAuth 集成 |
+| GitLab | 通过 OAuth 集成 |
+
+> 💡 **推荐使用「Git」类型**：手动输入仓库 URL 和凭证，不依赖 OAuth，兼容性最好。
+
+### 私有仓库注意事项
+
+如果是私有仓库，token 必须有所需仓库的权限：
+
+- GitHub：token 需勾选 `repo`（Contents → Read and write）
+- Gitee：直接使用账号密码即可
+
+![image.png](/data/media/618.png)
+
+![image.png](/data/media/617.png)
+
+---
+
+## 七、创建流水线
+
+### 7.1 创建多分支流水线
+
+进入 **流水线 → 创建**：
+
+| 字段 | 值 |
+|------|-----|
+| 类型 | **多分支流水线** |
+| 代码源 | 选择已创建的代码仓库 |
+| 分支 | `master` |
+
+![image.png](/data/media/619.png)
+
+![image.png](/data/media/620.png)
+
+### 7.2 流水线类型对比
+
+| 类型 | 说明 | 适用场景 |
+|------|------|---------|
+| **多分支流水线** | 自动扫描仓库分支，每个分支独立构建 | 团队协作，多分支开发 |
+| **普通流水线** | 只构建指定分支 | 个人项目，单分支 |
+
+创建完成后，KubeSphere 会自动扫描仓库分支。扫描到分支后，点击分支右侧的 **运行** 即可触发流水线。
+
+### 7.3 Jenkinsfile 是什么
+
+流水线根据项目根目录下的 **Jenkinsfile** 文件来执行构建步骤。一个最简单的 Jenkinsfile：
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('拉取代码') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('验证') {
+            steps {
+                sh 'echo "流水线运行成功！"'
+            }
+        }
+    }
+}
+```
+
+Jenkinsfile 使用 Groovy 语法，定义了流水线的**各个阶段**和**每个阶段的执行步骤**。
+
+---
+
+## 八、构建成功
+
+![image.png](/data/media/621.png)
+
+## 十、总结
+
+| 步骤  | 操作             | 要点                           |
+| --- | -------------- | ---------------------------- |
+| 1   | 安装 DevOps 插件   | 需先激活 KubeSphere，新建企业空间       |
+| 2   | 创建 DevOps 项目   | 作为凭证和流水线的容器                  |
+| 3   | 配置凭证           | Git 用 PAT/SSH，部署用 kubeconfig |
+| 4   | 绑定代码仓库         | 推荐 Git 类型 + Gitee（国内稳定）      |
+| 5   | 创建流水线          | 多分支流水线扫描仓库分支                 |
+| 6   | 编写 Jenkinsfile | 定义拉取代码 → 构建 → 部署的流程          |
+| 7   | 运行             | 点击分支上的运行按钮                   |
+
+通过 KubeSphere DevOps，可以在可视化界面中完成从代码到部署的完整 CI/CD 流程，降低了 Jenkins 的使用门槛。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"KubeSphere学习笔记：DevOps基本使用\",\"item\":\"https://www.lxpavilion.top/article/70\"}]}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"KubeSphere学习笔记：DevOps基本使用","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"DPLZhURZgE4r2DhOLfQA0"}
+3:{"id":"70"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0ak3whllmln1c.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

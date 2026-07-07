@@ -258,7 +258,7 @@
       ],
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
       "updateTime": "2026-07-05T17:24:04.305224",
-      "viewCount": 0
+      "viewCount": 3
     },
     {
       "categoryId": 44,
@@ -586,7 +586,7 @@
       ],
       "title": "个人博客邮件订阅系统实战：MailerLite API 集成与避坑指南",
       "updateTime": "2026-07-01T12:18:03.821115",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -610,7 +610,7 @@
       ],
       "title": "为什么 TrendRadar 的社交热榜满足不了技术博客——我的热点方案选型记录",
       "updateTime": "2026-07-01T10:02:07.745102",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -698,7 +698,7 @@
       ],
       "title": "免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）",
       "updateTime": "2026-06-28T21:52:40.011553",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -730,7 +730,7 @@
       ],
       "title": "我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录",
       "updateTime": "2026-06-28T21:57:28.305078",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 42,
@@ -838,7 +838,7 @@
       ],
       "title": "使用 Giscus 为博客搭建评论系统：从入门到放弃",
       "updateTime": "2026-06-28T09:34:25.527012",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 40,
@@ -874,7 +874,7 @@
       ],
       "title": "为我的博客自建评论系统，摆脱 Giscus 局限",
       "updateTime": "2026-06-27T22:01:52.468013",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 40,
@@ -902,7 +902,7 @@
       ],
       "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
       "updateTime": "2026-06-27T21:52:54.510434",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 39,
@@ -970,7 +970,7 @@
       ],
       "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
       "updateTime": "2026-06-27T21:53:12.731127",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 37,
@@ -1002,7 +1002,7 @@
       ],
       "title": "Spring AI RAG 生产级实战：从 PDF 解析到精准回答的完整流水线指南",
       "updateTime": "2026-06-16T20:33:33.84941",
-      "viewCount": 3
+      "viewCount": 1
     },
     {
       "categoryId": 37,
@@ -1026,7 +1026,7 @@
       ],
       "title": "让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生",
       "updateTime": "2026-06-16T16:27:16.266701",
-      "viewCount": 1
+      "viewCount": 3
     },
     {
       "categoryId": 38,
@@ -1054,7 +1054,7 @@
       ],
       "title": "Cloudflare R2 使用指南：零成本管理博客媒体文件",
       "updateTime": "2026-06-15T09:00:57.939972",
-      "viewCount": 3
+      "viewCount": 1
     },
     {
       "categoryId": 37,
@@ -1114,7 +1114,7 @@
       ],
       "title": "用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本",
       "updateTime": "2026-06-11T08:22:31.298244",
-      "viewCount": 7
+      "viewCount": 1
     },
     {
       "categoryId": 38,
@@ -1142,7 +1142,7 @@
       ],
       "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
       "updateTime": "2026-06-11T08:26:47.002639",
-      "viewCount": 6
+      "viewCount": 1
     },
     {
       "categoryId": 38,
@@ -1174,7 +1174,7 @@
       ],
       "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 6
+      "viewCount": 1
     },
     {
       "categoryId": 38,
@@ -1198,7 +1198,7 @@
       ],
       "title": "将个人网址录入Bing搜索引擎",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 29
+      "viewCount": 2
     },
     {
       "categoryId": 37,
@@ -1222,7 +1222,7 @@
       ],
       "title": "codex安装及接入deepseek教程",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 160
+      "viewCount": 1
     }
   ]
 }

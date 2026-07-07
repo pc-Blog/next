@@ -7,30 +7,30 @@
   "timelineCount": 6,
   "topArticles": [
     {
-      "id": 33,
-      "title": "codex安装及接入deepseek教程",
-      "viewCount": 160
+      "id": 41,
+      "title": "让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生",
+      "viewCount": 3
+    },
+    {
+      "id": 66,
+      "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
+      "viewCount": 3
     },
     {
       "id": 35,
       "title": "将个人网址录入Bing搜索引擎",
-      "viewCount": 29
+      "viewCount": 2
     },
     {
-      "id": 38,
-      "title": "用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本",
-      "viewCount": 7
+      "id": 45,
+      "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
+      "viewCount": 2
     },
     {
-      "id": 37,
-      "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
-      "viewCount": 6
-    },
-    {
-      "id": 36,
-      "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
-      "viewCount": 6
+      "id": 50,
+      "title": "我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录",
+      "viewCount": 1
     }
   ],
-  "totalViews": 216
+  "totalViews": 24
 }

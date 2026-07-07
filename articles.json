@@ -1,6 +1,38 @@
 {
-  "total": 37,
+  "total": 38,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/625.png",
+      "createdAt": "2026-07-07T08:41:31.210596",
+      "id": 71,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 70,
+          "name": "Jenkins"
+        }
+      ],
+      "title": "Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker",
+      "updateTime": "2026-07-07T08:45:56.98948",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

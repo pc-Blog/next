@@ -1,0 +1,484 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+4:I[22464,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+5:I[3799,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+6:I[56499,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+7:I[61421,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+8:I[39756,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+9:I[37457,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+14:I[68027,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0sk03v-xjfimm.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","71",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","71","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0sk03v-xjfimm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06jjoo_8xgzyj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/00ptu9dp.8ona.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"E1UWs9riu8FgXV2QQGT_E"}
+17:I[6521,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+18:I[8123,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"default"]
+19:I[18233,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/09r4hbfw4h9o_.js"],"default"]
+1a:I[34858,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/09r4hbfw4h9o_.js"],"default"]
+1b:I[23191,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/09r4hbfw4h9o_.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," 栏轩阁. Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/112n9z6lx_aph.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0sk03v-xjfimm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/112n9z6lx_aph.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T3616,## 概述
+
+本文档记录了使用 **Jenkins Pipeline** 配合 **Docker** 实现自动化 CI/CD 的完整过程。目标是从 Git 仓库（Gitee）拉取代码 → 构建 Docker 镜像 → 部署运行容器，全程自动化。
+
+**项目架构：**
+- 语言：Python FastAPI
+- 包管理：uv（基于 pyproject.toml）
+- 构建：Docker 多阶段构建
+- 部署：Docker 容器运行
+- CI/CD：Jenkins Pipeline（Declarative Pipeline）
+
+---
+
+## 前置条件
+
+| 组件 | 说明 |
+|------|------|
+| Jenkins 服务 | 已安装并正常运行（本文使用 docker-compose 部署 Jenkins） |
+| 代码仓库 | Gitee（或其他 Git 仓库），仓库内已有 Dockerfile 和 Jenkinsfile |
+| Docker 环境 | Jenkins 所在节点能执行 docker 命令 |
+
+---
+
+## 一、创建管道流水线
+
+Jenkins 首页 → **New Item** → 输入任务名称（如 `fastapi-demo`） → 选择 **Pipeline** → OK
+
+![image.png](/data/media/622.png)
+
+---
+
+## 二、各配置选项详解
+
+### 1. Discard old builds（丢弃旧构建）
+
+**作用：** 自动清理旧的构建记录，防止磁盘被撑爆。
+
+推荐配置：
+- **Strategy:** Log Rotation
+- **Days to keep builds:** `7`（保留最近 7 天的构建）
+- **Max # of builds to keep:** `20`（最多保留 20 次构建记录）
+
+### 2. GitHub project（项目链接）
+
+**作用：** 在 Jenkins 任务页面显示一个跳转到仓库的快捷链接，方便快速查看源码。
+
+**Project url:** 填你的仓库地址（如 `https://gitee.com/peng-chao2005/test`）
+
+此字段非必填，纯辅助功能。
+
+### 3. Triggers（构建触发器）
+
+触发器决定 **什么时候自动开始构建**，有几种方式：
+
+#### 3.1 Build periodically（定时构建）
+
+不管代码有没有变化，到点就执行一次。
+
+**Schedule 语法（Cron 表达式）：**
+```
+H 2 * * *
+# 分段：分钟 小时 日期 月份 星期
+# H 是 Jenkins 的哈希分散机制，防止所有任务同时触发
+```
+
+常用示例：
+
+| 表达式 | 含义 |
+|--------|------|
+| `H/5 * * * *` | 每 5 分钟构建一次 |
+| `H * * * *` | 每小时构建一次 |
+| `H 2 * * *` | 每天凌晨 2 点构建一次 |
+| `H 9 * * 1-5` | 工作日（周一至周五）早上 9 点 |
+| `@daily` | 每天一次 |
+
+#### 3.2 Poll SCM（轮询代码仓库）
+
+每隔一段时间自动检查 Git 仓库有没有新提交，有则触发构建。
+
+```
+H/5 * * * *
+# 每 5 分钟检查一次仓库变更
+```
+
+#### 3.3 GitHub hook trigger / GitLab webhook（Webhook 触发）
+
+代码 push 时由仓库主动通知 Jenkins，立即触发构建，**实时性最高**。
+
+需要配合在仓库 Settings → Webhooks 中配置 Jenkins 地址：
+- GitHub: `http://<Jenkins-IP>:8080/github-webhook/`
+- Gitee: 在仓库 → 管理 → WebHooks 中添加
+
+> **本文使用 Build periodically**，适合学习和测试场景。生产环境推荐 Webhook 方式。
+
+---
+
+## 三、Pipeline 部分配置
+
+Pipeline 区域是整个任务的核心，定义了 Jenkins **要去哪里拿代码** 以及 **按什么脚本执行**。
+
+### Definition（定义方式）
+
+有两种选择：
+
+| 方式 | 说明 | 适用场景 |
+|------|------|---------|
+| **Pipeline script** | 直接在 Jenkins 网页里写构建脚本 | 临时测试、快速验证 |
+| **Pipeline script from SCM（推荐 ✅）** | 从 Git 仓库读取 Jenkinsfile | 版本化管理、团队协作 |
+
+**本文使用 Pipeline script from SCM。**
+
+### 关键字段说明
+
+#### Repository URL（仓库地址）
+
+填你的 Git 仓库地址：
+```
+https://gitee.com/你的用户名/你的仓库.git
+```
+
+#### Credentials（凭据）
+
+- **公开仓库：** 可以不填凭据
+- **私有仓库：** 需要添加登录凭据
+
+本文拉取的是 **Gitee** 私有仓库，添加凭据步骤：
+
+1. 点击 **Add** → **Jenkins**
+2. 填写：
+
+| 字段 | 内容 |
+|------|------|
+| **Kind** | Username with password |
+| **Username** | Gitee 用户名 |
+| **Password** | Gitee 登录密码 |
+| **ID** | `gitee-creds`（自定义标识） |
+
+![image.png](/data/media/622.png)
+
+> **注意：** Gitee 的默认分支是 `master`（不是 `main`），所以 Branches to build 要填 `*/master`。
+
+#### Branch Specifier（分支指定）
+
+```
+*/master
+```
+
+如果不填，默认使用仓库的 HEAD 分支。
+也可以指定为 `*/develop`、`*/feature/*` 等。
+
+#### Script Path（脚本路径）
+
+Jenkinsfile 在仓库中的路径：
+
+- **在根目录：** 填 `Jenkinsfile`
+
+> ⚠️ 这是最容易出错的地方，必须和仓库里的实际路径完全一致，包括大小写。
+
+**本文的 Jenkinsfile 在仓库根目录，所以填 `Jenkinsfile`。**
+
+#### Lightweight checkout（轻量级检出）
+
+勾选后，Jenkins 先只下载 Jenkinsfile 本身来解析流水线结构，解析完成后再全量拉取代码。
+
+建议勾选，可以节省一次不必要的全量下载。
+
+---
+
+## 四、安装 Docker Pipeline 插件
+
+Jenkins 默认不认识 `docker.build()` 等命令，需要安装插件。
+
+**操作步骤：**
+
+1. Jenkins 首页 → **Manage Jenkins** → **Plugins**
+2. 切换到 **Available plugins** 选项卡
+3. 搜索 **Docker Pipeline**
+4. 勾选 → 点击 **Install without restart**
+5. 安装完成后，如有提示则重启 Jenkins
+
+![image.png](/data/media/623.png)
+
+**如果不安装此插件，会报如下错误：**
+```
+groovy.lang.MissingPropertyException: No such property: docker for class: groovy.lang.Binding
+```
+
+---
+
+## 五、Docker 环境配置
+
+### 问题：docker: not found
+
+如果 Jenkins 是**以容器方式运行**的，容器内部默认没有 docker 命令，执行 `docker build` 会报错：
+
+```
+/var/jenkins_home/workspace/xxx: docker: not found
+```
+
+### 解决方法
+
+在 Jenkins 容器的 `docker-compose.yml` 中挂载宿主机 Docker：
+
+```yaml
+name: "Jenkins"   
+
+services:  
+  jenkins:  
+    image: jenkins/jenkins:lts  
+    container_name: jenkins  
+    user: root  
+    ports:  
+      - "34560:8080"  
+      - "34561:50000"  
+    volumes:  
+      - /volume/Jenkins/jenkins_home:/var/jenkins_home  
+      - /var/run/docker.sock:/var/run/docker.sock   
+      - /usr/bin/docker:/usr/bin/docker
+```
+
+**三行 volumes 的作用：**
+
+| 挂载项 | 作用 |
+|--------|------|
+| `/var/run/docker.sock` | 让容器内的 Docker CLI 连接宿主机的 Docker 守护进程 |
+| `/usr/bin/docker` | 把宿主机上的 docker 二进制文件共享到容器内 |
+| `/volume/Jenkins/jenkins_home` | 持久化 Jenkins 配置和数据，重启不丢失 |
+
+> **注意：** 修改 docker-compose.yml 后，不能只用 `restart`，必须 `docker-compose down && docker-compose up -d` 重新创建容器，volumes 配置才会生效。Jenkins 的配置数据会保留，因为挂载了持久化目录。
+
+---
+
+## 六、完整的 Jenkinsfile
+
+```Groovy
+pipeline {
+    // 在哪台机器上跑
+    agent any
+
+    // 环境变量
+    environment {
+        // ===== 按你的项目修改 =====
+        IMAGE_NAME      = 'fastapi-demo'
+        IMAGE_TAG       = "${BUILD_NUMBER}"
+        CONTAINER_NAME  = 'fastapi-demo'
+        HOST_PORT       = '8858'
+        CONTAINER_PORT  = '8000'
+        // ===========================
+    }
+
+    // 流水线阶段
+    stages {
+        stage('拉取代码') {
+            steps {
+                checkout scm
+            }
+            // 从配置的 Git 仓库拉取最新代码
+        }
+
+        stage('构建 Docker 镜像') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                    // 也打 latest 标签，方便回滚时指定
+                    sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest"
+                }
+            }
+            // 等价于: docker build -t fastapi-demo:3 . && docker tag fastapi-demo:3 fastapi-demo:latest
+        }
+
+        stage('停止并删除旧容器') {
+            steps {
+                script {
+                    sh """
+                        docker stop ${CONTAINER_NAME} || true
+                        docker rm ${CONTAINER_NAME} || true
+                    """
+                }
+            }
+            // || true 确保第一次部署没有旧容器时也不会报错终止
+        }
+
+        stage('启动新容器') {
+            steps {
+                script {
+                    sh """
+                        docker run -d \\
+                            --name ${CONTAINER_NAME} \\
+                            --restart unless-stopped \\
+                            -p ${HOST_PORT}:${CONTAINER_PORT} \\
+                            ${IMAGE_NAME}:${IMAGE_TAG}
+                    """
+                }
+            }
+            // 等价于: docker run -d --name fastapi-demo --restart unless-stopped -p 8858:8000 fastapi-demo:3
+        }
+
+        stage('清理旧镜像（保留最近 5 个）') {
+            steps {
+                script {
+                    sh """
+                        docker image prune -f --filter "until=24h" || true
+                    """
+                }
+            }
+            // 删除 24 小时前的不再使用的镜像，节省磁盘空间
+        }
+    }
+
+    // 构建完成后的操作
+    post {
+        success {
+            echo "✅ 部署成功！访问 http://<服务器IP>:${HOST_PORT}"
+            sh "docker ps --filter name=${CONTAINER_NAME} --format '容器状态: {{.Status}}'"
+        }
+        failure {
+            echo "❌ 部署失败，请查看构建日志"
+        }
+    }
+}
+```
+
+### 完整执行流程
+
+```
+代码 Push 到 Gitee
+        │
+        ▼
+    Jenkins 触发构建
+        │
+        ├── [1] checkout scm       从 Gitee 拉取最新代码
+        ├── [2] docker build       构建镜像 fastapi-demo:3
+        │                          (多阶段构建，用 uv 安装依赖)
+        ├── [3] docker stop        停止旧容器（首次无则跳过）
+        ├── [4] docker rm          删除旧容器（首次无则跳过）
+        ├── [5] docker run         启动新容器，映射 8858:8000
+        ├── [6] docker prune       清理 24 小时前的旧镜像
+        └── [7] post               输出 ✅ 或 ❌ 结果
+```
+
+---
+
+## 七、流水线常用命令解析
+
+### `checkout scm`
+- **作用：** 从任务配置的 Git 仓库拉取代码
+- **说明：** Jenkins 自动生成，等价于 `git clone` + 切换到指定分支
+- **无需手动写参数**，仓库地址、凭据、分支都在配置界面填好了
+
+### `docker.build()`
+- **作用：** 构建 Docker 镜像
+- **等价于：** `docker build -t <name> .`
+- **来源：** Docker Pipeline 插件提供的 Groovy 方法
+- **注意：** 不装插件会报 `No such property: docker`
+
+### `sh """..."""`
+- **作用：** 在 Jenkins 节点上执行 Shell 命令
+- **三引号：** Groovy 的多行字符串，可以换行写命令
+- **${变量}：** 引用在 environment 中定义的变量
+
+### `docker run -d`
+| 参数 | 作用 |
+|------|------|
+| `-d` | 后台运行 |
+| `--name` | 指定容器名，方便后续管理 |
+| `--restart unless-stopped` | 自动重启策略，除非手动 stop |
+| `-p 宿主机端口:容器端口` | 端口映射 |
+
+### `|| true`
+- **作用：** 命令执行失败时忽略错误，流水线继续执行
+- **场景：** `docker stop` 时容器不存在会报错，加上 `|| true` 让流水线不被中断
+
+### `post`
+- **作用：** 所有 stage 执行完毕后执行
+- **success：** 全部成功时触发
+- **failure：** 任意 stage 失败时触发
+- **可以扩展：** 发送钉钉通知、邮件通知等
+
+---
+
+## 八、构建结果验证
+
+构建成功后：
+
+1. **查看控制台输出：** 点构建记录 → **Console Output**，确认各 stage 都是绿色通过
+2. **检查容器状态：** 在服务器上执行 `docker ps` 查看容器是否运行
+3. **访问接口验证：** 浏览器打开 `http://<服务器IP>:8858/docs`
+
+### 结果截图
+
+![image.png](/data/media/624.png)
+
+### FastAPI 项目接口一览
+
+| 接口 | URL | 说明 |
+|------|-----|------|
+| 根路径 | `http://IP:8858/` | 返回基础信息 |
+| 健康检查 | `http://IP:8858/health` | `{"status": "ok"}` |
+| 接口信息 | `http://IP:8858/api/info` | 服务版本和时间戳 |
+| API 文档 | `http://IP:8858/docs` | Swagger 交互式文档 |
+| 回声测试 | `POST http://IP:8858/api/echo` | 传入 `{"message": "hello"}` 返回回声 |
+
+---
+
+## 九、常见问题排查
+
+| 报错 | 原因 | 解决 |
+|------|------|------|
+| `No such property: docker for class: groovy.lang.Binding` | 未安装 Docker Pipeline 插件 | Manage Jenkins → Plugins → 安装 Docker Pipeline |
+| `docker: not found` | Jenkins 容器内没有 docker 命令 | 在 docker-compose.yml 挂载 `/usr/bin/docker` |
+| `permission denied` 连接 Docker socket | Jenkins 用户无权限 | 使用 `user: root` 或在宿主机将 Jenkins 用户加入 docker 组 |
+| `Script not found: xxx/Jenkinsfile` | Script Path 路径错误 | 检查 Jenkinsfile 在仓库中的实际路径 |
+| `port is already allocated` | 端口被占用 | 修改 `HOST_PORT`，或先 `docker stop` 占用端口的容器 |
+| `Could not find credentials` | Git 凭据无效 | 重新添加凭据，检查 Token 是否过期 |
+
+---
+
+## 十、总结
+
+通过 Jenkins Pipeline + Docker，实现了：
+
+```
+代码推送 → 自动构建 → 自动部署 → 服务可用
+全程不需要手动登录服务器执行命令
+```
+
+### 核心知识点
+
+1. **Jenkins Pipeline** 使用 Declarative Groovy 语法，stage/steps 结构化编排任务
+2. **Docker Pipeline 插件** 提供了 `docker.build()` 等便捷方法
+3. **容器化 Jenkins** 需要挂载宿主机 Docker socket 和 docker 二进制文件才能执行 docker 命令
+4. **Jenkinsfile 与代码同仓库管理**，方便版本控制和团队协作
+5. **Discard old builds** 和 **docker image prune** 都是必要的运维策略，防止磁盘占满
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker\",\"item\":\"https://www.lxpavilion.top/article/71\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker\",\"headline\":\"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker\",\"description\":\"从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。\",\"datePublished\":\"2026-07-07T08:41:31.210596\",\"dateCreated\":\"2026-07-07T08:41:31.210596\",\"dateModified\":\"2026-07-07T08:45:56.98948\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/625.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker","initialContent":"$2d"}]]
+2c:{"id":"71"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/71/"}],["$","meta","5",{"property":"og:title","content":"Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/625.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.01toacvgz9iij.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L2e","15",{}]]

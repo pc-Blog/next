@@ -8,6 +8,19 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker]]></title>
+      <link>https://www.lxpavilion.top/article/71/</link>
+      <guid>https://www.lxpavilion.top/article/71/</guid>
+      <pubDate>Tue, 07 Jul 2026 08:41:31 GMT</pubDate>
+      <description><![CDATA[从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Jenkins</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[KubeSphere学习笔记：DevOps基本使用]]></title>
       <link>https://www.lxpavilion.top/article/70/</link>
       <guid>https://www.lxpavilion.top/article/70/</guid>
@@ -242,19 +255,6 @@
       <tag>Cloudflare</tag>
       <tag>域名</tag>
       <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）]]></title>
-      <link>https://www.lxpavilion.top/article/51/</link>
-      <guid>https://www.lxpavilion.top/article/51/</guid>
-      <pubDate>Sun, 28 Jun 2026 21:25:18 GMT</pubDate>
-      <description><![CDATA[从 Buttondown 迁移到 MailerLite 的完整教程：涵盖注册配置、自定义域名验证、订阅表单嵌入、分组管理、RSS 自动推送（免费）等核心功能，并附上与 Buttondown 的详细对比分析。]]></description>
-      <category>技术教程</category>
-      <tag>邮件</tag>
-      <tag>Newsletter</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
       <author>ppc</author>
     </item>
   </channel>

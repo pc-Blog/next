@@ -8,6 +8,34 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南]]></title>
+      <link>https://www.lxpavilion.top/article/73/</link>
+      <guid>https://www.lxpavilion.top/article/73/</guid>
+      <pubDate>Tue, 07 Jul 2026 16:08:23 GMT</pubDate>
+      <description><![CDATA[从 Kind 模式换到 Kubeadm 模式的完整经历。对比两种模式的核心区别，记录 Kind 模式下踩过的三个大坑（Stop 丢数据、API 端口随机、DevOps 不能跑 Docker），以及 Kubeadm 模式下的正确安装步骤和避坑技巧。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Kubernetes</tag>
+      <tag>KubeSphere</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s]]></title>
+      <link>https://www.lxpavilion.top/article/72/</link>
+      <guid>https://www.lxpavilion.top/article/72/</guid>
+      <pubDate>Tue, 07 Jul 2026 14:58:26 GMT</pubDate>
+      <description><![CDATA[记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Kubernetes</tag>
+      <tag>KubeSphere</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker]]></title>
       <link>https://www.lxpavilion.top/article/71/</link>
       <guid>https://www.lxpavilion.top/article/71/</guid>
@@ -231,30 +259,6 @@
       <category>技术教程</category>
       <tag>热点爬取</tag>
       <tag>AI应用</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[别让你的域名邮箱 "裸奔"！3 分钟添上专属头像]]></title>
-      <link>https://www.lxpavilion.top/article/53/</link>
-      <guid>https://www.lxpavilion.top/article/53/</guid>
-      <pubDate>Wed, 01 Jul 2026 09:46:24 GMT</pubDate>
-      <description><![CDATA[给自定义域名邮箱配置 Gravatar/Cravatar 头像，让每一封邮件都带上专属标识，无论发到哪都认得你。]]></description>
-      <category>技术教程</category>
-      <tag>邮件</tag>
-      <tag>域名</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[博客、API、邮箱全掌控：Cloudflare 让一个域名的价值彻底放大]]></title>
-      <link>https://www.lxpavilion.top/article/52/</link>
-      <guid>https://www.lxpavilion.top/article/52/</guid>
-      <pubDate>Wed, 01 Jul 2026 09:06:07 GMT</pubDate>
-      <description><![CDATA[有了自己的域名放在 Cloudflare 后，你可以用它做什么——站点入口、邮箱身份、API 统一、品牌标识，以及域名作为数字资产的核心价值。]]></description>
-      <category>Cloudflare 教程</category>
-      <tag>邮件</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
       <author>ppc</author>
     </item>
   </channel>

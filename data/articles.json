@@ -1,6 +1,78 @@
 {
-  "total": 38,
+  "total": 40,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/577.jpeg",
+      "createdAt": "2026-07-07T16:08:23.956458",
+      "id": 73,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "从 Kind 模式换到 Kubeadm 模式的完整经历。对比两种模式的核心区别，记录 Kind 模式下踩过的三个大坑（Stop 丢数据、API 端口随机、DevOps 不能跑 Docker），以及 Kubeadm 模式下的正确安装步骤和避坑技巧。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        }
+      ],
+      "title": "KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南",
+      "updateTime": "2026-07-07T16:09:21.815805",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/577.jpeg",
+      "createdAt": "2026-07-07T14:58:26.548561",
+      "id": 72,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 64,
+          "name": "Kubernetes"
+        },
+        {
+          "id": 65,
+          "name": "KubeSphere"
+        }
+      ],
+      "title": "KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s",
+      "updateTime": "2026-07-07T14:58:40.518761",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

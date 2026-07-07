@@ -1,0 +1,301 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/09r4hbfw4h9o_.js","/_next/static/chunks/112n9z6lx_aph.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/06jjoo_8xgzyj.js","/_next/static/chunks/00ptu9dp.8ona.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/148ko75-ihlmp.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T2ca3,## 一、引言：为什么从 Kind 换到 Kubeadm？
+
+之前我一直在用 Docker Desktop Kubernetes 的 **Kind 模式**，踩了无数坑。用一句话总结：**Kind 模式适合"用完就丢"的实验场景，不适合需要数据持久化的日常开发。**
+
+这次重装集群，我换成了 **Kubeadm 模式**，才真正体会到什么叫"丝滑"。下面把两者的区别和踩坑经验完整记录下来。
+
+---
+
+## 二、Kind vs Kubeadm：核心区别一览
+
+Docker Desktop 启动 K8s 时提供两种模式：**kubeadm** 和 **kind**。它们底层用了不同的集群创建工具，直接影响了使用体验。
+
+| 特性                         | ⚠️ Kind 模式                                         | ✅ Kubeadm 模式                                |
+| -------------------------- | -------------------------------------------------- | ------------------------------------------- |
+| **底层工具**                   | `kind` (Kubernetes IN Docker) — 在 Docker 容器中运行 K8s | `kubeadm` — 在 Docker 容器中直接初始化 K8s 组件        |
+| **节点名**                    | `desktop-control-plane`                            | `docker-desktop`                            |
+| **API Server 地址**          | `127.0.0.1:XXXXX`（**随机端口**，重启会变）                   | `kubernetes.docker.internal:6443`（**固定地址**） |
+| **Docker Desktop 普通重启后数据** | 保留 ✅                                               | 保留 ✅                                        |
+| **K8s 界面点 Stop 后数据**       | **丢失 ❌**（有明确提示，会清除所有资源）                            | **保留 ✅**                                    |
+| **最大节点数**                  | 支持多节点（1 control-plane + N worker）                  | 单节点                                         |
+| **LoadBalancer 代理容器**      | `kindccm-xxx`                                      | `docker-desktop-lb`                         |
+| **适用场景**                   | 多节点调度实验、临时测试                                       | **日常开发推荐 ⭐**                                |
+
+### 2.1 我踩过的 Kind 模式大坑
+
+#### 坑一：Stop 后数据全丢，措手不及
+
+这是 Kind 模式最大的坑。在 Docker Desktop 的 K8s 界面点 **Stop** 时，有明确的红字提示：
+
+> "Stopping the Kubernetes cluster removes all running resources."
+
+我当时没当回事，以为只是 Pod 重启，结果重新 Start 后：
+
+- 之前部署的 Deployment、Service 全没了
+- 安装的 KubeSphere 需要重新 Helm install
+- 已创建的 DevOps 项目、流水线配置全部消失
+
+而 **Kubeadm 模式 Stop 后数据保留**，重新 Start 后一切照旧。
+
+#### 坑二：API Server 端口随机，WSL 中 kubectl 反复失联
+
+Kind 模式下 API Server 的端口是随机的，每次重启集群端口都会变。而 WSL 中的 `kubectl` 通过 `~/.kube/config` 连接集群，配置里的端口还是旧的，导致：
+
+```bash
+# WSL 中突然无法连接
+kubectl get nodes
+# error: connection refused
+```
+
+必须重新复制 Windows 侧的 kubeconfig 到 WSL 中：
+
+```bash
+cp /mnt/c/Users/<用户名>/.kube/config ~/.kube/config
+```
+
+**每次重启都要来一遍**，非常烦人。Kubeadm 模式地址固定为 `kubernetes.docker.internal:6443`，配置一次即可用到底。
+
+#### 坑三（最大）：DevOps 流水线中无法运行 Docker
+
+在流水线里想 `docker build` 构建镜像，但 Agent Pod 里跑不了 Docker。卡了很久才发现这不是某个配置能解决的，而是 Kind 模式的**架构级限制**。
+
+##### 根本原因
+
+核心问题出在 Kind 的集群架构上：
+
+| 层面 | Kind 模式 | Kubeadm 模式 |
+|------|----------|-------------|
+| **K8s 节点本质** | 一个 **Docker 容器**（由 `kind` 工具管理） | Docker Desktop **原生管理的容器** |
+| **容器运行时** | `containerd`（无 Docker daemon） | `containerd`（无 Docker daemon） |
+| **`/var/run/docker.sock`** | 指向 Kind 容器内部，**不存在或无效** | Docker Desktop **自动映射到宿主机** |
+| **Pod 能否访问宿主机 Docker** | ❌ 不能 | ✅ 能（socket 已挂载） |
+
+关键区别在于：
+
+- **Kind 模式**：K8s 的节点运行在 `kind` 创建的 Docker 容器里。这个容器只运行了 `containerd` 作为 K8s 的容器运行时，**没有 Docker daemon**。当你在 Kind 的 Pod 中查看 `/var/run/docker.sock`——有可以存在，但它指向的是 Kind 容器内部的 socket，不是宿主机的 Docker。所以即使你在流水线中下载了 Docker CLI，docker.sock 也是"假的"，无法与宿主机 Docker 通信。
+
+- **Kubeadm 模式**：Docker Desktop 内置了对 Kubeadm 模式的深度集成，**自动将宿主机的 `/var/run/docker.sock` 映射到了 K8s 节点内部**。Pod 中的 `/var/run/docker.sock` 是真 · 宿主机 Docker socket。因此下载个 Docker CLI 就能通过它构建镜像。
+
+> 💡 **一句话**：Kind 的 K8s 节点是普通 Docker 容器，它里面没有 Docker daemon，docker.sock 不通。Kubeadm 的 K8s 节点是 Docker Desktop 原生管理的，docker.sock 是直通宿主机的。
+
+---
+
+## 三、Kubeadm 模式的正确打开方式
+
+### 3.1 环境说明
+
+```
+宿主机：Windows 11
+WSL 2：Ubuntu 22.04
+Docker Desktop：已安装，启用 WSL 2 后端
+```
+
+### 3.2 创建 Kubeadm 集群
+
+创建成功后，Docker Desktop 的 Kubernetes 视图中可以看到集群运行状态。
+
+![image.png](/data/media/649.png)
+
+### 3.3 验证集群
+
+```bash
+kubectl get nodes
+```
+
+输出如下即表示集群正常运行：
+
+```bash
+NAME             STATUS   ROLES           AGE     VERSION
+docker-desktop   Ready    control-plane   2m      v1.34.1
+```
+
+![image.png](/data/media/650.png)
+
+---
+
+## 四、快速验证：部署 Nginx
+
+集群搭建好了，先简单部署一个 Nginx 验证集群正常工作。
+
+```bash
+kubectl create deployment k8s-test --image=nginx
+kubectl expose deployment k8s-test --type=LoadBalancer --port=8888 --target-port=80
+```
+
+用 `--type=LoadBalancer` 而不是 NodePort，是因为在 Docker Desktop 中，**LoadBalancer 会自动创建 Envoy 代理容器，将宿主机的端口流量转发到 K8s 集群内部**。这是 Docker Desktop 环境下最推荐的暴露服务方式。
+
+观察 Docker Desktop 会发现多了一个 nginx 容器和相关代理容器。
+
+![image.png](/data/media/651.png)
+
+访问 `http://localhost:8888`，看到 Nginx 欢迎页即部署成功。
+
+![image.png](/data/media/652.png)
+
+---
+
+## 五、安装 KubeSphere
+
+### 5.1 执行安装
+
+```bash
+chart=oci://hub.kubesphere.com.cn/kse/ks-core
+version=1.2.3-20251118
+helm upgrade --install -n kubesphere-system --create-namespace ks-core $chart \
+  --debug --wait --version $version --reset-values \
+  --set extension.imageRegistry=swr.cn-north-9.myhuaweicloud.com/ks
+```
+
+### 5.2 验证安装完成
+
+```bash
+kubectl get pods -n kubesphere-system
+```
+
+所有 Pod 应为 **Running** 或 **Completed**。
+
+![image.png](/data/media/656.png)
+
+---
+
+## 六、访问 KubeSphere 控制台
+
+### 6.1 默认 NodePort 无法访问的问题
+
+安装完成后查看 Service：
+
+```bash
+kubectl get svc -n kubesphere-system ks-console
+```
+
+输出：
+
+```
+NAME         TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+ks-console   NodePort   10.96.127.214   <none>        80:30880/TCP   20m
+```
+
+默认是 **NodePort** 类型。但在 Docker Desktop 中，NodePort 绑定的"节点"本身就是 Docker 容器，Windows 宿主机无法直接到达容器内部，所以 `localhost:30880` 是访问不了的。
+
+### 6.2 方案：改为 LoadBalancer 类型（推荐）
+
+Docker Desktop **内置了 LoadBalancer 支持**。改为 LoadBalancer 后，Docker Desktop 会自动在宿主机上创建 **Envoy 代理容器**（kubeadm 模式下叫 `docker-desktop-lb`，Kind 模式下叫 `kindccm-xxx`），直接在 Windows 上监听端口，将流量转发到集群内部。
+
+```bash
+# 将 NodePort 改为 LoadBalancer
+kubectl patch svc -n kubesphere-system ks-console -p '{"spec":{"type":"LoadBalancer"}}'
+```
+
+再次查看：
+
+```bash
+kubectl get svc -n kubesphere-system ks-console
+```
+
+当 `EXTERNAL-IP` 显示为 `localhost` 时，浏览器打开 **http://localhost:30880** 即可访问。
+
+![image.png](/data/media/653.png)
+
+![image.png](/data/media/654.png)
+
+---
+
+## 七、安装 DevOps 插件
+
+安装 KubeSphere 后需要**激活**（申请免费 License）才能使用扩展中心，之后在扩展中心搜索 DevOps 插件安装。
+
+![image.png](/data/media/655.png)
+
+---
+
+## 八、关键技巧：在 DevOps 流水线中运行 Docker 构建
+
+### 8.1 问题背景
+
+你编写了 Jenkinsfile，想在流水线中自动构建 Docker 镜像并部署。但在 KubeSphere DevOps 的 Agent Pod 里，`docker` 命令默认不可用。
+
+这是 Docker Desktop 的**固有缺陷**：Agent Pod 运行在集群内部，默认没有 Docker CLI。
+
+### 8.2 解决方案：下载 Docker CLI + 挂载 docker.sock
+
+这个方案的精妙之处在于：**Docker Desktop 的 Kubeadm 模式默认在 Pod 中挂载了宿主机的 `/var/run/docker.sock`**（来自 `builder-base` 的 PodTemplate 配置）。我们只需要在流水线中**下载 Docker CLI 二进制**，就能通过这个 socket 连接到宿主机的 Docker 守护进程。
+
+修改 Jenkinsfile：
+
+```groovy
+pipeline {
+    agent {
+        kubernetes {
+            inheritFrom 'base'
+            containerTemplate {
+                name 'base'
+                image 'swr.cn-north-9.myhuaweicloud.com/ks/kubesphere/builder-base:v4.2.0'
+                ttyEnabled true
+                command 'cat'
+                runAsUser '0'
+            }
+        }
+    }
+
+    stages {
+        stage('拉取代码') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('构建 Docker 镜像') {
+            steps {
+                script {
+                    sh """
+                        # 下载 Docker CLI 二进制
+                        curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-27.5.1.tgz -o /tmp/docker.tgz
+                        tar -xzf /tmp/docker.tgz -C /tmp/
+                        export PATH=/tmp/docker:\$PATH
+                        
+                        # 验证 Docker 可用
+                        docker --version
+                        
+                        # 构建镜像（注意：docker.sock 已挂载）
+                        docker build -t fastapi-demo:latest .
+                        docker images | grep fastapi
+                    """
+                }
+            }
+        }
+
+        stage('部署到 Kubernetes') {
+            steps {
+                script {
+                    sh "kubectl apply -f deploy.yaml"
+                    sh "kubectl rollout status deployment -l app -n fastapi --timeout=60s"
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo "✅ 部署成功！"
+        }
+        failure {
+            echo "❌ 部署失败，请查看构建日志"
+        }
+    }
+}
+```
+
+### Kind vs Kubeadm 一句话总结
+
+> **Kubeadm 模式数据持久、地址固定、Docker 生态兼容好，是 Docker Desktop 上日常开发的正确选择。Kind 模式更适合多节点实验，但 Stop 会丢数据、API 端口随机、Docker 集成差，Docker Desktop对其支持较差。**
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南\",\"item\":\"https://www.lxpavilion.top/article/73\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南\",\"headline\":\"KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南\",\"description\":\"从 Kind 模式换到 Kubeadm 模式的完整经历。对比两种模式的核心区别，记录 Kind 模式下踩过的三个大坑（Stop 丢数据、API 端口随机、DevOps 不能跑 Docker），以及 Kubeadm 模式下的正确安装步骤和避坑技巧。\",\"datePublished\":\"2026-07-07T16:08:23.956458\",\"dateCreated\":\"2026-07-07T16:08:23.956458\",\"dateModified\":\"2026-07-07T16:09:21.815805\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/577.jpeg\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"huGY5ZBYSL6YPNUjSxXOz"}
+3:{"id":"73"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/112n9z6lx_aph.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

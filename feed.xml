@@ -8,17 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
-      <title><![CDATA[KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南]]></title>
-      <link>https://www.lxpavilion.top/article/73/</link>
-      <guid>https://www.lxpavilion.top/article/73/</guid>
-      <pubDate>Tue, 07 Jul 2026 16:08:23 GMT</pubDate>
-      <description><![CDATA[从 Kind 模式换到 Kubeadm 模式的完整经历。对比两种模式的核心区别，记录 Kind 模式下踩过的三个大坑（Stop 丢数据、API 端口随机、DevOps 不能跑 Docker），以及 Kubeadm 模式下的正确安装步骤和避坑技巧。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
+      <title><![CDATA[Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程]]></title>
+      <link>https://www.lxpavilion.top/article/111/</link>
+      <guid>https://www.lxpavilion.top/article/111/</guid>
+      <pubDate>Thu, 09 Jul 2026 10:26:26 GMT</pubDate>
+      <description><![CDATA[Resend 邮件服务的完整接入教程，涵盖免费额度（100 封/天）、域名 DKIM/SPF 配置、REST API 单发与组发，以及与 MailerLite 的对比分析。适合个人博客、小型项目的邮件通知场景。]]></description>
+      <category>技术教程</category>
+      <tag>MailerLite</tag>
+      <tag>邮订阅件</tag>
+      <tag>Cloudflare</tag>
+      <tag>域名</tag>
+      <tag>博客</tag>
       <author>ppc</author>
     </item>
     <item>
@@ -28,11 +28,7 @@
       <pubDate>Tue, 07 Jul 2026 14:58:26 GMT</pubDate>
       <description><![CDATA[记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。]]></description>
       <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
+      
       <author>ppc</author>
     </item>
     <item>

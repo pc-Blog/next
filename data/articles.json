@@ -2,39 +2,39 @@
   "total": 40,
   "rows": [
     {
-      "categoryId": 44,
-      "categoryName": "学习笔记",
+      "categoryId": 41,
+      "categoryName": "技术教程",
       "commentCount": 0,
-      "coverImage": "/data/media/577.jpeg",
-      "createdAt": "2026-07-07T16:08:23.956458",
-      "id": 73,
+      "coverImage": "/data/media/676.png",
+      "createdAt": "2026-07-09T10:26:26.798955",
+      "id": 111,
       "isPinned": 0,
       "isPublished": 1,
-      "summary": "从 Kind 模式换到 Kubeadm 模式的完整经历。对比两种模式的核心区别，记录 Kind 模式下踩过的三个大坑（Stop 丢数据、API 端口随机、DevOps 不能跑 Docker），以及 Kubeadm 模式下的正确安装步骤和避坑技巧。",
+      "summary": "Resend 邮件服务的完整接入教程，涵盖免费额度（100 封/天）、域名 DKIM/SPF 配置、REST API 单发与组发，以及与 MailerLite 的对比分析。适合个人博客、小型项目的邮件通知场景。",
       "tags": [
         {
-          "id": 61,
-          "name": "WSL"
+          "id": 56,
+          "name": "MailerLite"
         },
         {
-          "id": 62,
-          "name": "Docker"
+          "id": 57,
+          "name": "邮订阅件"
         },
         {
-          "id": 63,
-          "name": "Linux"
+          "id": 28,
+          "name": "Cloudflare"
         },
         {
-          "id": 64,
-          "name": "Kubernetes"
+          "id": 29,
+          "name": "域名"
         },
         {
-          "id": 65,
-          "name": "KubeSphere"
+          "id": 30,
+          "name": "博客"
         }
       ],
-      "title": "KubeSphere学习笔记：使用Kubeadm模式安装K8s以及避坑指南",
-      "updateTime": "2026-07-07T16:09:21.815805",
+      "title": "Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程",
+      "updateTime": "2026-07-09T10:36:48.421515",
       "viewCount": 0
     },
     {
@@ -47,30 +47,9 @@
       "isPinned": 0,
       "isPublished": 1,
       "summary": "记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。",
-      "tags": [
-        {
-          "id": 61,
-          "name": "WSL"
-        },
-        {
-          "id": 62,
-          "name": "Docker"
-        },
-        {
-          "id": 63,
-          "name": "Linux"
-        },
-        {
-          "id": 64,
-          "name": "Kubernetes"
-        },
-        {
-          "id": 65,
-          "name": "KubeSphere"
-        }
-      ],
+      "tags": [],
       "title": "KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s",
-      "updateTime": "2026-07-07T14:58:40.518761",
+      "updateTime": "2026-07-08T09:38:14.473543",
       "viewCount": 0
     },
     {
@@ -1174,7 +1153,7 @@
       ],
       "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 38,

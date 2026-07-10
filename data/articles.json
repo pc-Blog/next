@@ -1,6 +1,30 @@
 {
-  "total": 43,
+  "total": 44,
   "rows": [
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-10T15:42:17.669616",
+      "id": 115,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "深入解析 MySQL GTID 复制的核心原理、与传统 File+Position 复制的优劣对比、详细配置步骤、故障切换实战，以及生产环境的最佳实践，帮助 DBA 和开发者构建高可用的 MySQL 集群架构。",
+      "tags": [
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 71,
+          "name": "集群"
+        }
+      ],
+      "title": "MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点",
+      "updateTime": "2026-07-10T15:43:18.578056",
+      "viewCount": 0
+    },
     {
       "categoryId": 39,
       "categoryName": "数据库",

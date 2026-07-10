@@ -8,6 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点]]></title>
+      <link>https://www.lxpavilion.top/article/115/</link>
+      <guid>https://www.lxpavilion.top/article/115/</guid>
+      <pubDate>Fri, 10 Jul 2026 15:42:17 GMT</pubDate>
+      <description><![CDATA[深入解析 MySQL GTID 复制的核心原理、与传统 File+Position 复制的优劣对比、详细配置步骤、故障切换实战，以及生产环境的最佳实践，帮助 DBA 和开发者构建高可用的 MySQL 集群架构。]]></description>
+      <category>数据库</category>
+      <tag>Mysql</tag>
+      <tag>集群</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优]]></title>
       <link>https://www.lxpavilion.top/article/114/</link>
       <guid>https://www.lxpavilion.top/article/114/</guid>
@@ -241,18 +252,6 @@
       <tag>AI应用</tag>
       <tag>Worker AI</tag>
       <tag>Cloudflare</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Hotspot 技术实现全解：从零搭建自动化热点追踪系统]]></title>
-      <link>https://www.lxpavilion.top/article/57/</link>
-      <guid>https://www.lxpavilion.top/article/57/</guid>
-      <pubDate>Wed, 01 Jul 2026 13:39:20 GMT</pubDate>
-      <description><![CDATA[承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。]]></description>
-      <category>Ai编程</category>
-      <tag>热点爬取</tag>
-      <tag>AI应用</tag>
-      <tag>deepseek</tag>
       <author>ppc</author>
     </item>
   </channel>

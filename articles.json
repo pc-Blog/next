@@ -1,6 +1,62 @@
 {
-  "total": 41,
+  "total": 43,
   "rows": [
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-10T14:32:53.822873",
+      "id": 114,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。",
+      "tags": [
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 73,
+          "name": "Druid"
+        },
+        {
+          "id": 74,
+          "name": "Spring Boot"
+        }
+      ],
+      "title": "MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优",
+      "updateTime": "2026-07-10T14:34:04.44593",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-10T14:32:17.408474",
+      "id": 113,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "手把手教你集成 Druid 连接池到 Spring Boot 4 项目，涵盖依赖配置、连接池参数详解、监控控制台搭建，以及 Docker 部署踩坑实录。适合 Java 初学者入门数据库连接池。",
+      "tags": [
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 73,
+          "name": "Druid"
+        },
+        {
+          "id": 74,
+          "name": "Spring Boot"
+        }
+      ],
+      "title": "MySQL学习笔记：Druid连接池基础教程——从入门到监控实战",
+      "updateTime": "2026-07-10T14:34:12.713979",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
@@ -13,7 +69,7 @@
       "summary": "手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。",
       "tags": [],
       "title": "MySQL学习笔记：主从复制集群搭建以及原理详解",
-      "updateTime": "2026-07-09T16:14:27.687914",
+      "updateTime": "2026-07-10T12:04:50.334939",
       "viewCount": 0
     },
     {
@@ -49,7 +105,7 @@
         }
       ],
       "title": "Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程",
-      "updateTime": "2026-07-09T10:36:48.421515",
+      "updateTime": "2026-07-10T12:04:20.921973",
       "viewCount": 0
     },
     {

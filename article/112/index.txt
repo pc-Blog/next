@@ -1,0 +1,543 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/122bvsr7346jk.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","112",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","112","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/122bvsr7346jk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0of7j1a4~3s2g.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"tY8c37lSh3caIHJwIi2Qs"}
+17:I[6521,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js"],"default"]
+1a:I[34858,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js"],"default"]
+1b:I[23191,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/08ekpeo56a7lw.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," 栏轩阁. Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0~g7pdxppv_lv.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/122bvsr7346jk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/0~g7pdxppv_lv.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T401e,## 一、什么是主从复制？
+
+MySQL 主从复制（Master-Slave Replication）是指**将主库（Master）的数据库变更自动同步到一台或多台从库（Slave）** 的机制。
+
+### 为什么要做主从？
+
+| 场景       | 说明                                               |
+| -------- | ------------------------------------------------ |
+| **读写分离** | 主库处理写入（INSERT/UPDATE/DELETE），从库处理查询（SELECT），分摊压力 |
+| **数据备份** | 从库可作为热备份，不影响主库性能                                 |
+| **高可用**  | 主库宕机时可手动 / 自动将从库提升为新主库                           |
+| **异构分析** | 从库可以配置不同的索引或引擎，专门跑报表 / OLAP                      |
+
+---
+
+## 二、复制原理（核心必读）
+
+### 2.1 主从复制的工作流程
+
+```
+┌──────────────┐          ┌─────────────────┐          ┌──────────────┐
+│   Master     │          │     Slave        │          │   Slave      │
+│              │          │                  │          │              │
+│  Client      │          │  IO_Thread       │          │  IO_Thread   │
+│    ↓         │          │    ↑             │          │    ↑         │
+│  Write       │          │    |             │          │    |         │
+│    ↓         │          │  Relay_Log       │          │  Relay_Log   │
+│  Binlog ◄─── │◄────────►│    ↑             │◄────────►│    ↑         │
+│              │  网络传输 │  SQL_Thread     │   网络传输 │  SQL_Thread  │
+│              │          │    ↓             │          │    ↓         │
+│              │          │  Data            │          │  Data        │
+└──────────────┘          └──────────────────┘          └──────────────┘
+```
+
+### 2.2 三个关键线程
+
+| 线程 | 在哪运行 | 做什么 |
+|------|----------|--------|
+| **Binlog Dump Thread** | 主库 | 监听到 binlog 有变更 → 将变更推送给各个从库 |
+| **Slave IO Thread** | 从库 | 连接主库，接收 binlog 事件 → 写入本地的 **Relay Log（中继日志）** |
+| **Slave SQL Thread** | 从库 | 读取 Relay Log → 在本地重放 SQL，完成数据同步 |
+
+### 2.3 两个关键日志
+
+- **Binary Log（binlog）**：主库记录所有数据变更的日志，是复制的源头
+- **Relay Log（中继日志）**：从库从主库拉取到的 binlog 副本，等待 SQL 线程回放
+
+### 2.4 复制过程详解
+
+```
+1. 主库提交事务 → 写入 Binlog
+2. 从库 IO Thread 连接到主库，请求 binlog
+3. 主库 Binlog Dump Thread 将 binlog 事件发送给从库
+4. 从库 IO Thread 接收 → 写入 Relay Log
+5. 从库 SQL Thread 读取 Relay Log → 在本地执行 SQL
+6. 数据同步完成（可能会有延迟）
+```
+
+---
+
+## 三、复制类型
+
+| 类型 | 特点 | 适用场景 |
+|------|------|----------|
+| **异步复制（Async）** | 主库不等待从库确认，性能最好，可能有数据丢失 | 默认模式，对性能要求高的场景 |
+| **半同步复制（Semi-Sync）** | 主库等待至少一个从库写入 Relay Log 后才返回成功 | 数据安全要求较高的业务 |
+| **全同步复制（Group Replication）** | 主库等待所有从库提交后才返回，强一致性 | 金融场景，但性能下降明显 |
+
+> 本教程默认搭建的是**异步复制**。8.0 开始默认使用异步复制，可以手动开启半同步。
+
+---
+
+## 四、Binlog 格式
+
+| 格式 | 说明 | 优缺点 |
+|------|------|--------|
+| **STATEMENT** | 记录 SQL 语句本身 | 日志小，但某些函数（NOW(), UUID()）导致主从不一致 |
+| **ROW（推荐）** | 记录每一行数据的变更 | 一致性好，日志较大；MySQL 5.7+ 默认 |
+| **MIXED** | 混合模式：SQL 语句安全的用 STATEMENT，不安全的自动切 ROW | 兼顾两者 |
+
+> 生产中推荐使用 **ROW** 格式，一致性最高。
+
+---
+
+## 五、环境准备
+
+- Docker & Docker Compose
+- MySQL 8.0 镜像
+- Linux / macOS / Windows (WSL2) 均可
+
+---
+
+## 六、搭建步骤
+
+### 6.1 创建目录结构
+
+```bash
+mkdir -p mysql-cluster/{master,slave1,slave2}/{conf,logs,data} && \
+touch mysql-cluster/docker-compose.yml && \
+touch mysql-cluster/{master,slave1,slave2}/conf/my.cnf
+```
+
+**目录说明：**
+
+| 路径 | 用途 |
+|------|------|
+| `./master/conf/` | 主库 MySQL 配置文件 |
+| `./master/logs/` | 主库日志（含 binlog、error log） |
+| `./master/data/` | 主库数据文件（ibd、ibdata 等） |
+| `./slave1/conf/` | 从库 1 配置文件 |
+| `./slave1/logs/` | 从库 1 日志 |
+| `./slave1/data/` | 从库 1 数据 |
+
+### 6.2 修改配置文件权限
+
+Docker 挂载配置文件时，MySQL 容器内的 mysqld 对配置的权限有要求。如果权限太高（如 777），容器内部会忽略配置：
+
+```bash
+chmod 644 ./mysql-cluster/slave1/conf/my.cnf
+chmod 644 ./mysql-cluster/slave2/conf/my.cnf
+chmod 644 ./mysql-cluster/master/conf/my.cnf
+```
+
+> `644` 表示所有者可读写，其他用户只读，这是配置文件的安全推荐权限。
+
+### 6.3 主库配置文件
+
+**`master/conf/my.cnf`**
+
+```ini
+[mysqld]
+# 基础设置
+server-id = 1                        # 集群内唯一，不能重复
+log-bin = mysql-bin                   # 开启 binlog，文件名前缀
+binlog-format = ROW                   # 使用 ROW 格式（推荐）
+expire-logs-days = 7                  # binlog 保留 7 天自动清理
+
+# 需要同步的数据库（可选）
+# binlog-do-db = testdb               # 只记录这个库的变更
+
+# 不需要同步的数据库（可选）
+# binlog-ignore-db = mysql            # 忽略系统库
+
+# 其他推荐配置
+binlog_rows_query_log_events = ON     # ROW 模式下也记录原始 SQL，便于排查
+max_binlog_size = 100M                # 单个 binlog 文件大小上限
+innodb-file-per-table = 1             # 每个表独立表空间
+```
+
+**关键参数详解：**
+
+- `server-id`：集群中每个节点的唯一标识，不能重复
+- `log-bin`：开启 binlog。主库必须开启，从库可选（开启后可作为级联复制的中继）
+- `binlog-format = ROW`：记录行变更而非 SQL 语句，确保数据一致性
+- `expire-logs-days`：自动清理过期 binlog，防止磁盘写满
+- `binlog_rows_query_log_events`：ROW 模式下记录原始 SQL 帮助定位问题
+
+### 6.4 从库配置文件
+
+**`slave1/conf/my.cnf`**
+
+```ini
+[mysqld]
+server-id = 2                        # 不同从库必须不同
+relay-log = relay-bin                # 中继日志前缀
+log-bin = mysql-bin                  # 从库也开启 binlog（可选，用于级联复制或从库作为新主库）
+binlog-format = ROW
+read-only = 1                        # 从库只读（超级用户除外）
+relay-log-purge = 1                  # 自动清理已应用的中继日志
+skip-slave-start = 0                 # 启动时自动开始同步（8.0 默认行为）
+```
+
+**`slave2/conf/my.cnf`**
+
+```ini
+[mysqld]
+server-id = 3                        # 不同从库必须不同
+relay-log = relay-bin
+log-bin = mysql-bin
+binlog-format = ROW
+read-only = 1
+relay-log-purge = 1
+```
+
+**关键参数详解：**
+
+- `server-id = 2/3`：每个从库必须不同，且与主库不同
+- `relay-log`：从库专有的中继日志，存储从主库拉取到的 binlog
+- `read-only = 1`：防止数据误写入从库导致主从不一致（注意 `super` 用户不受限）
+- `relay-log-purge = 1`：SQL 线程应用完后自动删除中继日志，节省空间
+
+### 6.5 Docker Compose 配置
+
+**`docker-compose.yml`**
+
+```yaml
+version: '3.8'
+
+services:
+  mysql-master:
+    image: mysql:8.0
+    container_name: mysql-master
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      # 下面两个环境变量不是 MySQL 官方支持的，这里只是占位说明
+      # 真正的复制用户我们稍后手动创建
+    ports:
+      - "3306:3306"                   # 宿主机端口:容器端口
+    volumes:
+      - ./master/conf:/etc/mysql/conf.d      # 配置文件
+      - ./master/logs:/var/log/mysql         # 日志
+      - ./master/data:/var/lib/mysql         # 数据
+    networks:
+      - mysql-cluster-net
+
+  mysql-slave1:
+    image: mysql:8.0
+    container_name: mysql-slave1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./slave1/conf:/etc/mysql/conf.d
+      - ./slave1/logs:/var/log/mysql
+      - ./slave1/data:/var/lib/mysql
+    depends_on:
+      - mysql-master                  # 确保主库先启动
+    networks:
+      - mysql-cluster-net
+
+  mysql-slave2:
+    image: mysql:8.0
+    container_name: mysql-slave2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./slave2/conf:/etc/mysql/conf.d
+      - ./slave2/logs:/var/log/mysql
+      - ./slave2/data:/var/lib/mysql
+    depends_on:
+      - mysql-master
+    networks:
+      - mysql-cluster-net
+
+networks:
+  mysql-cluster-net:
+    driver: bridge                    # 容器间可通过容器名互通
+```
+
+**端口映射规则：**
+
+| 容器 | 宿主机端口 | 容器端口 | 用途 |
+|------|-----------|----------|------|
+| mysql-master | 3306 | 3306 | 本机连接主库 |
+| mysql-slave1 | 3307 | 3306 | 本机连接从库1 |
+| mysql-slave2 | 3308 | 3306 | 本机连接从库2 |
+
+### 6.6 启动容器
+
+```bash
+cd mysql-cluster
+docker-compose up -d
+```
+
+检查状态：
+
+```bash
+docker-compose ps
+```
+
+确认三个容器都是 `Up` 状态。
+
+### 6.7 检查容器间连通性
+
+```bash
+# 从 slave1 ping master（验证 Docker 内 DNS 解析）
+docker exec mysql-slave1 ping mysql-master -c 2
+
+# 如果容器内没有 ping，也可以测试端口
+docker exec mysql-slave1 mysql -h mysql-master -u root -proot123 -e "SELECT VERSION();"
+```
+
+> Docker Compose 创建的容器在同一网络内可以通过 **容器名** 互相通信，因此从库连接主库用 `MASTER_HOST='mysql-master'` 即可。
+
+---
+
+## 七、配置主从同步
+
+### 7.1 给每个 MySQL 创建 test 数据库（可选，用于测试）
+
+分别在三个容器中执行：
+
+```sql
+CREATE DATABASE test;
+```
+
+```bash
+# 快速在三个容器执行
+for name in mysql-master mysql-slave1 mysql-slave2; do
+  docker exec $name mysql -uroot -proot123 -e "CREATE DATABASE IF NOT EXISTS test;"
+done
+```
+
+### 7.2 在主库创建复制专用用户
+
+```bash
+docker exec -it mysql-master mysql -uroot -proot123
+```
+
+```sql
+-- 创建复制用户，允许从任意 IP 连接（%）
+CREATE USER 'repl'@'%' IDENTIFIED BY 'repl123';
+
+-- 授予复制所需的权限（只需要 REPLICATION SLAVE）
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+
+-- 刷新权限
+FLUSH PRIVILEGES;
+```
+
+> **为什么权限是 `REPLICATION SLAVE` 而非 `ALL`？**
+> 最小权限原则：复制进程只需要读取主库的 binlog 即可，不需要 INSERT / DELETE 等权限。
+> 这里用 `*.*` 表示可以复制所有库，也可以指定 `test.*` 限制只复制某个库。
+
+### 7.3 获取主库的 Binlog 坐标
+
+```sql
+SHOW MASTER STATUS;
+```
+
+输出示例：
+
+| File             | Position |
+| ---------------- | -------- |
+| mysql-bin.000001 | 157      |
+
+> **重要**：记住 `File` 和 `Position`，这是从库开始复制的起点坐标。
+> 如果在创建复制用户后又有写入操作，Position 会变化，需要重新查询。
+
+### 7.4 配置从库（两个从库操作相同）
+
+```bash
+docker exec -it mysql-slave1 mysql -uroot -proot123
+```
+
+```sql
+-- 停止已有的同步线程（如果有的话）
+STOP SLAVE;
+
+-- 重置从库状态
+RESET SLAVE;
+
+-- 配置主库信息
+CHANGE MASTER TO
+  MASTER_HOST='mysql-master',              -- Docker 网络内容器名
+  MASTER_USER='repl',
+  MASTER_PASSWORD='repl123',
+  MASTER_PORT=3306,
+  MASTER_LOG_FILE='mysql-bin.000001',      -- 替换成第 7.3 步记下的 File
+  MASTER_LOG_POS=157,                      -- 替换成第 7.3 步记下的 Position
+  GET_SOURCE_PUBLIC_KEY=1;                 -- MySQL 8.0 需要获取公钥（caching_sha2_password）
+
+-- 启动同步
+START SLAVE;
+
+-- 查看同步状态
+SHOW SLAVE STATUS\G
+```
+
+对 slave2 执行相同操作（进入 slave2 容器执行相同的 SQL，注意 `server-id` 已经在配置文件中设置好了）。
+
+> **`GET_SOURCE_PUBLIC_KEY=1` 说明：**
+> MySQL 8.0 默认使用 `caching_sha2_password` 认证插件，从库连接主库时需要获取公钥进行加密通信（密码传输加密），否则会报错：
+> ```
+> Authentication plugin 'caching_sha2_password' reported error
+> ```
+
+### 7.5 同步状态检查
+
+`SHOW SLAVE STATUS\G` 的输出很关键
+
+**核心指标汇总：**
+
+| 指标 | 正常值 | 异常处理 |
+|------|--------|----------|
+| `Slave_IO_Running` | **Yes** | 检查网络、用户权限、主库 binlog |
+| `Slave_SQL_Running` | **Yes** | 检查是否有 SQL 冲突、表结构不一致 |
+| `Seconds_Behind_Master` | **0** | 数值越大表示延迟越大 |
+| `Last_IO_Error` / `Last_SQL_Error` | 空 | 非空时是排障的第一线索 |
+
+---
+
+## 八、验证主从同步
+
+### 8.1 基本验证
+
+在主库创建数据库、表并插入数据：
+
+```sql
+-- 在主库执行
+CREATE DATABASE test_repl;
+USE test_repl;
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO users (name) VALUES ('Alice'), ('Bob'), ('Charlie');
+```
+
+在从库查询：
+
+```sql
+-- 在从库执行
+USE test_repl;
+SELECT * FROM users;
+```
+
+如果能看到三行数据，说明主从同步正常。
+
+### 8.2 验证从库只读
+
+```sql
+-- 在从库尝试写入
+USE test_repl;
+INSERT INTO users (name) VALUES ('Eve');
+```
+
+期望结果：
+
+```
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option
+```
+
+> 这就是 `read-only=1` 的作用。但注意 `root` 等 `SUPER` 用户仍然可以写入，普通应用用户会被阻止。
+
+### 8.3 验证主库写入 → 从库实时同步
+
+```sql
+-- 主库执行
+INSERT INTO users (name) VALUES ('Dave'), ('Eve');
+SELECT * FROM users;
+```
+
+然后即时去从库查询，数据应该已同步。
+
+---
+## 九、总结
+
+### 架构总览
+
+```
+                  ┌─────────────┐
+                  │   Client    │
+                  └──────┬──────┘
+                         │ 读/写
+                         ▼
+                    ┌────────┐       ┌──────────────┐
+                    │ Master │──────►│  Slave 1      │
+                    │ 3306   │       │ (read-only)   │
+                    │ R/W    │       │ 3307          │
+                    └────────┘       └──────────────┘
+                         │
+                         │           ┌──────────────┐
+                         └──────────►│  Slave 2      │
+                                     │ (read-only)   │
+                                     │ 3308          │
+                                     └──────────────┘
+```
+
+### 进阶说明
+
+1. **主从复制 = 主库写 binlog → 从库拉取到 relay log → 从库回放**，三个线程协同
+2. **ROW 格式 + GTID** 是生产环境的推荐配置
+3. **从库必须 `read-only=1`**，防止数据不一致
+4. **监控 `Slave_IO_Running`、`Slave_SQL_Running`、`Seconds_Behind_Master`** 三大指标
+5. **半同步复制** 可以在性能和一致性之间取得平衡
+6. **Docker 部署时注意** 配置文件权限、网络模式、认证插件（8.0 默认 `caching_sha2_password`）
+
+---
+
+## 参考文献
+
+- [MySQL 官方文档：Replication](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
+- [MySQL 官方文档：GTID Replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html)
+- [MySQL 官方文档：Semi-Synchronous Replication](https://dev.mysql.com/doc/refman/8.0/en/replication-semisync.html)
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"MySQL学习笔记：主从复制集群搭建以及原理详解\",\"item\":\"https://www.lxpavilion.top/article/112\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"MySQL学习笔记：主从复制集群搭建以及原理详解\",\"headline\":\"MySQL学习笔记：主从复制集群搭建以及原理详解\",\"description\":\"手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。\",\"datePublished\":\"2026-07-09T16:14:20.556393\",\"dateCreated\":\"2026-07-09T16:14:20.556393\",\"dateModified\":\"2026-07-09T16:14:27.687914\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/677.jpeg\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"MySQL学习笔记：主从复制集群搭建以及原理详解","initialContent":"$2d"}]]
+2c:{"id":"112"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"MySQL学习笔记：主从复制集群搭建以及原理详解 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/112/"}],["$","meta","5",{"property":"og:title","content":"MySQL学习笔记：主从复制集群搭建以及原理详解 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/677.jpeg"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

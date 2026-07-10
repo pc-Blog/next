@@ -1,6 +1,21 @@
 {
-  "total": 40,
+  "total": 41,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-09T16:14:20.556393",
+      "id": 112,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。",
+      "tags": [],
+      "title": "MySQL学习笔记：主从复制集群搭建以及原理详解",
+      "updateTime": "2026-07-09T16:14:27.687914",
+      "viewCount": 0
+    },
     {
       "categoryId": 41,
       "categoryName": "技术教程",

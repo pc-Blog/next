@@ -1,0 +1,691 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/122bvsr7346jk.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","114",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","114","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/122bvsr7346jk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0of7j1a4~3s2g.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"S1tgWaN9NPvI4ZJ3_ozox"}
+17:I[6521,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js"],"default"]
+1a:I[34858,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js"],"default"]
+1b:I[23191,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/08ekpeo56a7lw.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," 栏轩阁. Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0~g7pdxppv_lv.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/122bvsr7346jk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/0~g7pdxppv_lv.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T535a,## 1. SQL 防火墙 WallFilter 配置与验证
+
+### 1.1 为什么需要 SQL 防火墙
+
+在实际项目中，最危险的操作往往不是来自外部 SQL 注入攻击，而是：
+
+- 开发人员手误执行了 `DELETE FROM users`（全表删除）
+- 测试环境执行了 `TRUNCATE TABLE orders`
+- 运维脚本中混入了 `DROP TABLE`
+
+WallFilter 就是 Druid 内置的 SQL 防火墙，能在 SQL **执行之前** 就拦截掉危险操作，而不是等到数据库层面报错。
+
+### 1.2 配置
+
+```yaml
+spring:
+  datasource:
+    druid:
+      filter:
+        wall:
+          enabled: true
+          db-type: postgresql          # 数据库类型，与你的数据库一致
+          config:
+            delete-where-none-check: true      # DELETE 必须有 WHERE
+            update-where-none-check: true      # UPDATE 必须有 WHERE
+            drop-table-allow: false            # 禁止 DROP TABLE
+            truncate-allow: false              # 禁止 TRUNCATE
+            comment-allow: true                # 允许 SQL 注释
+            multi-statement-allow: false       # 禁止多语句（分号分隔）
+```
+
+> ⚠️ `db-type` 必须与数据库匹配，否则 WallFilter 可能不生效。PostgreSQL 就用 `postgresql`，MySQL 就用 `mysql`。
+
+### 1.3 实战验证
+
+借助一个独立测试库 `druid_test`（避免影响生产数据），写了 9 个测试用例来验证：
+
+```java
+@SpringBootTest(properties = {"spring.datasource.url=jdbc:postgresql://localhost:15432/druid_test"})
+class DruidWallFilterTest {
+
+    @Autowired
+    private DataSource dataSource;
+
+    // ✅ 正常 SQL —— 放行
+    @Test void selectAllowed() { /* SELECT * FROM users ORDER BY id → 通过 */ }
+    @Test void insertAllowed() { /* INSERT INTO users → 通过 */ }
+    @Test void deleteWithWhereAllowed() { /* DELETE FROM users WHERE name='?' → 通过 */ }
+    @Test void updateWithWhereAllowed() { /* UPDATE users SET email='?' WHERE name='?' → 通过 */ }
+
+    // ❌ 危险 SQL —— 拦截
+    @Test void deleteWithoutWhere_blocked() {
+        SQLException ex = assertThrows(SQLException.class, () -> {
+            /* DELETE FROM users */
+        });
+        // 拦截信息: sql injection violation, delete none condition not allow
+    }
+
+    @Test void updateWithoutWhere_blocked() {
+        // 拦截信息: sql injection violation, update none condition not allow
+    }
+
+    @Test void dropTable_blocked() {
+        // 拦截信息: sql injection violation, drop table not allow
+    }
+
+    @Test void truncate_blocked() {
+        // 拦截信息: sql injection violation, truncate not allow
+    }
+
+    @Test void multiStatement_blocked() {
+        // 拦截信息: sql injection violation, multi-statement not allow
+    }
+}
+```
+
+### 1.4 测试结果
+
+| 用例 | 结果 | Druid 拦截信息 |
+|------|------|---------------|
+| ✅ SELECT | 放行 | — |
+| ✅ INSERT | 放行 | — |
+| ✅ DELETE with WHERE | 放行 | — |
+| ✅ UPDATE with WHERE | 放行 | — |
+| ❌ DELETE **无 WHERE** | **拦截** | `delete none condition not allow` |
+| ❌ UPDATE **无 WHERE** | **拦截** | `update none condition not allow` |
+| ❌ DROP TABLE | **拦截** | `drop table not allow` |
+| ❌ TRUNCATE | **拦截** | `truncate not allow` |
+| ❌ 多语句（`;` 分隔） | **拦截** | `multi-statement not allow` |
+
+---
+
+## 2. 慢 SQL 日志输出到独立文件
+
+### 2.1 背景
+
+Druid 的 `log-slow-sql: true` 默认将慢 SQL 打到应用日志（控制台），和生产日志混在一起，难以分析。
+
+目标是：**将慢 SQL 单独输出到一个日志文件**，按日期滚动归档。
+
+### 2.2 三步配置
+
+**第一步：`application.yaml` 开启慢 SQL 记录**
+
+```yaml
+spring:
+  datasource:
+    druid:
+      filter:
+        stat:
+          enabled: true              # 必须显式 true（无 matchIfMissing）
+          log-slow-sql: true         # 开启慢 SQL 记录
+          slow-sql-millis: 1000      # 阈值 1 秒
+          merge-sql: true            # 合并参数化 SQL
+```
+
+**第二步：`logback-spring.xml` 路由到独立文件**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <property name="SLOW_SQL_LOG_PATH" value="./logs/slow-sql"/>
+
+    <appender name="SLOW_SQL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${SLOW_SQL_LOG_PATH}/slow-sql.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${SLOW_SQL_LOG_PATH}/slow-sql.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- StatFilter 的 INFO 日志（含慢 SQL）→ 独立文件 -->
+    <logger name="com.alibaba.druid.filter.stat.StatFilter" level="INFO" additivity="false">
+        <appender-ref ref="SLOW_SQL_FILE"/>
+    </logger>
+</configuration>
+```
+
+**第三步：验证（使用 `pg_sleep` 制造慢查询）**
+
+```java
+@Test
+void slowSqlShouldBeLoggedToFile() throws Exception {
+    // 制造一条超过 1s 的查询
+    try (Connection conn = dataSource.getConnection();
+         Statement stmt = conn.createStatement()) {
+        stmt.execute("SELECT pg_sleep(1.5)");
+    }
+
+    // 检查日志文件
+    var logFile = Paths.get("./logs/slow-sql/slow-sql.log");
+    assertTrue(Files.exists(logFile));
+    String content = Files.readString(logFile);
+    assertTrue(content.contains("slow sql"));
+}
+```
+
+### 2.3 效果
+
+**日志文件 `./logs/slow-sql/slow-sql.log`：**
+```
+2026-07-10 13:39:09.366 slow sql 1943 millis. SELECT pg_sleep(1.5) []
+```
+
+**日志归档：**
+```
+logs/slow-sql/
+├── slow-sql.log              # 当天
+├── slow-sql.2026-07-09.log   # 历史
+└── slow-sql.2026-07-08.log   # 保留 30 天
+```
+
+---
+
+## 3. 多数据源配置（MySQL 主从）
+
+### 3.1 场景
+
+三个 MySQL 实例，实现读写分离：
+
+| 角色 | 端口 | 用途 |
+|------|------|------|
+| master | 3306 | 写操作 |
+| slave1 | 3307 | 读操作 |
+| slave2 | 3308 | 读操作 |
+
+### 3.2 核心问题：为什么不能用 `spring.datasource.druid`？
+
+我们之前所有的 Druid 配置都是放在 `spring.datasource.druid.*` 下面的：
+
+```yaml
+spring:
+  datasource:
+    druid:
+      initial-size: 5
+      max-active: 20
+```
+
+这个配置只能创建一个 `DataSource` Bean。如果我有三个数据库，就需要三个独立的 `DataSource` Bean，每个都有自己的连接池。
+
+**解决方案**：用不同的 YAML 前缀，配合 `@ConfigurationProperties` 手动创建。
+
+而且这样**不影响 Druid 自动配置**——自动配置会创建默认的 DataSource（我们之前的 PostgreSQL），我们在此基础上额外添加 3 个 MySQL 数据源。最终 Druid 监控面板里能看到**全部 4 个数据源**的运行状态。
+
+### 3.3 YAML 配置
+
+```yaml
+# ======= Druid 全局监控配置（自动配置会用这部分创建默认数据源） =======
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:15432/blog
+    username: postgres
+    password: 123456
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 1000
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: 123456
+
+# ======= 额外三个 MySQL 数据源（自定义前缀） =======
+datasource:
+  master:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/multi_ds_test?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 60000
+    validation-query: SELECT 1
+    test-while-idle: true
+
+  slave1:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/multi_ds_test?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+    initial-size: 3
+    min-idle: 3
+    max-active: 10
+    max-wait: 60000
+    validation-query: SELECT 1
+    test-while-idle: true
+
+  slave2:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/multi_ds_test?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+    initial-size: 3
+    min-idle: 3
+    max-active: 10
+    max-wait: 60000
+    validation-query: SELECT 1
+    test-while-idle: true
+```
+
+注意这里 `datasource.master`、`datasource.slave1`、`datasource.slave2` 是自定义前缀，跟 `spring.datasource.druid` 毫无关系，所以不会冲突。
+
+### 3.4 Java 配置类——用 `@ConfigurationProperties` 绑定
+
+```java
+@Configuration
+public class MultiDataSourceConfig {
+
+    // ========== 主库 ==========
+    // prefix="datasource.master" 表示：
+    //   datasource.master.url          → setUrl()
+    //   datasource.master.username     → setUsername()
+    //   datasource.master.initial-size → setInitialSize()
+    //   ...
+    @Primary  // 标记为主数据源，没有 @Qualifier 时默认注入这个
+    @Bean(name = "masterDataSource")
+    @ConfigurationProperties(prefix = "datasource.master")
+    public DataSource masterDataSource() {
+        return new DruidDataSource();  // 创建一个空的 DruidDataSource
+    }                                  // 然后 Spring 自动把前缀下的属性 set 进去
+
+    // ========== 从库1 ==========
+    @Bean(name = "slave1DataSource")
+    @ConfigurationProperties(prefix = "datasource.slave1")
+    public DataSource slave1DataSource() {
+        return new DruidDataSource();
+    }
+
+    // ========== 从库2 ==========
+    @Bean(name = "slave2DataSource")
+    @ConfigurationProperties(prefix = "datasource.slave2")
+    public DataSource slave2DataSource() {
+        return new DruidDataSource();
+    }
+}
+```
+
+### 3.5 `@ConfigurationProperties` 是怎么工作的？
+
+看这段代码：
+
+```java
+@ConfigurationProperties(prefix = "datasource.master")
+public DataSource masterDataSource() {
+    return new DruidDataSource();  // 空的！
+}
+```
+
+执行过程：
+
+1. 方法返回一个空 `DruidDataSource` 对象（此时 `url=null`, `username=null`, `initialSize=0`...）
+2. Spring 拿到这个对象后，去 YAML 里找 `datasource.master` 下面的所有属性
+3. 对每个属性，调用 `DruidDataSource` 对应的 setter 方法：
+
+| YAML 属性 | DruidDataSource 的 setter |
+|-----------|--------------------------|
+| `url` | `setUrl("jdbc:mysql://...")` |
+| `username` | `setUsername("root")` |
+| `password` | `setPassword("root123")` |
+| `driver-class-name` | `setDriverClassName("com.mysql.cj.jdbc.Driver")` |
+| `initial-size` | `setInitialSize(5)` |
+| `min-idle` | `setMinIdle(5)` |
+| `max-active` | `setMaxActive(20)` |
+
+**结论**：`initial-size` 等属性是 `DruidDataSource` 类自己的方法，直接平铺即可，不需要 `druid:` 嵌套。
+
+> 💡 之前 `spring.datasource.druid.initial-size` 是 Druid 自动配置帮我们做的嵌套解析。手动绑定时，`@ConfigurationProperties` 直接把前缀下的键值对映射到 setter，所以平铺。
+
+### 3.6 `@Primary` 的作用
+
+现在容器里有多少个 DataSource Bean？
+
+| Bean | 来源 | 说明 |
+|------|------|------|
+| `dataSource`（默认名） | Druid 自动配置 | PostgreSQL，`spring.datasource.druid.*` |
+| `masterDataSource` | 手动定义 | MySQL master |
+| `slave1DataSource` | 手动定义 | MySQL slave1 |
+| `slave2DataSource` | 手动定义 | MySQL slave2 |
+
+当其他地方直接 `@Autowired private DataSource dataSource` 时，Spring 不知道该注入哪个。
+
+`@Primary` 告诉 Spring：**没有特别指定时，默认用 masterDataSource**。
+
+```java
+@Service
+public class UserService {
+
+    @Autowired
+    private DataSource dataSource;  // → 注入 masterDataSource（因为有 @Primary）
+
+    @Autowired
+    @Qualifier("slave1DataSource")  // → 注入 slave1
+    private DataSource slave1;
+}
+```
+
+### 3.7 怎么用这三个 MySQL 数据源
+
+```java
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public JdbcTemplate masterJdbcTemplate(
+            @Qualifier("masterDataSource") DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
+
+    @Bean
+    public JdbcTemplate slave1JdbcTemplate(
+            @Qualifier("slave1DataSource") DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
+
+    @Bean
+    public JdbcTemplate slave2JdbcTemplate(
+            @Qualifier("slave2DataSource") DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
+}
+```
+
+使用时，写操作走 master，读操作走 slave：
+
+```java
+@Service
+public class UserService {
+
+    private final JdbcTemplate masterJdbc;
+    private final JdbcTemplate slaveJdbc;
+
+    public UserService(
+            @Qualifier("masterJdbcTemplate") JdbcTemplate masterJdbc,
+            @Qualifier("slave1JdbcTemplate") JdbcTemplate slaveJdbc) {
+        this.masterJdbc = masterJdbc;
+        this.slaveJdbc = slaveJdbc;
+    }
+
+    // 写 → 主库
+    public void createUser(String name) {
+        masterJdbc.update("INSERT INTO user(name) VALUES(?)", name);
+    }
+
+    // 读 → 从库
+    public List<User> getUsers() {
+        return slaveJdbc.query("SELECT * FROM user", ...);
+    }
+}
+```
+
+### 3.8 在监控面板查看所有数据源
+
+启动项目，访问 `http://localhost:8080/druid/index.html`，点击"数据源"菜单：
+
+![image.png](/data/media/681.png)
+
+| 数据源 | 连接池状态 |
+|--------|-----------|
+| `DataSource-1`（自动配置的 PostgreSQL） | Active=0, Idle=5, MaxActive=20 |
+| `DataSource-2`（master，MySQL 3306） | Active=0, Idle=5, MaxActive=20 |
+| `DataSource-3`（slave1，MySQL 3307） | Active=0, Idle=3, MaxActive=10 |
+| `DataSource-4`（slave2，MySQL 3308） | Active=0, Idle=3, MaxActive=10 |
+
+Druid 的 StatViewServlet 会自动发现 JVM 中所有的 `DruidDataSource` 实例，不需要额外配置。
+
+### 3.9 测试验证
+
+因为 Druid 自动配置跟手动配置**互不冲突**（一个在 `spring.datasource.druid`，一个在自定义前缀），测试时**不需要排除自动配置**：
+
+```java
+@SpringBootTest  // ← 不排除任何东西，自动配置和手动配置共存
+class DruidMultiDataSourceTest {
+
+    private JdbcTemplate masterJdbc;
+    private JdbcTemplate slave1Jdbc;
+    private JdbcTemplate slave2Jdbc;
+
+    @BeforeEach
+    void setUp(@Qualifier("masterDataSource") DataSource master,
+               @Qualifier("slave1DataSource") DataSource slave1,
+               @Qualifier("slave2DataSource") DataSource slave2) {
+        masterJdbc = new JdbcTemplate(master);
+        slave1Jdbc = new JdbcTemplate(slave1);
+        slave2Jdbc = new JdbcTemplate(slave2);
+    }
+
+    @Test
+    void allDataSourcesShouldBeConnected() {
+        assertEquals(1, masterJdbc.queryForObject("SELECT 1", Integer.class));
+        assertEquals(1, slave1Jdbc.queryForObject("SELECT 1", Integer.class));
+        assertEquals(1, slave2Jdbc.queryForObject("SELECT 1", Integer.class));
+    }
+
+    @Test
+    void masterWriteShouldSyncToSlaves() throws Exception {
+        // 主库插入
+        masterJdbc.update("INSERT INTO t_user(name) VALUES(?)", "test_user");
+        Thread.sleep(500);  // 等主从同步
+
+        // 从库应能查到
+        List<Map<String, Object>> rows = slave1Jdbc.queryForList(
+                "SELECT * FROM t_user WHERE name = ?", "test_user");
+        assertFalse(rows.isEmpty());
+    }
+
+    @Test
+    void slaveShouldBeReadOnly() {
+        assertEquals(1, slave1Jdbc.queryForObject("SELECT @@read_only", Integer.class));
+        assertEquals(1, slave2Jdbc.queryForObject("SELECT @@read_only", Integer.class));
+    }
+}
+```
+
+### 3.10 核心原理：autoAddFilters
+
+我们自己创建的三个 `DruidDataSource` Bean，监控过滤器（StatFilter、WallFilter）怎么注入进去？答案在 `DruidDataSourceWrapper` 中：
+
+```java
+@Autowired
+public void autoAddFilters(List<Filter> filters) {
+    this.filters.addAll(filters);  // Spring 自动注入所有 Filter Bean
+}
+```
+
+完整链路：
+
+> ℹ️ **数据源创建链路**
+> 1. `DruidFilterConfiguration` 创建 StatFilter / WallFilter Bean（条件：`filter.stat.enabled=true`）
+> 2. 自动配置创建默认的 DruidDataSourceWrapper（PostgreSQL）
+> 3. `@Autowired autoAddFilters(List<Filter>)` 将 Filter Bean 注入到自动配置的数据源
+> 4. 我们自己定义 3 个 DruidDataSource（MySQL）
+> 5. 这三个 Bean 因为是 `new DruidDataSource()` 直接创建，不走 `DruidDataSourceWrapper`
+> 6. 但它们仍然是 Druid 管理的，会被 StatViewServlet 扫描到显示在监控面板
+> 7. **这三个 MySQL 数据源不会自动获得 StatFilter/WallFilter**，如果需要，可以在 `MultiDataSourceConfig` 中手动调用 `autoAddFilters` 或直接在配置类中注入 Filter 列表
+
+即监控面板能看到所有 4 个数据源，但只有自动配置的 PostgreSQL 那个有 StatFilter（慢 SQL 记录）和 WallFilter（防火墙）。如果想让 MySQL 的三个也享受监控/防火墙，需要额外配置（不在本文范围，有兴趣可以自己研究）。
+
+
+---
+
+## 4. 生产环境核心参数深度调优
+
+### 4.1 调优公式
+
+连接池的 `max-active` 没有标准答案，需要根据实际压测调整。经验公式：
+
+```
+max-active = (core_count × 2) + effective_spindle_count
+```
+
+- **CPU 密集**（计算多，SQL 快）：`max-active = core_count × 2`
+- **IO 密集**（SQL 慢，等待多）：`max-active` 需要更大
+- **最终值**：压测，观察 Active 曲线，找到拐点
+
+### 4.2 各场景推荐配置
+
+**低并发 CRUD（单体应用）：**
+```yaml
+druid:
+  initial-size: 5
+  min-idle: 5
+  max-active: 20
+  max-wait: 30000
+  test-while-idle: true
+  validation-query: SELECT 1
+```
+
+**高并发 API：**
+```yaml
+druid:
+  initial-size: 10
+  min-idle: 10
+  max-active: 100
+  max-wait: 10000
+  time-between-eviction-runs-millis: 30000
+  pool-prepared-statements: true
+  max-pool-prepared-statement-per-connection-size: 50
+```
+
+**支付/交易（高可靠性）：**
+```yaml
+druid:
+  test-on-borrow: true             # 牺牲性能，保证每次拿到的连接可用
+  test-while-idle: true
+  remove-abandoned: true           # 自动回收泄漏连接
+  remove-abandoned-timeout: 60
+  log-abandoned: true              # 打印泄漏堆栈
+  connection-error-retry-attempts: 3
+  break-after-acquire-failure: true  # 数据库宕机时熔断
+```
+
+### 4.3 三种连接检测模式对比
+
+| 模式 | 配置 | 优缺点 |
+|------|------|--------|
+| **被动检测** | `testOnBorrow=true` | 每次获取都检测，保证可用但性能差 |
+| **主动检测（推荐）** | `testWhileIdle=true` + 定时 eviction | 后台线程检测，不阻塞业务 |
+| **保活模式** | `keepAlive=true` | 空闲连接不驱逐而是保活，适合短 ID 场景 |
+
+### 4.4 PreparedStatement 缓存
+
+```yaml
+druid:
+  pool-prepared-statements: true    # 开启 PSCache
+  max-pool-prepared-statement-per-connection-size: 20
+```
+
+**原理**：每次执行 SQL，数据库需要编译（parse → optimize → plan）。PSCache 缓存编译结果，同一条 SQL 第二次执行时跳过编译步骤：
+
+```
+不开缓存：
+  SELECT * FROM users WHERE id = ?  → PREPARE → EXECUTE  ← 每次都要编译
+  SELECT * FROM users WHERE id = ?  → PREPARE → EXECUTE
+
+开缓存（20条）：
+  SELECT * FROM users WHERE id = ?  → PREPARE → EXECUTE  ← 第1次编译
+  SELECT * FROM users WHERE id = ?  → 直接 EXECUTE        ← 第2-N次跳过
+```
+
+### 4.5 连接泄漏处理
+
+连接忘记 `close()` 是最常见的连接池问题：
+
+```java
+// 错误写法 —— 连接永远不归还
+Statement stmt = connection.createStatement();
+stmt.execute("SELECT 1");
+// 没有 stmt.close()
+// 没有 connection.close()
+
+// 正确写法 —— try-with-resources 自动归还
+try (Connection conn = dataSource.getConnection();
+     Statement stmt = conn.createStatement()) {
+    stmt.execute("SELECT 1");
+}
+```
+
+Druid 提供了自动检测机制：
+
+```yaml
+druid:
+  remove-abandoned: true           # 开启泄漏检测
+  remove-abandoned-timeout: 300    # 300s 未归还视为泄漏
+  log-abandoned: true              # 打印堆栈，定位代码位置
+```
+
+---
+
+## 总结
+
+| 主题 | 一句话总结 |
+|------|-----------|
+| WallFilter | DELETE/UPDATE 必须有 WHERE，DROP/TRUNCATE 禁止，多语句禁止 |
+| 慢 SQL 日志 | `logback-spring.xml` 路由 `StatFilter` 日志到独立文件 |
+| 多数据源 | 自定义前缀 + `@ConfigurationProperties` + 排除自动配置 |
+| 参数调优 | `max-active` 压测确定，连接检测用 `test-while-idle`，PS 缓存可减少编译开销 |
+
+**实战中遇到的坑：**
+
+1. **`filters: stat` vs `filter.stat.enabled: true`** — 前者不走 Spring Bean，`log-slow-sql` 设了也没用
+2. **Druid Starter 版本匹配** — Spring Boot 3/4 有不同的 artifactId
+3. **StatViewServlet 默认 IP 限制** — Docker 部署需要 `allow: ""`
+4. **`db-type`** — 必须与数据库一致，否则 WallFilter 不生效
+5. **MySQL root 用户不受 `read-only=1` 限制** — 从库只读验证时踩坑
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优\",\"item\":\"https://www.lxpavilion.top/article/114\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优\",\"headline\":\"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优\",\"description\":\"深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。\",\"datePublished\":\"2026-07-10T14:32:53.822873\",\"dateCreated\":\"2026-07-10T14:32:53.822873\",\"dateModified\":\"2026-07-10T14:34:04.44593\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/677.jpeg\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优","initialContent":"$2d"}]]
+2c:{"id":"114"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/114/"}],["$","meta","5",{"property":"og:title","content":"MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/677.jpeg"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

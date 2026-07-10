@@ -8,7 +8,10 @@
   "id": 112,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 113,
+    "title": "MySQL学习笔记：Druid连接池基础教程——从入门到监控实战"
+  },
   "prev": {
     "id": 111,
     "title": "Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程"
@@ -16,6 +19,6 @@
   "summary": "手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。",
   "tags": [],
   "title": "MySQL学习笔记：主从复制集群搭建以及原理详解",
-  "updateTime": "2026-07-09T16:14:27.687914",
+  "updateTime": "2026-07-10T12:04:50.334939",
   "viewCount": 0
 }

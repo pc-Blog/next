@@ -8,6 +8,30 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优]]></title>
+      <link>https://www.lxpavilion.top/article/114/</link>
+      <guid>https://www.lxpavilion.top/article/114/</guid>
+      <pubDate>Fri, 10 Jul 2026 14:32:53 GMT</pubDate>
+      <description><![CDATA[深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。]]></description>
+      <category>数据库</category>
+      <tag>Mysql</tag>
+      <tag>Druid</tag>
+      <tag>Spring Boot</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[MySQL学习笔记：Druid连接池基础教程——从入门到监控实战]]></title>
+      <link>https://www.lxpavilion.top/article/113/</link>
+      <guid>https://www.lxpavilion.top/article/113/</guid>
+      <pubDate>Fri, 10 Jul 2026 14:32:17 GMT</pubDate>
+      <description><![CDATA[手把手教你集成 Druid 连接池到 Spring Boot 4 项目，涵盖依赖配置、连接池参数详解、监控控制台搭建，以及 Docker 部署踩坑实录。适合 Java 初学者入门数据库连接池。]]></description>
+      <category>数据库</category>
+      <tag>Mysql</tag>
+      <tag>Druid</tag>
+      <tag>Spring Boot</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[MySQL学习笔记：主从复制集群搭建以及原理详解]]></title>
       <link>https://www.lxpavilion.top/article/112/</link>
       <guid>https://www.lxpavilion.top/article/112/</guid>
@@ -229,31 +253,6 @@
       <tag>热点爬取</tag>
       <tag>AI应用</tag>
       <tag>deepseek</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[告别无效刷榜：免费 AI 工具，自动追踪纯技术热点生成报告]]></title>
-      <link>https://www.lxpavilion.top/article/56/</link>
-      <guid>https://www.lxpavilion.top/article/56/</guid>
-      <pubDate>Wed, 01 Jul 2026 13:32:25 GMT</pubDate>
-      <description><![CDATA[针对社交热榜技术内容匮乏、搜索引擎信息杂乱的痛点，Hotspot 自动化技术热点追踪工具。基于 DeepSeek 免费网页版实现零成本搜索，支持多关键词批量处理、链接去重验真、时间排序与多视角观点提取，自动输出 JSON 与 HTML 双格式报告。]]></description>
-      <category>Ai编程</category>
-      <tag>热点爬取</tag>
-      <tag>AI应用</tag>
-      <tag>deepseek</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[个人博客邮件订阅系统实战：MailerLite API 集成与避坑指南]]></title>
-      <link>https://www.lxpavilion.top/article/55/</link>
-      <guid>https://www.lxpavilion.top/article/55/</guid>
-      <pubDate>Wed, 01 Jul 2026 12:07:06 GMT</pubDate>
-      <description><![CDATA[基于实际项目经验的 MailerLite v2/v3 API 集成全记录，涵盖订阅者管理、Automation、Campaign 创建与发送、邮件模板、数据一致性校验等核心场景，以及 API 方案 vs 原生 RSS Campaign 的对比分析。]]></description>
-      <category>技术教程</category>
-      <tag>邮件</tag>
-      <tag>Newsletter</tag>
-      <tag>MailerLite</tag>
-      <tag>邮订阅件</tag>
       <author>ppc</author>
     </item>
   </channel>

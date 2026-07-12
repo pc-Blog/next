@@ -1,0 +1,374 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/00i6q~j0uwupr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T330b,## 一、什么是半同步复制？它解决了什么问题？
+
+### 1.1 异步复制的痛点
+
+在标准的 MySQL **异步复制（Asynchronous Replication）** 中：
+
+1. 主库（Source）提交事务后，**立即**向客户端返回成功
+2. 主库将 Binlog 事件写入 **Binlog Dump 线程**，发送给从库
+3. 从库的 **IO 线程** 接收并写入 Relay Log，**SQL 线程** 回放
+
+**关键问题**：主库完全不关心从库是否收到 Binlog。如果主库刚提交事务就宕机，而此时从库尚未拉取到该事务的 Binlog，就会发生 **数据丢失（data loss）**——客户端以为数据已写入，实际已永久丢失。
+
+> 📌 **典型场景**：主库宕机后，从库晋升为新主库，但缺失了宕机前最后一批事务，数据出现不一致。
+
+### 1.2 半同步复制（Semi-Synchronous Replication）的工作原理
+
+半同步复制在异步复制的基础上，引入了一个 **ACK 确认机制**：
+
+```
+客户端提交事务
+    │
+    ▼
+主库执行事务、写入 Binlog
+    │
+    ▼
+主库等待至少一个从库返回 ACK（确认已收到 Binlog）
+    │
+    ▼
+超时？──是──→自动降级为异步复制，返回客户端
+    │
+    否
+    │
+    ▼
+向客户端返回成功
+```
+
+**核心特点**：
+- 确保事务在主库提交时，**至少一个从库已经收到**该事务的 Binlog
+- 从库**收到 Binlog 并写入 Relay Log** 即回复 ACK，**不需要等待 SQL 线程回放完成**
+- 不会影响从库的回放速度，只对主库的提交阶段产生等待
+
+### 1.3 三种复制模式的对比
+
+| 特性 | 异步复制 | 半同步复制 | 全同步复制 |
+|------|---------|-----------|-----------|
+| 数据安全性 | ❌ 可能丢失事务 | ✅ 至少一个从库有数据 | ✅ 所有节点一致 |
+| 主库性能影响 | 无 | 轻微（ACK 等待） | 严重（分布式事务） |
+| 适用场景 | 允许少量丢数据的业务 | 金融、支付等核心业务 | 对一致性要求极端的系统 |
+| 实现复杂度 | 低 | 中 | 高（需 Paxos/MySQL Group Replication） |
+
+---
+
+## 二、半同步复制 vs 常规集群 vs GTID 集群
+
+### 2.1 与常规异步复制集群的对比
+
+| 对比维度 | 常规异步复制 | + 半同步复制 |
+|---------|------------|------------|
+| 数据一致性 | 最终一致，可能丢数据 | 强一致（至少一从有数据） |
+| 主库宕机切换 | 可能丢事务 | 不丢已确认事务 |
+| 性能开销 | 无额外开销 | 增加 1 次网络 RTT（仅提交时等待） |
+| 自动降级 | — | 超时后自动降级为异步 |
+
+### 2.2 与 GTID 复制的协作关系
+
+**半同步复制 ≠ GTID 复制**，两者是**正交关系**，可以协同工作：
+
+| 技术 | 解决的问题 | 协作效果 |
+|------|----------|---------|
+| 半同步复制 | 保证从库**收到** Binlog | 主从切换时数据不丢失 |
+| GTID 复制 | 自动定位 Binlog **位置**，避免手动设置 `MASTER_LOG_POS` | 简化故障恢复，切换更丝滑 |
+
+**最佳实践**：**同时开启半同步 + GTID** —— 半同步保证数据不丢，GTID 保证切换时自动对齐位点，两者是天作之合。
+
+---
+
+## 三、前置知识
+
+在开始之前，请确保你已经完成以下基础环境搭建：
+
+- ✅ MySQL 8.0+ 主从集群已部署（推荐使用 GTID 模式）
+- ✅ 主库和从库之间网络互通（3306 端口）
+- ✅ 已创建专用的复制用户并授权 `REPLICATION SLAVE`
+- ✅ 主库已开启 Binlog：`log_bin=ON`、`server_id` 唯一
+
+> 本文基于 MySQL 8.0/8.4 环境，旧版本中插件名称可能为 `semisync_master.so` / `semisync_slave.so`（8.0 前称主库为 master、从库为 slave）。
+
+---
+
+## 四、安装半同步复制插件
+
+半同步复制不是 MySQL 的默认功能，需要手动加载插件。**主库和从库安装的插件不同**，请注意区分。
+
+### 4.1 主库安装插件
+
+```sql
+INSTALL PLUGIN rpl_semi_sync_source SONAME 'semisync_source.so';
+```
+
+- **插件名**：`rpl_semi_sync_source`
+- **SO 文件**：`semisync_source.so`（位于 MySQL 的 plugin 目录）
+- **作用**：该插件负责在主库上管理半同步复制的**发送端逻辑**，包括：
+  - 追踪已注册的从库及其 ACK 状态
+  - 控制事务提交时的等待超时
+  - 统计半同步/异步模式下的事务数量
+
+### 4.2 所有从库安装插件
+
+```sql
+INSTALL PLUGIN rpl_semi_sync_replica SONAME 'semisync_replica.so';
+```
+
+- **插件名**：`rpl_semi_sync_replica`
+- **SO 文件**：`semisync_replica.so`
+- **作用**：该插件在从库上负责：
+  - 接收主库的半同步协议握手
+  - 在写入 Relay Log **后**向主库回复 ACK
+  - 管理从库端的半同步状态
+
+### 4.3 验证插件是否安装成功
+
+```sql
+SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE '%semi%';
+```
+
+示例输出：
+
+| PLUGIN_NAME          | PLUGIN_STATUS |
+| -------------------- | ------------- |
+| rpl_semi_sync_source | ACTIVE        |
+
+确保 `PLUGIN_STATUS` 为 `ACTIVE`，表示插件已成功加载。
+
+---
+
+## 五、开启半同步功能
+
+### 5.1 主库配置（my.cnf / my.ini）
+
+```ini
+rpl_semi_sync_source_enabled  = 1        # 开启主库半同步
+rpl_semi_sync_source_timeout  = 3000     # 等待从库 ACK 的超时时间（毫秒）
+rpl_semi_sync_source_wait_point = AFTER_SYNC  # 等待时机
+```
+
+**参数详解**：
+
+| 参数 | 说明 | 推荐值 |
+|------|------|-------|
+| `rpl_semi_sync_source_enabled` | 是否启用主库半同步 | `1` |
+| `rpl_semi_sync_source_timeout` | 等待 ACK 的超时时间（毫秒），超时后自动降级为异步 | `3000`（3 秒） |
+| `rpl_semi_sync_source_wait_point` | 在哪个阶段等待 ACK，可选 `AFTER_SYNC` 或 `AFTER_COMMIT` | `AFTER_SYNC`（推荐） |
+
+> **⚠️ `AFTER_SYNC` vs `AFTER_COMMIT` 的区别**：
+> - `AFTER_SYNC`（推荐）：将 Binlog 刷盘后、**事务提交前**等待 ACK。这样主库宕机时，未收到确认的事务会在 Binlog 中但未提交，从库晋升后不会多出数据，**数据零丢失**。
+> - `AFTER_COMMIT`：事务提交并返回客户端后等待 ACK。如果此时主库宕机，客户端认为已成功但从库可能没收到，**客户端侧数据丢失**（其他客户端读从库不会读到，但主库恢复后数据还在）。
+>
+> ✅ **MySQL 5.7+ 官方推荐使用 `AFTER_SYNC`**。
+
+### 5.2 从库配置（my.cnf / my.ini）
+
+```ini
+rpl_semi_sync_replica_enabled = 1   # 开启从库半同步
+```
+
+从库不需要配置超时和等待点，这些由主库控制。
+
+### 5.3 重启数据库使配置生效
+
+```bash
+# 重启 MySQL 服务
+systemctl restart mysqld    # Linux
+# 或
+mysqladmin shutdown && mysqld_safe &   # 手动重启
+```
+
+> **动态启用**（不重启）：
+> ```sql
+> SET GLOBAL rpl_semi_sync_source_enabled = 1;
+> SET GLOBAL rpl_semi_sync_source_timeout = 3000;
+> -- 从库同理
+> ```
+> 但写入配置文件可以保证重启后持久化。
+
+---
+
+## 六、验证半同步是否生效
+
+### 6.1 查看主库状态
+
+```sql
+SHOW STATUS LIKE 'Rpl_semi_sync%';
+```
+
+关键指标：
+
+| 变量名 | 说明 |
+|-------|------|
+| `Rpl_semi_sync_source_status` | 主库半同步状态：ON / OFF |
+| `Rpl_semi_sync_source_clients` | 注册的从库数量 |
+| `Rpl_semi_sync_source_yes_transactions` | 成功半同步的事务数 |
+| `Rpl_semi_sync_source_no_transactions` | 降级为异步的事务数 |
+| `Rpl_semi_sync_source_net_avg_wait_time` | 平均 ACK 等待时间 |
+
+### 6.2 查看从库状态
+
+```sql
+SHOW STATUS LIKE 'Rpl_semi_sync%';
+```
+
+| 变量名 | 说明 |
+|-------|------|
+| `Rpl_semi_sync_replica_status` | 从库半同步状态：ON / OFF |
+
+---
+
+## 七、测试 1：验证半同步阻塞与超时降级
+
+### 7.1 模拟从库断开
+
+在所有从库上**停止 IO 线程**，模拟从库网络断开或宕机：
+
+```sql
+STOP SLAVE IO_THREAD;
+```
+
+此时主库如果还在等待半同步 ACK，就收不到了。
+
+### 7.2 在主库上执行建表语句
+
+```sql
+CREATE DATABASE test_semi;
+```
+
+**✅ 预期现象**：这条 SQL 会**卡住约 3 秒**（即上文设置的 `rpl_semi_sync_source_timeout = 3000`），然后才返回成功。
+
+### 7.3 原理分析
+
+```
+事务提交时间线：
+
+    0ms     主库执行 CREATE DATABASE，写入 Binlog
+    0ms     主库开始等待从库 ACK
+    3000ms  超时！自动降级为异步复制
+    3000ms  向客户端返回成功
+```
+
+### 7.4 验证当前模式
+
+```sql
+SHOW STATUS LIKE 'Rpl_semi_sync_source_status';
+```
+
+| Variable_name                | Value |
+|-----------------------------|-------|
+| Rpl_semi_sync_source_status | OFF   |
+
+此时主库已降级为异步复制模式。
+
+### 7.5 查看降级统计
+
+```sql
+SELECT VARIABLE_VALUE FROM performance_schema.global_status
+WHERE VARIABLE_NAME = 'Rpl_semi_sync_source_no_transactions';
+```
+
+该值应为 `1`，表示有 1 个事务因超时退化为异步模式。
+
+---
+
+## 八、测试 2：恢复半同步模式
+
+### 8.1 恢复从库的 IO 线程
+
+```sql
+START SLAVE IO_THREAD;
+```
+
+此时从库重新连接主库，开始拉取断连期间的 Binlog。
+
+### 8.2 验证主库半同步自动恢复
+
+```sql
+SHOW STATUS LIKE 'Rpl_semi_sync_source_status';
+```
+
+| Variable_name                | Value |
+|-----------------------------|-------|
+| Rpl_semi_sync_source_status | ON    |
+
+**自动恢复！** 主库检测到至少一个从库重新连接后，自动从异步模式**恢复为半同步模式**，无需人工干预。
+
+### 8.3 验证数据一致性
+
+```sql
+-- 在主库上查询
+SHOW DATABASES LIKE 'test_semi';
+
+-- 在从库上查询（等待几秒让 SQL 线程回放）
+SHOW DATABASES LIKE 'test_semi';
+```
+
+从库应该已经同步了 `test_semi` 数据库，数据最终一致。
+
+### 8.4 确认恢复正常后的半同步计数
+
+```sql
+SHOW STATUS LIKE 'Rpl_semi_sync_source_yes_transactions';
+```
+
+再次执行 DDL 语句后再查看，该计数应增加，说明事务以半同步模式成功提交。
+
+---
+
+## 九、半同步复制的关键行为总结
+
+### 9.1 核心生命周期
+
+```
+正常模式 ──→ 等待 ACK 超时 ──→ 降级为异步 ──→ 从库重新连接 ──→ 自动恢复半同步
+    ↑                                                                  │
+    └──────────────────────────────────────────────────────────────────┘
+```
+
+### 9.2 几种典型场景的行为对比
+
+| 场景 | 主库行为 | 从库行为 | 数据一致性 |
+|------|---------|---------|-----------|
+| 从库 IO 线程断连，创建数据库 | 阻塞 3 秒后成功，降级为异步 | 不包含新数据库 | 主库有、从库无（暂时不一致） |
+| 从库恢复连接 | 自动恢复半同步模式 | 从断点拉取 Binlog | 数据追上后一致 |
+| 正常业务写入 | 等待 ACK（通常 <1ms） | 收到 Binlog 后回复 ACK | 始终一致 |
+| 主库在 AFTER_SYNC 阶段宕机 | 事务未提交，不影响 | 可能未收到该事务 | 数据不丢失 |
+| 主库在 AFTER_COMMIT 阶段宕机 | 事务已提交（仅客户端侧风险） | 可能未收到 | 主库恢复后有数据（不一致风险） |
+
+### 9.3 注意事项与最佳实践
+
+1. **超时时间设置**：`rpl_semi_sync_source_timeout` 不要设得太短（<1000ms）否则网络抖动会导致频繁降级；也不要太长（>10000ms）否则从库故障时主库写入延迟过高。推荐 **3000ms**。
+
+2. **至少有 2 个从库**：只有一个从库时，该从库故障会导致主库降级。多从库可以容忍部分从库故障。
+
+3. **配合监控告警**：监控 `Rpl_semi_sync_source_status` 和 `Rpl_semi_sync_source_no_transactions`，当降级为异步时及时告警。
+
+4. **半同步 + GTID + MySQL Router**：生产环境推荐的三件套组合：
+   - 半同步 → 数据不丢失
+   - GTID → 自动位点对齐
+   - MySQL Router / ProxySQL → 自动读写分离和故障切换
+
+5. **半同步不是银弹**：它保证的是**至少一个从库收到 Binlog**，而不是**所有从库都一致**。对严格一致性要求（如金融跨区域），需使用 Group Replication / Paxos 方案。
+
+6. **版本兼容性**：MySQL 5.5/5.6 已引入半同步（插件名使用 `master/slave`）；MySQL 8.0 起更名为 `source/replica`。确保主从使用兼容版本。
+
+---
+
+## 十、总结
+
+半同步复制是 MySQL 从 **"尽力而为"** 到 **"有保障"** 的重要演进，它在性能和一致性之间取得了良好的平衡：
+
+- ✅ **数据更安全**——确保至少一个从库有数据，主库宕机不丢已确认事务
+- ✅ **性能影响小**——仅增加一次网络 RTT，通常 <1ms 开销
+- ✅ **自动降级与恢复**——从库故障时降级为异步，恢复后自动回到半同步
+- ✅ **与 GTID 完美协作**——半同步保数据、GTID 保切换，双剑合璧
+
+**一句话总结**：生产环境**永远不要使用纯异步复制**。开启半同步复制，为你的数据库加上第一道数据安全防线。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题\",\"item\":\"https://www.lxpavilion.top/article/116\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题\",\"headline\":\"Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题\",\"description\":\"深入剖析MySQL半同步复制的工作原理、与异步复制的核心区别，手把手带你完成插件安装、配置、超时降级测试与自动恢复验证，构建高可用、数据零丢失的数据库架构。\",\"datePublished\":\"2026-07-11T08:54:42.91041\",\"dateCreated\":\"2026-07-11T08:54:42.91041\",\"dateModified\":\"2026-07-11T08:56:58.026614\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/677.jpeg\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"SLQ9jZhF4EgutSPX8dqk4"}
+3:{"id":"116"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/00i6q~j0uwupr.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

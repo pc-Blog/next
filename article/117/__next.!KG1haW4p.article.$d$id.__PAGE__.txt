@@ -1,0 +1,691 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/08ekpeo56a7lw.js","/_next/static/chunks/00i6q~j0uwupr.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0of7j1a4~3s2g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T4c74,## 什么是 MySQL InnoDB Cluster
+
+MySQL InnoDB Cluster 是 MySQL 官方提供的高可用解决方案，它由三个组件组成：
+
+| 组件 | 作用 |
+|------|------|
+| **MySQL Group Replication (MGR)** | 提供数据自动复制、一致性保证、自动选主 |
+| **MySQL Shell** | 集群管理工具，通过 AdminAPI 创建和管理集群 |
+| **MySQL Router** | 流量路由层，实现读写分离和故障自动切换 |
+
+### 解决了什么问题
+
+- **自动故障转移**：主库宕机后，集群自动选举新主库，无需人工介入
+- **应用无感知切换**：Router 层自动感知主库变化，应用连接的 6446/6447 端口不变
+- **一致性保证**：基于 Paxos 协议的组复制，保证数据强一致性
+- **自动化运维**：通过 MySQL Shell 的 AdminAPI，几条命令即可完成集群管理
+
+### 对比传统主从复制
+
+| 对比项 | 传统主从复制 | InnoDB Cluster |
+|--------|-------------|----------------|
+| 故障转移 | 手动切换或第三方工具 | 自动选举新主库 |
+| 应用切换 | 需修改连接地址 | Router 自动路由，端口不变 |
+| 一致性 | 异步复制可能丢数据 | 组复制保证强一致 |
+| 管理方式 | 手动执行 SQL | AdminAPI 一键管理 |
+| 扩容缩容 | 手动配置 | `addInstance()` / `removeInstance()` |
+
+---
+
+## 前置知识
+
+- 已掌握传统 MySQL 主从复制搭建
+- 了解 Docker 基础操作
+- 环境：Docker + MySQL 8.0 + Ubuntu/WSL2
+
+---
+
+## 环境规划
+
+| 容器 | 角色 | 业务端口 | MGR 通信端口 |
+|------|------|---------|-------------|
+| mysql-ic-1 | 主库（初始 Primary） | 3306 | 33061 |
+| mysql-ic-2 | 从库（Secondary） | 3307 | 33062 |
+| mysql-ic-3 | 从库（Secondary） | 3308 | 33063 |
+| mysql-router | 流量路由 | 6446(RW) / 6447(RO) | - |
+
+---
+
+## 1. Docker Compose 配置
+
+```yaml
+services:
+  # MySQL 节点 1（集群种子节点，初始主库）
+  mysql-ic-1:
+    image: mysql:8.0
+    container_name: mysql-ic-1
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Root@123456
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3306:3306"    # 业务端口
+      - "33061:33061"  # MGR 组复制通信端口
+    volumes:
+      - ./mysql-ic-1/conf:/etc/mysql/conf.d
+      - ./mysql-ic-1/logs:/var/log/mysql
+      - ./mysql-ic-1/data:/var/lib/mysql
+    networks:
+      - innodb-cluster-net
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci"
+    ]
+
+  # MySQL 节点 2（从库）
+  mysql-ic-2:
+    image: mysql:8.0
+    container_name: mysql-ic-2
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Root@123456
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3307:3306"
+      - "33062:33061"
+    volumes:
+      - ./mysql-ic-2/conf:/etc/mysql/conf.d
+      - ./mysql-ic-2/logs:/var/log/mysql
+      - ./mysql-ic-2/data:/var/lib/mysql
+    networks:
+      - innodb-cluster-net
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci"
+    ]
+
+  # MySQL 节点 3（从库）
+  mysql-ic-3:
+    image: mysql:8.0
+    container_name: mysql-ic-3
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Root@123456
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3308:3306"
+      - "33063:33061"
+    volumes:
+      - ./mysql-ic-3/conf:/etc/mysql/conf.d
+      - ./mysql-ic-3/logs:/var/log/mysql
+      - ./mysql-ic-3/data:/var/lib/mysql
+    networks:
+      - innodb-cluster-net
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci"
+    ]
+
+  # MySQL Router 流量路由层
+  mysql-router:
+    image: mysql/mysql-router:8.0
+    container_name: mysql-router
+    restart: unless-stopped
+    user: "999:999"
+    ports:
+      - "6446:6446"  # 读写端口 → 自动路由到主库
+      - "6447:6447"  # 只读端口 → 负载均衡到从库
+    volumes:
+      - ./router/conf:/tmp/router-conf
+    networks:
+      - innodb-cluster-net
+    depends_on:
+      - mysql-ic-1
+      - mysql-ic-2
+      - mysql-ic-3
+    entrypoint: ["mysqlrouter"]
+    command: ["-c", "/tmp/router-conf/mysqlrouter.conf"]
+
+networks:
+  innodb-cluster-net:
+    driver: bridge
+```
+
+### 关键配置说明
+
+1. **每个节点暴露两个端口**：
+   - `3306/3307/3308`：MySQL 业务端口
+   - `33061/33062/33063`：MGR 组复制的内部通信端口
+
+2. **MySQL Router 的特殊处理**：
+   - 必须设置 `entrypoint: ["mysqlrouter"]` 跳过镜像默认的初始化脚本（否则要求设置一堆环境变量）
+   - 必须设置 `user: "999:999"` 匹配容器内 mysqlrouter 用户的 UID
+   - 配置通过 bootstrap 生成，不能手写（否则会缺少 keyring 文件）
+
+---
+
+## 2. MySQL 配置文件
+
+三个节点只有 `server-id` 和 `local_address` 两处差异。
+
+### mysql-ic-1 的 my.cnf
+
+```ini
+[mysqld]
+# 基础标识
+server-id = 1
+port = 3306
+default_authentication_plugin = mysql_native_password
+report_host = mysql-ic-1
+
+# GTID 核心配置（InnoDB Cluster 强制要求）
+gtid-mode = ON
+enforce-gtid-consistency = ON
+log-slave-updates = ON
+
+# Binlog 配置
+binlog-format = ROW
+log-bin = mysql-bin
+binlog-checksum = NONE
+relay-log = relay-bin
+
+# 复制元数据存储（MGR 要求表格式）
+master-info-repository = TABLE
+relay-log-info-repository = TABLE
+
+# 事务写集提取（MGR 冲突检测必需）
+transaction-write-set-extraction = XXHASH64
+
+# 组复制基础配置
+loose-group_replication_group_name = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+loose-group_replication_start_on_boot = OFF
+loose-group_replication_local_address = "mysql-ic-1:33061"
+loose-group_replication_group_seeds = "mysql-ic-1:33061,mysql-ic-2:33061,mysql-ic-3:33061"
+loose-group_replication_bootstrap_group = OFF
+loose-group_replication_single_primary_mode = ON
+loose-group_replication_enforce_update_everywhere_checks = OFF
+
+# 性能与字符集
+innodb_buffer_pool_size = 256M
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+```
+
+### 其他节点的差异
+
+复制上述内容，仅修改两处：
+
+- **节点 2**：`server-id = 2`，`loose-group_replication_local_address = "mysql-ic-2:33061"`，`report_host = mysql-ic-2`
+- **节点 3**：`server-id = 3`，`loose-group_replication_local_address = "mysql-ic-3:33061"`，`report_host = mysql-ic-3`
+
+### ⚠️ report_host 为什么是必需
+
+Docker 容器在启动时，MySQL 默认报告自己的 hostname 为**容器 ID**（如 `8dfb2e45d94d`）。其他节点解析不了容器 ID，导致 clone 恢复和 MGR 通信失败。
+
+加上 `report_host = mysql-ic-1` 后，节点之间通过 Docker 内网的**容器名**互相通信，就能正常解析了。
+
+---
+
+## 3. 启动容器
+
+```bash
+# 清理旧数据（如果是第一次运行，可以跳过）
+rm -rf mysql-ic-1/data mysql-ic-2/data mysql-ic-3/data
+
+# 启动三个 MySQL 节点
+docker-compose up -d mysql-ic-1 mysql-ic-2 mysql-ic-3
+
+# 等待 MySQL 初始化完成（第一次启动约 30 秒）
+sleep 30
+
+# 验证三个节点是否正常
+docker ps --filter name=mysql-ic
+```
+
+预期输出：
+```
+NAMES        STATUS
+mysql-ic-1   Up About a minute
+mysql-ic-2   Up About a minute
+mysql-ic-3   Up About a minute
+```
+
+---
+
+## 4. 安装 MySQL Shell
+
+MySQL Shell 用来执行 AdminAPI 管理集群。
+
+### 方案 A：通过 Docker 容器内 MySQL Shell（推荐）
+
+`mysql:8.0` 镜像自带 `mysqlsh`，可以直接用：
+
+```bash
+# 从 mysql-ic-1 容器内执行 mysqlsh
+docker exec -it mysql-ic-1 mysqlsh
+```
+
+### 方案 B：宿主机安装（备选）
+
+如果无法拉取 `mysql/mysql-shell:8.0` 镜像（国内网络可能 403），可以在 WSL/Ubuntu 上通过 snap 安装：
+
+```bash
+sudo snap install mysql-shell
+
+# 验证版本
+/snap/bin/mysqlsh --version
+```
+
+> 注意：宿主机安装的 mysqlsh 可能版本较旧（如 8.0.23），且无法解析 Docker 内网的容器名。这种情况下连接时要通过 `127.0.0.1` 加端口映射。
+
+---
+
+## 5. 创建 InnoDB Cluster
+
+### 5.1 配置第一个节点
+
+```bash
+# 通过 docker exec 进入容器内部执行（推荐，避免网络问题）
+docker exec -it mysql-ic-1 mysqlsh root@mysql-ic-1:3306 -pRoot@123456
+```
+
+进入 MySQL Shell 后（默认 Python 模式 `mysql-py`），执行：
+
+```python
+# 检查实例是否满足集群条件
+dba.check_instance_configuration('root@mysql-ic-1:3306')
+
+# 配置实例（自动安装 Group Replication 插件、调整参数）
+dba.configure_instance('root@mysql-ic-1:3306')
+```
+
+输入密码后，它会列出需要修改的配置项，选择 **y** 确认。
+
+### 5.2 创建集群
+
+```python
+# 创建集群，mycluster 是集群名称
+var = dba.create_cluster('mycluster')
+```
+
+成功后可以看到输出：
+```
+Cluster successfully created. Use Cluster.add_instance() to add MySQL instances.
+At least 3 instances are needed for the cluster to be able to withstand up to one server failure.
+```
+
+### 5.3 配置另外两个节点
+
+在同一个 mysqlsh 会话中：
+
+```python
+# 配置节点 2
+dba.configure_instance('root@mysql-ic-2:3306')
+```
+
+输入密码 → **y** 确认。
+
+```python
+# 配置节点 3
+dba.configure_instance('root@mysql-ic-3:3306')
+```
+
+输入密码 → **y** 确认。
+
+### 5.4 添加节点到集群
+
+```python
+# 添加节点 2
+var.add_instance('root@mysql-ic-2:3306')
+```
+
+输入密码后，如果出现 GTID 冲突提示（从旧数据残留），选择 **C**（Clone），它会从主库克隆一份全新数据覆盖。
+
+```
+Please select a recovery method [C]lone/[A]bort (default Abort): C
+```
+
+再添加节点 3：
+
+```python
+# 添加节点 3
+var.add_instance('root@mysql-ic-3:3306')
+```
+
+同样选 **C**（Clone）。
+
+### 5.5 查看集群状态
+
+```python
+var.status()
+```
+
+输出示例：
+```
+{
+    "clusterName": "mycluster",
+    "defaultReplicaSet": {
+        "status": "OK",
+        "topology": {
+            "mysql-ic-1:3306": {"role": "HA", "memberRole": "PRIMARY",  "mode": "R/W", "status": "ONLINE"},
+            "mysql-ic-2:3306": {"role": "HA", "memberRole": "SECONDARY", "mode": "R/O", "status": "ONLINE"},
+            "mysql-ic-3:3306": {"role": "HA", "memberRole": "SECONDARY", "mode": "R/O", "status": "ONLINE"}
+        }
+    }
+}
+```
+
+三个节点 ONLINE，集群创建成功 ✅
+
+---
+
+## 6. 配置 MySQL Router
+
+### 6.1 Bootstrap 生成配置
+
+```bash
+# 启动一个临时容器来 bootstrap
+docker run --rm --network mysql-cluster_innodb-cluster-net \
+  --name mysql-router-bootstrap \
+  --entrypoint bash \
+  -v $(pwd)/router/conf:/tmp/router-conf \
+  mysql/mysql-router:8.0 \
+  -c "echo 'Root@123456' | mysqlrouter --bootstrap root@mysql-ic-1:3306 --directory /tmp/router-conf"
+```
+
+成功后输出：
+```
+# MySQL Router configured for the InnoDB Cluster 'mycluster'
+
+## MySQL Classic protocol
+- Read/Write Connections: localhost:6446
+- Read/Only Connections:  localhost:6447
+```
+
+### 6.2 修复文件权限
+
+```bash
+# bootstrap 生成的文件是 root 权限，需改为 mysqlrouter 用户可读
+chown -R 999:999 router/conf
+chmod 640 router/conf/mysqlrouter.key router/conf/data/keyring router/conf/data/*.pem
+chmod 700 router/conf/data
+```
+
+### 6.3 启动 Router
+
+```bash
+docker-compose up -d mysql-router
+```
+
+---
+
+## 7. 验证集群功能
+
+### 7.1 测试读写分离
+
+```bash
+# 读写端口 → 自动路由到主库
+docker run --rm --network host --entrypoint mysql mysql:8.0 \
+  -h127.0.0.1 -P6446 -uroot -pRoot@123456 \
+  -e "SELECT @@hostname as node, @@read_only as is_ro, 'RW' as mode"
+
+# 只读端口 → 路由到从库
+docker run --rm --network host --entrypoint mysql mysql:8.0 \
+  -h127.0.0.1 -P6447 -uroot -pRoot@123456 \
+  -e "SELECT @@hostname as node, @@read_only as is_ro, 'RO' as mode"
+```
+
+预期结果：
+```
+# 6446 RW：连接到主库，read_only = 0
+# 6447 RO：连接到从库，read_only = 1
+```
+
+### 7.2 测试故障转移
+
+```bash
+# 停掉主库
+docker stop mysql-ic-1
+```
+
+等待几秒后，查看集群状态：
+
+```bash
+docker exec mysql-ic-2 mysqlsh root@mysql-ic-2:3306 -pRoot@123456 \
+  --py -e "print(dba.get_cluster('mycluster').status())"
+```
+
+可以看到集群自动将某个 Secondary 提升为 Primary。
+
+---
+
+## 8. 容器重启与集群恢复
+
+生产环境中，宿主机重启、Docker 升级等场景不可避免。这一节专门讲集群的容器重启行为。
+
+### 8.1 重启后集群还在吗
+
+**结论：容器重启后，集群不会自动恢复。**
+
+原因就在前面的 MGR 配置：
+
+```ini
+loose-group_replication_start_on_boot = OFF
+loose-group_replication_bootstrap_group = OFF
+```
+
+| 配置 | 值 | 影响 |
+|------|-----|------|
+| `start_on_boot` | OFF | MySQL 进程启动后，**不会**自动加入 MGR 组复制 |
+| `bootstrap_group` | OFF | MySQL 启动后，**不会**自动引导（创建）集群 |
+
+所以执行 `docker-compose down && docker-compose up -d` 后：
+
+- ✅ **数据不会丢** —— 数据卷挂载了宿主机目录，MySQL 的数据文件、binlog、集群元数据都在
+- ❌ **MGR 不会自动启动** —— 每个 MySQL 实例以独立单机模式启动，不会互相发现组成集群
+- ❌ **Router 连不上** —— Router bootstrap 时记住了集群拓扑，但 MGR 没运行，Router 连接失败
+
+此时 `docker ps` 看所有容器都在 `Up`，但用 `cluster.status()` 查看会发现集群是 `"status": "UNREACHABLE"`。
+
+### 8.2 为什么不配置成自动启动
+
+你可能在想：那把 `start_on_boot` 和 `bootstrap_group` 改成 `ON` 不就行了？
+
+**千万不要。尤其是 `bootstrap_group`，开了就是埋雷。**
+
+#### bootstrap_group = ON 的风险
+
+这个参数的意思是"启动时创建一个**全新的**集群"。如果三个节点都配了 ON，同时重启：
+
+```
+ic-1 启动 → bootstrap → 创建新 Group A，自己是主
+ic-2 启动 → bootstrap → 创建新 Group B，自己是主
+ic-3 启动 → bootstrap → 创建新 Group C，自己是主
+```
+
+**一个集群变成了三个互不认识的独立节点** —— 这就是经典的**脑裂（Split-Brain）**，每个节点都以为自己是主库，各写各的数据。等发现时数据已经对不上了。
+
+#### start_on_boot = ON 的风险
+
+相对温和一些，但也有坑：
+
+| 场景 | 问题 |
+|------|------|
+| 节点被踢出集群后重启 | 自动尝试加入，但集群已不认它 → 报错 |
+| 宕机期间数据落后太多 | auto-join recovery 超时，卡住 |
+| Docker 重启顺序不确定 | Router 先于 MySQL 启动 → 连空端口 |
+
+#### 什么是脑裂
+
+脑裂是分布式系统的经典问题：一个集群因网络故障或误配置分裂成两个互不通信的"小集群"，各自对外提供服务，导致数据冲突。
+
+```
+正常情况：
+客户端 → Router → ic-1 (主) ↔ ic-2 (从) ↔ ic-3 (从)
+
+脑裂情况（举例：网络隔离）：
+客户端 A → ic-1 (自己选自己当主，写入数据 A)
+客户端 B → ic-2、ic-3 (选 ic-2 当新主，写入数据 B)
+```
+
+InnoDB Cluster 使用 MGR 的 **Paxos 多数派协议**来防脑裂：
+
+| 节点数 | 容忍故障数 | 选举需要票数 |
+|--------|-----------|------------|
+| 3 | 1 | **2**（多数 = 过半数） |
+| 5 | 2 | **3** |
+
+这意味着：一个节点被孤立时凑不到 2 票，不会把自己选为主，而是变成只读拒绝写入。`start_on_boot = OFF` 和 AdminAPI 的手动恢复流程，也是基于同样的防脑裂设计 —— 把控制权交给你，避免自动决策带来的风险。
+
+### 8.3 全集群重启后的恢复步骤
+
+假设所有容器都已停止（宿主机重启或 `docker-compose down`），完整恢复流程：
+
+```bash
+# 1. 启动三个 MySQL 节点
+docker-compose up -d mysql-ic-1 mysql-ic-2 mysql-ic-3
+
+# 2. 等待 MySQL 初始化完成
+sleep 30
+
+# 3. 进入 mysqlsh 执行集群恢复
+docker exec -it mysql-ic-1 mysqlsh root@mysql-ic-1:3306 -pRoot@123456
+```
+
+在 mysqlsh 中：
+
+```python
+# 从完全停机中恢复集群
+dba.rebootClusterFromCompleteOutage('mycluster')
+```
+
+它会扫描所有已知实例，检测 GTID 位置，询问你确认后逐个拉起 MGR。输出类似：
+
+```
+Restoring the cluster 'mycluster' from complete outage...
+
+The cluster was successfully rebooted.
+
+Checking current state of the cluster...
+    mysql-ic-1:3306 - ONLINE
+    mysql-ic-2:3306 - ONLINE  
+    mysql-ic-3:3306 - ONLINE
+```
+
+验证集群状态：
+
+```python
+var = dba.get_cluster('mycluster')
+var.status()
+```
+
+确认三个节点 ONLINE 后，启动 Router：
+
+```bash
+# 4. 启动 Router
+docker-compose up -d mysql-router
+
+# 5. 验证读写分离
+docker run --rm --network host --entrypoint mysql mysql:8.0 \
+  -h127.0.0.1 -P6446 -uroot -pRoot@123456 \
+  -e "SELECT @@hostname as node, @@read_only as is_ro"
+```
+
+### 8.4 单节点重启
+
+如果只是集群中某个节点宕机或需要重启（比如调整配置），不需要走全集群恢复流程：
+
+```bash
+# 重启节点 2
+docker restart mysql-ic-2
+sleep 15
+
+# 将节点重新加入集群
+docker exec mysql-ic-1 mysqlsh root@mysql-ic-1:3306 -pRoot@123456 \
+  --py -e "cluster = dba.get_cluster('mycluster'); cluster.rejoin_instance('root@mysql-ic-2:3306')"
+```
+
+> 注意：重启期间集群仍然可用，只要多数派节点在线（3 节点集群容忍 1 个节点故障），读写不受影响。
+
+### 8.5 一键重启脚本
+
+把常用操作写成脚本，避免每次都敲一堆命令：
+
+```bash
+#!/bin/bash
+# restart-cluster.sh —— 一键重启整个集群
+
+CLUSTER_NAME="mycluster"
+MYSQL_ROOT_PASSWORD="Root@123456"
+
+echo "🔄 启动 MySQL 节点..."
+docker-compose up -d mysql-ic-1 mysql-ic-2 mysql-ic-3
+
+echo "⏳ 等待 MySQL 初始化（30 秒）..."
+sleep 30
+
+echo "🔗 恢复集群..."
+docker exec mysql-ic-1 mysqlsh root@mysql-ic-1:3306 -p${MYSQL_ROOT_PASSWORD} \
+  --py -e "dba.rebootClusterFromCompleteOutage('${CLUSTER_NAME}')" 2>/dev/null || \
+  echo "⚠️  恢复失败，请手动执行 dba.rebootClusterFromCompleteOutage()"
+
+echo "🚀 启动 Router..."
+docker-compose up -d mysql-router
+
+echo "✅ 完成！验证："
+docker-compose ps
+```
+
+保存为 `restart-cluster.sh`，需要重启时：
+
+```bash
+chmod +x restart-cluster.sh
+./restart-cluster.sh
+```
+
+---
+
+## 9. 常见问题
+
+### Q1：mysqlsh 连接报 "Unknown MySQL server host 'mysql-ic-1'"
+
+**原因**：宿主机安装的 mysqlsh 不在 Docker 网络内，无法解析容器名。  
+**解决**：用 `docker exec mysql-ic-1 mysqlsh` 从容器内执行。
+
+### Q2：添加节点时提示 GTID errant transactions
+
+**原因**：数据目录残留了之前的主从复制 GTID 信息。  
+**解决**：选择 Clone 恢复模式，MySQL 自动从主库克隆数据覆盖。
+
+### Q3：MySQL 启动报 "Unable to lock ./ibdata1"
+
+**原因**：容器非正常关闭导致数据文件锁残留。  
+**解决**：删除对应节点的 data 目录，重新 `docker-compose up`。
+
+### Q4：Router 报 "insecure permissions: Permission denied"
+
+**原因**：bootstrap 生成的 key 文件被容器用户不可读。  
+**解决**：`chown -R 999:999 router/conf/`，并设置正确的权限。
+
+### Q5：Router 镜像要求设置 MYSQL_HOST 等环境变量
+
+**原因**：镜像自带 entrypoint 脚本，检测不到环境变量就退出。  
+**解决**：设置 `entrypoint: ["mysqlrouter"]` 跳过该脚本。
+
+---
+
+## 总结
+
+通过本文，我们完整走了一遍 MySQL InnoDB Cluster 的搭建流程：
+
+1. **Docker Compose** 部署 3 节点 MySQL 8.0
+2. **MGR 组复制配置**（GTID、binlog、group_replication）
+3. **MySQL Shell** 创建和管理集群
+4. **MySQL Router** 实现读写分离和故障自动切换
+
+### 架构收益
+
+- **高可用**：单节点故障不影响服务
+- **读写分离**：Router 自动分发请求
+- **运维简单**：AdminAPI 一键管理
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构\",\"item\":\"https://www.lxpavilion.top/article/117\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构\",\"headline\":\"Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构\",\"description\":\"本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。\",\"datePublished\":\"2026-07-11T12:02:13.866822\",\"dateCreated\":\"2026-07-11T12:02:13.866822\",\"dateModified\":\"2026-07-11T13:26:57.833832\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/677.jpeg\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"SLQ9jZhF4EgutSPX8dqk4"}
+3:{"id":"117"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/00i6q~j0uwupr.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

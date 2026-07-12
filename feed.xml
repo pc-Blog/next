@@ -8,12 +8,37 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构]]></title>
+      <link>https://www.lxpavilion.top/article/117/</link>
+      <guid>https://www.lxpavilion.top/article/117/</guid>
+      <pubDate>Sat, 11 Jul 2026 12:02:13 GMT</pubDate>
+      <description><![CDATA[本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Mysql</tag>
+      <tag>集群</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题]]></title>
+      <link>https://www.lxpavilion.top/article/116/</link>
+      <guid>https://www.lxpavilion.top/article/116/</guid>
+      <pubDate>Sat, 11 Jul 2026 08:54:42 GMT</pubDate>
+      <description><![CDATA[深入剖析MySQL半同步复制的工作原理、与异步复制的核心区别，手把手带你完成插件安装、配置、超时降级测试与自动恢复验证，构建高可用、数据零丢失的数据库架构。]]></description>
+      <category>学习笔记</category>
+      <tag>Docker</tag>
+      <tag>Mysql</tag>
+      <tag>集群</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点]]></title>
       <link>https://www.lxpavilion.top/article/115/</link>
       <guid>https://www.lxpavilion.top/article/115/</guid>
       <pubDate>Fri, 10 Jul 2026 15:42:17 GMT</pubDate>
       <description><![CDATA[深入解析 MySQL GTID 复制的核心原理、与传统 File+Position 复制的优劣对比、详细配置步骤、故障切换实战，以及生产环境的最佳实践，帮助 DBA 和开发者构建高可用的 MySQL 集群架构。]]></description>
-      <category>数据库</category>
+      <category>学习笔记</category>
       <tag>Mysql</tag>
       <tag>集群</tag>
       <author>ppc</author>
@@ -24,7 +49,7 @@
       <guid>https://www.lxpavilion.top/article/114/</guid>
       <pubDate>Fri, 10 Jul 2026 14:32:53 GMT</pubDate>
       <description><![CDATA[深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。]]></description>
-      <category>数据库</category>
+      <category>学习笔记</category>
       <tag>Mysql</tag>
       <tag>Druid</tag>
       <tag>Spring Boot</tag>
@@ -36,7 +61,7 @@
       <guid>https://www.lxpavilion.top/article/113/</guid>
       <pubDate>Fri, 10 Jul 2026 14:32:17 GMT</pubDate>
       <description><![CDATA[手把手教你集成 Druid 连接池到 Spring Boot 4 项目，涵盖依赖配置、连接池参数详解、监控控制台搭建，以及 Docker 部署踩坑实录。适合 Java 初学者入门数据库连接池。]]></description>
-      <category>数据库</category>
+      <category>学习笔记</category>
       <tag>Mysql</tag>
       <tag>Druid</tag>
       <tag>Spring Boot</tag>
@@ -227,31 +252,6 @@
       <category>开发拾遗</category>
       <tag>MailerLite</tag>
       <tag>邮订阅件</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[博文已索引但不展示：一次 Bing SEO 问题排查记录]]></title>
-      <link>https://www.lxpavilion.top/article/59/</link>
-      <guid>https://www.lxpavilion.top/article/59/</guid>
-      <pubDate>Wed, 01 Jul 2026 16:54:31 GMT</pubDate>
-      <description><![CDATA[Bing 索引了页面却不在搜索结果中出现，因为爬虫拿到的 HTML 只有标题没有正文。一个成本几乎为零的改动，解决页面在搜索引擎中"隐身"的问题。]]></description>
-      <category>开发拾遗</category>
-      <tag>Next.js</tag>
-      <tag>SSR</tag>
-      <tag>SEO</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[不用花一分钱，我让博客看板娘学会了聊天 | 用 Workers AI 实现自由对话]]></title>
-      <link>https://www.lxpavilion.top/article/58/</link>
-      <guid>https://www.lxpavilion.top/article/58/</guid>
-      <pubDate>Wed, 01 Jul 2026 15:18:12 GMT</pubDate>
-      <description><![CDATA[从零开始使用 Cloudflare Workers AI 为博客 Live2D 看板娘接入 AI 对话能力，涵盖产品选型、模型选择（Qwen3-30B-A3B）、Wrangler 配置、提示词设计、Token 分级管理、额度超限降级等完整实践。]]></description>
-      <category>Cloudflare 教程</category>
-      <tag>Worker</tag>
-      <tag>AI应用</tag>
-      <tag>Worker AI</tag>
-      <tag>Cloudflare</tag>
       <author>ppc</author>
     </item>
   </channel>

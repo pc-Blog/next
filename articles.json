@@ -1,9 +1,69 @@
 {
-  "total": 44,
+  "total": 46,
   "rows": [
     {
-      "categoryId": 39,
-      "categoryName": "数据库",
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-11T12:02:13.866822",
+      "id": 117,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 71,
+          "name": "集群"
+        }
+      ],
+      "title": "Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构",
+      "updateTime": "2026-07-11T13:26:57.833832",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-11T08:54:42.91041",
+      "id": 116,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "深入剖析MySQL半同步复制的工作原理、与异步复制的核心区别，手把手带你完成插件安装、配置、超时降级测试与自动恢复验证，构建高可用、数据零丢失的数据库架构。",
+      "tags": [
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 71,
+          "name": "集群"
+        }
+      ],
+      "title": "Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题",
+      "updateTime": "2026-07-11T08:56:58.026614",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
       "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T15:42:17.669616",
@@ -22,12 +82,12 @@
         }
       ],
       "title": "MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点",
-      "updateTime": "2026-07-10T15:43:18.578056",
+      "updateTime": "2026-07-11T08:57:03.861121",
       "viewCount": 0
     },
     {
-      "categoryId": 39,
-      "categoryName": "数据库",
+      "categoryId": 44,
+      "categoryName": "学习笔记",
       "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T14:32:53.822873",
@@ -50,12 +110,12 @@
         }
       ],
       "title": "MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优",
-      "updateTime": "2026-07-10T14:34:04.44593",
+      "updateTime": "2026-07-11T08:57:11.906902",
       "viewCount": 0
     },
     {
-      "categoryId": 39,
-      "categoryName": "数据库",
+      "categoryId": 44,
+      "categoryName": "学习笔记",
       "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T14:32:17.408474",
@@ -78,7 +138,7 @@
         }
       ],
       "title": "MySQL学习笔记：Druid连接池基础教程——从入门到监控实战",
-      "updateTime": "2026-07-10T14:34:12.713979",
+      "updateTime": "2026-07-11T08:57:22.438",
       "viewCount": 0
     },
     {
@@ -93,7 +153,7 @@
       "summary": "手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。",
       "tags": [],
       "title": "MySQL学习笔记：主从复制集群搭建以及原理详解",
-      "updateTime": "2026-07-10T12:04:50.334939",
+      "updateTime": "2026-07-11T08:56:52.442658",
       "viewCount": 0
     },
     {

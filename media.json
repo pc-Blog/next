@@ -1,5 +1,5 @@
 {
-  "total": 498,
+  "total": 497,
   "rows": [
     {
       "createTime": "2026-07-10T14:20:34.121964",
@@ -26,19 +26,6 @@
       "originalFilename": "image.png",
       "relationType": null,
       "updateTime": "2026-07-10T12:00:21.8605"
-    },
-    {
-      "createTime": "2026-07-10T11:31:36.693079",
-      "deleted": 0,
-      "filePath": "202607/7977a87277e6483ab7d9e381cfc6ccde.png",
-      "fileSize": 313721,
-      "fileUrl": "/data/media/679.png",
-      "filename": "7977a87277e6483ab7d9e381cfc6ccde.png",
-      "id": 679,
-      "mimeType": "image/png",
-      "originalFilename": "image.png",
-      "relationType": null,
-      "updateTime": "2026-07-10T11:31:36.711519"
     },
     {
       "createTime": "2026-07-09T22:28:49.312603",

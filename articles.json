@@ -1,6 +1,21 @@
 {
-  "total": 50,
+  "total": 51,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "commentCount": 0,
+      "coverImage": "/data/media/690.png",
+      "createdAt": "2026-07-15T23:28:19.612652",
+      "id": 122,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。",
+      "tags": [],
+      "title": "Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战",
+      "updateTime": "2026-07-15T23:28:22.349392",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

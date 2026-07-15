@@ -1,0 +1,492 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0qr9cfzc08_cw.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","120",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","120","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/17_83cgw_p8.g.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"lCGDJcbC5B6vfMuTs4mXM"}
+17:I[6521,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1a:I[34858,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1b:I[23191,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/17rm2vzn7-~we.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/186zb2uvf9xze.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/186zb2uvf9xze.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T395b,## 一、什么是 Redis Cluster
+
+Redis Cluster 是 Redis **官方提供的分布式解决方案**，从 Redis 3.0 开始引入。它通过**数据分片（Sharding）**和**自动故障转移（Failover）**，实现了：
+
+- **水平扩展**：将数据自动分布到多个节点
+- **高可用性**：部分节点故障时集群仍可正常工作
+- **去中心化架构**：无中心代理节点，所有节点通过 Gossip 协议通信
+
+### 解决了什么问题
+
+| 问题 | 说明 |
+|------|------|
+| **单机容量瓶颈** | 单个 Redis 实例最多存储几个 GB 到几十 GB 数据，Cluster 可以将数据分散到多台机器 |
+| **单点故障** | 主节点宕机后，从节点自动晋升，无需人工干预 |
+| **读写压力** | 多主节点并行处理请求，写入吞吐量线性提升 |
+| **扩容困难** | 传统方式需要停机迁移数据，Cluster 支持在线动态扩缩容 |
+
+---
+
+## 二、Redis 部署方案对比
+
+| 特性 | 单机实例 | 主从复制 | Sentinel 哨兵 | **Cluster 分片集群** |
+|------|---------|---------|-------------|----------------|
+| **数据容量** | 受单机内存限制 | 受单机内存限制 | 受单机内存限制 | **可扩展至多台机器** |
+| **写入性能** | 单点写入 | 单点写入（主） | 单点写入（主） | **多主写入，线性扩展** |
+| **自动故障转移** | ❌ | ❌ | ✅ | ✅ |
+| **自动分片** | ❌ | ❌ | ❌ | ✅ |
+| **在线扩缩容** | ❌ | ❌ | ❌ | ✅ |
+| **配置复杂度** | ⭐ 简单 | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **适用场景** | 开发/缓存 | 读写分离 | 高可用场景 | **大规模高可用场景** |
+
+### 什么时候选择 Cluster？
+
+- 数据量超过单机内存（建议单机 ≤ 16GB）
+- 需要**高写入吞吐量**
+- 要求**自动故障转移**和**高可用性**
+- 希望**在线扩缩容**，避免停机
+
+> **注意**：如果数据量小且不需要高可用，单机或 Sentinel 更简单高效。Cluster 的事务和 Lua 脚本仅支持同一槽位的 Key。
+
+---
+
+## 三、核心架构原理
+
+### 3.1 哈希槽（Hash Slot）
+
+Redis Cluster **没有采用一致性哈希**，而是使用**固定 16384 个哈希槽**（Hash Slot）：
+
+```
+CRC16(key) % 16384 → 所属槽位
+```
+
+- 每个 Key 通过 `CRC16` 算法计算出哈希值，对 16384 取模得到槽号
+- 每个节点负责一段连续的槽位范围
+- 新增/移除节点时，只需**迁移槽位**，不需要 rehash 所有数据
+
+**为什么是 16384 个槽？**
+
+Redis 作者在 [FAQ](https://github.com/redis/redis/issues/2576) 中解释过：16384 个槽用 2KB 的空间即可在节点间传递完整的槽位信息（16384 bit ÷ 8 ÷ 1024 = 2KB），而 65535 个槽则需要 8KB，在网络开销和灵活性之间取得了平衡。
+
+### 3.2 Gossip 协议
+
+Cluster 节点间通过 **Gossip（八卦）协议** 通信，每个节点：
+
+- 每秒随机选择 5 个节点发送 `PING`
+- 交换**节点状态、槽位信息、主从关系**
+- 如果收到 `PONG` 超时，标记节点为 `PFAIL`（可能故障）
+- 当**多数主节点**都标记某个节点为 `PFAIL`，升级为 `FAIL` 并触发故障转移
+
+这种去中心化设计意味着**没有单点瓶颈**，但最终一致性意味着短时间内节点间可能存在信息不一致。
+
+### 3.3 主从架构
+
+每个主节点（Master）可以有 1 个或多个从节点（Slave）：
+
+- **主节点**：负责处理读写请求和槽位数据
+- **从节点**：异步复制主节点数据，主节点宕机时选举晋升
+- 建议为每个主节点至少配置**一个从节点**，保证高可用
+
+---
+
+## 四、环境搭建：Docker Compose
+
+下面我们用 Docker Compose 启动 **6 个 Redis 节点**（3 主 3 从），这是生产推荐的最小集群配置。
+
+```yaml
+version: '3.8'
+
+services:
+  redis-node-1:
+    image: redis:7.2.4
+    container_name: redis-cluster-1
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6379:6379"
+      - "16379:16379"
+    networks:
+      - cluster-net
+
+  redis-node-2:
+    image: redis:7.2.4
+    container_name: redis-cluster-2
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6380:6379"
+      - "16380:16379"
+    networks:
+      - cluster-net
+
+  redis-node-3:
+    image: redis:7.2.4
+    container_name: redis-cluster-3
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6381:6379"
+      - "16381:16379"
+    networks:
+      - cluster-net
+
+  redis-node-4:
+    image: redis:7.2.4
+    container_name: redis-cluster-4
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6382:6379"
+      - "16382:16379"
+    networks:
+      - cluster-net
+
+  redis-node-5:
+    image: redis:7.2.4
+    container_name: redis-cluster-5
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6383:6379"
+      - "16383:16379"
+    networks:
+      - cluster-net
+
+  redis-node-6:
+    image: redis:7.2.4
+    container_name: redis-cluster-6
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes --bind 0.0.0.0
+    ports:
+      - "6384:6379"
+      - "16384:16379"
+    networks:
+      - cluster-net
+
+networks:
+  cluster-net:
+    driver: bridge
+```
+
+### 配置参数详解
+
+| 参数                                 | 含义                                   |
+| ---------------------------------- | ------------------------------------ |
+| `--cluster-enabled yes`            | 启用集群模式                               |
+| `--cluster-config-file nodes.conf` | 集群自动生成的配置文件（不需要手动创建）                 |
+| `--cluster-node-timeout 5000`      | 节点超时时间（ms），超时被视为故障                   |
+| `--appendonly yes`                 | 开启 AOF 持久化                           |
+| `--bind 0.0.0.0`                   | 允许来自所有网络接口的连接                        |
+| `16379` 端口                         | 集群总线端口（数据端口 + 10000），用于节点间 Gossip 通信 |
+
+---
+
+## 五、创建分片集群
+
+### 5.1 启动容器
+
+```bash
+docker-compose up -d
+```
+
+### 5.2 创建集群
+
+进入任意一个容器并执行创建命令：
+
+```bash
+# 进入容器
+docker exec -it redis-cluster-1 sh
+
+# 创建集群（注意这里用的是容器名，不是 IP！）
+redis-cli --cluster create \
+  redis-cluster-1:6379 \
+  redis-cluster-2:6379 \
+  redis-cluster-3:6379 \
+  redis-cluster-4:6379 \
+  redis-cluster-5:6379 \
+  redis-cluster-6:6379 \
+  --cluster-replicas 1
+```
+
+**命令解析**：
+- `--cluster-replicas 1`：每个主节点分配 1 个从节点，总共 6 个节点 → 3 主 3 从
+- 如果不加这个参数，6 个节点全为主节点（不推荐，无高可用）
+
+执行后 Redis 会打印槽位分配方案并让你确认，输入 `yes` 继续。
+
+### 5.3 参考输出
+
+```
+>>> Performing hash slots allocation on 6 nodes...
+Master[0] -> Slots 0 - 5460
+Master[1] -> Slots 5461 - 10922
+Master[2] -> Slots 10923 - 16383
+Adding replica redis-cluster-4:6379 to redis-cluster-1:6379
+Adding replica redis-cluster-5:6379 to redis-cluster-2:6379
+Adding replica redis-cluster-6:6379 to redis-cluster-3:6379
+...
+[OK] All 16384 slots covered.
+```
+
+看到 `[OK] All 16384 slots covered.` 表示所有 16384 个槽位分配完毕，集群创建成功。
+
+---
+
+## 六、验证集群状态
+
+### 6.1 查看节点信息
+
+```bash
+docker exec -it redis-cluster-1 redis-cli cluster nodes
+```
+
+输出示例：
+
+```
+16beb014f42bf997e7e9dc40e4a03d96588ca2f7 172.23.0.5:6379@16379 master - 0 1784104659539 2 connected 5461-10922
+c2c4b89c1359f8b7fc200fb9fb3f5e591132461c 172.23.0.4:6379@16379 myself,master - 0 1784104658000 1 connected 0-5460
+ff93232a5b0ce6abfd4c04dad4e778e47cf19d45 172.23.0.2:6379@16379 slave 16beb014f42bf997e7e9dc40e4a03d96588ca2f7 0 1784104659000 2 connected
+d098439d4b4ad4a461777737e7ea2ab2d9591d1b 172.23.0.7:6379@16379 slave c2c4b89c1359f8b7fc200fb9fb3f5e591132461c 0 1784104659640 1 connected
+5089042042bcc6ad2edf0b6dc07d5721c0c4fcf5 172.23.0.6:6379@16379 slave 7556fed402a74a5dd377365e16d41253d2e1ee99 0 1784104658000 3 connected
+7556fed402a74a5dd377365e16d41253d2e1ee99 172.23.0.3:6379@16379 master - 0 1784104659000 3 connected 10923-16383
+```
+
+**字段解读**：
+
+| 字段 | 示例 | 含义 |
+|------|------|------|
+| 节点 ID | `16beb0...` | 节点唯一标识（持久化到 nodes.conf） |
+| 地址 | `172.23.0.5:6379@16379` | 数据端口@集群总线端口 |
+| 角色 | `master` / `slave` | 主节点或从节点 |
+| 主节点 ID | 如 `16beb0...`（slave 行） | 该从节点所属的主节点 |
+| 连接状态 | `myself,master` | 当前连接的节点是自己 |
+| 槽位范围 | `0-5460` | 该节点负责的哈希槽范围 |
+
+### 6.2 集群完整性检查
+
+```bash
+docker exec -it redis-cluster-1 redis-cli --cluster check redis-cluster-1:6379
+```
+
+输出：
+
+```
+[OK] All nodes agree about slots configuration.
+>>> Check for open slots...
+>>> Check slots coverage...
+[OK] All 16384 slots covered.
+```
+
+---
+
+## 七、数据读写与 MOVED 重定向
+
+### 7.1 不使用集群模式
+
+```bash
+docker exec -it redis-cluster-1 redis-cli set foo bar
+```
+
+返回：
+
+```
+(error) MOVED 12182 172.23.0.3:6379
+```
+
+**为什么会这样？**
+
+这个错误是 Redis Cluster 的**典型行为**：
+
+1. 客户端向 `redis-cluster-1` 发送 `SET foo bar`
+2. Redis 对 `foo` 计算哈希槽：`CRC16("foo") % 16384 = 12182`
+3. `redis-cluster-1` 不负责 12182 号槽（它负责 0-5460）
+4. 它知道负责该槽的节点是 `172.23.0.3:6379`，返回 `MOVED` 错误
+5. 客户端**应该重定向**到正确节点执行命令
+
+### 7.2 使用集群模式（-c 参数）
+
+```bash
+# 写入
+docker exec -it redis-cluster-1 redis-cli -c set foo bar
+
+# 读取（不需要在特定节点读）
+docker exec -it redis-cluster-3 redis-cli -c get foo
+```
+
+`-c`（cluster 模式）让 `redis-cli` **自动跟随 MOVED 重定向**，透明地连接到正确的节点执行命令。
+
+> **生产建议**：应用代码中应使用支持 Cluster 的 Redis 客户端（如 `redis-py-cluster`、`Lettuce`、`JedisCluster`），它们会自动处理 MOVED 重定向和槽位缓存。
+
+### 7.3 查看 Key 的哈希槽
+
+```bash
+docker exec -it redis-cluster-1 redis-cli CLUSTER KEYSLOT foo
+# 返回: (integer) 12182
+```
+
+### 7.4 查询所有槽位分布
+
+```bash
+docker exec -it redis-cluster-1 redis-cli CLUSTER SLOTS
+```
+
+输出示例：
+
+```
+1) 1) (integer) 0          <-- 起始槽位
+   2) (integer) 5460       <-- 结束槽位
+   3) 1) "172.23.0.2"      <-- 主节点 IP
+      2) (integer) 6379
+      3) "node_id_1"
+   4) 1) "172.23.0.5"      <-- 从节点 IP
+      2) (integer) 6379
+      3) "node_id_4"
+2) 1) (integer) 5461
+   2) (integer) 10922
+   3) 1) "172.23.0.3"
+      2) (integer) 6379
+      ...
+```
+
+---
+
+## 八、故障转移
+
+### 8.1 手动模拟故障
+
+关闭一个主节点，观察从节点自动晋升：
+
+```bash
+# 停止一个主节点（比如 redis-cluster-1，它负责 0-5460 槽）
+docker stop redis-cluster-1
+
+# 稍等片刻（默认超时 5 秒），查看集群状态
+docker exec -it redis-cluster-2 redis-cli cluster nodes
+```
+
+可以看到原本 `redis-cluster-1` 的从节点（如 `172.23.0.2:6379`）已经晋升为 `master`。
+
+### 8.2 故障转移原理
+
+1. 主节点宕机后，从节点检测到 `PING` 超时
+2. 从节点等待**集群超时时间**（`cluster-node-timeout`，默认 5 秒）
+3. 通过 **Raft 类似算法** 发起选举
+4. 获得**多数主节点**投票后晋升为新主节点
+5. 接管原主节点的所有槽位
+
+### 8.3 恢复原主节点
+
+```bash
+# 重启之前关闭的节点
+docker start redis-cluster-1
+
+# 它会以从节点身份重新加入集群，成为新主节点的副本
+```
+
+---
+
+## 九、Hash Tag：将关联 Key 存入同一槽位
+
+### 9.1 为什么需要 Hash Tag？
+
+Redis Cluster 的**事务**（`MULTI/EXEC`）和 **Lua 脚本**要求所有操作的 Key **必须在同一个哈希槽**，否则会报错：
+
+```
+(error) CROSSSLOT Keys in request don't hash to the same slot
+```
+
+同时，**批量操作**（`MGET`/`MSET`）跨节点也有额外的网络开销。
+
+### 9.2 Hash Tag 语法
+
+Key 中 `{...}` 部分**只使用花括号内的内容**计算哈希槽：
+
+```
+# 这两个 Key 都会用 "user:1" 计算哈希槽
+{user:1}:name
+{user:1}:age
+```
+
+### 9.3 验证
+
+```bash
+# 查看两个 Key 的哈希槽（注意：不加 -c 不会自动重定向但 KEYSLOT 命令不受影响）
+docker exec -it redis-cluster-1 redis-cli CLUSTER KEYSLOT {user:1}:name
+docker exec -it redis-cluster-1 redis-cli CLUSTER KEYSLOT {user:1}:age
+```
+
+两个命令返回相同的槽位号。
+
+### 9.4 实际使用
+
+```bash
+# 写入关联 Key
+docker exec -it redis-cluster-1 redis-cli -c set {user:1}:name Alice
+docker exec -it redis-cluster-1 redis-cli -c set {user:1}:age 30
+
+# 批量读取（在同一槽位，效率更高）
+docker exec -it redis-cluster-1 redis-cli -c mget {user:1}:name {user:1}:age
+```
+
+### 9.5 使用场景
+
+| 场景 | 说明 |
+|------|------|
+| **事务操作** | `MULTI/EXEC` 需要所有 Key 在同一槽位 |
+| **Lua 脚本** | `EVAL` 脚本中所有 Key 必须在同一槽位 |
+| **批量读写** | `MGET/MSET` 跨槽位需要多次网络请求 |
+| **关联数据** | 用户信息、订单明细等高关联度数据 |
+
+---
+
+## 十、总结与最佳实践
+
+### 关键要点
+
+1. **Cluster 适用场景**：数据量大、写入吞吐高、需要自动故障转移的大规模 Redis 部署
+2. **最小生产配置**：6 节点（3 主 3 从），每个主节点至少一个副本
+3. **客户端必须支持 Cluster**：使用 `-c` 模式或集成 Cluster 客户端库
+4. **事务限制**：MULTI/EXEC 和 Lua 脚本需要配合 Hash Tag `{...}`
+5. **节点数建议**：主节点数量通常为奇数（方便选举投票），建议 3、5、7 个
+
+### 注意事项
+
+- **网络延迟**：跨节点操作比单节点慢，合理设计 Key 分布
+- **批量操作**：尽量用 Hash Tag 让关联 Key 落在同一槽位
+- **扩缩容**：生产环境扩缩容时关注槽位迁移对性能的影响
+- **监控**：重点关注 `cluster_state`、`cluster_slots_ok`、`cluster_known_nodes` 等指标
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Redis学习笔记：Cluster 分片集群从原理到实战部署\",\"item\":\"https://www.lxpavilion.top/article/120\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Redis学习笔记：Cluster 分片集群从原理到实战部署\",\"headline\":\"Redis学习笔记：Cluster 分片集群从原理到实战部署\",\"description\":\"深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。\",\"datePublished\":\"2026-07-15T17:49:40.656161\",\"dateCreated\":\"2026-07-15T17:49:40.656161\",\"dateModified\":\"2026-07-15T17:52:56.945662\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/690.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Redis学习笔记：Cluster 分片集群从原理到实战部署","initialContent":"$2d"}]]
+2c:{"id":"120"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Redis学习笔记：Cluster 分片集群从原理到实战部署 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/120/"}],["$","meta","5",{"property":"og:title","content":"Redis学习笔记：Cluster 分片集群从原理到实战部署 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/690.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

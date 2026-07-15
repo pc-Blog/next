@@ -1,0 +1,646 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0qr9cfzc08_cw.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","121",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","121","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/17_83cgw_p8.g.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"lCGDJcbC5B6vfMuTs4mXM"}
+17:I[6521,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1a:I[34858,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1b:I[23191,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/17rm2vzn7-~we.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/186zb2uvf9xze.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/186zb2uvf9xze.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T66b5,## 为什么需要读写分离
+
+Redis Cluster 采用分片架构，将 16384 个 hash slot 均分到各个 master 节点。默认情况下，**所有读写请求都路由到 slot 对应的 master 节点**。这意味着你的 replica 节点只在 master 宕机时被动接管，平时完全空转——而你却为它们支付着同等的内存和 CPU 成本。
+
+### 现实的流量特征
+
+绝大多数业务场景的读写比都非常悬殊：
+
+| 场景 | 读写比 | 说明 |
+|------|--------|------|
+| 商品详情页 | 20:1 ~ 100:1 | 商品频繁被浏览，极少修改 |
+| 用户 Session | 50:1 | 每次请求都读 Session，登录/登出才写 |
+| 内容/资讯站 | 100:1+ | 文章发布后极少改动，被大量读取 |
+| 秒杀/抢购 | 1:1 ~ 5:1 | 读写都高，但读仍是瓶颈 |
+
+以一个日活 1000 万的商品详情页为例：假设每秒 10 万次请求，其中 9.5 万次是读、5 千次是写。如果所有请求都压在 master 上，你需要为读流量准备大量的 master 副本和内存。而如果你已经有了 3 个 replica 在闲置，**为什么不让它们分担那 9.5 万次读请求？**
+
+### 不做读写分离的成本
+
+假设一个 6 节点集群（3 master + 3 replica）：
+
+```
+默认路由（所有请求走 master）：
+  master-1: 100% 读写负载  ← 瓶颈
+  master-2: 100% 读写负载  ← 瓶颈
+  master-3: 100% 读写负载  ← 瓶颈
+  replica-1: 0%（空闲中）
+  replica-2: 0%（空闲中）
+  replica-3: 0%（空闲中）
+
+读写分离后：
+  master-1: 仅写负载
+  master-2: 仅写负载
+  master-3: 仅写负载
+  replica-1: 分担读负载
+  replica-2: 分担读负载
+  replica-3: 分担读负载（读吞吐提升 200%）
+```
+
+读写分离让三台 replica 从"灾备资源"变成了"读容量"，**在不增加服务器的情况下将集群读吞吐提升 2 倍**。
+
+## Cluster 为什么默认不做读写分离？
+
+你可能会想：这是一个如此常见的需求，为什么 Redis Cluster 不内置支持？
+
+原因在于 Cluster 的**分片路由机制**。
+
+客户端执行 `GET key` 时，流程是这样的：
+
+```
+1. 对 key 计算 CRC16 得到 hash slot
+2. 根据本地缓存的 slot→node 映射表，找到负责该 slot 的节点
+3. 如果该节点是 master → 直接执行命令
+4. 如果该节点不是 master → 返回 MOVED 重定向
+```
+
+在步骤 2 中，Cluster 的 slot 映射表只记录了 **哪个 master 负责哪些 slot**。replica 不在映射表中，所以客户端默认不会把读请求发给 replica。
+
+要让 replica 参与读取，客户端必须主动发送 `READONLY` 命令，告诉 replica："我知道你不是 master，但我还是想从你这里读。" replica 收到 `READONLY` 后，针对该连接不再返回 MOVED 重定向，而是直接执行读命令。
+
+### 一个常见的误解
+
+> Redis 能不能在 redis.conf 里配一个全局参数，一劳永逸地开启所有从节点的读取？
+
+**不能。** 这也是上面那段技术原理的必然结果——如果服务端能全局开启，那所有 replica 的 slot 映射就必须对客户端可见，但 Cluster 的设计原则是 slot 路由以 master 为准。`READONLY` 命令**必须由客户端连接主动发起**，服务端不会自动给所有连接开启这个权限。每个连接到 replica 的客户端，都需要显式声明："我要从你这里读取"。
+
+### 客户端的选择
+
+不同的 Redis 客户端对读写分离的支持方式不同：
+
+| 客户端 | 支持方式 | 易用性 |
+|--------|---------|--------|
+| **Lettuce**（Spring Boot 默认） | `ReadFrom.REPLICA_PREFERRED` 一行配置 | ⭐⭐⭐⭐⭐ |
+| Jedis | 需要手动向 replica 发送 `READONLY` + 自行选择 replica | ⭐⭐ |
+| Redisson | `readMode="SLAVE"` 配置 | ⭐⭐⭐⭐ |
+
+Lettuce 是其中封装最完善的——你只需要告诉它"优先读 replica"，它会自动管理 READONLY 握手、连接池和节点选择。
+
+## 技术方案
+
+本项目的技术栈选型如下：
+
+| 组件 | 版本 | 说明 |
+|------|------|------|
+| Redis | 7.2.4 | 稳定的 Cluster 支持，兼容 `cluster-announce-ip` |
+| Spring Boot | 4.1.0 | 2026 年 6 月发布的最新稳定版 |
+| Lettuce | 内置 | Spring Data Redis 默认客户端（取代了 Jedis） |
+| JDK | 21 | Spring Boot 4.x 最低要求 |
+
+**为什么用 Lettuce 而不是 Jedis？** Spring Data Redis 从 2.0 开始就把 Lettuce 作为默认客户端。原因有三：
+- **响应式支持**：Lettuce 基于 Netty 的异步非阻塞架构，Jedis 是同步阻塞
+- **连接复用**：一个连接可并发处理多个请求（多路复用），Jedis 每个操作独占连接
+- **集群友好**：Lettuce 原生支持 Cluster 拓扑刷新、MOVED 重定向自动处理，Jedis 需要手动处理
+
+**为什么用 Spring Boot 4.1.0？** 这是 2026 年 6 月发布的最新稳定版。与 3.x 相比，一个关键变化是 Redis 配置前缀从 `spring.redis.*` **迁移到了 `spring.data.redis.*`**，如果你还在用 3.x 的配置方式，启动时会收到弃用警告。
+
+## 核心原理：ReadFrom
+
+Lettuce 通过 `ReadFrom` 策略控制读请求的路由目标。配置在连接工厂上，影响该工厂创建的所有连接。
+
+### 五种策略
+
+| 策略 | 路由目标 | 适用场景 |
+|------|---------|---------|
+| `MASTER` | 只读 master | 默认行为，读写分离关 |
+| `MASTER_PREFERRED` | 优先 master，不可用时读 replica | 高可用优先，可接受少量 replica 读 |
+| **`REPLICA_PREFERRED`** | **优先 replica，不可用时 fallback 到 master** | **读写分离 + 高可用 ← 最常用** |
+| `REPLICA` | 只读 replica，没有就报错 | 极端读场景，必须从 replica 读 |
+| `NEAREST` | 从延迟最低的节点读 | 跨机房部署，追求最低延迟 |
+
+### 底层做了什么？
+
+当你配置 `ReadFrom.REPLICA_PREFERRED` 后，Lettuce 在执行读命令时的完整流程：
+
+```
+命令: GET product:1001
+  │
+  ├─ 计算 slot: CRC16("product:1001") = 8893
+  │
+  ├─ 查找节点: slot 8893 → master-1（端口 6379）
+  │
+  ├─ 是否读命令？是
+  │     ↓
+  ├─ ReadFrom.REPLICA_PREFERRED
+  │     ↓
+  ├─ master-1 有没有 replica？有 → replica-1（端口 6382）
+  │     ↓
+  ├─ 向 replica-1 发送 READONLY（每个连接只需发送一次）
+  │     ↓
+  └─ replica-1 执行 GET product:1001 → 返回结果
+```
+
+关键细节：
+- **READONLY 命令每个连接只发一次**。Lettuce 在第一次向 replica 发送读请求前自动发送 READONLY，后续所有读操作复用该连接，不再重复发送
+- **写命令不受影响**。Lettuce 内部识别命令类型——SET、DEL、EXPIRE 等写命令**直接路由到 master**，不看 ReadFrom
+- **replica 不可用时自动 fallback**。如果所有 replica 都宕机了，`REPLICA_PREFERRED` 会自动切到 master 读，不会报错
+
+### 读流量分配策略
+
+当一个 slot 有多个 replica 时（例如 `--cluster-replicas 2`），Lettuce 如何选择哪个 replica 来读？
+
+```
+ReadFrom.REPLICA_PREFERRED 的选择逻辑：
+  1. 找到负责该 slot 的 master
+  2. 找到该 master 的所有 replica 列表
+  3. 从 replica 列表中随机选一个（简单轮询）
+  4. 如果该 replica 不可用，换下一个
+  5. 如果所有 replica 都不可用 → 读 master
+```
+
+这种设计天然实现了 replica 间的负载均衡。
+
+## 项目结构
+
+```
+redis-cluster-demo/
+├── pom.xml                                     Spring Boot 4.1.0
+└── src/main/java/com/example/rediscluster/
+    ├── RedisClusterDemoApplication.java        启动类
+    ├── config/
+    │   └── RedisClusterConfig.java             双模板配置
+    ├── service/
+    │   └── RedisReadWriteService.java          读写封装
+    └── controller/
+        └── RedisController.java                REST API
+```
+
+## 配置实现：双 RedisTemplate
+
+核心就在一行——`ReadFrom.REPLICA_PREFERRED`：
+
+```java
+@Configuration
+public class RedisClusterConfig {
+
+    // 默认连接工厂 —— 读写分离
+    @Bean
+    @Primary
+    public LettuceConnectionFactory lettuceConnectionFactory() {
+        return buildFactory(ReadFrom.REPLICA_PREFERRED);
+    }
+
+    // 强制读 master —— 用于对比验证
+    @Bean("lettuceConnectionFactoryMaster")
+    public LettuceConnectionFactory lettuceConnectionFactoryMaster() {
+        return buildFactory(ReadFrom.MASTER);
+    }
+
+    private LettuceConnectionFactory buildFactory(ReadFrom readFrom) {
+        RedisClusterConfiguration clusterConfig = new RedisClusterConfiguration();
+        for (int port = 6379; port <= 6384; port++) {
+            clusterConfig.addClusterNode(new RedisNode("localhost", port));
+        }
+
+        LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
+                .readFrom(readFrom)  // ← 读写分离就这一行
+                .build();
+
+        return new LettuceConnectionFactory(clusterConfig, clientConfig);
+    }
+}
+```
+
+定义两个 template 是为了对比验证——你可以直接比较读 replica 和读 master 的行为差异。
+
+### 快速替代：YAML 一行配置
+
+如果不需要双模板对比，可以直接在 `application.yml` 中全局配置：
+
+```yaml
+spring:
+  data:
+    redis:
+      cluster:
+        nodes:
+          - localhost:6379
+          - localhost:6380
+          - localhost:6381
+          - localhost:6382
+          - localhost:6383
+          - localhost:6384
+      lettuce:
+        cluster:
+          read-from: REPLICA_PREFERRED   # ← 读写分离就这一行
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 4
+```
+
+相比 Java 配置类，YAML 方式更简洁，但**局限性在于只有一个全局策略**——所有读操作都走 replica，无法在强一致场景下切回 master。如果业务中有支付、库存等需要强制读 master 的场景，建议还是用双模板方案。
+
+### 注意：LettuceConnectionFactory 必须作为 @Bean 托管
+
+如果你在 `@Configuration` 中 private 方法里 new 出 `LettuceConnectionFactory`，Spring 不会管理它的生命周期，会导致 `LettuceConnectionFactory has been CREATED. Use start() to initialize it` 错误。
+
+**解决方案**：将连接工厂暴露为 `@Bean`，Spring 自动调用 `afterPropertiesSet()` 和 `start()`。
+
+## 实战坑点：Docker 网络与 CLUSTER SLOTS
+
+### 问题现象
+
+连接后一直超时，日志反复出现：
+
+```
+Unable to connect to [172.23.0.2:6379]: connection timed out
+```
+
+### 根因分析
+
+当你配置了 `localhost:6379` 作为种子节点，Lettuce 连上去后第一件事就是发送 `CLUSTER SLOTS` 获取集群拓扑。Redis 节点**如实返回了自己的真实地址**——对于 Docker 容器来说，就是内网 IP（172.23.0.x）。
+
+Lettuce 拿到拓扑后，会用这些内网 IP **覆盖**你配置的 localhost 地址。但从宿主机（Windows）访问这些 Docker 内网 IP 是不可能的。
+
+### 解决方案
+
+让 Redis 节点向客户端宣告 `127.0.0.1` 而不是内网 IP：
+
+```bash
+redis-server \
+  --cluster-announce-ip 127.0.0.1 \
+  --cluster-announce-port 6379
+```
+
+对于 Docker Compose 环境，最干净的方案是 **单容器多实例**——6 个 Redis 实例跑在同一个容器里，所有节点通过 `127.0.0.1` 通信：
+
+```yaml
+services:
+  redis-cluster:
+    image: redis:7.2.4
+    container_name: redis-cluster
+    ports:
+      - "6379-6384:6379-6384"
+    volumes:
+      - ./init-cluster.sh:/init-cluster.sh
+    command: sh /init-cluster.sh
+```
+
+`init-cluster.sh` 启动脚本会依次：
+1. 启动 6 个 Redis 实例（端口 6379~6384）
+2. 等待节点就绪
+3. 执行 `redis-cli --cluster create` 组建集群
+4. 通过 `tail -f` 保持容器存活
+
+完整脚本及参数说明：
+
+```bash
+#!/bin/sh
+set -e
+
+# ===========================================
+# Redis Cluster 启动脚本
+# 在单个容器中启动 6 个 Redis 实例（3 master + 3 replica）
+# 并自动组建集群
+# ===========================================
+
+# 数据持久化目录（挂载的卷）
+APPDIR=/data/redis-cluster
+
+echo "=== 正在启动 6 个 Redis 实例 ==="
+
+# 循环启动 6 个实例，端口从 6379 到 6384
+for port in 6379 6380 6381 6382 6383 6384; do
+    # 为每个实例创建独立的数据目录
+    mkdir -p $APPDIR/$port
+
+    # 启动 Redis 实例
+    redis-server \
+        --port $port \                                           # 监听端口
+        --cluster-enabled yes \                                  # 开启集群模式
+        --cluster-config-file $APPDIR/$port/nodes.conf \         # 集群配置持久化文件
+        --cluster-node-timeout 5000 \                            # 节点超时时间（毫秒）
+        --appendonly yes \                                       # 开启 AOF 持久化
+        --appendfilename "appendonly.aof" \                      # AOF 文件名
+        --dir $APPDIR/$port \                                    # 数据存储目录
+        --cluster-announce-ip 127.0.0.1 \                        # ★ 对外宣告的 IP（解决 Docker 网络问题）
+        --cluster-announce-port $port \                          # ★ 对外宣告的端口（必须与映射端口一致）
+        --daemonize yes \                                        # 后台运行（单容器多实例必须加）
+        --logfile $APPDIR/$port/redis.log                        # 日志文件
+
+    # 检查启动是否成功
+    if [ $? -eq 0 ]; then
+        echo "  [OK] 实例 $port 启动成功"
+    else
+        echo "  [FAIL] 实例 $port 启动失败"
+        exit 1
+    fi
+done
+```
+
+| # | 参数 | 作用 | 关键程度 |
+|---|------|------|---------|
+| ① | `--port` | 实例监听端口，范围 6379~6384 | 必选 |
+| ② | `--cluster-enabled yes` | 开启集群模式 | 必选 |
+| ③ | `--cluster-config-file` | 集群配置持久化文件（重启后恢复集群状态） | 必选 |
+| ④ | `--cluster-node-timeout` | 节点超时时间（毫秒），超时判定节点宕机 | 推荐 |
+| ⑤ | `--appendonly yes` | 开启 AOF 持久化 | 推荐 |
+| ⑥ | **`--cluster-announce-ip`** | **节点对外宣告的 IP。设为 127.0.0.1 让客户端通过 localhost 连接** | **核心** |
+| ⑦ | `--cluster-announce-port` | 节点对外宣告的端口，与映射端口一致 | 核心 |
+| ⑧ | `--daemonize yes` | 后台运行（单容器多实例必须，否则只能起一个） | 必选 |
+
+**注意 `--daemonize yes`**：单容器多实例必须加这个参数，否则第一个 redis-server 会占据前台进程，后面的实例起不来。脚本最后用 `tail -f` 保持容器不退出。
+
+```bash
+# 检查集群是否已经创建过（重启时 nodes.conf 还在就跳过）
+if [ -f $APPDIR/6379/nodes.conf ] && grep -q "slots" $APPDIR/6379/nodes.conf 2>/dev/null; then
+    echo "=== 集群已存在，跳过创建步骤 ==="
+else
+    echo "=== 正在创建集群（每组分片 1 master + 1 replica） ==="
+    # 组建集群：前 3 个节点自动成为 master，后 3 个成为 replica
+    # echo "yes" | 用于跳过交互确认
+    echo "yes" | redis-cli --cluster create \
+        127.0.0.1:6379 127.0.0.1:6380 127.0.0.1:6381 \
+        127.0.0.1:6382 127.0.0.1:6383 127.0.0.1:6384 \
+        --cluster-replicas 1                                    # 每个 master 配 1 个 replica
+fi
+```
+
+`redis-cli --cluster create` 参数：
+
+| 参数 | 作用 |
+|------|------|
+| `127.0.0.1:6379 ... 127.0.0.1:6384` | 6 个节点地址，前 3 个自动成为 master |
+| `--cluster-replicas 1` | 每个 master 配 1 个 replica（3 master + 3 replica） |
+| `echo "yes" \|` | 跳过交互确认（否则会停在 `Can I set the above configuration?`） |
+
+启动后 `docker logs redis-cluster` 可以看到：
+
+```
+[OK] Instance 6379 started
+[OK] Instance 6380 started
+...
+Creating cluster (1 master + 1 replica per shard)...
+>>> Performing hash slots allocation on 6 nodes...
+Master[0] -> Slots 0 - 5460
+Master[1] -> Slots 5461 - 10922
+Master[2] -> Slots 10923 - 16383
+...
+[OK] All 16384 slots covered.
+```
+
+### 为什么不能用 6 个独立容器？
+
+有人会想：那我用 6 个独立的容器，分别映射端口 6379~6384 不就行了？**我试过，不行。**
+
+问题出在一个两难境地：
+
+| 设置 | 客户端（宿主机视角） | 节点间通信（容器视角） |
+|------|------------------|---------------------|
+| **不加 announce-ip** | ❌ CLUSTER SLOTS 返回 172.23.0.x，Lettuce 连不上 | ✅ 容器间通过 Docker 内网 IP 正常通信 |
+| **announce-ip 设为 127.0.0.1** | ✅ 客户端通过 localhost 正常连接 | ❌ **节点间通信断了** —— 容器 1 试图连 `127.0.0.1:6380` 等于连自己，不是容器 2 |
+| **announce-ip 设为 WSL2 宿主机 IP** | ⚠️ 取决于网络配置，且 IP 会变化 | ✅ 能工作，但不稳定 |
+
+**核心矛盾**：`--cluster-announce-ip` 同时影响客户端和节点间通信，但 Docker 的端口映射让内外视角不一致。
+
+#### 实际操作中发生了什么？
+
+我尝试用 6 个独立容器 + `--cluster-announce-ip 127.0.0.1` 创建集群：
+
+```bash
+# 从 host 执行（通过 docker exec）
+redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6380 ... --cluster-replicas 1
+```
+
+容器 1 收到"你的同级节点在 `127.0.0.1:6380`"，然后尝试连接 `127.0.0.1:6380`——但在容器 1 内部，`127.0.0.1` 就是容器 1 自己，它的 6380 端口并没有进程在监听，连接失败。**集群根本创建不起来。**
+
+这验证了一条原则：**`--cluster-announce-ip` 不能设为 `127.0.0.1`，除非所有节点真在同一个 127.0.0.1 上。**
+
+#### 生产环境呢？
+
+| 环境 | 推荐方案 | 原因 |
+|------|---------|------|
+| 本地开发（WSL2 + Docker） | **单容器多实例** | 最简单稳定，节点间通过 127.0.0.1 通信 |
+| 生产（物理机/云服务器） | 独立容器 + host 网络 或 设 announce-ip 为固定主机 IP | 内外网络一致，没有 NAT 问题 |
+
+单容器方案把 6 个节点放在同一个网络命名空间里，所有节点通过 `127.0.0.1` 通信，绕开了 Docker 端口映射带来的内外视角不一致问题。对于本地开发和测试，这就是最优解。
+
+### 为什么不推荐代码层面禁用拓扑刷新？
+
+在遇到 Docker 内网 IP 问题时，我在网上查到了另一种思路：通过客户端配置来绕过。
+
+具体做法是组合使用以下几个参数：
+
+```java
+ClusterTopologyRefreshOptions.builder()
+    .dynamicRefreshSources(false)          // 不从拓扑节点获取更新源
+    .enablePeriodicRefresh(false)          // 关闭定期刷新
+    .build();
+
+// 加上：
+clusterClientOptions.validateClusterNodeMembership(false);
+```
+
+它的思路是："既然拓扑返回的 IP 是错的，那我不用拓扑刷新，只认我配置的 localhost 地址。"
+
+**但这条路走不通。** 原因很简单：
+
+1. **初始 CLUSTER SLOTS 无法避免**。Lettuce 一连接上种子节点，第一件事就是发 CLUSTER SLOTS 获取 slot 分布。这个请求无论如何都会执行，返回值里自带 Docker 内网 IP
+2. **路由信息一旦被污染就无法恢复**。Lettuce 拿到拓扑后，会把 172.23.0.x 写入内部的 slot→node 映射表。禁用刷新只是阻止了"后续更新"，第一次的错误映射已经存在了
+3. **validateClusterNodeMembership(false) 只管连接验证**。它只是说"不检查连上的是不是已知节点"，但它不能阻止路由表使用内网 IP
+
+验证结果：即使加了这些配置，Lettuce 仍然会尝试连接 172.23.0.x:6379，日志依然超时。这是我在实战中踩过的坑。
+
+**结论：客户端侧的 hack 治标不治本。最干净的方案就是改集群宣告地址。**
+
+## 真实验证：读操作到底走了 replica？
+
+光配了 `REPLICA_PREFERRED` 不够，你怎么知道读请求真的发到了 replica？
+
+### 验证方法
+
+利用 Redis 的 `CLIENT LIST` 命令，检查 replica 节点上是否有处于 **READONLY 模式** 的客户端连接。当 Lettuce 向 replica 发送 `READONLY` 指令后，该连接会被标记 `flags=r`。
+
+```java
+// 使用 replica template 执行一次读取
+service.getFromReplica("test:key");
+
+// 遍历所有 replica 节点，检查 CLIENT LIST
+for (RedisClusterNode node : replicaNodes) {
+    var clients = clusterConn.getClientList(node);
+    for (var client : clients) {
+        if (client.getFlags().contains("r")) {
+            System.out.println("READONLY client on " + node.getPort()
+                + ": " + client.getAddressPort()
+                + " lastCmd=" + client.getLastCommand());
+        }
+    }
+}
+```
+
+### 验证结果
+
+```
+[OK] 默认 template → ReadFrom.REPLICA_PREFERRED
+[OK] master template → ReadFrom.MASTER
+[READONLY] 127.0.0.1:6382 → client 172.24.0.1:53900 flags=r lastCmd=get
+```
+
+关键证据解读：
+- **flags=r**：Redis 的 readonly 标记，证明该连接向 replica 声明了 READONLY
+- **lastCmd=get**：最后执行的是读命令
+- **客户端在 replica 6382 上**：不在 master
+
+三行输出，从配置到行为，完整证明了读写分离生效。
+
+### 为什么不用 replication delay 验证？
+
+有些人建议通过制造主从延迟来验证——写 master 后立刻读 replica，如果读到旧值说明走了 replica。这种方法**不推荐**：
+- 主从延迟不可控，测试结果不稳定
+- 需要在集群上做额外操作（暂停复制）
+- `CLIENT LIST` 直接给出了确定性证据
+
+## 读写分离的局限性
+
+### 核心问题：最终一致性
+
+Redis 的主从复制是异步的。当 master 写入一个 key 后，复制日志（Replication Backlog）需要时间同步到 replica。这个时间通常很短（毫秒级），但在高负载或网络抖动时可能延长到秒级。
+
+```
+时间轴：
+  T0: 客户端写入 master → SET stock:1001 5
+  T1: master 返回 OK（复制日志发出，但 replica 还没收到）
+  T2: 客户端从 replica 读取 → GET stock:1001
+  T3: replica 返回 3（旧值！复制还没追上）
+  T4: replica 收到复制日志，更新为 5（晚了）
+```
+
+如果你的业务逻辑是"读取当前库存→判断是否充足→扣减"，在 T2 时刻读到旧值，就会导致库存超卖。
+
+### 场景适配表
+
+| 场景 | 是否适合走 replica | 原因 |
+|------|-------------------|------|
+| 商品详情、列表页 | ✅ 适合 | 显示旧数据几秒不影响用户体验 |
+| 用户 Session 读取 | ✅ 适合 | Session 一旦写入很少修改，绝大部分是读取 |
+| 新闻/内容站 | ✅ 适合 | 内容发布后极少变更，读多写少 |
+| 排行榜/计数器 | ✅ 适合 | 少量偏差可接受 |
+| **支付/库存扣减** | ❌ **不适合** | 强一致性要求，读到的必须是最新值 |
+| **写入后立即回读（Read Your Writes）** | ⚠️ 小心 | 用户刚提交修改立刻刷新页面，可能看到旧数据 |
+| **分布式锁** | ❌ **不适合** | 锁状态必须强一致 |
+
+### 最佳实践：按场景分流
+
+解决方案不是"全要或者全不要"，而是**分层**：
+
+```java
+@Service
+public class OrderService {
+
+    // 双 template 注入
+    private final RedisTemplate<String, String> redisTemplate;      // 默认：读 replica
+    private final RedisTemplate<String, String> masterTemplate;     // 强制：读 master
+
+    public OrderService(RedisTemplate<String, String> redisTemplate,
+                        @Qualifier("redisTemplateMaster") RedisTemplate<String, String> masterTemplate) {
+        this.redisTemplate = redisTemplate;
+        this.masterTemplate = masterTemplate;
+    }
+
+    // ========== 读多写少，可接受最终一致性 ==========
+
+    /** 商品详情 —— 走 replica */
+    public ProductVO getProduct(String skuId) {
+        String json = redisTemplate.opsForValue().get("product:" + skuId);
+        return JSON.parse(json, ProductVO.class);
+    }
+
+    /** 用户信息 —— 走 replica */
+    public UserInfo getUserInfo(Long userId) {
+        String json = redisTemplate.opsForValue().get("user:" + userId);
+        return JSON.parse(json, UserInfo.class);
+    }
+
+    // ========== 强一致性要求，必须读 master ==========
+
+    /** 商品库存 —— 强制读 master */
+    public int getStock(String skuId) {
+        String val = masterTemplate.opsForValue().get("stock:" + skuId);
+        return val != null ? Integer.parseInt(val) : 0;
+    }
+
+    /** 订单支付状态 —— 强制读 master */
+    public String getOrderStatus(String orderId) {
+        return masterTemplate.opsForValue().get("order:" + orderId + ":status");
+    }
+
+    /** 写入后立即回读 —— 强制读 master */
+    public String saveAndReadBack(String key, String value) {
+        redisTemplate.opsForValue().set(key, value);     // 写（走 master）
+        return masterTemplate.opsForValue().get(key);     // 读（强制 master，避免复制延迟）
+    }
+}
+```
+
+### 三层读写策略模型
+
+在大型项目中，往往会定义三层的读取策略：
+
+| 层级 | 策略 | 对应 ReadFrom | 场景 |
+|------|------|--------------|------|
+| **L1 - 最终一致** | 读 replica | `REPLICA_PREFERRED` | 详情页、列表、非核心数据 |
+| **L2 - 写后读一致** | 先记时间戳，短时间内读 master | 动态切换 | 用户刚修改的数据 |
+| **L3 - 强一致** | 强制读 master | `MASTER` | 支付、库存、锁 |
+
+L2 的精髓是：写入时记录时间戳，后续的读操作如果距离写入时间在 N 毫秒内，就切到 master 读，超过 N 毫秒后恢复 replica 读。这样在"用户刚改完的数据"和"其他用户的数据"之间取得了平衡。
+
+但实现起来需要 AOP 或者注解支持，大多数中小项目用 L1 + L3 两层就够了——默认走 replica，关键操作强制走 master。
+
+## 总结
+
+1. **Redis Cluster 本身不支持读写分离**，需要客户端通过 `READONLY` 命令开启
+2. **Lettuce 的 `ReadFrom.REPLICA_PREFERRED`** 一行配置即可实现读写分离
+3. **Docker 环境下的 CLUSTER SLOTS 地址问题**，通过 `--cluster-announce-ip 127.0.0.1` 解决
+4. **真实验证**：通过 `CLIENT LIST` 的 `flags=r` 标记，确认读操作确实走了 replica
+5. **不是所有场景都适合**：最终一致性场景走 replica，强一致性场景必须读 master
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证\",\"item\":\"https://www.lxpavilion.top/article/121\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证\",\"headline\":\"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证\",\"description\":\"Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。\",\"datePublished\":\"2026-07-15T22:57:22.59202\",\"dateCreated\":\"2026-07-15T22:57:22.59202\",\"dateModified\":\"2026-07-15T22:57:22.611842\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/690.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证","initialContent":"$2d"}]]
+2c:{"id":"121"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/121/"}],["$","meta","5",{"property":"og:title","content":"Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/690.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

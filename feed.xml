@@ -8,6 +8,46 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证]]></title>
+      <link>https://www.lxpavilion.top/article/121/</link>
+      <guid>https://www.lxpavilion.top/article/121/</guid>
+      <pubDate>Wed, 15 Jul 2026 22:57:22 GMT</pubDate>
+      <description><![CDATA[Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Redis学习笔记：Cluster 分片集群从原理到实战部署]]></title>
+      <link>https://www.lxpavilion.top/article/120/</link>
+      <guid>https://www.lxpavilion.top/article/120/</guid>
+      <pubDate>Wed, 15 Jul 2026 17:49:40 GMT</pubDate>
+      <description><![CDATA[深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Redis学习笔记：哨兵集群实战，自动故障转移与高可用架构完整指南]]></title>
+      <link>https://www.lxpavilion.top/article/119/</link>
+      <guid>https://www.lxpavilion.top/article/119/</guid>
+      <pubDate>Wed, 15 Jul 2026 15:43:35 GMT</pubDate>
+      <description><![CDATA[手把手带你基于Docker Compose搭建3节点Redis哨兵集群，从核心概念（SDOWN/ODOWN/Quorum/Tilt）到自动故障转移实验，再到DNS主机名坑点的完整解决方案。适合已掌握主从复制、想进一步实现高可用的开发者。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步]]></title>
+      <link>https://www.lxpavilion.top/article/118/</link>
+      <guid>https://www.lxpavilion.top/article/118/</guid>
+      <pubDate>Wed, 15 Jul 2026 13:13:09 GMT</pubDate>
+      <description><![CDATA[手把手教你用Docker Compose搭建Redis一主两从集群，详解主从配置、全量同步、增量同步、断线重连与读写分离。适合想深入理解Redis复制机制的开发者。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构]]></title>
       <link>https://www.lxpavilion.top/article/117/</link>
       <guid>https://www.lxpavilion.top/article/117/</guid>
@@ -205,53 +245,6 @@
       <tag>Linux</tag>
       <tag>Kubernetes</tag>
       <tag>KubeSphere</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Docker Desktop 内置 K8s 从入门到实战：部署你的第一个 Nginx 集群]]></title>
-      <link>https://www.lxpavilion.top/article/63/</link>
-      <guid>https://www.lxpavilion.top/article/63/</guid>
-      <pubDate>Sat, 04 Jul 2026 09:54:11 GMT</pubDate>
-      <description><![CDATA[Windows 下 Docker Desktop 启用 K8s 完整教程。从 K8s 基础概念到 kubectl 配置，再到 Nginx 部署访问，附 WSL 镜像网络配置与 kubeconfig 同步方案，适合初学者入门本地 Kubernetes 集群搭建与测试。]]></description>
-      <category>技术教程</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Kubernetes</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Windows 下 WSL2 + Docker Desktop + Ubuntu 开发环境搭建指南]]></title>
-      <link>https://www.lxpavilion.top/article/62/</link>
-      <guid>https://www.lxpavilion.top/article/62/</guid>
-      <pubDate>Sat, 04 Jul 2026 08:28:28 GMT</pubDate>
-      <description><![CDATA[从零开始，在 Windows 上搭建 WSL2 + Ubuntu + Docker Desktop 完整开发环境。涵盖 WSL 激活、Ubuntu 安装、Docker 配置、镜像加速、数据迁移、SSH 连接及开发工作流最佳实践，附性能对比与选型建议。]]></description>
-      <category>技术教程</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道]]></title>
-      <link>https://www.lxpavilion.top/article/61/</link>
-      <guid>https://www.lxpavilion.top/article/61/</guid>
-      <pubDate>Thu, 02 Jul 2026 16:48:48 GMT</pubDate>
-      <description><![CDATA[ Cloudflare Workers 日志功能完整教程。教你如何开启 Workers Logs、使用 console.log 结构化日志输出、通过 Dashboard 和 wrangler tail 实时查看日志、利用三个 API 接口程序化查询日志数据。免费额度每天 20 万条，附日志格式规范与最佳实践，帮你从零搭建 Worker 可观测体系。]]></description>
-      <category>开发拾遗</category>
-      <tag>Worker</tag>
-      <tag>Claude Code</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告]]></title>
-      <link>https://www.lxpavilion.top/article/60/</link>
-      <guid>https://www.lxpavilion.top/article/60/</guid>
-      <pubDate>Thu, 02 Jul 2026 14:09:31 GMT</pubDate>
-      <description><![CDATA[在 MailerLite 免费计划下，通过保留 {$unsubscribe} 和品牌图片标记配合 CSS 隐藏，绕过平台强制注入退订链接与品牌广告，同时自建退订确认页实现完全自定义的退订流程。涵盖邮件模板改造、退订页开发、MailerLite API 双端删除、隐藏品牌标识的具体代码实现，适合用 MailerLite 发送 Newslette 的独立开发者参考。]]></description>
-      <category>开发拾遗</category>
-      <tag>MailerLite</tag>
-      <tag>邮订阅件</tag>
       <author>ppc</author>
     </item>
   </channel>

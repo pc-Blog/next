@@ -1,0 +1,225 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/186zb2uvf9xze.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T16ca,## 什么是主从复制？
+
+主从复制（Master-Slave Replication）是 Redis 高可用的基石。一个主库（Master）负责写入，多个从库（Replica）实时同步主库数据并提供读服务。
+
+**主要作用：**
+- **读写分离**：主库写，从库读，分摊读压力
+- **数据热备份**：从库拥有主库的完整副本，主库宕机时数据不丢
+- **高可用基础**：配合哨兵（Sentinel）可实现自动故障转移
+
+## 环境准备
+
+- **操作系统**：WSL2（Windows Subsystem for Linux）
+- **容器环境**：Docker + Docker Compose
+
+## 目录结构与配置文件
+
+### 准备挂载的数据卷
+
+```bash
+mkdir -p redis-master-slave/{config,data/master,data/replica1,data/replica2}
+cd redis-master-slave
+```
+
+### 主库配置（config/master.conf）
+
+```bash
+# 允许所有IP连接（Docker容器间通信必须）
+bind 0.0.0.0
+# 监听端口
+port 6379
+# 开启AOF持久化（便于观察数据落地）
+appendonly yes
+# 规定日志级别，方便查错
+loglevel notice
+# 设定密码（为了安全，但主从都必须配一致；这里先留空方便入门）
+# requirepass 123456
+# 数据库数量保持默认
+databases 16
+```
+
+### 从库1配置（config/replica1.conf）
+
+```bash
+bind 0.0.0.0
+port 6380
+appendonly yes
+loglevel notice
+
+# ****** 核心主从指令 ******
+# 声明我跟随谁（注意：这里填的是Docker Compose里的服务名 "master"，而不是IP！）
+replicaof master 6379
+
+# 如果主库有密码，需开启下面这行（目前没设密码，注释掉）
+# masterauth 123456
+```
+
+### 从库2配置（config/replica2.conf）
+
+```bash
+bind 0.0.0.0
+port 6381
+appendonly yes
+loglevel notice
+
+# 同样跟随主库
+replicaof master 6379
+```
+
+## Docker Compose编排
+
+使用 Docker Compose 将三个 Redis 实例编排在同一个自定义网络中，通过服务名互相通信。
+
+```yaml
+version: '3.8'
+
+services:
+  # ---------- 主节点 ----------
+  master:
+    image: redis:7.2.4
+    container_name: redis-master
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./config/master.conf:/usr/local/etc/redis/redis.conf
+      - ./data/master:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redis-net
+
+  # ---------- 从节点 1 ----------
+  replica1:
+    image: redis:7.2.4
+    container_name: redis-replica-1
+    restart: always
+    ports:
+      - "6380:6380"
+    volumes:
+      - ./config/replica1.conf:/usr/local/etc/redis/redis.conf
+      - ./data/replica1:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    depends_on:
+      - master
+    networks:
+      - redis-net
+
+  # ---------- 从节点 2 ----------
+  replica2:
+    image: redis:7.2.4
+    container_name: redis-replica-2
+    restart: always
+    ports:
+      - "6381:6381"
+    volumes:
+      - ./config/replica2.conf:/usr/local/etc/redis/redis.conf
+      - ./data/replica2:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    depends_on:
+      - master
+    networks:
+      - redis-net
+
+networks:
+  redis-net:
+    driver: bridge
+```
+
+## 启动集群
+
+```bash
+docker-compose up -d
+```
+
+## 验证主从状态
+
+### 查看主库状态
+
+进入 master 容器并执行 `INFO replication`：
+
+```bash
+redis-cli -p 6379
+INFO replication
+```
+
+输出如下即表示两个从库已成功连接：
+
+```
+# Replication
+role:master
+connected_slaves:2
+slave0:ip=172.23.0.3,port=6381,state=online,offset=252,lag=1
+slave1:ip=172.23.0.4,port=6380,state=online,offset=252,lag=1
+master_failover_state:no-failover
+master_replid:7be3860eae78aa0c884546e40d444ba5708ca4c5
+master_repl_offset:252
+...
+```
+
+### 观察偏移量变化
+
+`master_repl_offset` 是主库当前的复制偏移量，表示已复制数据流的字节数。当主库写入数据时，该值会增长。
+
+在主库写入数据：
+
+```bash
+set name "DockerMaster"
+INFO replication
+```
+
+可以看到 `master_repl_offset` 从 252 增长到 499，从库同步该数据后也维持相同的偏移量。
+
+### 验证从库数据
+
+分别进入从库查看 name 字段，会发现数据已自动同步完成。
+
+## 断线重连机制
+
+> **操作场景**：暂停一个从库容器 → 在主库写入新数据 → 重新启动该从库
+
+重启后从库会**增量同步**而不是全量同步。这是因为 Redis 的主从复制采用**带有部分重同步（PSYNC）的复制协议**：
+
+- 主库维护一个 **replication backlog**（环形缓冲区，默认 1MB）
+- 从库断线后重连时，将自己的 `replid` 和偏移量发给主库
+- 主库检查该偏移量是否仍在 backlog 中：
+  - **在 backlog 内** → 部分重同步，只发送断线期间缺失的数据
+  - **超出 backlog** → 全量重同步，重新发送 RDB 快照
+
+这就是高可用的一大保障：短暂的网络抖动不会触发昂贵的全量重同步。
+
+## 读写分离验证
+
+主库负责写入，从库只读。在从库执行写入命令会被拒绝：
+
+```bash
+> set test "test"
+READONLY You can't write against a read only replica.
+```
+
+这一特性确保了集群数据的**一致性流向**：所有写入必须经过主库，从库只负责复制和应用。
+
+## 总结
+
+本文从零搭建了一套 Redis 一主两从集群，涵盖了：
+
+| 知识点 | 说明 |
+|-------|------|
+| 主从配置 | `replicaof` 指令指定主库 |
+| Docker Compose 编排 | 自定义网络、服务名通信、数据卷挂载 |
+| 复制原理 | `INFO replication` 中的关键指标解读 |
+| 偏移量 | `master_repl_offset` 标记复制进度 |
+| 断线重连 | PSYNC 协议支持增量同步（部分重同步） |
+| 读写分离 | 从库只读保障数据一致性 |
+
+以上是 Redis 主从复制的完整动手实践。理解这部分后，可以继续学习**哨兵模式（Sentinel）**实现自动故障转移，或**集群模式（Cluster）**实现数据分片与高可用。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步\",\"item\":\"https://www.lxpavilion.top/article/118\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步\",\"headline\":\"Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步\",\"description\":\"手把手教你用Docker Compose搭建Redis一主两从集群，详解主从配置、全量同步、增量同步、断线重连与读写分离。适合想深入理解Redis复制机制的开发者。\",\"datePublished\":\"2026-07-15T13:13:09.361357\",\"dateCreated\":\"2026-07-15T13:13:09.361357\",\"dateModified\":\"2026-07-15T15:43:05.278955\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/690.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lCGDJcbC5B6vfMuTs4mXM"}
+3:{"id":"118"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/186zb2uvf9xze.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

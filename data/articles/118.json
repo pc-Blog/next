@@ -1,0 +1,24 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "commentCount": 0,
+  "content": "## 什么是主从复制？\n\n主从复制（Master-Slave Replication）是 Redis 高可用的基石。一个主库（Master）负责写入，多个从库（Replica）实时同步主库数据并提供读服务。\n\n**主要作用：**\n- **读写分离**：主库写，从库读，分摊读压力\n- **数据热备份**：从库拥有主库的完整副本，主库宕机时数据不丢\n- **高可用基础**：配合哨兵（Sentinel）可实现自动故障转移\n\n## 环境准备\n\n- **操作系统**：WSL2（Windows Subsystem for Linux）\n- **容器环境**：Docker + Docker Compose\n\n## 目录结构与配置文件\n\n### 准备挂载的数据卷\n\n```bash\nmkdir -p redis-master-slave/{config,data/master,data/replica1,data/replica2}\ncd redis-master-slave\n```\n\n### 主库配置（config/master.conf）\n\n```bash\n# 允许所有IP连接（Docker容器间通信必须）\nbind 0.0.0.0\n# 监听端口\nport 6379\n# 开启AOF持久化（便于观察数据落地）\nappendonly yes\n# 规定日志级别，方便查错\nloglevel notice\n# 设定密码（为了安全，但主从都必须配一致；这里先留空方便入门）\n# requirepass 123456\n# 数据库数量保持默认\ndatabases 16\n```\n\n### 从库1配置（config/replica1.conf）\n\n```bash\nbind 0.0.0.0\nport 6380\nappendonly yes\nloglevel notice\n\n# ****** 核心主从指令 ******\n# 声明我跟随谁（注意：这里填的是Docker Compose里的服务名 \"master\"，而不是IP！）\nreplicaof master 6379\n\n# 如果主库有密码，需开启下面这行（目前没设密码，注释掉）\n# masterauth 123456\n```\n\n### 从库2配置（config/replica2.conf）\n\n```bash\nbind 0.0.0.0\nport 6381\nappendonly yes\nloglevel notice\n\n# 同样跟随主库\nreplicaof master 6379\n```\n\n## Docker Compose编排\n\n使用 Docker Compose 将三个 Redis 实例编排在同一个自定义网络中，通过服务名互相通信。\n\n```yaml\nversion: '3.8'\n\nservices:\n  # ---------- 主节点 ----------\n  master:\n    image: redis:7.2.4\n    container_name: redis-master\n    restart: always\n    ports:\n      - \"6379:6379\"\n    volumes:\n      - ./config/master.conf:/usr/local/etc/redis/redis.conf\n      - ./data/master:/data\n    command: redis-server /usr/local/etc/redis/redis.conf\n    networks:\n      - redis-net\n\n  # ---------- 从节点 1 ----------\n  replica1:\n    image: redis:7.2.4\n    container_name: redis-replica-1\n    restart: always\n    ports:\n      - \"6380:6380\"\n    volumes:\n      - ./config/replica1.conf:/usr/local/etc/redis/redis.conf\n      - ./data/replica1:/data\n    command: redis-server /usr/local/etc/redis/redis.conf\n    depends_on:\n      - master\n    networks:\n      - redis-net\n\n  # ---------- 从节点 2 ----------\n  replica2:\n    image: redis:7.2.4\n    container_name: redis-replica-2\n    restart: always\n    ports:\n      - \"6381:6381\"\n    volumes:\n      - ./config/replica2.conf:/usr/local/etc/redis/redis.conf\n      - ./data/replica2:/data\n    command: redis-server /usr/local/etc/redis/redis.conf\n    depends_on:\n      - master\n    networks:\n      - redis-net\n\nnetworks:\n  redis-net:\n    driver: bridge\n```\n\n## 启动集群\n\n```bash\ndocker-compose up -d\n```\n\n## 验证主从状态\n\n### 查看主库状态\n\n进入 master 容器并执行 `INFO replication`：\n\n```bash\nredis-cli -p 6379\nINFO replication\n```\n\n输出如下即表示两个从库已成功连接：\n\n```\n# Replication\nrole:master\nconnected_slaves:2\nslave0:ip=172.23.0.3,port=6381,state=online,offset=252,lag=1\nslave1:ip=172.23.0.4,port=6380,state=online,offset=252,lag=1\nmaster_failover_state:no-failover\nmaster_replid:7be3860eae78aa0c884546e40d444ba5708ca4c5\nmaster_repl_offset:252\n...\n```\n\n### 观察偏移量变化\n\n`master_repl_offset` 是主库当前的复制偏移量，表示已复制数据流的字节数。当主库写入数据时，该值会增长。\n\n在主库写入数据：\n\n```bash\nset name \"DockerMaster\"\nINFO replication\n```\n\n可以看到 `master_repl_offset` 从 252 增长到 499，从库同步该数据后也维持相同的偏移量。\n\n### 验证从库数据\n\n分别进入从库查看 name 字段，会发现数据已自动同步完成。\n\n## 断线重连机制\n\n> **操作场景**：暂停一个从库容器 → 在主库写入新数据 → 重新启动该从库\n\n重启后从库会**增量同步**而不是全量同步。这是因为 Redis 的主从复制采用**带有部分重同步（PSYNC）的复制协议**：\n\n- 主库维护一个 **replication backlog**（环形缓冲区，默认 1MB）\n- 从库断线后重连时，将自己的 `replid` 和偏移量发给主库\n- 主库检查该偏移量是否仍在 backlog 中：\n  - **在 backlog 内** → 部分重同步，只发送断线期间缺失的数据\n  - **超出 backlog** → 全量重同步，重新发送 RDB 快照\n\n这就是高可用的一大保障：短暂的网络抖动不会触发昂贵的全量重同步。\n\n## 读写分离验证\n\n主库负责写入，从库只读。在从库执行写入命令会被拒绝：\n\n```bash\n> set test \"test\"\nREADONLY You can't write against a read only replica.\n```\n\n这一特性确保了集群数据的**一致性流向**：所有写入必须经过主库，从库只负责复制和应用。\n\n## 总结\n\n本文从零搭建了一套 Redis 一主两从集群，涵盖了：\n\n| 知识点 | 说明 |\n|-------|------|\n| 主从配置 | `replicaof` 指令指定主库 |\n| Docker Compose 编排 | 自定义网络、服务名通信、数据卷挂载 |\n| 复制原理 | `INFO replication` 中的关键指标解读 |\n| 偏移量 | `master_repl_offset` 标记复制进度 |\n| 断线重连 | PSYNC 协议支持增量同步（部分重同步） |\n| 读写分离 | 从库只读保障数据一致性 |\n\n以上是 Redis 主从复制的完整动手实践。理解这部分后，可以继续学习**哨兵模式（Sentinel）**实现自动故障转移，或**集群模式（Cluster）**实现数据分片与高可用。\n",
+  "coverImage": "/data/media/690.png",
+  "createdAt": "2026-07-15T13:13:09.361357",
+  "id": 118,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 119,
+    "title": "Redis学习笔记：哨兵集群实战，自动故障转移与高可用架构完整指南"
+  },
+  "prev": {
+    "id": 117,
+    "title": "Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构"
+  },
+  "summary": "手把手教你用Docker Compose搭建Redis一主两从集群，详解主从配置、全量同步、增量同步、断线重连与读写分离。适合想深入理解Redis复制机制的开发者。",
+  "tags": [],
+  "title": "Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步",
+  "updateTime": "2026-07-15T15:43:05.278955",
+  "viewCount": 0
+}

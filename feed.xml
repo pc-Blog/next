@@ -8,6 +8,16 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战]]></title>
+      <link>https://www.lxpavilion.top/article/122/</link>
+      <guid>https://www.lxpavilion.top/article/122/</guid>
+      <pubDate>Wed, 15 Jul 2026 23:28:19 GMT</pubDate>
+      <description><![CDATA[缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证]]></title>
       <link>https://www.lxpavilion.top/article/121/</link>
       <guid>https://www.lxpavilion.top/article/121/</guid>
@@ -231,20 +241,6 @@
       <tag>Kubernetes</tag>
       <tag>KubeSphere</tag>
       <tag>Mysql</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台]]></title>
-      <link>https://www.lxpavilion.top/article/64/</link>
-      <guid>https://www.lxpavilion.top/article/64/</guid>
-      <pubDate>Sat, 04 Jul 2026 11:36:05 GMT</pubDate>
-      <description><![CDATA[KubeSphere 完整入门教程，从 Helm 安装开始到 DevOps 插件配置。涵盖 K8s 环境检查、镜像超时排错（含 containerd 加速方案）、LoadBalancer 端口冲突解决、社区免费激活全流程，助你快速搭建 K8s 可视化管理平台。]]></description>
-      <category>技术教程</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
       <author>ppc</author>
     </item>
   </channel>

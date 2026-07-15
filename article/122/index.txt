@@ -1,0 +1,848 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0qr9cfzc08_cw.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","122",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","122","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/17_83cgw_p8.g.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"N1F8BgN55Cnk03unI0aeW"}
+17:I[6521,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1a:I[34858,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js"],"default"]
+1b:I[23191,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/17rm2vzn7-~we.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/186zb2uvf9xze.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0qr9cfzc08_cw.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/186zb2uvf9xze.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T6feb,## 前言
+
+缓存是提升系统性能最直接的手段，但用不好也会带来大麻烦。面试常问的三大问题——穿透、击穿、雪崩，加上线上最难缠的缓存一致性，这四个问题是 Redis 缓存实践中的核心关卡。
+
+本文不讲八股文式的"是什么→怎么办"，而是从实际问题出发，分析根因，对比方案，让你看完就知道怎么选。
+
+## 一、缓存穿透
+
+### 问题现象
+
+请求一个**不存在的数据**，缓存里没有，数据库里也没有。每次请求都穿过缓存直接打到数据库：
+
+```
+请求 A: GET product:999999
+  → 缓存 MISS
+  → 数据库 SELECT，结果为空
+  → 什么都不缓存，下次继续穿
+  
+请求 B: GET product:999999（重复）
+  → 缓存 MISS
+  → 数据库 SELECT，结果为空
+  → ...
+```
+
+如果这种请求量很大（被恶意攻击或爬虫遍历不存在的 ID），数据库会被无效查询压垮。
+
+### 根因
+
+缓存穿透的本质：**缓存只缓存了"有"的数据，"没有"的数据不缓存，导致每次都要查数据库确认没有。**
+
+### 解决方案
+
+#### 方案一：缓存空值（最简单有效）
+
+**思路**：既然穿透的原因是"不存在的数据不缓存"，那就把空结果也缓存起来。
+
+**示例**：
+
+```
+第一次请求 product:999999（不存在）:
+  缓存 MISS → 查数据库 → 结果为空
+  → 把这个空结果也缓存起来："product:999999 = 空标记"（TTL 5 分钟）
+  
+第二次请求 product:999999:
+  缓存 HIT（空标记）→ 直接返回 null，不查数据库 ✅
+```
+
+这样同一个 ID 第二次来就不会穿透了。
+
+```java
+public Product getProduct(String id) {
+    // 1. 查缓存
+    Product cache = redisTemplate.opsForValue().get("product:" + id);
+    if (cache != null) {
+        if (cache.isEmptyMarker()) {
+            return null;  // 空值标记，直接返回 null
+        }
+        return cache;
+    }
+
+    // 2. 缓存未命中，查数据库
+    Product db = productMapper.selectById(id);
+
+    // 3. 缓存结果（无论是否为空）
+    if (db == null) {
+        // 空值也缓存，TTL 设短一些，防止长期占用内存
+        redisTemplate.opsForValue().set("product:" + id, EMPTY_MARKER, Duration.ofMinutes(5));
+    } else {
+        redisTemplate.opsForValue().set("product:" + id, db, Duration.ofHours(1));
+    }
+
+    return db;
+}
+```
+
+**要点**：
+- 空值的 TTL 要短（3~5 分钟），避免内存浪费
+- 要用**空值标记对象**，和正常数据区分开
+- 适合不存在的数据量不大的场景
+
+**局限性**：缓存空值只防**同一个 ID 反复穿透**，不防**大量不同 ID 的穿透**。
+
+```
+攻击者遍历 ID：
+  GET /product/不存在-1 → 缓存 MISS → 查数据库 → 缓存空值 ✅
+  GET /product/不存在-2 → 缓存 MISS → 查数据库 → 缓存空值 ✅
+  GET /product/不存在-3 → 缓存 MISS → 查数据库 → 缓存空值 ✅
+  ...（每次换一个新 ID，每个都 MISS 一次）
+```
+
+每次 MISS 都实实在在地查了一次数据库，100 万个不存在的 ID 就查 100 万次，数据库照样被打垮。缓存空值只是"查完后把这个 ID 记住"，但**防不住攻击者换 ID**。
+
+如果要防这种场景，需要和布隆过滤器配合布隆过滤器前置拦截，让不存在的 ID 连缓存 Miss 的机会都没有。
+
+#### 方案二：布隆过滤器（防恶意遍历）
+
+**思路**：在缓存前面增加一道过滤，用布隆过滤器判断 ID 是否存在。判断为不存在的 ID 直接拦截，不再查询缓存和数据库。
+
+**和缓存空值的区别**：
+
+```
+缓存空值：来了一个不存在的 ID → 先查缓存 MISS → 再查数据库确认没有 → 把空结果缓存
+          每次都查了数据库（只是同一个 ID 下次不查了）
+
+布隆过滤器：来了一个不存在的 ID → 过滤器直接拦截 ❌
+            → 根本不查缓存，更不查数据库
+            → 100 万个不存在的 ID 也全部拦截，数据库 0 压力 ✅
+```
+
+**布隆过滤器的实际工作过程**：
+
+```
+第一步 — 初始化（从数据库加载所有真实 ID 填入过滤器）：
+
+  数据库查询: SELECT id FROM product（返回 1000 万条真实 ID）
+  逐条写入过滤器:
+    添加 "product:1001" → 哈希 → 位置 1234567, 7654321, 5555555 → 置为 1
+    添加 "product:1002" → 哈希 → 位置 2345678, 8765432, 6666666 → 置为 1
+    添加 "product:1003" → 哈希 → 位置 3456789, 9876543, 7777777 → 置为 1
+    ...（1000 万条全部写入）
+  
+第二步 — 查询（用过滤器判断 ID 是否存在）：
+
+  查询 "product:999999"（不存在的 ID）:
+    哈希函数 1 → 位置 1111111 → 不是 1 → ❌ 一定不存在
+    直接返回 null ✅（不查缓存不查数据库）
+
+  查询 "product:1001"（真实存在的 ID）:
+    哈希函数 1 → 位置 1234567 → 是 1 ✅
+    哈希函数 2 → 位置 7654321 → 是 1 ✅
+    哈希函数 3 → 位置 5555555 → 是 1 ✅
+    三个位置都是 1 → 可能存在，放行（查缓存→查数据库）
+```
+
+**代码实现**：启动时加载所有存在的 ID 到过滤器，查询时先用过滤器判断。
+
+```java
+public class ProductService {
+
+    // 布隆过滤器：预计 1000 万数据，误判率 1%
+    private final BloomFilter<String> bloomFilter = BloomFilter.create(
+            Funnels.stringFunnel(Charset.defaultCharset()),
+            10_000_000, 0.01);
+
+    @PostConstruct
+    public void init() {
+        // 启动时从数据库加载所有存在的 productId
+        List<String> allIds = productMapper.selectAllIds();
+        allIds.forEach(bloomFilter::put);
+    }
+
+    public Product getProduct(String id) {
+        // 布隆过滤器判断 id 是否存在
+        if (!bloomFilter.mightContain(id)) {
+            // 一定不存在，直接返回，连缓存都不用查
+            return null;
+        }
+
+        // 可能存在（有误判率），走正常缓存流程
+        return getFromCacheOrDb(id);
+    }
+}
+```
+
+**要点**：
+- 只能判断"一定不存在"，不能判断"一定存在"（有误判率，通常 1% 以内）
+- 适合 ID 总量可穷举的场景（如商品 ID 范围已知，启动时一次性加载）
+- 新增数据时不能立即反映到过滤器（需要定期重建），所以不能完全替代缓存空值的兜底
+- 空间效率极高：1 亿条数据、1% 误判率，只需要约 120MB 内存
+
+| 对比 | 缓存空值 | 布隆过滤器 |
+|------|---------|-----------|
+| 实现复杂度 | 低 | 中（需要全量初始化） |
+| 内存占用 | 取决于空 key 数量 | 固定（取决于数据量和误判率） |
+| 防御效果 | 受 TTL 限制 | 彻底拦截不存在 key |
+| 新增数据 | 不需要额外处理 | 需要更新过滤器 |
+
+**推荐**：一般业务用**缓存空值**就够了。如果遇到明显的恶意遍历攻击，加一层布隆过滤器前置拦截。
+
+---
+
+## 二、缓存击穿
+
+### 问题现象
+
+一个**热点 key** 在某一时刻恰好过期失效，同时有大量并发请求访问这个 key：
+
+```
+时间轴：
+  T0: 缓存中 hot:key 存在
+  T1: 缓存中 hot:key 过期
+  T2: 1000 个请求同时抵达
+  
+  请求 1-1000: GET hot:key
+    → 缓存 MISS（同时发生）
+    → 请求 1-1000 同时查数据库
+    
+  数据库 QPS 瞬间飙升到 1000，可能被打垮
+```
+
+### 和穿透的区别
+
+- **穿透**：查询一个**本来就不存在**的 key，每次都穿过缓存
+- **击穿**：查询一个**存在但刚好过期**的热点 key，大量请求同时穿过缓存
+
+### 解决方案
+
+#### 方案一：互斥锁（Mutex）
+
+**思路**：1000 个请求同时发现缓存过期，只让第一个人去查数据库重建缓存，其他人排队等他回来。
+
+**实际过程**：
+
+```
+T0: 缓存 hot:key 过期
+T1: 请求 A 到达
+     → 缓存 MISS
+     → 获取锁 "lock:hot:key" ✅（成功）
+     → 查数据库，重建缓存
+     → 释放锁
+T2: 请求 B 到达（请求 A 还在查数据库）
+     → 缓存 MISS
+     → 获取锁 "lock:hot:key" ❌（被 A 持有）
+     → 等待 100ms 后重试
+T3: 请求 B 重试
+     → 缓存 HIT ✅（A 已经重建好了）
+     → 直接返回
+```
+
+```java
+public String get(String key) {
+    // 1. 查缓存
+    String value = redisTemplate.opsForValue().get(key);
+    if (value != null) return value;
+
+    // 2. 缓存不命中，加锁重建（只让一个线程查数据库）
+    String lockKey = "lock:" + key;
+    Boolean locked = redisTemplate.opsForValue().setIfAbsent(lockKey, "1", Duration.ofSeconds(5));
+
+    if (Boolean.TRUE.equals(locked)) {
+        // 拿到了锁，查数据库
+        try {
+            // 双重检查：锁等待期间可能已经有其他线程重建了缓存
+            value = redisTemplate.opsForValue().get(key);
+            if (value != null) return value;
+
+            // 查数据库
+            value = queryFromDb(key);
+
+            // 重建缓存
+            redisTemplate.opsForValue().set(key, value, Duration.ofHours(1));
+            return value;
+        } finally {
+            redisTemplate.delete(lockKey); // 释放锁
+        }
+    } else {
+        // 没拿到锁，等待后重试
+        Thread.sleep(100);
+        return get(key); // 递归重试
+    }
+}
+```
+
+**要点**：
+- 锁的 TTL 要大于查数据库 + 重建缓存的时间（否则锁提前释放，多个请求同时重建）
+- 双重检查避免锁等待期间缓存已被重建
+- 适合 QPS 极高的热点 key
+
+#### 方案二：热点 key 永不过期（逻辑过期）
+
+**思路**：不让 key 真正过期（不设 TTL），而是在 value 里存一个"这个数据应该在哪一秒之前有效"。数据过期了也返回旧数据，同时后台异步更新。
+
+**实际过程**：
+
+```
+T0: 缓存 hot:key 数据 = "旧值"，逻辑过期时间 = 12:00
+T1: 现在 12:05，逻辑过期
+     请求 A 到达 → 发现数据逻辑过期
+     → 返回"旧值"给用户（不阻塞）
+     → 发起异步任务重建缓存
+T2: 请求 B 到达（重建还没完成）
+     → 也返回"旧值"（不等待）
+T3: 异步任务完成，缓存更新为"新值"，逻辑过期时间延后
+```
+
+```java
+public class CacheItem<T> {
+    private T data;
+    private long expireTime;  // 逻辑过期时间戳
+}
+
+public String get(String key) {
+    CacheItem<String> item = redisTemplate.opsForValue().get(key);
+    if (item == null) return null;
+
+    if (item.getExpireTime() < System.currentTimeMillis()) {
+        // 逻辑过期，异步重建缓存
+        asyncRebuildCache(key);
+    }
+
+    // 过期了也返回旧数据（最终一致，不阻塞读）
+    return item.getData();
+}
+```
+
+**要点**：
+- 读操作不被阻塞，永远返回数据
+- 适合允许短时间读到旧数据的场景（如商品详情、配置）
+- 需要后台线程异步重建缓存
+
+#### 方案三：热点 key 自动延长 TTL
+
+**思路**：热点 key 之所以会击穿，是因为它在某个时刻真的过期了。如果每次被访问时都检查它的剩余 TTL，太短了就续命，它就一直不会过期。
+
+```
+T0: key 过期时间 = 12:00
+    请求 A 访问 key，检查 TTL 还剩 5 分钟 → 续期到 13:00
+T1: 请求 B 访问 key，检查 TTL 还剩 30 分钟 → 不续期（还早）
+T2: 请求 C 访问 key，检查 TTL 还剩 3 分钟 → 续期到 14:00
+...
+key 永远不会在热点期间过期 → 不会击穿
+```
+
+```java
+// 每次读取时，如果 TTL 低于阈值就自动续期
+public String getWithAutoRenew(String key) {
+    String value = redisTemplate.opsForValue().get(key);
+    if (value != null) {
+        Long ttl = redisTemplate.getExpire(key);
+        if (ttl != null && ttl < 300) { // TTL 低于 5 分钟
+            redisTemplate.expire(key, 3600, TimeUnit.SECONDS); // 续到 1 小时
+        }
+    }
+    return value;
+}
+```
+
+适合定时批量失效的热点数据，但不能解决所有击穿场景。
+
+**注意：不推荐默认对所有 key 开启自动续期。** 原因有三个：
+
+1. **写放大**：一次读操作本来只是 GET，现在要多一次 EXPIRE。读操作变成了写操作（改 TTL 也是写），QPS 10 万的场景下等于多出 10 万次命令
+2. **冷数据不淘汰**：偶尔被访问的冷 key 每次 TTL 都被续到 1 小时后，一直占着内存不释放
+3. **热点 key 不需要**：真正热门的 key 几分钟内被访问几百万次，根本活不到过期的时候，续 TTL 是白费力气
+
+| 场景 | 是否推荐续期 | 原因 |
+|------|------------|------|
+| 大部分缓存数据 | ❌ 不推荐 | 固定 TTL 到期淘汰即可，简单可靠 |
+| 已识别的热点 key | ✅ 推荐 | TTL 低于阈值时续期，减少重建次数 |
+| 用户 Session | ✅ 推荐 | 用户在线就应该保持 session 活跃 |
+| 缓存空值 | ❌ 不推荐 | 空值本身是临时标记，续期无意义 |
+
+| 方案 | 优点 | 缺点 |
+|------|------|------|
+| 互斥锁 | 数据一致性好，实现简单 | 锁等待影响性能 |
+| 逻辑过期 | 读不阻塞，性能最好 | 数据短暂不一致，实现复杂 |
+| 自动续期 | 简单，无锁 | 不能防止首次过期击穿 |
+
+---
+
+## 三、缓存雪崩
+
+### 问题现象
+
+大规模缓存同时失效，或者 Redis 服务宕机，导致所有请求直接打到数据库：
+
+```
+场景 A：大量 key 同时过期
+  T0: 10000 个 key 同时过期
+  T1: 大量请求同时 MISS
+  T2: 数据库 QPS 暴涨 → 打垮
+
+场景 B：Redis 宕机
+  T0: Redis 服务不可用
+  T1: 所有请求 MISS
+  T2: 数据库被打垮，紧接着应用也跟着宕机（服务雪崩）
+```
+
+### 场景 A：大量 key 同时过期
+
+**问题**：假设你有 10000 个订单数据，都设 1 小时过期。如果它们都在同一分钟写入的，那么 1 小时后也会在同一分钟集体过期。此时正好有大量用户访问这批订单——缓存全部 MISS，数据库 QPS 暴涨。
+
+```
+10:00: 写入 10000 个 key，TTL = 1 小时
+11:00: 10000 个 key 同时过期 ← 灾难
+       大量请求同时 MISS → 数据库扛不住
+```
+
+#### 解决方案
+
+**给过期时间加随机偏移量**，让每个 key 的过期时间都不一样，错开数据库压力。
+
+```
+错误做法（集体过期）：
+  写入 10000 个 key  → 全部 TTL = 3600 秒
+  1 小时后 → 10000 个 key 同时过期 ❌
+
+正确做法（错峰过期）：
+  写入 key-1  → TTL = 3600 + 300 秒随机  (1 小时 5 分后过期)
+  写入 key-2  → TTL = 3600 + 1200 秒随机  (1 小时 20 分后过期)
+  写入 key-3  → TTL = 3600 + 870 秒随机   (1 小时 14 分后过期)
+  ...
+  1 小时后 → key 分散在不同时刻过期 ✅
+```
+
+```java
+// 错误做法：所有 key 在同一时刻过期
+redisTemplate.opsForValue().set("order:" + id, data, Duration.ofHours(1));
+
+// 正确做法：过期时间加随机偏移
+long baseTtl = 3600;                          // 基础 1 小时
+long randomOffset = ThreadLocalRandom.current()
+        .nextLong(300, 1800);                // 随机偏移 5~30 分钟
+redisTemplate.opsForValue().set("order:" + id, data,
+        Duration.ofSeconds(baseTtl + randomOffset));
+```
+
+### 场景 B：Redis 服务宕机
+
+#### 方案一：熔断降级
+
+**思路**：Redis 挂了，所有请求都会报错。与其让请求一直报错，不如在代码里主动 catch 异常，走备选方案（查本地缓存或直接查数据库）。
+
+```
+正常情况：
+  请求 → Redis ✅ → 返回数据
+
+Redis 宕机时：
+  请求 → Redis ❌（异常）
+       → catch 异常 → 查本地缓存 ✅ → 返回数据
+       → 如果本地缓存也没有 → 查数据库（兜底）
+```
+
+```java
+public String get(String key) {
+    try {
+        return redisTemplate.opsForValue().get(key);
+    } catch (RedisException e) {
+        // Redis 不可用，降级读取本地缓存或直接查数据库
+        return localCache.get(key, k -> queryFromDb(k));
+    }
+}
+```
+
+#### 方案二：本地缓存 + Redis 两级缓存
+
+**思路**：在应用内存中放一份"迷你缓存"，每次查数据先看本地有没有。Redis 挂了，本地缓存还能扛一阵子。
+
+```
+请求到达：
+  ① 查本地缓存（Caffeine）→ 有 ✅ 直接返回
+  ② 没有 → 查 Redis → 有 ✅ 写回本地缓存，返回
+  ③ Redis 宕机 → 忽略错误 → 查数据库（兜底）
+```
+
+```java
+public class TwoLevelCacheService {
+
+    // 一级：本地缓存（Caffeine）
+    private final Cache<String, String> localCache = Caffeine.newBuilder()
+            .maximumSize(10_000)
+            .expireAfterWrite(10, TimeUnit.MINUTES)
+            .build();
+
+    // 二级：Redis
+    private final RedisTemplate<String, String> redisTemplate;
+
+    public String get(String key) {
+        // 1. 查本地缓存
+        String local = localCache.getIfPresent(key);
+        if (local != null) return local;
+
+        // 2. 查 Redis
+        try {
+            String remote = redisTemplate.opsForValue().get(key);
+            if (remote != null) {
+                localCache.put(key, remote); // 回填本地缓存
+                return remote;
+            }
+        } catch (RedisException e) {
+            // Redis 宕机：忽略，直接走数据库
+        }
+
+        // 3. 查数据库（兜底）
+        return queryFromDb(key);
+    }
+}
+```
+
+**要点**：
+- 本地缓存不宜太大（10k~100k 条），防止内存溢出
+- 本地缓存的 TTL 应远短于 Redis（分钟级），保证数据及时更新
+- 更新数据时，需要同时删除本地缓存和 Redis 缓存
+
+#### 方案三：限流 + 排队
+
+**思路**：不管 Redis 有没有宕机，数据库的承受能力总是有限的。给"查数据库"这个操作加个流量阀——超过阈值就拒绝，返回降级数据或直接报错，让数据库不被冲垮。
+
+```
+请求 1~50： 查 Redis → MISS → 限流器 通过 → 查数据库 ✅
+请求 51~100：查 Redis → MISS → 限流器 通过 → 查数据库 ✅
+请求 101：  查 Redis → MISS → 限流器 拒绝 → 返回降级数据（旧缓存/空）
+请求 102：  查 Redis → MISS → 限流器 拒绝 → 返回降级数据（旧缓存/空）
+...
+数据库 QPS 始终不超过 100，安全 ✅
+```
+
+```java
+// 使用 Sentinel 或 RateLimiter 对数据库查询接口限流
+// 超出阈值的请求直接返回失败或降级数据
+
+@SentinelResource(value = "queryDb", fallback = "queryDbFallback")
+public String queryFromDb(String key) {
+    return databaseClient.query(key);
+}
+
+public String queryDbFallback(String key, Throwable e) {
+    return null; // 或返回本地缓存的旧数据
+}
+```
+
+---
+
+## 四、缓存一致性
+
+### 问题
+
+缓存和数据库是两套独立的存储，更新数据时必须保证两者最终一致。但以下操作会导致不一致：
+
+```
+写操作：
+  T0: 更新数据库成功（SET name = "新值"）
+  T1: 删除缓存失败（网络抖动）
+  T2: 缓存中还是旧值 → 后续读请求读到旧数据
+
+读操作：
+  T0: 读请求发现缓存 MISS
+  T1: 读请求查数据库读到旧值
+  T2: 写请求更新数据库为"新值"
+  T3: 读请求将旧值写入缓存
+  → 缓存中是旧值，数据库是新值（不一致！）
+```
+
+### 核心思想
+
+更新数据时，先更新数据库（数据源），再删除缓存。这样下次读请求会因为缓存 MISS 而重新从数据库拉取最新数据。
+
+### 更新策略对比
+
+#### 策略一：先更新数据库，再删除缓存（Cache-Aside）
+
+**思路**：更新数据时，直接更新数据库，然后把缓存删掉。下次读的时候自然会查数据库拿到最新值，重建缓存。
+
+**为什么不直接更新缓存？** 因为缓存里的数据可能是加工后的格式（JSON、聚合字段），更新数据库时不一定能直接算出缓存值。而且删缓存是 O(1) 操作，比更新简单可靠。
+
+```
+T0: 更新数据库 "price:1001" = 99
+T1: 删除缓存 "price:1001"
+T2: 用户查询 → 缓存 MISS → 查数据库得到 99 → 写回缓存
+T3: 后续用户 → 缓存 HIT → 得到 99 ✅
+```
+
+```java
+public void update(String key, String newValue) {
+    // 1. 更新数据库
+    database.update(key, newValue);
+
+    // 2. 删除缓存（不是更新缓存）
+    redisTemplate.delete(key);
+}
+```
+
+**问题**：删除缓存可能失败（网络抖动、Redis 异常）。缓存没删掉，下次读到的还是旧数据。
+
+**优化**：延迟双删 + 重试。
+
+#### 策略二：延迟双删（最常用）
+
+**思路**：删缓存 → 更新数据库 → 等 500ms 再删一次缓存。第二次删除是为了干掉"在第一次删除和更新数据库之间，被并发读线程写进去的旧数据"。
+
+**为什么需要删两次？** 第一次删除后、数据库更新完成前，可能有并发读线程查到了旧数据并写回了缓存。等数据库更新完再删一次，确保这个中途写进去的旧缓存也被清掉。
+
+**并发问题的全过程**：
+
+```
+T0: 线程 A（写）  → 删除缓存 ❌（网络延迟，删除还没到 Redis）
+T1: 线程 B（读）  → 缓存 HIT（旧数据）→ 返回旧值 ✅
+     （线程 A 还不知道删缓存操作还在路上）
+T2: 线程 A（写）  → 更新数据库（新值）
+T3: 线程 A（写）  → 再次删除缓存（把线程 B 可能读到的旧数据也清掉）
+```
+
+第一次删除是为了"让后续读能拿到新值"；第二次删除是为了"干掉并发读产生的旧缓存"。
+
+```java
+public void update(String key, String newValue) {
+    // 1. 先删除缓存
+    redisTemplate.delete(key);
+
+    // 2. 更新数据库
+    database.update(key, newValue);
+
+    // 3. 延迟再次删除缓存（解决并发读的问题）
+    executorService.schedule(() -> {
+        redisTemplate.delete(key);
+    }, 500, TimeUnit.MILLISECONDS);
+}
+```
+
+两次删除中间的 500ms 内，如果有其他线程读到了旧数据并重建了缓存，第二次删除会将其移除。
+
+**更可靠的版本**：配合消息队列 + 重试（删除失败时 MQ 保证最终删除）
+
+```java
+public void updateWithRetry(String key, String newValue) {
+    // 1. 更新数据库
+    database.update(key, newValue);
+
+    // 2. 发送延迟删除消息到 MQ
+    //    MQ 消费者收到消息后执行 redisTemplate.delete(key)
+    //    如果删除失败，MQ 重试机制保证最终执行
+    messageQueue.send(new CacheDeleteMessage(key), 
+            DelayLevel.SECONDS_5);
+}
+```
+
+#### 策略三：先删除缓存，再更新数据库（风险最高 ⚠️ 不推荐）
+
+**思路**：先把缓存清掉，再改数据库。
+
+**为什么很危险？两个问题：**
+
+**问题 1**：数据库更新失败，缓存已经被删了。
+
+```
+T0: 删缓存 ✅
+T1: 更新数据库 ❌（SQL 报错、事务回滚）
+T2: 缓存空了，数据库还是旧值
+T3: 用户查询 → MISS → 查数据库（旧值）→ 写回缓存 ✅（旧值）
+     数据是旧值但是一致（勉强能接受）
+```
+
+**问题 2（更致命）**：并发读时会产生**缓存长期不一致**。
+
+```
+T0: 线程 A（写） → 删缓存 ✅
+T1: 线程 B（读） → MISS → 查数据库（还来得及读到旧值）
+T2: 线程 A（写） → 更新数据库（新值）
+T3: 线程 B（读） → 把旧值写回缓存 ❌
+      → 缓存 = 旧值，数据库 = 新值（长期不一致！）
+```
+
+这个问题的根源是：**删除缓存和更新数据库之间的时间窗口内，读线程可能把旧数据写回缓存**。由于数据库和缓存是两套系统，没有事务保证，一旦缓存被旧数据填上，直到它下一次过期之前，所有读都是错的。
+
+```java
+// 这是最不推荐的做法 ⚠️
+public void updateProblematic(String key, String newValue) {
+    redisTemplate.delete(key);     // 1. 先删缓存
+    database.update(key, newValue); // 2. 再更新数据库
+}
+```
+
+**这也是为什么推荐"更新数据库 → 再删缓存"的原因**——先更新数据库再删缓存，即使删除失败，下次读到旧数据时发现 TTL 快到了或触发某种校验，还有机会修正；而先删缓存再更新，一旦并发读线程介入，旧数据直接写回缓存，就没有挽回余地了。
+
+### 线上推荐方案
+
+| 策略 | 一致性保证 | 复杂度 | 推荐度 |
+|------|-----------|--------|--------|
+| 更新数据库 → 删缓存 | 最终一致 | 低 | ⭐⭐⭐⭐ |
+| **更新数据库 → 删缓存 + 消息队列重试** | **最终一致，可靠性高** | **中** | **⭐⭐⭐⭐⭐** |
+| 延迟双删 | 最终一致 | 低 | ⭐⭐⭐⭐ |
+| 先删缓存 → 更新数据库 | 不一致风险高 | 低 | ⭐（不推荐） |
+| 分布式锁 + 读写分离 | 强一致 | 高 | ⭐⭐⭐（性能代价大） |
+
+### 最终推荐的方案
+
+```java
+@Service
+public class CacheService {
+
+    private final RedisTemplate<String, String> redisTemplate;
+    private final RabbitTemplate mqTemplate;
+
+    /**
+     * 更新数据：更新数据库 → 删除缓存（失败则 MQ 重试）
+     */
+    @Transactional
+    public void updateData(String key, String newValue) {
+        // 1. 更新数据库
+        database.update(key, newValue);
+
+        // 2. 删除缓存
+        try {
+            redisTemplate.delete(key);
+        } catch (Exception e) {
+            // 3. 删除失败 → 发送 MQ 消息异步重试
+            mqTemplate.convertAndSend("cache.delete.exchange",
+                    "cache.delete.routing", 
+                    new CacheDeleteMessage(key));
+        }
+    }
+}
+
+// MQ 消费者
+@Component
+public class CacheDeleteConsumer {
+
+    @RabbitListener(queues = "cache.delete.queue")
+    public void handleDelete(CacheDeleteMessage msg) {
+        try {
+            redisTemplate.delete(msg.getKey());
+        } catch (Exception e) {
+            // 重试还是失败？记录日志，人工介入
+            log.error("缓存删除失败，key={}", msg.getKey(), e);
+            throw new AmqpRejectAndDontRequeueException(e);
+        }
+    }
+}
+```
+
+**核心思想**：
+- 数据库作为权威数据源
+- 缓存只是加速层，最终以数据库为准
+- 删除缓存失败通过 MQ 异步重试保证最终删除
+- 不追求强一致，只追求最终一致
+
+---
+
+## 五、热点 Key 与 Big Key
+
+### 热点 Key
+
+**问题**：某个 key 被超高并发访问（如热搜、秒杀商品），所有请求集中打到 Redis 的同一个节点上，导致该节点 CPU 100%。
+
+```
+无本地缓存：
+  100 万请求 → 全部打到 Redis 同一个节点 → CPU 100% → 超时 ❌
+
+有本地缓存（分摊流量）：
+  100 万请求 → 本地缓存扛住 80%（应用内存）
+              → 只有 20 万请求到 Redis → 节点压力降低 80% ✅
+```
+
+**方案**：本地缓存 + 分布式限流
+
+```java
+// 热点 key 的识别：通过 Redis 的 HotKey 分析工具
+// 或者业务层面预判（秒杀商品、热搜词）
+
+// 处理方式：本地缓存扛流量，减少 Redis 压力
+@Cacheable(value = "local:hot", unless = "#result == null")
+public String getHotKey(String key) {
+    return redisTemplate.opsForValue().get(key);
+}
+```
+
+### Big Key
+
+**问题**：一个 key 的 value 有几 MB 大（比如存了商品的完整详情 JSON，包含图片 base64）。Redis 是单线程处理命令的，每次读写大 key 都要传输几 MB 数据，会阻塞其他所有命令。
+
+```
+正常小 key：0.1ms 处理完
+Big Key（几 MB）：10 秒传输 + 处理
+在这 10 秒内，其他所有 Redis 命令排队等待 ← 拖垮整体性能
+```
+
+**方案**：
+- 大 value 拆分为多个小 key（哈希结构或分段存储）
+- 压缩 value（gzip 压缩后再存）
+- 禁止在 Redis 中存储大文本或图片（Redis 不是对象存储）
+
+```java
+// 压缩存储
+public void setCompressed(String key, String value) {
+    byte[] compressed = gzipCompress(value);
+    redisTemplate.opsForValue().set(key, compressed, Duration.ofHours(1));
+}
+
+public String getCompressed(String key) {
+    byte[] compressed = redisTemplate.opsForValue().get(key);
+    if (compressed == null) return null;
+    return gzipDecompress(compressed);
+}
+```
+
+---
+
+## 总结
+
+| 问题 | 一句话根因 | 推荐解法 |
+|------|-----------|---------|
+| **穿透** | 查询不存在的数据 | 缓存空值 或 布隆过滤器 |
+| **击穿** | 热点 key 刚好过期 | 互斥锁 或 逻辑过期 |
+| **雪崩** | 大量 key 同时过期 / Redis 宕机 | TTL 加随机偏移 + 熔断降级 + 两级缓存 |
+| **一致性** | 缓存和数据库独立更新 | 更新数据库 → 删缓存 + MQ 重试 |
+| **热点 Key** | 超高并发访问单个节点 | 本地缓存分摊 |
+| **Big Key** | value 过大阻塞网络 | 压缩或拆分 |
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战\",\"item\":\"https://www.lxpavilion.top/article/122\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战\",\"headline\":\"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战\",\"description\":\"缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。\",\"datePublished\":\"2026-07-15T23:28:19.612652\",\"dateCreated\":\"2026-07-15T23:28:19.612652\",\"dateModified\":\"2026-07-15T23:28:22.349392\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/690.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战","initialContent":"$2d"}]]
+2c:{"id":"122"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/122/"}],["$","meta","5",{"property":"og:title","content":"Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/690.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

@@ -1,0 +1,752 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/17rm2vzn7-~we.js","/_next/static/chunks/05gs71aaws6fg.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/17_83cgw_p8.g.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T5c7f,## 什么是 Qdrant？为什么需要它？
+
+Qdrant 是一个**高性能向量数据库**，专为 AI 时代的语义搜索和相似度匹配而生。
+
+传统的数据库（MySQL、PostgreSQL）擅长精确匹配 —— 你问"价格等于 100 的商品"，它立刻答出来。但当你问"和这段文字意思相似的内容"时，它就无能为力了。原因是传统数据库基于**关键词匹配**，无法理解语义。
+
+Qdrant 这类向量数据库的解决思路是：把文本、图片、音视频等数据通过 AI 模型转换成**向量（Vector）**—— 一组浮点数。语义相似的内容，在向量空间中距离就相近。于是搜索"机器学习入门"就能找到"深度学习基础教程"，即使关键词不完全匹配。
+
+### 核心应用场景
+
+- **RAG（检索增强生成）**：为大语言模型提供外部知识库，解决幻觉问题
+- **语义搜索**：理解用户意图，返回语义相关的结果
+- **图像/音视频相似度检索**：以图搜图、音乐识别
+- **推荐系统**：基于用户行为向量做个性化推荐
+- **异常检测**：找出与正常模式偏离的数据点
+
+## Qdrant vs pgvector vs Redis 向量搜索
+
+| 维度 | Qdrant | pgvector | Redis Stack |
+|------|--------|----------|-------------|
+| **定位** | 专业向量数据库 | PostgreSQL 插件 | 缓存数据库的向量扩展 |
+| **部署** | 独立服务（Docker/云） | 依附于 PostgreSQL | 依附于 Redis |
+| **API 类型** | gRPC + REST | SQL | Redis 协议 |
+| **过滤能力** | 强（支持嵌套过滤、geo、范围） | 中（SQL WHERE） | 中 |
+| **性能** | 高（专门优化的 HNSW 索引） | 中 | 高（纯内存） |
+| **持久化** | 磁盘 + 内存混合 | 磁盘 | 取决于配置 |
+| **集群/分布式** | 原生支持 | 基于 PostgreSQL | 基于 Redis Cluster |
+| **适用场景** | 专业 AI 应用 | 已有 PG 生态的小团队 | 轻量级向量检索 |
+
+简单说：**pgvector 适合"顺便用用向量"、Redis 适合"缓存场景的向量"、Qdrant 才是真正为了向量检索而生的专业选手**。
+
+## 快速开始：Docker 部署
+
+在项目目录下创建 `docker-compose.yml`：
+
+```yaml
+version: '3.8'
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant-server
+    restart: always
+    ports:
+      - "6333:6333"   # HTTP REST API（Web 控制台也走这个端口）
+      - "6334:6334"   # gRPC API（Java 等客户端用这个）
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__LOG_LEVEL=INFO
+```
+
+启动：
+
+```bash
+docker compose up -d
+```
+
+访问控制台：[http://localhost:6333/dashboard](http://localhost:6333/dashboard)
+
+### 端口说明
+
+| 端口 | 协议 | 用途 |
+|------|------|------|
+| 6333 | HTTP/REST | Web 控制台、curl 调试、Python/REST 客户端 |
+| 6334 | gRPC | Java、Go、.NET 等高性能客户端 |
+
+### 存储卷说明
+
+`./qdrant_storage:/qdrant/storage` 将数据持久化到宿主机。删除容器后数据不会丢失，删除宿主机目录才真正清理。
+
+---
+
+## 核心概念：Collection 与 Point
+
+在开始操作之前，先弄清楚 Qdrant 的两个核心概念：
+
+- **Collection（集合）**：类似关系数据库的"表"，是存储向量数据的容器。每个 Collection 有自己的配置（向量维度、距离算法等）。
+- **Point（数据点）**：类似关系数据库的"行"，包含三部分：
+  - **id**：唯一标识符（整数或 UUID）
+  - **vector**：向量（`float[]`，维度必须与 Collection 配置一致）
+  - **payload**：元数据（JSON 对象），用于过滤和展示
+
+为了教学清晰，本文统一使用**电影数据集**作为贯穿全文的示例。创建一个 `movies` 集合，存储电影信息，通过向量搜索实现"找相似电影"的功能。
+
+---
+
+## 基础操作：Web 控制台实战
+
+Qdrant 的 Web 控制台提供了一个 **Console** 面板，可以直接执行 HTTP 风格的命令，非常适合学习和调试。
+
+### 1. 创建 Collection
+
+在 Console 中执行：
+
+```http
+PUT /collections/movies
+{
+  "vectors": {
+    "size": 4,
+    "distance": "Cosine"
+  }
+}
+```
+
+#### 参数说明
+
+| 参数 | 说明 | 可选值 |
+|------|------|--------|
+| `size` | 向量维度，必须与后续插入数据的维度一致 | 正整数（常用 384、768、1024、1536） |
+| `distance` | 距离算法，决定如何计算向量间的相似度 | `Cosine`（余弦）、`Dot`（点积）、`Euclid`（欧氏距离） |
+
+**距离算法怎么选？**
+
+- `Cosine`：最常用，关注向量的方向而非长度，适用于文本/语义搜索（如 OpenAI embeddings）
+- `Dot`：考虑方向和长度，适合归一化后的向量
+- `Euclid`：欧氏距离，值越小越相似，适合某些图像检索场景
+
+这里我们设置维度为 4（教学演示用，实际生产通常是 384~1536），距离算法用最通用的 Cosine。
+
+> **了解一下高级配置**（本文不展开）：
+> - **`multivector_config`** — 一个 Point 可以存多个向量（如文本的多个段落各自编码），搜索时对每个向量分别打分再聚合，适合**多模态**或**长文档分段召回**场景。
+> - **`sparse_vectors`** — 稀疏向量（大部分元素为 0），配合 BM25 等词汇权重算法，与稠密向量做混合搜索（Hybrid Search），能显著提升**带精确关键词匹配**的召回率。
+> - **`hnsw_config`** — HNSW 索引的参数调优（如 `m`、`ef_construct`），影响搜索速度与精度的 trade-off，生产环境调优时绕不开。
+
+### 2. 插入数据
+
+```http
+PUT /collections/movies/points
+{
+  "points": [
+    {
+      "id": 1,
+      "vector": [0.85, 0.23, 0.61, 0.74],
+      "payload": {
+        "title": "The Matrix",
+        "genre": "Sci-Fi",
+        "rating": 8.7,
+        "year": 1999,
+        "director": "Lana Wachowski",
+        "actors": ["Keanu Reeves", "Laurence Fishburne"]
+      }
+    },
+    {
+      "id": 2,
+      "vector": [0.81, 0.19, 0.75, 0.11],
+      "payload": {
+        "title": "Inception",
+        "genre": "Sci-Fi",
+        "rating": 8.8,
+        "year": 2010,
+        "director": "Christopher Nolan",
+        "actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt"]
+      }
+    },
+    {
+      "id": 3,
+      "vector": [0.36, 0.55, 0.47, 0.94],
+      "payload": {
+        "title": "The Godfather",
+        "genre": "Crime",
+        "rating": 9.2,
+        "year": 1972,
+        "director": "Francis Ford Coppola",
+        "actors": ["Marlon Brando", "Al Pacino"]
+      }
+    },
+    {
+      "id": 4,
+      "vector": [0.65, 0.88, 0.32, 0.21],
+      "payload": {
+        "title": "Interstellar",
+        "genre": "Sci-Fi",
+        "rating": 8.7,
+        "year": 2014,
+        "director": "Christopher Nolan",
+        "actors": ["Matthew McConaughey", "Anne Hathaway"]
+      }
+    },
+    {
+      "id": 5,
+      "vector": [0.24, 0.18, 0.72, 0.44],
+      "payload": {
+        "title": "The Dark Knight",
+        "genre": "Action",
+        "rating": 9.0,
+        "year": 2008,
+        "director": "Christopher Nolan",
+        "actors": ["Christian Bale", "Heath Ledger"]
+      }
+    }
+  ]
+}
+```
+
+#### 返回结果说明
+
+```json
+{
+  "operation_id": 1,
+  "status": "acknowledged"
+}
+```
+
+| 字段 | 含义 |
+|------|------|
+| `operation_id` | 操作编号，可用于追踪 |
+| `status` | `acknowledged` 表示已接收（异步写入），`completed` 表示已完成 |
+
+### 3. Payload 数据类型详解
+
+Payload 是 Qdrant 最强大的特性之一，本质上是一个 **JSON 对象**，可以表达任意复杂的结构化数据。
+
+#### 支持的数据类型
+
+| 数据类型 | 说明 | 示例 |
+|----------|------|------|
+| **Integer** | 64 位整数 | `"year": 1999`、`"scores": [85, 92, 78]` |
+| **Float** | 64 位浮点数 | `"rating": 8.7`、`"prices": [9.99, 19.99]` |
+| **Bool** | 布尔值 | `"is_featured": true` |
+| **Keyword** | 字符串，用于精确匹配和标签过滤 | `"genre": "Sci-Fi"`、`"tags": ["action", "thriller"]` |
+| **Geo** | 地理坐标（经度 + 纬度） | `"location": {"lon": 116.40, "lat": 39.91}` |
+| **Datetime** | 时间日期（RFC 3339，v1.8.0+） | `"release_date": "1999-03-31T00:00:00Z"` |
+
+#### Payload 的两个核心优势
+
+1. **支持数组和嵌套对象**：如 `"actors": ["Keanu Reeves", "Laurence Fishburne"]` 或 `"reviews": [{"user": "Alice", "score": 9}]`
+2. **支持基于值的过滤**：在向量搜索的同时，附加字段过滤条件 —— 这是全文贯穿的核心功能
+
+### 4. 搜索：找相似电影
+
+```http
+POST /collections/movies/points/search
+{
+  "vector": [0.75, 0.20, 0.68, 0.15],
+  "limit": 3,
+  "with_payload": true
+}
+```
+
+#### 参数说明
+
+| 参数 | 说明 | 示例 |
+|------|------|------|
+| `vector` | 查询向量（必须与 collection 的 size 一致） | `[0.75, 0.20, 0.68, 0.15]` |
+| `limit` | 返回 top-K 条结果 | `3` |
+| `with_payload` | 是否返回 payload 元数据 | `true` / `false` |
+| `with_vector` | 是否返回向量值（通常不需要） | `false`（默认） |
+
+#### 返回示例
+
+```json
+{
+  "result": [
+    {"id": 1, "score": 0.96, "payload": {"title": "The Matrix", "genre": "Sci-Fi"}},
+    {"id": 2, "score": 0.91, "payload": {"title": "Inception", "genre": "Sci-Fi"}},
+    {"id": 5, "score": 0.82, "payload": {"title": "The Dark Knight", "genre": "Action"}}
+  ],
+  "status": "ok",
+  "time": 0.0002
+}
+```
+
+`score` 是相似度分数，值域取决于距离算法。Cosine 范围 [-1, 1]，越接近 1 越相似。
+
+### 5. 从快照导入数据
+
+Qdrant 支持从远程快照文件批量导入数据，适合快速获取测试数据集：
+
+```http
+PUT /collections/movies/snapshots/recover
+{
+  "location": "http://snapshots.qdrant.io/midlib-v1.16.0.snapshot"
+}
+```
+
+> 这是 Qdrant 官方提供的 Midjourney 测试数据，512 维向量。导入后可通过以下命令验证数据量：
+> ```http
+> POST /collections/movies/points/count
+> ```
+
+---
+
+## 核心功能：过滤条件
+
+过滤是向量数据库的"杀手锏"—— 在语义相似度搜索的基础上，附加结构化条件筛选。
+
+### 创建索引
+
+在进行过滤之前，**必须先为要过滤的字段创建索引**，否则 Qdrant 会全表扫描，性能极差。
+
+Keyword 类型索引（用于精确匹配）：
+
+```http
+PUT /collections/movies/index
+{
+  "field_name": "genre",
+  "field_schema": "keyword"
+}
+```
+
+Integer 类型索引（用于范围过滤）：
+
+```http
+PUT /collections/movies/index
+{
+  "field_name": "year",
+  "field_schema": {
+    "type": "integer",
+    "range": true
+  }
+}
+```
+
+#### 索引类型对照
+
+| 字段类型 | `field_schema` 写法 | 适用操作 |
+|----------|---------------------|----------|
+| keyword | `"keyword"` | match 精确匹配 |
+| integer | `{"type": "integer", "range": true}` | match + range 范围 |
+| float | `{"type": "float", "range": true}` | range 范围过滤 |
+| geo | `{"type": "geo"}` | geo 地理位置查询 |
+| text | `"text"` | matchText 全文搜索 |
+
+### 过滤通用语法
+
+Qdrant 的过滤条件遵循统一的 DSL 结构：
+
+```http
+POST /collections/movies/points/scroll
+{
+  "filter": {
+    "must": [
+      { "key": "genre", "match": { "value": "Sci-Fi" } }
+    ],
+    "must_not": [
+      { "key": "year", "range": { "lt": 2000 } }
+    ],
+    "should": [
+      { "key": "rating", "range": { "gte": 8.5 } }
+    ]
+  },
+  "limit": 10,
+  "with_payload": true
+}
+```
+
+#### 逻辑操作符
+
+| 操作符 | 含义 | 行为 |
+|--------|------|------|
+| `must` | **必须**满足所有条件 | AND |
+| `should` | **至少满足一个**条件即可 | OR |
+| `must_not` | **必须不**满足条件 | NOT |
+
+#### 条件匹配器
+
+| 匹配器 | 说明 | 适用字段类型 |
+|--------|------|-------------|
+| `match` | 精确匹配（等于） | keyword、integer、bool |
+| `match_text` | 文本模糊匹配 | text（需建 text 索引） |
+| `range` | 范围过滤 | integer、float |
+| `geo_radius` | 地理半径查询 | geo |
+| `has_id` | 按 ID 匹配 | ID |
+| `is_null` | 字段不存在 | 任意 |
+| `nested` | 嵌套对象过滤 | 嵌套结构 |
+
+### match：精确匹配
+
+```http
+POST /collections/movies/points/scroll
+{
+  "filter": {
+    "must": [
+      {
+        "key": "genre",
+        "match": { "value": "Sci-Fi" }
+      }
+    ]
+  },
+  "limit": 10,
+  "with_payload": true
+}
+```
+
+只会返回 genre 精确等于 "Sci-Fi" 的电影。
+
+### range：范围过滤
+
+```http
+POST /collections/movies/points/scroll
+{
+  "filter": {
+    "must": [
+      {
+        "key": "year",
+        "range": { "gte": 2000, "lte": 2020 }
+      },
+      {
+        "key": "rating",
+        "range": { "gte": 8.5 }
+      }
+    ]
+  },
+  "limit": 10,
+  "with_payload": true
+}
+```
+
+#### range 参数
+
+| 参数 | 含义 |
+|------|------|
+| `gte` | >= |
+| `gt` | > |
+| `lte` | <= |
+| `lt` | < |
+
+### 组合过滤：向量搜索 + 条件
+
+将过滤条件与向量搜索结合，是向量数据库最核心的使用方式：
+
+```http
+POST /collections/movies/points/search
+{
+  "vector": [0.75, 0.20, 0.68, 0.15],
+  "filter": {
+    "must": [
+      { "key": "genre", "match": { "value": "Sci-Fi" } },
+      { "key": "year", "range": { "gte": 2000 } }
+    ]
+  },
+  "limit": 3,
+  "with_payload": true
+}
+```
+
+这条命令的语义：**找到与目标向量最相似的科幻片（genre=Sci-Fi），且只看 2000 年之后的**。
+
+### nested：嵌套过滤
+
+当 Payload 中包含嵌套对象或对象数组时，使用 `nested` 过滤。
+
+先插入带嵌套数据的电影评分记录：
+
+```http
+PUT /collections/movies/points
+{
+  "points": [
+    {
+      "id": 10,
+      "vector": [0.45, 0.67, 0.23, 0.89],
+      "payload": {
+        "title": "Pulp Fiction",
+        "reviews": [
+          {"user": "Alice", "rating": 9, "liked": true},
+          {"user": "Bob", "rating": 7, "liked": true}
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "vector": [0.55, 0.32, 0.78, 0.41],
+      "payload": {
+        "title": "Fight Club",
+        "reviews": [
+          {"user": "Alice", "rating": 10, "liked": true},
+          {"user": "Bob", "rating": 5, "liked": false}
+        ]
+      }
+    }
+  ]
+}
+```
+
+查询：找到 **Alice 喜欢（liked=true）** 的电影：
+
+```http
+POST /collections/movies/points/scroll
+{
+  "filter": {
+    "must": [
+      {
+        "nested": {
+          "key": "reviews",
+          "filter": {
+            "must": [
+              { "key": "user", "match": { "value": "Alice" } },
+              { "key": "liked", "match": { "value": true } }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "limit": 10,
+  "with_payload": true
+}
+```
+
+#### 嵌套过滤的要点
+
+- `nested.key`：指定嵌套数组的字段名
+- `nested.filter`：作用于数组内部元素的过滤条件
+- 只有数组中**存在至少一个元素满足**所有条件时，该文档才会被匹配
+
+### Collections 页面
+
+Web 控制台的 **Collections** 页面提供了一个可视化界面，可以：
+
+- 浏览所有 Collection
+- 查看 Collection 详情（状态、向量维度、点数、配置参数）
+- 编辑配置（优化器参数、HNSW 索引参数）
+- 删除 Collection
+
+生产环境中，可视化页面比 Console 更适合日常运维。
+
+---
+
+## Java 客户端实战
+
+有了一定的 web 操作基础后，我们看看如何用 Java 代码实现同样的功能。Qdrant 官方 Java 客户端基于 **gRPC 协议**（端口 6334）通信，所有 API 都返回 `ListenableFuture<T>`，调用 `.get()` 阻塞执行。
+
+### Maven 依赖
+
+```xml
+<dependency>
+    <groupId>io.qdrant</groupId>
+    <artifactId>client</artifactId>
+    <version>1.18.3</version>
+</dependency>
+<!-- 需要额外引入 gRPC Netty 传输层 -->
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-netty-shaded</artifactId>
+    <version>1.68.2</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-protobuf</artifactId>
+    <version>1.68.2</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-stub</artifactId>
+    <version>1.68.2</version>
+</dependency>
+<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+</dependency>
+```
+
+> **注意**：Qdrant client v1.16+ 默认引入了 gRPC 依赖但声明为 runtime scope，需要手动添加 compile 依赖。
+
+### 客户端初始化
+
+```java
+import io.qdrant.client.QdrantClient;
+import io.qdrant.client.QdrantGrpcClient;
+
+QdrantClient client = new QdrantClient(
+    QdrantGrpcClient.newBuilder("localhost", 6334, false).build()
+);
+```
+
+如果需要连接 Qdrant Cloud（带 API Key 认证）：
+
+```java
+QdrantClient cloudClient = new QdrantClient(
+    QdrantGrpcClient.newBuilder("xyz-example.qdrant.io", 6334, true)
+        .withApiKey("your-api-key-here")
+        .build()
+);
+```
+
+### 创建 Collection
+
+使用 VectorParams 构建器，简洁明快：
+
+```java
+import io.qdrant.client.grpc.Collections.Distance;
+import io.qdrant.client.grpc.Collections.VectorParams;
+
+client.createCollectionAsync("movies",
+    VectorParams.newBuilder()
+        .setDistance(Distance.Cosine)  // 与 web 示例一致
+        .setSize(4)                    // 向量维度 4
+        .build()
+).get();
+```
+
+### 插入数据
+
+使用静态导入的辅助方法，代码比直接构建 proto 对象简洁很多：
+
+```java
+import static io.qdrant.client.PointIdFactory.id;
+import static io.qdrant.client.ValueFactory.value;
+import static io.qdrant.client.VectorsFactory.vectors;
+
+import io.qdrant.client.grpc.Points.PointStruct;
+
+List<PointStruct> movies = List.of(
+    PointStruct.newBuilder()
+        .setId(id(1))
+        .setVectors(vectors(0.85f, 0.23f, 0.61f, 0.74f))
+        .putPayload("title", value("The Matrix"))
+        .putPayload("genre", value("Sci-Fi"))
+        .putPayload("rating", value(8.7))
+        .putPayload("year", value(1999))
+        .build(),
+    PointStruct.newBuilder()
+        .setId(id(2))
+        .setVectors(vectors(0.81f, 0.19f, 0.75f, 0.11f))
+        .putPayload("title", value("Inception"))
+        .putPayload("genre", value("Sci-Fi"))
+        .putPayload("rating", value(8.8))
+        .putPayload("year", value(2010))
+        .build()
+);
+
+client.upsertAsync("movies", movies).get();
+```
+
+#### 关于 ID
+
+插入时**必须手动指定 ID**，Qdrant 没有自增机制。
+
+ID 在同一个 Collection 内必须唯一，重复 ID 写入同一 Collection 会**直接覆盖**旧数据，不会有任何错误提醒。
+
+| 场景 | 推荐方案 | 示例 |
+|------|----------|------|
+| 数据已有业务主键 | 直接用业务 ID | `id(movie.getId())` |
+| 纯向量入库，无外部 ID | 用 UUID | `id(UUID.randomUUID())` |
+
+```java
+// UUID 方式示例
+import java.util.UUID;
+
+PointStruct movie = PointStruct.newBuilder()
+    .setId(id(UUID.randomUUID()))
+    .setVectors(vectors(0.85f, 0.23f, 0.61f, 0.74f))
+    .putPayload("title", value("The Matrix"))
+    .build();
+```
+
+`value()` 方法会自动重载匹配类型：
+
+| Java 类型              | 转换方法                                                     | Qdrant Payload 类型    |
+| -------------------- | -------------------------------------------------------- | -------------------- |
+| `String`             | `value("hello")`                                         | Keyword              |
+| `long`               | `value(42)`                                              | Integer              |
+| `double`             | `value(3.14)`                                            | Float                |
+| `boolean`            | `value(true)`                                            | Bool                 |
+| `List<Value>`        | `value(List.of(...))`                                    | 数组                   |
+| `Map<String, Value>` | `value(Map.of(...))`                                     | 嵌套对象                 |
+| Geo 坐标               | `value(Map.of("lon", value(116.4), "lat", value(39.9)))` | 嵌套 Map               |
+| 日期时间                 | `value("1999-03-31T00:00:00Z")`                          | Keyword（可用 range 过滤） |
+
+### 向量搜索
+
+```java
+import io.qdrant.client.grpc.Points.SearchPoints;
+import io.qdrant.client.grpc.Points.ScoredPoint;
+import io.qdrant.client.grpc.Points.WithPayloadSelector;
+
+List<ScoredPoint> results = client.searchAsync(
+    SearchPoints.newBuilder()
+        .setCollectionName("movies")
+        .addAllVector(List.of(0.75f, 0.20f, 0.68f, 0.15f))
+        .setLimit(3)
+        .setWithPayload(WithPayloadSelector.newBuilder()
+            .setEnable(true).build())
+        .build()
+).get();
+
+for (var sp : results) {
+    System.out.printf("id=%d, score=%.4f, title=%s%n",
+        sp.getId().getNum(),
+        sp.getScore(),
+        sp.getPayloadMap().get("title"));
+}
+```
+
+### 带过滤条件的搜索
+
+```java
+import static io.qdrant.client.ConditionFactory.matchKeyword;
+import static io.qdrant.client.ConditionFactory.range;
+
+import io.qdrant.client.grpc.Common.Filter;
+import io.qdrant.client.grpc.Common.Range;
+
+List<ScoredPoint> results = client.searchAsync(
+    SearchPoints.newBuilder()
+        .setCollectionName("movies")
+        .addAllVector(List.of(0.75f, 0.20f, 0.68f, 0.15f))
+        .setFilter(Filter.newBuilder()
+            .addMust(matchKeyword("genre", "Sci-Fi"))
+            .addMust(range("year",
+                Range.newBuilder().setGte(2000).build()))
+            .build())
+        .setLimit(3)
+        .setWithPayload(WithPayloadSelector.newBuilder()
+            .setEnable(true).build())
+        .build()
+).get();
+```
+
+### 通用 API 模式速查
+
+| 操作               | 方法                                    | 说明           |
+| ---------------- | ------------------------------------- | ------------ |
+| 查询 Collection 信息 | `getCollectionInfoAsync(name)`        | 获取状态、点数、配置   |
+| 列举所有 Collection  | `listCollectionsAsync()`              | 返回名称列表       |
+| 检查是否存在           | `collectionExistsAsync(name)`         | 返回 boolean   |
+| 统计点数             | `countAsync(name)`                    | 返回 Long，简洁直接 |
+| 按 ID 查询          | `retrieveAsync(name, ids, ...)`       | 支持批量查询       |
+| 按 ID 删除          | `deleteAsync(name, ids)`              | 支持批量         |
+| 按条件删除            | `deleteAsync(name, filter)`           | 通过 Filter 匹配 |
+| 更新 Payload       | `setPayloadAsync(...)`                | 添加/更新字段      |
+| 覆盖 Payload       | `overwritePayloadAsync(...)`          | 完全替换         |
+| 删除 Payload 字段    | `deletePayloadAsync(...)`             | 指定字段名        |
+| 创建别名             | `createAliasAsync(alias, collection)` | 读写分离         |
+
+## 总结
+
+本文从零开始走通了 Qdrant 的完整链路：Docker 部署 → Web 控制台可视化操作 → Java 客户端编码。
+
+记住几条要点：
+
+1. **Qdrant 是为向量检索而生的专业数据库**，不是通用数据库的插件，过滤能力和分布式支持是它的核心优势
+2. **Collection 一旦创建，向量维度就不能改**，生产环境前想清楚 embedding 模型
+3. **过滤前必须建索引**，否则全表扫描，数据量大时直接卡死
+4. **ID 必须手动指定**，没有自增，建议用业务主键或 UUID
+5. **Payload 是纯 JSON**，支持嵌套和数组，可以存任意复杂结构
+
+Qdrant 的生态还在快速演进，v1.12+ 加入了 `query` API（本文用的 `queryAsync`），v1.13+ 加入了离散索引支持。建议关注[官方 Release Notes](https://github.com/qdrant/qdrant/releases) 跟进新特性。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程\",\"item\":\"https://www.lxpavilion.top/article/124\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程\",\"headline\":\"Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程\",\"description\":\"一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。\",\"datePublished\":\"2026-07-16T19:48:58.02675\",\"dateCreated\":\"2026-07-16T19:48:58.02675\",\"dateModified\":\"2026-07-16T19:48:58.038132\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/693.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"vSyXyLZXxjKjOJ-QU5cd2"}
+3:{"id":"124"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/05gs71aaws6fg.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

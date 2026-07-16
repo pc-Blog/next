@@ -8,6 +8,26 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程]]></title>
+      <link>https://www.lxpavilion.top/article/124/</link>
+      <guid>https://www.lxpavilion.top/article/124/</guid>
+      <pubDate>Thu, 16 Jul 2026 19:48:58 GMT</pubDate>
+      <description><![CDATA[一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。]]></description>
+      <category>数据库</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合]]></title>
+      <link>https://www.lxpavilion.top/article/123/</link>
+      <guid>https://www.lxpavilion.top/article/123/</guid>
+      <pubDate>Thu, 16 Jul 2026 15:25:15 GMT</pubDate>
+      <description><![CDATA[还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。]]></description>
+      <category>数据库</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战]]></title>
       <link>https://www.lxpavilion.top/article/122/</link>
       <guid>https://www.lxpavilion.top/article/122/</guid>
@@ -213,34 +233,6 @@
       <description><![CDATA[无需付费即可替换 FinalShell 背景图片——通过修改 jar 包资源文件，绕过付费限制的完整操作步骤与踩坑记录。]]></description>
       <category>工具教程</category>
       
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[从零上手 openGauss：Docker 部署 + 全场景连接教程]]></title>
-      <link>https://www.lxpavilion.top/article/66/</link>
-      <guid>https://www.lxpavilion.top/article/66/</guid>
-      <pubDate>Sun, 05 Jul 2026 15:18:02 GMT</pubDate>
-      <description><![CDATA[从零开始上手 openGauss 企业级开源数据库！本文详细介绍 Docker Compose 部署、gsql/psql 连接、IDEA 可视化配置及常用 SQL 操作，带你快速搭建国产数据库开发环境。]]></description>
-      <category>数据库</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>OpenGauss</tag>
-      <tag>JetBrains</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[KubeSphere学习笔记：部署mysql]]></title>
-      <link>https://www.lxpavilion.top/article/65/</link>
-      <guid>https://www.lxpavilion.top/article/65/</guid>
-      <pubDate>Sun, 05 Jul 2026 09:01:45 GMT</pubDate>
-      <description><![CDATA[从零开始在 KubeSphere 上部署 MySQL，涵盖配置字典、持久卷声明、工作负载、LoadBalancer 外部访问等完整流程。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
-      <tag>Mysql</tag>
       <author>ppc</author>
     </item>
   </channel>

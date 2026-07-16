@@ -1,6 +1,36 @@
 {
-  "total": 51,
+  "total": 53,
   "rows": [
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/693.png",
+      "createdAt": "2026-07-16T19:48:58.02675",
+      "id": 124,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。",
+      "tags": [],
+      "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
+      "updateTime": "2026-07-16T19:48:58.038132",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "commentCount": 0,
+      "coverImage": "/data/media/691.png",
+      "createdAt": "2026-07-16T15:25:15.99545",
+      "id": 123,
+      "isPinned": 0,
+      "isPublished": 1,
+      "summary": "还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。",
+      "tags": [],
+      "title": "PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合",
+      "updateTime": "2026-07-16T15:25:25.224024",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

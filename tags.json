@@ -1,6 +1,27 @@
 {
-  "total": 45,
+  "total": 48,
   "rows": [
+    {
+      "createTime": "2026-07-16T19:48:35.088065",
+      "deleted": 0,
+      "id": 78,
+      "name": "向量库",
+      "updateTime": "2026-07-16T19:48:35.08828"
+    },
+    {
+      "createTime": "2026-07-16T19:48:27.981647",
+      "deleted": 0,
+      "id": 77,
+      "name": "Qdrant",
+      "updateTime": "2026-07-16T19:48:27.981719"
+    },
+    {
+      "createTime": "2026-07-16T15:24:27.45225",
+      "deleted": 0,
+      "id": 76,
+      "name": "PostgreSQL",
+      "updateTime": "2026-07-16T15:24:27.453922"
+    },
     {
       "createTime": "2026-07-15T23:28:02.446455",
       "deleted": 0,

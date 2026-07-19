@@ -8,6 +8,79 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试]]></title>
+      <link>https://www.lxpavilion.top/article/131/</link>
+      <guid>https://www.lxpavilion.top/article/131/</guid>
+      <pubDate>Sun, 19 Jul 2026 17:30:05 GMT</pubDate>
+      <description><![CDATA[从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 防盗链配置实战：用 referer 模块保护网站静态资源]]></title>
+      <link>https://www.lxpavilion.top/article/130/</link>
+      <guid>https://www.lxpavilion.top/article/130/</guid>
+      <pubDate>Sun, 19 Jul 2026 15:48:17 GMT</pubDate>
+      <description><![CDATA[深入讲解 Nginx valid_referers 模块的工作原理与配置方法，通过 referer 请求头校验实现图片、CSS、JS 等静态资源的防盗链，防止其他网站非法引用消耗你的带宽。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 学习笔记：URL Rewrite 从入门到实战，让链接更优雅、更SEO友好]]></title>
+      <link>https://www.lxpavilion.top/article/129/</link>
+      <guid>https://www.lxpavilion.top/article/129/</guid>
+      <pubDate>Sun, 19 Jul 2026 15:41:53 GMT</pubDate>
+      <description><![CDATA[全面解析 Nginx rewrite 模块的语法规则、正则匹配、flag 标记及实战案例，教你如何将带参数的动态 URL 伪装成静态 HTML，提升网站 SEO 表现与用户体验。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 学习笔记：负载均衡配置教程，从基础算法到企业级动态方案]]></title>
+      <link>https://www.lxpavilion.top/article/128/</link>
+      <guid>https://www.lxpavilion.top/article/128/</guid>
+      <pubDate>Sun, 19 Jul 2026 13:32:14 GMT</pubDate>
+      <description><![CDATA[Nginx 负载均衡入门教程，从 upstream 配置到轮询、权重、IP Hash、Least Connections 等六大算法的配置与适用场景，并介绍 OpenResty + Lua、Consul 动态发现等企业级负载均衡方案思路，配合代码示例助你从基础到进阶全面理解。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 学习笔记：反向代理实战，从入门到配置详解]]></title>
+      <link>https://www.lxpavilion.top/article/127/</link>
+      <guid>https://www.lxpavilion.top/article/127/</guid>
+      <pubDate>Sun, 19 Jul 2026 12:12:10 GMT</pubDate>
+      <description><![CDATA[深入理解 Nginx 反向代理的核心原理与配置方法，通过实战案例掌握 proxy_pass 指令、URL 转发规则、请求头处理，以及解决代理过程中常见的 HTTPS 重定向问题。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战]]></title>
+      <link>https://www.lxpavilion.top/article/126/</link>
+      <guid>https://www.lxpavilion.top/article/126/</guid>
+      <pubDate>Sun, 19 Jul 2026 10:52:04 GMT</pubDate>
+      <description><![CDATA[深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx入门实战：从Docker部署到核心配置完全解析]]></title>
+      <link>https://www.lxpavilion.top/article/125/</link>
+      <guid>https://www.lxpavilion.top/article/125/</guid>
+      <pubDate>Sun, 19 Jul 2026 09:34:08 GMT</pubDate>
+      <description><![CDATA[从零开始，通过Docker快速搭建Nginx学习环境，深入理解Nginx核心配置参数与反向代理原理，适合初学者入门到精通的第一课。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>nginx</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程]]></title>
       <link>https://www.lxpavilion.top/article/124/</link>
       <guid>https://www.lxpavilion.top/article/124/</guid>
@@ -144,94 +217,6 @@
       <pubDate>Thu, 09 Jul 2026 16:14:20 GMT</pubDate>
       <description><![CDATA[手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。]]></description>
       <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程]]></title>
-      <link>https://www.lxpavilion.top/article/111/</link>
-      <guid>https://www.lxpavilion.top/article/111/</guid>
-      <pubDate>Thu, 09 Jul 2026 10:26:26 GMT</pubDate>
-      <description><![CDATA[Resend 邮件服务的完整接入教程，涵盖免费额度（100 封/天）、域名 DKIM/SPF 配置、REST API 单发与组发，以及与 MailerLite 的对比分析。适合个人博客、小型项目的邮件通知场景。]]></description>
-      <category>技术教程</category>
-      <tag>MailerLite</tag>
-      <tag>邮订阅件</tag>
-      <tag>Cloudflare</tag>
-      <tag>域名</tag>
-      <tag>博客</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s]]></title>
-      <link>https://www.lxpavilion.top/article/72/</link>
-      <guid>https://www.lxpavilion.top/article/72/</guid>
-      <pubDate>Tue, 07 Jul 2026 14:58:26 GMT</pubDate>
-      <description><![CDATA[记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker]]></title>
-      <link>https://www.lxpavilion.top/article/71/</link>
-      <guid>https://www.lxpavilion.top/article/71/</guid>
-      <pubDate>Tue, 07 Jul 2026 08:41:31 GMT</pubDate>
-      <description><![CDATA[从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Jenkins</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[KubeSphere学习笔记：DevOps基本使用]]></title>
-      <link>https://www.lxpavilion.top/article/70/</link>
-      <guid>https://www.lxpavilion.top/article/70/</guid>
-      <pubDate>Mon, 06 Jul 2026 17:19:41 GMT</pubDate>
-      <description><![CDATA[KubeSphere DevOps 模块从安装到流水线运行的完整实战记录，涵盖插件安装、凭证配置、代码仓库绑定、流水线创建及各种踩坑修复]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
-      <tag>Jenkins</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Jenkins学习笔记：Docker 部署与第一个 Pipeline 任务]]></title>
-      <link>https://www.lxpavilion.top/article/69/</link>
-      <guid>https://www.lxpavilion.top/article/69/</guid>
-      <pubDate>Mon, 06 Jul 2026 14:48:20 GMT</pubDate>
-      <description><![CDATA[从零开始，用 Docker 部署 Jenkins，完成初始化配置，并创建你的第一个 Pipeline 流水线任务，掌握 CI/CD 自动化构建基础。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Jenkins</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[KubeSphere学习笔记：部署nginx]]></title>
-      <link>https://www.lxpavilion.top/article/68/</link>
-      <guid>https://www.lxpavilion.top/article/68/</guid>
-      <pubDate>Mon, 06 Jul 2026 13:58:09 GMT</pubDate>
-      <description><![CDATA[通过 KubeSphere 可视化平台在本地 Docker Desktop K8s 集群上完整部署 Nginx 网站的实战记录，涵盖 ConfigMap 配置管理、PVC 持久化存储、LoadBalancer 服务暴露、kubectl cp 文件上传及踩坑修复]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>Kubernetes</tag>
-      <tag>KubeSphere</tag>
-      <tag>nginx</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[FinalShell 自定义背景图片教程]]></title>
-      <link>https://www.lxpavilion.top/article/67/</link>
-      <guid>https://www.lxpavilion.top/article/67/</guid>
-      <pubDate>Sun, 05 Jul 2026 17:24:56 GMT</pubDate>
-      <description><![CDATA[无需付费即可替换 FinalShell 背景图片——通过修改 jar 包资源文件，绕过付费限制的完整操作步骤与踩坑记录。]]></description>
-      <category>工具教程</category>
       
       <author>ppc</author>
     </item>

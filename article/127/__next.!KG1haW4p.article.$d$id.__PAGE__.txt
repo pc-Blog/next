@@ -1,0 +1,262 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/12jve0c2kvffw.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T2133,## 什么是反向代理？
+
+**反向代理（Reverse Proxy）** 是服务端的一种代理模式——客户端把请求发给反向代理服务器，代理服务器再把请求转发给后端的真实服务器，然后把后端返回的结果返回给客户端。
+
+```
+客户端 ──→ 反向代理（Nginx） ──→ 后端服务器
+                    │
+                    客户端不知道自己访问的是后端服务器，它只认识代理服务器
+```
+
+与之对应的是**正向代理（Forward Proxy）**：
+
+```
+客户端 ──→ 正向代理 ──→ 目标服务器
+     ↑
+     客户端知道自己要去哪，只是通过代理访问
+```
+
+### 反向代理 vs 正向代理
+
+| | 反向代理 | 正向代理 |
+|--|---------|---------|
+| **服务对象** | 保护后端服务器，对客户端透明 | 帮助客户端访问受限资源 |
+| **典型场景** | 负载均衡、安全防护、统一 SSL | 翻墙、访问控制、缓存 |
+| **客户端感知** | 客户端不知道自己访问的是代理 | 客户端明确配置了代理 |
+| **代表工具** | Nginx、HAProxy | Shadowsocks、Squid |
+
+## 反向代理的实际作用
+
+| 作用 | 说明 |
+|------|------|
+| **负载均衡** | 把请求分发到多台后端服务器，分担压力 |
+| **统一入口** | 所有服务（前端、后端 API、图片）共享同一个域名和端口 |
+| **安全隔离** | 后端服务器不暴露公网，攻击者无法直接攻击 |
+| **SSL 终结** | 在 Nginx 统一管理 HTTPS 证书，后端内部用 HTTP 通信 |
+| **缓存加速** | Nginx 缓存后端响应结果，减少后端压力 |
+
+## 一、proxy_pass 基础配置
+
+Nginx 通过 `proxy_pass` 指令实现反向代理，它只能写在 `location` 块中。
+
+### 最简单的代理
+
+```nginx
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        proxy_pass http://localhost:3000;   # 转发到本机的 Node.js 服务
+    }
+}
+```
+
+这样访问 `http://localhost/` 时，Nginx 会把请求转发给本机 3000 端口上运行的应用。
+
+### proxy_pass 与 root 的区别
+
+```nginx
+# root —— 返回静态文件
+location / {
+    root   /usr/share/nginx/html;        # 去本地磁盘找文件
+}
+
+# proxy_pass —— 转发到后端服务
+location / {
+    proxy_pass http://localhost:3000;     # 把请求转发给其他服务处理
+}
+```
+
+**两者是互斥的两个方向**：
+
+| 指令 | 数据来源 | 适用场景 |
+|------|---------|---------|
+| `root` | 本地磁盘文件 | 静态资源（HTML/CSS/JS/图片） |
+| `proxy_pass` | 后端服务响应 | API 接口、动态内容、代理转发 |
+
+## 二、proxy_pass URL 写法的关键区别
+
+`proxy_pass` 后面跟的 URL **是否带路径（含斜杠 /）**，行为完全不同：
+
+### 写法一：带路径（包括 `/`）
+
+```nginx
+location /api/ {
+    proxy_pass http://backend:3000/;      # 注意末尾有 /
+}
+# 请求 /api/user  →  转发到 http://backend:3000/user
+#                  ↑ location 匹配的部分被替换为 proxy_pass 的路径
+```
+
+### 写法二：不带路径
+
+```nginx
+location /api/ {
+    proxy_pass http://backend:3000;       # 末尾没有 /
+}
+# 请求 /api/user  →  转发到 http://backend:3000/api/user
+#                  ↑ 完整 URL 原样转发
+```
+
+### 快速判断
+
+| proxy_pass 写法                         | 请求 /api/user 转发到               | 规则                       |
+| ------------------------------------- | ------------------------------ | ------------------------ |
+| `proxy_pass http://backend:3000;`     | `http://backend:3000/api/user` | 不加斜杠，**完整 URI** 追加到后端地址  |
+| `proxy_pass http://backend:3000/;`    | `http://backend:3000/user`     | 加斜杠，location 匹配部分被**替换** |
+| `proxy_pass http://backend:3000/v2/;` | `http://backend:3000/v2/user`  | 带路径，location 匹配部分被**替换** |
+
+## 三、实战：代理到 B 站
+
+### 基础配置
+
+```nginx
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        proxy_pass http://www.bilibili.com;
+    }
+}
+```
+
+启动后访问 `http://localhost:8080/`，理论上应该显示 B 站首页。
+
+### 问题：被重定向到 B 站官网
+
+实际效果是：浏览器地址栏变成了 `https://www.bilibili.com/`，而不是停留在我们的 Nginx 地址。
+
+### 为什么？
+
+```
+Nginx 把请求转发给 http://www.bilibili.com
+                    │
+                    ▼
+B 站服务器返回 302 重定向：Location: https://www.bilibili.com/
+                    │
+                    ▼
+Nginx 把重定向原样返回给客户端
+                    │
+                    ▼
+浏览器跳转到 https://www.bilibili.com/
+```
+
+原因很简单——**B 站强制 HTTPS**。B 站服务器发现请求用的是 `http://`（不安全），就返回一个 302 重定向，让浏览器用 `https://` 重新访问。而这个重定向直接发给了客户端，客户端就直接跳走了。
+
+### 解决方法
+
+```nginx
+proxy_pass https://www.bilibili.com;   # 改成 HTTPS
+```
+
+这样 Nginx 和 B 站之间走 HTTPS 通信，B 站不会再返回重定向。如果还有其他问题，还需补充请求头配置：
+
+```nginx
+location / {
+    proxy_pass https://www.bilibili.com;
+    proxy_set_header Host $proxy_host;            # 把原始 Host 传给后端
+    proxy_set_header X-Real-IP $remote_addr;      # 传递客户端真实 IP
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;   # 传递请求协议
+}
+```
+
+## 四、反向代理核心配置详解
+
+### 请求头处理
+
+```nginx
+location / {
+    proxy_pass http://backend:3000;
+
+    # 传递客户端真实 IP
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+| 指令                                           | 作用                                   |
+| -------------------------------------------- | ------------------------------------ |
+| `proxy_set_header Host $host`                | 把客户端请求的 Host 传给后端，后端以此判断域名           |
+| `proxy_set_header X-Real-IP $remote_addr`    | 传递客户端真实 IP（后端看到的是 Nginx IP，不是客户端 IP） |
+| `proxy_set_header X-Forwarded-For`           | 传递完整代理链路，多层代理时逐级追加                   |
+| `proxy_set_header X-Forwarded-Proto $scheme` | 告诉后端客户端用的是 HTTP 还是 HTTPS             |
+
+### 超时配置
+
+```nginx
+location / {
+    proxy_pass http://backend:3000;
+
+    proxy_connect_timeout   30s;     # 与后端建立连接的超时时间
+    proxy_read_timeout      60s;     # 等待后端响应的超时时间
+    proxy_send_timeout      60s;     # 向后端发送数据的超时时间
+}
+```
+
+### 缓冲控制
+
+```nginx
+location / {
+    proxy_pass http://backend:3000;
+
+    proxy_buffering on;              # 开启缓冲（默认），Nginx 收完后端响应再发给客户端
+    proxy_buffer_size   4k;          # 响应头缓冲区大小
+    proxy_buffers       8 4k;        # 响应体缓冲区数量和大小
+}
+```
+
+### 常用完整代理配置模板
+
+```nginx
+location /api/ {
+    proxy_pass http://backend:3000/;
+
+    # 请求头
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    # 超时
+    proxy_connect_timeout 30s;
+    proxy_read_timeout    60s;
+    proxy_send_timeout    60s;
+
+    # 缓冲
+    proxy_buffering on;
+    proxy_buffer_size   4k;
+    proxy_buffers       8 4k;
+
+    # 错误重试
+    proxy_next_upstream error timeout http_500 http_502 http_503;
+}
+```
+
+## 总结
+
+通过本文，你已经掌握了 Nginx 反向代理的核心知识：
+
+| 知识点 | 要点 |
+|--------|------|
+| **反向代理** | Nginx 作为中间人，把客户端请求转发给后端服务器，后端不直接暴露 |
+| **proxy_pass** | 核心指令，写在 location 内，指定后端地址 |
+| **URL 斜杠区别** | 末尾加 `/` 会替换 location 匹配部分，不加则追加 |
+| **proxy_pass vs root** | root 返回本地静态文件，proxy_pass 转发到后端服务 |
+| **请求头传递** | 通过 proxy_set_header 传递客户端真实 IP 和协议 |
+| **HTTPS 重定向问题** | 后端要求 HTTPS 时，proxy_pass 也要用 https:// |
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Nginx 学习笔记：反向代理实战，从入门到配置详解\",\"item\":\"https://www.lxpavilion.top/article/127\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Nginx 学习笔记：反向代理实战，从入门到配置详解\",\"headline\":\"Nginx 学习笔记：反向代理实战，从入门到配置详解\",\"description\":\"深入理解 Nginx 反向代理的核心原理与配置方法，通过实战案例掌握 proxy_pass 指令、URL 转发规则、请求头处理，以及解决代理过程中常见的 HTTPS 重定向问题。\",\"datePublished\":\"2026-07-19T12:12:10.276942\",\"dateCreated\":\"2026-07-19T12:12:10.276942\",\"dateModified\":\"2026-07-19T12:44:43.33183\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/696.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Nginx 学习笔记：反向代理实战，从入门到配置详解","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mTazy2QKTGyd41iaZSuON"}
+3:{"id":"127"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12jve0c2kvffw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

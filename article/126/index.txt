@@ -1,0 +1,336 @@
+1:"$Sreact.fragment"
+2:I[726908,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+4:I[222464,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+5:I[3799,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+6:I[956499,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+7:I[261421,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+8:I[339756,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+9:I[837457,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+14:I[168027,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0ixa-c3wopaee.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","126",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","126","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0ixa-c3wopaee.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0h.hp_pdyqxb-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0ducef1ee~grw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0i.l9589uvx0j.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0dt9cnwomqq_u.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"mTazy2QKTGyd41iaZSuON"}
+17:I[706521,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+18:I[608123,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+19:I[418233,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1a:I[834858,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1b:I[523191,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/10r0_-nju~-2e.js"],"default"]
+1c:I[339756,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"LoadingBoundaryProvider"]
+23:I[897367,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[897367,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ViewportBoundary"]
+29:I[897367,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0ka02ds2ffr_2.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/10r0_-nju~-2e.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/12jve0c2kvffw.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0ixa-c3wopaee.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[117467,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/12jve0c2kvffw.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+2d:T212b,## 什么是 Server 块？
+
+在 Nginx 中，**Server 块**（也叫做虚拟主机配置）是路由分发的基础单元。Nginx 通过 `listen` 和 `server_name` 两个关键参数，决定每个请求该由哪个 Server 块处理，从而实现**一台服务器托管多个网站**。
+
+可以把 Server 块想象成 Nginx 内部的"虚拟服务器"——每个 Server 块独立配置自己的域名、端口、根目录和路由规则，互不干扰。
+
+## 一、基础配置：listen + server_name
+
+最基本的 Server 块配置如下：
+
+```nginx
+server {
+    listen       80;             # 监听端口
+    server_name  localhost;      # 域名匹配
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+}
+```
+
+### listen —— 监听端口
+
+| 写法 | 说明 |
+|------|------|
+| `listen 80;` | 监听 IPv4 的 80 端口 |
+| `listen [::]:80;` | 监听 IPv6 的 80 端口 |
+| `listen 8080;` | 监听非标准端口（如 8080） |
+| `listen 443 ssl;` | 监听 HTTPS 端口并启用 SSL |
+| `listen 80 default_server;` | 设为默认服务器，当没有匹配时使用 |
+
+### server_name —— 域名匹配
+
+`server_name` 匹配的是**请求头中的 `Host` 字段**。浏览器访问 `http://example.com` 时，请求头中会携带 `Host: example.com`，Nginx 拿这个值与所有 Server 块的 `server_name` 对比，找到对应的处理规则。
+
+> 可以在浏览器开发者工具 → 网络面板中查看每个请求的 `Host` 请求头。
+
+## 二、请求路由流程
+
+当一个请求到达 Nginx 时，匹配顺序如下：
+
+```
+客户端请求 ──→ 根据 listen 端口找到 Server 块列表
+                       │
+                       ▼
+               根据 server_name 匹配 Host 请求头
+                       │
+            ┌──────────┼──────────┐
+            ▼          ▼          ▼
+         精确匹配   通配符匹配   正则匹配
+                       │
+                       ▼
+               进入对应的 Server 块
+                       │
+                       ▼
+               继续匹配 location 路由
+```
+
+如果所有 `server_name` 都没有匹配到，Nginx 会使用该端口上**第一个** Server 块（或标记了 `default_server` 的那个）来处理请求。
+
+## 三、多域名实战
+
+### 场景
+
+假设我们有一个 Nginx，想同时托管两个网站：
+- **blog.com** —— 博客站点，首页为 blog 页面
+- **login.com** —— 登录站点，首页为 login 页面
+
+### 第一步：修改 hosts 文件
+
+由于本机没有真实的域名解析，需要在本机的 hosts 文件中添加域名映射，把两个域名指向本地：
+
+```bash
+# Windows: C:\Windows\System32\drivers\etc\hosts
+# Linux/macOS: /etc/hosts
+
+127.0.0.1  blog.com
+127.0.0.1  login.com
+```
+
+修改 hosts 后在 Windows 上需要刷新 DNS 缓存才能生效：
+
+```bash
+ipconfig /flushdns
+```
+
+这样访问 `blog.com` 和 `login.com` 就会解析到本机。
+
+### 第二步：准备站点目录
+
+```
+nginx-learning/
+├── conf.d/
+│   ├── blog.conf          # blog.com 配置
+│   └── login.conf         # login.com 配置
+├── html/
+│   ├── blog/
+│   │   └── index.html     # blog 站点首页
+│   └── login/
+│       └── index.html     # login 站点首页
+└── docker-compose.yml
+```
+
+### 第三步：Nginx 配置
+
+**blog.conf：**
+
+```nginx
+server {
+    listen       80;
+    server_name  blog.com;
+
+    location / {
+        root   /usr/share/nginx/html/blog;
+        index  index.html index.htm;
+    }
+}
+```
+
+**login.conf：**
+
+```nginx
+server {
+    listen       80;
+    server_name  login.com;
+
+    location / {
+        root   /usr/share/nginx/html/login;
+        index  index.html index.htm;
+    }
+}
+```
+
+### 第四步：重载配置
+
+```bash
+# 验证配置是否正确
+docker exec nginx-learning nginx -t
+
+# 重载配置（不中断服务）
+docker exec nginx-learning nginx -s reload
+```
+
+### 验证效果
+
+```bash
+curl http://blog.com:8080/   # 返回 blog 站点的页面
+curl http://login.com:8080/  # 返回 login 站点的页面
+```
+
+> ✅ 同一个 Nginx、同一个端口（80），通过不同的域名路由到不同的网站目录，这就是虚拟主机的核心能力。
+
+## 四、server_name 匹配规则详解
+
+`server_name` 支持多种匹配方式，灵活应对不同场景：
+
+### 1. 精确匹配（完全匹配）
+
+```nginx
+server_name  example.com;
+server_name  www.example.com;
+```
+
+必须与请求的域名**完全一致**才匹配。
+
+### 2. 通配符匹配
+
+`*` 只能出现在开头或结尾，不能放在中间：
+
+```nginx
+server_name  *.example.com;        # 匹配 www.example.com、api.example.com 等
+server_name  mail.*;               # 匹配 mail.example.com、mail.test.com 等
+server_name  *.example.*;           # ❌ 错误写法，通配符不能同时出现在开头和结尾
+```
+
+### 3. 正则匹配（~ 开头）
+
+以 `~` 开头，后面跟正则表达式，提供最灵活的匹配能力：
+
+```nginx
+server_name  ~^www\d+\.example\.com$;  # 匹配 www1.example.com、www2.example.com 等
+server_name  ~^(?<subdomain>.+)\.example\.net$;  # 支持捕获变量，可在配置中引用 $subdomain
+```
+
+注意事项：
+- 正则表达式必须以 `~` 开头
+- 正则中的 `.` 需要转义为 `\\.`
+- 正则匹配不区分大小写（如果需要区分大小写，使用 `~*`）
+
+### 4. 多域名并列
+
+一个 Server 块可以指定多个域名，用空格隔开：
+
+```nginx
+server_name  example.com  www.example.com  blog.example.com;
+```
+
+### 5. 特殊值
+
+| 写法 | 说明 |
+|------|------|
+| `server_name _;` | 下划线是常见的**无效域名占位符**，表示匹配任意未定义的域名，通常配合 `default_server` 使用 |
+| `server_name "";` | 匹配没有 `Host` 请求头的请求（如 HTTP/1.0 请求） |
+
+### 完整的多站点示例
+
+```nginx
+# 站点 1：主站
+server {
+    listen       80;
+    server_name  example.com  www.example.com;
+
+    location / {
+        root   /var/www/main;
+    }
+}
+
+# 站点 2：API 子域名
+server {
+    listen       80;
+    server_name  api.example.com;
+
+    location / {
+        root   /var/www/api;
+    }
+}
+
+# 站点 3：捕获所有未匹配的域名（兜底）
+server {
+    listen       80 default_server;
+    server_name  _;
+
+    return 444;  # 直接关闭连接，不给任何响应
+}
+```
+
+## 五、server_name 匹配优先级
+
+当多个 Server 块的 `server_name` 都能匹配同一个域名时，Nginx 按以下优先级**只选一个**：
+
+| 优先级 | 匹配方式 | 示例 |
+|--------|---------|------|
+| 1（最高） | **精确匹配** | `example.com` |
+| 2 | **通配符开头** | `*.example.com` |
+| 3 | **通配符结尾** | `www.*` |
+| 4（最低） | **正则匹配** | `~^www\\.\\d+\\.com$` |
+
+> **重要**：正则匹配实际上在通配符之后被检查，且 Nginx 会按配置文件中 **正则出现的顺序** 逐一尝试，匹配到第一个即停止。因此如果有多个正则都可能匹配，注意先后顺序。
+
+## 六、default_server 的用法
+
+`default_server` 用于指定某个 Server 块作为**默认处理器**，当没有其他规则匹配时使用：
+
+```nginx
+server {
+    listen       80 default_server;
+    server_name  _;
+
+    location / {
+        return 404;
+    }
+}
+```
+
+常见用途：
+- **拦截未绑定的域名** —— 返回 404 或 444（直接关闭连接）
+- **统一重定向** —— 将所有未匹配的请求重定向到主站
+- **统一 HTTPS 跳转** —— 将所有 HTTP 请求跳转到 HTTPS
+
+> 如果没有显式指定 `default_server`，Nginx 会使用该端口上的**第一个** Server 块作为默认。
+
+## 总结
+
+通过本文，你已经掌握了 Nginx Server 块的核心配置：
+
+| 知识点 | 要点 |
+|--------|------|
+| **Server 块** | 虚拟主机的基本单元，每个块独立管理一个站点的路由规则 |
+| **listen** | 指定监听的端口和协议 |
+| **server_name** | 匹配请求头的 Host 字段，决定请求由哪个 Server 块处理 |
+| **请求路由流程** | listen 过滤端口 → server_name 匹配域名 → location 匹配路径 |
+| **匹配规则** | 精确匹配 > 通配符开头 > 通配符结尾 > 正则匹配 |
+| **default_server** | 未匹配时的兜底方案，用于拦截非法域名或统一重定向 |
+| **多域名实战** | 修改 hosts → 编写多个 server 块 → 重载配置即可实现一机多站 |
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战\",\"item\":\"https://www.lxpavilion.top/article/126\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战\",\"headline\":\"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战\",\"description\":\"深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。\",\"datePublished\":\"2026-07-19T10:52:04.80059\",\"dateCreated\":\"2026-07-19T10:52:04.80059\",\"dateModified\":\"2026-07-19T10:59:24.839148\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/696.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战","initialContent":"$2d"}]]
+2c:{"id":"126"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/126/"}],["$","meta","5",{"property":"og:title","content":"Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/696.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.png"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

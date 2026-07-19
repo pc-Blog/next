@@ -1,0 +1,380 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/12jve0c2kvffw.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.hp_pdyqxb-.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T2ad0,## 一、什么是高可用？为什么需要 Keepalived？
+
+### 高可用的含义
+
+**高可用（High Availability，HA）** 指的是通过架构设计，消除单点故障，让服务在某个节点宕机后仍然可以正常对外提供服务。
+
+### 单点故障问题
+
+在生产环境中，如果只有一台 Nginx 服务器：
+
+```
+用户 ──→ Nginx（单点） ──→ 后端服务
+```
+
+如果这台 Nginx 挂了，整个服务就不可用了。这就是 **单点故障（Single Point of Failure）**。
+
+### Keepalived 的解决方案
+
+Keepalived 基于 **VRRP（Virtual Router Redundancy Protocol，虚拟路由冗余协议）**，通过 **主备模式** 解决单点问题：
+
+```
+                        ┌─ 10.0.2.100 (VIP) ─┐
+                        │                     │
+用户 ──→ VIP ──────┬──→ Nginx-Master (主)    │
+                    │                         │
+                    └──→ Nginx-Backup (备)    │
+                                              │
+                    Master 挂了 → Backup 接管 VIP
+```
+
+- **Master**（主节点）：正常工作时持有 VIP，对外提供服务
+- **Backup**（备节点）：监听 Master 的心跳，Master 挂了立即接管 VIP
+- **VIP**（Virtual IP）：虚拟 IP，用户通过 VIP 访问服务，不关心背后哪个节点在服务
+
+---
+
+## 二、环境准备：WSL + Docker
+
+本教程使用 WSL 上的 Docker 作为实验环境，用两个容器模拟两台服务器。
+
+### 创建专用网络
+
+为了让两个容器能互相通信并分配固定 IP，先创建一个 Docker 网络：
+
+```bash
+docker network create --driver bridge --subnet 10.0.2.0/24 ha-network
+```
+
+### 构建自定义镜像
+
+基础 Nginx 镜像不包含 keepalived，需要自己构建：
+
+```dockerfile
+FROM nginx:latest
+RUN apt update && apt install -y keepalived \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+```bash
+docker build -t nginx-keepalived:latest .
+```
+
+---
+
+## 三、Keepalived 配置详解
+
+### 核心配置参数
+
+| 参数 | 说明 |
+|------|------|
+| `state` | 角色：`MASTER`（主）或 `BACKUP`（备） |
+| `interface` | 网络接口名，Docker 容器默认为 `eth0` |
+| `virtual_router_id` | 虚拟路由 ID（0-255），主备必须相同 |
+| `priority` | 优先级（0-255），值越大越优先 |
+| `advert_int` | 心跳间隔（秒），Master 每隔多久发一次广播 |
+| `authentication` | 认证方式，防止无关节点加入 |
+| `virtual_ipaddress` | 虚拟 IP 列表，即 VIP |
+
+### Master 配置
+
+```nginx
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1234
+    }
+    virtual_ipaddress {
+        10.0.2.100
+    }
+}
+```
+
+### Backup 配置
+
+```nginx
+vrrp_instance VI_1 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 51
+    priority 50
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1234
+    }
+    virtual_ipaddress {
+        10.0.2.100
+    }
+}
+```
+
+> **Master 和 Backup 的区别**：只有两处不同——`state`（MASTER / BACKUP）和 `priority`（100 / 50）。Master 优先级高，正常时持有 VIP；Master 挂了，Backup 自动接管。
+
+### 关键设计原则
+
+| 原则 | 说明 |
+|------|------|
+| **主备 priority 必须不同** | Master 优先级 > Backup，否则谁持有 VIP 不确定 |
+| **virtual_router_id 必须相同** | 同一个 VRRP 组的节点必须用同一 ID |
+| **VIP 配置必须一致** | 主备声明同一个 VIP，切换后对用户透明 |
+| **authentication 要一致** | 认证不匹配的节点会被忽略 |
+
+---
+
+## 四、实战：启动两台 Nginx 容器
+
+### 创建容器
+
+```bash
+# Master 节点
+docker run -d \
+  --name nginx-master \
+  --network ha-network \
+  --ip 10.0.2.10 \
+  --cap-add=NET_ADMIN \
+  --cap-add=NET_BROADCAST \
+  --cap-add=NET_RAW \
+  nginx-keepalived:latest
+
+# Backup 节点
+docker run -d \
+  --name nginx-backup \
+  --network ha-network \
+  --ip 10.0.2.11 \
+  --cap-add=NET_ADMIN \
+  --cap-add=NET_BROADCAST \
+  --cap-add=NET_RAW \
+  nginx-keepalived:latest
+```
+
+#### 参数解析
+
+| 参数                        | 含义                                                 |
+| ------------------------- | -------------------------------------------------- |
+| `-d`                      | **后台运行**（detach），容器启动后在后台运行，不占用终端                  |
+| `--name nginx-master`     | **容器名字**，方便后续用名字操作（`docker exec nginx-master ...`） |
+| `--network ha-network`    | **加入指定网络**，把容器放到 `ha-network` 里，和另一个容器互通           |
+| `--ip 10.0.2.10`          | **固定 IP**，不给的话 Docker 会自动分配，固定 IP 方便配置 keepalived  |
+| `--cap-add=NET_ADMIN`     | **网络管理权限**，keepalived 需要它来添加/删除 VIP                |
+| `--cap-add=NET_BROADCAST` | **广播权限**，VRRP 通过广播发心跳包，通知对端自己还活着                   |
+| `--cap-add=NET_RAW`       | **原始套接字权限**，keepalived 需要它发送 VRRP 协议数据包            |
+| `nginx-keepalived:latest` | **使用的镜像**，我们刚构建的自定义镜像（nginx + keepalived）          |
+
+#### `--cap-add` 是什么意思？
+
+`--cap-add` 是 **添加 Linux 能力（capability）** 的意思。Linux 把 root 的权限拆分成很多小单元，每个叫一个 capability。Docker 容器默认**不拥有这些能力**——即使容器内是 root，也不能操作网络接口，这是安全设计。
+
+但 keepalived 需要操作网络，所以必须显式授权：
+
+```bash
+--cap-add=NET_ADMIN     # 授权：管理网络接口（添加/删除 VIP）
+--cap-add=NET_BROADCAST # 授权：发送广播包（VRRP 心跳需要）
+--cap-add=NET_RAW       # 授权：构造原始网络包（VRRP 协议包需要）
+```
+
+> 打个比方：默认容器像"住酒店的客人"，只能在房间里活动。`--cap-add` 相当于给了一张"工程部权限卡"，允许他去配电房操作网络设备。
+
+### 配置 Keepalived
+
+将上面的配置文件写入容器：
+
+```bash
+# Master
+docker exec nginx-master sh -c 'cat > /etc/keepalived/keepalived.conf << '\''EOF'\''
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1234
+    }
+    virtual_ipaddress {
+        10.0.2.100
+    }
+}
+EOF'
+
+# Backup
+docker exec nginx-backup sh -c 'cat > /etc/keepalived/keepalived.conf << '\''EOF'\''
+vrrp_instance VI_1 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 51
+    priority 50
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1234
+    }
+    virtual_ipaddress {
+        10.0.2.100
+    }
+}
+EOF'
+```
+
+### 验证配置语法
+
+```bash
+docker exec nginx-master keepalived -t -f /etc/keepalived/keepalived.conf
+docker exec nginx-backup keepalived -t -f /etc/keepalived/keepalived.conf
+```
+
+没有报错即表示配置正确。
+
+---
+
+## 五、启动 Keepalived
+
+```bash
+# 启动 Master 的 keepalived
+docker exec -d nginx-master keepalived \
+  --dont-fork --log-console \
+  -f /etc/keepalived/keepalived.conf
+
+# 启动 Backup 的 keepalived
+docker exec -d nginx-backup keepalived \
+  --dont-fork --log-console \
+  -f /etc/keepalived/keepalived.conf
+```
+
+### 验证 VIP 分配
+
+```bash
+docker exec nginx-master ip addr show eth0 | grep "inet "
+# 输出: 10.0.2.10/24  AND  10.0.2.100/32  ← VIP 在 Master 上
+
+docker exec nginx-backup ip addr show eth0 | grep "inet "
+# 输出: 10.0.2.11/24  ← Backup 没有 VIP
+```
+
+预期结果：VIP `10.0.2.100` 绑定在 Master 上，Backup 没有。
+
+---
+
+## 六、测试故障转移
+
+### 模拟 Master 宕机
+
+```bash
+# 杀掉 Master 的 keepalived 进程
+docker exec nginx-master kill $(cat /var/run/keepalived.pid)
+```
+
+### 验证 VIP 漂移
+
+```bash
+# 查看 Backup 的 IP
+docker exec nginx-backup ip addr show eth0 | grep "inet "
+# 输出: 10.0.2.11/24  AND  10.0.2.100/32  ← VIP 漂移到 Backup 了！
+```
+
+### 故障转移流程图解
+
+```
+正常时：
+         ┌─ 10.0.2.100 (VIP) ──┐
+         │                       │
+ 用户 ──→│    nginx-master       │  ← priority 100，持有 VIP
+         │    nginx-backup       │  ← priority 50，监听中
+         └───────────────────────┘
+
+Master 宕机后：
+         ┌───────────────────────┐
+         │    nginx-master (宕)  │  ← 停止发送心跳
+         │                       │
+ 用户 ──→│    nginx-backup       │  ← 检测到 Master 失联，接管 VIP
+         └─ 10.0.2.100 (VIP) ──┘
+```
+
+---
+
+## 七、进阶：Nginx 进程级监控
+
+当前配置下，如果 **keepalived 还在运行但 nginx 挂了**，VIP 不会漂移——因为 keepalived 本身没死，还在发心跳。这时用户通过 VIP 访问会得到错误响应。
+
+解决办法是添加 **健康检测脚本**，让 keepalived 定期检查 nginx 状态：
+
+### 检测脚本 `/etc/keepalived/scripts/check_nginx.sh`
+
+```bash
+#!/bin/bash
+if ! pidof nginx > /dev/null; then
+    killall keepalived
+    exit 1
+fi
+exit 0
+```
+
+### 配置中引入脚本检测
+
+```nginx
+global_defs {
+    enable_script_security
+    script_user root
+}
+
+vrrp_script chk_nginx {
+    script "/etc/keepalived/scripts/check_nginx.sh"
+    interval 2
+    fall 2
+    rise 1
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1234
+    }
+    virtual_ipaddress {
+        10.0.2.100
+    }
+    track_script {
+        chk_nginx
+    }
+}
+```
+
+`interval 2` 表示每 2 秒执行一次脚本。如果 nginx 挂了，脚本杀掉 keepalived 进程，触发 VIP 漂移。
+
+同样的思路，你可以监控任何服务——Redis、MySQL、Tomcat 等——只要在脚本中检测对应进程即可。
+
+---
+
+## 八、总结
+
+| 知识点 | 要点 |
+|--------|------|
+| **高可用核心** | 主备模式 + VIP 漂移，消除单点故障 |
+| **协议** | VRRP（虚拟路由冗余协议），通过心跳检测存活 |
+| **核心参数** | `state`（角色）、`priority`（优先级）、`virtual_ipaddress`（VIP） |
+| **故障转移** | Master 停止心跳 → Backup 检测超时 → Backup 接管 VIP |
+| **进程级监控** | 使用 `vrrp_script` + 检测脚本，nginx 挂了主动触发漂移 |
+| **适用范围** | 不仅限于 Nginx，任何 TCP 服务都可以用 Keepalived 做高可用 |
+
+Keepalived 是实现服务高可用的经典方案，配置简单，效果可靠。结合健康检测脚本，可以实现服务级别的自动故障转移，是后端架构入门必须掌握的核心技能之一。0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试\",\"item\":\"https://www.lxpavilion.top/article/131\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试\",\"headline\":\"Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试\",\"description\":\"从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。\",\"datePublished\":\"2026-07-19T17:30:05.712492\",\"dateCreated\":\"2026-07-19T17:30:05.712492\",\"dateModified\":\"2026-07-19T17:30:05.732424\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.png\"}},\"image\":\"https://www.lxpavilion.top/data/media/696.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mTazy2QKTGyd41iaZSuON"}
+3:{"id":"131"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12jve0c2kvffw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

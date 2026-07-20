@@ -1,36 +1,35 @@
 {
   "articleCount": 60,
-  "commentCount": 3,
-  "latestComments": [],
   "projectCount": 8,
   "skillCount": 8,
   "timelineCount": 6,
   "topArticles": [
     {
-      "id": 41,
-      "title": "让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生",
-      "viewCount": 3
+      "id": 43,
+      "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
+      "viewCount": 6
+    },
+    {
+      "id": 61,
+      "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
+      "viewCount": 5
     },
     {
       "id": 66,
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
-      "viewCount": 3
-    },
-    {
-      "id": 35,
-      "title": "将个人网址录入Bing搜索引擎",
-      "viewCount": 2
+      "viewCount": 5
     },
     {
       "id": 45,
       "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
-      "viewCount": 2
+      "viewCount": 4
     },
     {
-      "id": 36,
-      "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
-      "viewCount": 2
+      "id": 41,
+      "title": "让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生",
+      "viewCount": 3
     }
   ],
-  "totalViews": 25
+  "totalViews": 53,
+  "commentCount": 3
 }

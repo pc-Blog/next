@@ -4,7 +4,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T17:30:05.712492",
       "id": 131,
@@ -19,7 +18,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T15:48:17.895037",
       "id": 130,
@@ -34,7 +32,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T15:41:53.195239",
       "id": 129,
@@ -49,7 +46,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T13:32:14.092162",
       "id": 128,
@@ -64,7 +60,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T12:12:10.276942",
       "id": 127,
@@ -79,7 +74,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T10:52:04.80059",
       "id": 126,
@@ -94,7 +88,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/696.png",
       "createdAt": "2026-07-19T09:34:08.695226",
       "id": 125,
@@ -126,7 +119,6 @@
     {
       "categoryId": 39,
       "categoryName": "数据库",
-      "commentCount": 0,
       "coverImage": "/data/media/693.png",
       "createdAt": "2026-07-16T19:48:58.02675",
       "id": 124,
@@ -136,12 +128,11 @@
       "tags": [],
       "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
       "updateTime": "2026-07-16T19:48:58.038132",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 39,
       "categoryName": "数据库",
-      "commentCount": 0,
       "coverImage": "/data/media/691.png",
       "createdAt": "2026-07-16T15:25:15.99545",
       "id": 123,
@@ -151,12 +142,11 @@
       "tags": [],
       "title": "PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合",
       "updateTime": "2026-07-16T15:25:25.224024",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/690.png",
       "createdAt": "2026-07-15T23:28:19.612652",
       "id": 122,
@@ -171,7 +161,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/690.png",
       "createdAt": "2026-07-15T22:57:22.59202",
       "id": 121,
@@ -186,7 +175,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/690.png",
       "createdAt": "2026-07-15T17:49:40.656161",
       "id": 120,
@@ -201,7 +189,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/690.png",
       "createdAt": "2026-07-15T15:43:35.988329",
       "id": 119,
@@ -216,7 +203,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/690.png",
       "createdAt": "2026-07-15T13:13:09.361357",
       "id": 118,
@@ -231,7 +217,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-11T12:02:13.866822",
       "id": 117,
@@ -263,7 +248,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-11T08:54:42.91041",
       "id": 116,
@@ -291,7 +275,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T15:42:17.669616",
       "id": 115,
@@ -315,7 +298,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T14:32:53.822873",
       "id": 114,
@@ -343,7 +325,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-10T14:32:17.408474",
       "id": 113,
@@ -366,12 +347,11 @@
       ],
       "title": "MySQL学习笔记：Druid连接池基础教程——从入门到监控实战",
       "updateTime": "2026-07-11T08:57:22.438",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/677.jpeg",
       "createdAt": "2026-07-09T16:14:20.556393",
       "id": 112,
@@ -386,7 +366,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/676.png",
       "createdAt": "2026-07-09T10:26:26.798955",
       "id": 111,
@@ -422,7 +401,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/577.jpeg",
       "createdAt": "2026-07-07T14:58:26.548561",
       "id": 72,
@@ -437,7 +415,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/625.png",
       "createdAt": "2026-07-07T08:41:31.210596",
       "id": 71,
@@ -464,12 +441,11 @@
       ],
       "title": "Jenkins学习笔记：Pipeline流水线自动拉取代码部署到docker",
       "updateTime": "2026-07-07T08:45:56.98948",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/577.jpeg",
       "createdAt": "2026-07-06T17:19:41.590298",
       "id": 70,
@@ -505,7 +481,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/612.png",
       "createdAt": "2026-07-06T14:48:20.977231",
       "id": 69,
@@ -533,7 +508,6 @@
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/577.jpeg",
       "createdAt": "2026-07-06T13:58:09.128236",
       "id": 68,
@@ -573,7 +547,6 @@
     {
       "categoryId": 45,
       "categoryName": "工具教程",
-      "commentCount": 0,
       "coverImage": "/data/media/586.png",
       "createdAt": "2026-07-05T17:24:56.51034",
       "id": 67,
@@ -588,7 +561,6 @@
     {
       "categoryId": 39,
       "categoryName": "数据库",
-      "commentCount": 0,
       "coverImage": "/data/media/584.png",
       "createdAt": "2026-07-05T15:18:02.690984",
       "id": 66,
@@ -619,12 +591,11 @@
       ],
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
       "updateTime": "2026-07-05T17:24:04.305224",
-      "viewCount": 3
+      "viewCount": 5
     },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
-      "commentCount": 0,
       "coverImage": "/data/media/577.jpeg",
       "createdAt": "2026-07-05T09:01:45.317128",
       "id": 65,
@@ -660,7 +631,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/557.png",
       "createdAt": "2026-07-04T11:36:05.395082",
       "id": 64,
@@ -691,12 +661,11 @@
       ],
       "title": "KubeSphere 安装到插件管理实战：本地 K8s 搭建可视化容器平台",
       "updateTime": "2026-07-06T10:55:11.327867",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/549.jpg",
       "createdAt": "2026-07-04T09:54:11.839918",
       "id": 63,
@@ -728,7 +697,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/544.png",
       "createdAt": "2026-07-04T08:28:28.698165",
       "id": 62,
@@ -756,7 +724,6 @@
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",
-      "commentCount": 0,
       "coverImage": "/data/media/540.png",
       "createdAt": "2026-07-02T16:48:48.05911",
       "id": 61,
@@ -775,12 +742,11 @@
       ],
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
       "updateTime": "2026-07-02T16:48:48.139246",
-      "viewCount": 0
+      "viewCount": 5
     },
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",
-      "commentCount": 0,
       "coverImage": "/data/media/539.png",
       "createdAt": "2026-07-02T14:09:31.144178",
       "id": 60,
@@ -804,7 +770,6 @@
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",
-      "commentCount": 0,
       "coverImage": "/data/media/538.png",
       "createdAt": "2026-07-01T16:54:31.450107",
       "id": 59,
@@ -827,12 +792,11 @@
       ],
       "title": "博文已索引但不展示：一次 Bing SEO 问题排查记录",
       "updateTime": "2026-07-01T16:56:51.086839",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 42,
       "categoryName": "Cloudflare 教程",
-      "commentCount": 0,
       "coverImage": "/data/media/537.png",
       "createdAt": "2026-07-01T15:18:12.085345",
       "id": 58,
@@ -864,7 +828,6 @@
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/533.jpg",
       "createdAt": "2026-07-01T13:39:20.940707",
       "id": 57,
@@ -892,7 +855,6 @@
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/532.png",
       "createdAt": "2026-07-01T13:32:25.921334",
       "id": 56,
@@ -920,7 +882,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/518.png",
       "createdAt": "2026-07-01T12:07:06.814138",
       "id": 55,
@@ -952,7 +913,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/517.png",
       "createdAt": "2026-07-01T10:01:08.877968",
       "id": 54,
@@ -976,7 +936,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/516.png",
       "createdAt": "2026-07-01T09:46:24.671531",
       "id": 53,
@@ -995,12 +954,11 @@
       ],
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "updateTime": "2026-07-01T09:58:38.436744",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 42,
       "categoryName": "Cloudflare 教程",
-      "commentCount": 0,
       "coverImage": "/data/media/514.png",
       "createdAt": "2026-07-01T09:06:07.57209",
       "id": 52,
@@ -1032,7 +990,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/507.png",
       "createdAt": "2026-06-28T21:25:18.658365",
       "id": 51,
@@ -1064,7 +1021,6 @@
     {
       "categoryId": 41,
       "categoryName": "技术教程",
-      "commentCount": 0,
       "coverImage": "/data/media/506.png",
       "createdAt": "2026-06-28T21:23:42.284366",
       "id": 50,
@@ -1096,7 +1052,6 @@
     {
       "categoryId": 42,
       "categoryName": "Cloudflare 教程",
-      "commentCount": 0,
       "coverImage": "/data/media/505.png",
       "createdAt": "2026-06-28T21:20:54.494226",
       "id": 49,
@@ -1144,7 +1099,6 @@
     {
       "categoryId": 42,
       "categoryName": "Cloudflare 教程",
-      "commentCount": 0,
       "coverImage": "/data/media/466.png",
       "createdAt": "2026-06-28T14:44:58.495133",
       "id": 48,
@@ -1172,7 +1126,6 @@
     {
       "categoryId": 40,
       "categoryName": "后端",
-      "commentCount": 0,
       "coverImage": "/data/media/457.png",
       "createdAt": "2026-06-27T22:54:37.898256",
       "id": 47,
@@ -1204,7 +1157,6 @@
     {
       "categoryId": 40,
       "categoryName": "后端",
-      "commentCount": 0,
       "coverImage": "/data/media/452.png",
       "createdAt": "2026-06-27T21:48:15.132624",
       "id": 46,
@@ -1240,7 +1192,6 @@
     {
       "categoryId": 40,
       "categoryName": "后端",
-      "commentCount": 0,
       "coverImage": "/data/media/453.png",
       "createdAt": "2026-06-27T21:45:35.477096",
       "id": 45,
@@ -1263,12 +1214,11 @@
       ],
       "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
       "updateTime": "2026-06-27T21:52:54.510434",
-      "viewCount": 2
+      "viewCount": 4
     },
     {
       "categoryId": 39,
       "categoryName": "数据库",
-      "commentCount": 0,
       "coverImage": "/data/media/454.png",
       "createdAt": "2026-06-27T21:43:08.753466",
       "id": 44,
@@ -1295,12 +1245,11 @@
       ],
       "title": "上手 Cloudflare D1：无服务器数据库入门与博客实战",
       "updateTime": "2026-06-27T21:53:04.420937",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/455.png",
       "createdAt": "2026-06-27T21:34:21.78203",
       "id": 43,
@@ -1331,12 +1280,11 @@
       ],
       "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
       "updateTime": "2026-06-27T21:53:12.731127",
-      "viewCount": 1
+      "viewCount": 6
     },
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/433.png",
       "createdAt": "2026-06-16T20:30:12.459236",
       "id": 42,
@@ -1368,7 +1316,6 @@
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/417.png",
       "createdAt": "2026-06-16T16:27:16.26017",
       "id": 41,
@@ -1392,7 +1339,6 @@
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/408.webp",
       "createdAt": "2026-06-15T09:00:15.054475",
       "id": 40,
@@ -1420,7 +1366,6 @@
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/340.png",
       "createdAt": "2026-06-14T15:14:11.487329",
       "id": 39,
@@ -1447,12 +1392,11 @@
       ],
       "title": "Claude Code 安装及接入 DeepSeek 教程",
       "updateTime": "2026-06-14T15:17:20.027216",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/322.webp",
       "createdAt": "2026-06-10T21:32:19.236002",
       "id": 38,
@@ -1475,12 +1419,11 @@
       ],
       "title": "用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本",
       "updateTime": "2026-06-11T08:22:31.298244",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/317.webp",
       "createdAt": "2026-06-10T21:20:34.516448",
       "id": 37,
@@ -1503,12 +1446,11 @@
       ],
       "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
       "updateTime": "2026-06-11T08:26:47.002639",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/283.jpg",
       "createdAt": "2026-06-09T12:41:52.583618",
       "id": 36,
@@ -1535,12 +1477,11 @@
       ],
       "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 38,
       "categoryName": "网站部署",
-      "commentCount": 0,
       "coverImage": "/data/media/47.jpg",
       "createdAt": "2026-05-26T20:16:47.720519",
       "id": 35,
@@ -1564,7 +1505,6 @@
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "commentCount": 0,
       "coverImage": "/data/media/40.webp",
       "createdAt": "2026-05-26T10:23:39.694181",
       "id": 33,

@@ -13,5 +13,7 @@
   "op-articles",
   "albums",
   "friendLinks",
-  "chatters"
+  "chatters",
+  "bookmarks",
+  "bookmarkCategories"
 ]

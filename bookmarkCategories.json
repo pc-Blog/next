@@ -1,0 +1,92 @@
+[
+  {
+    "createTime": "2026-07-20T16:34:29.412447",
+    "deleted": 0,
+    "id": 11,
+    "name": "🤖 AI 工具",
+    "parentId": null,
+    "sortOrder": 1,
+    "updateTime": "2026-07-20T16:34:29.412727"
+  },
+  {
+    "createTime": "2026-07-20T16:35:28.491416",
+    "deleted": 0,
+    "id": 16,
+    "name": "代码托管",
+    "parentId": 12,
+    "sortOrder": 1,
+    "updateTime": "2026-07-20T16:35:28.491472"
+  },
+  {
+    "createTime": "2026-07-20T16:35:30.2854",
+    "deleted": 0,
+    "id": 19,
+    "name": "文档转换",
+    "parentId": 13,
+    "sortOrder": 1,
+    "updateTime": "2026-07-20T16:35:30.285496"
+  },
+  {
+    "createTime": "2026-07-20T16:34:29.919843",
+    "deleted": 0,
+    "id": 12,
+    "name": "💻 开发工具",
+    "parentId": null,
+    "sortOrder": 2,
+    "updateTime": "2026-07-20T16:34:29.919902"
+  },
+  {
+    "createTime": "2026-07-20T16:35:29.09991",
+    "deleted": 0,
+    "id": 17,
+    "name": "云服务",
+    "parentId": 12,
+    "sortOrder": 2,
+    "updateTime": "2026-07-20T16:35:29.099997"
+  },
+  {
+    "createTime": "2026-07-20T16:35:30.888758",
+    "deleted": 0,
+    "id": 20,
+    "name": "图片工具",
+    "parentId": 13,
+    "sortOrder": 2,
+    "updateTime": "2026-07-20T16:35:30.888847"
+  },
+  {
+    "createTime": "2026-07-20T16:34:30.383473",
+    "deleted": 0,
+    "id": 13,
+    "name": "📄 文档图片",
+    "parentId": null,
+    "sortOrder": 3,
+    "updateTime": "2026-07-20T16:34:30.383522"
+  },
+  {
+    "createTime": "2026-07-20T16:35:29.684808",
+    "deleted": 0,
+    "id": 18,
+    "name": "站长工具",
+    "parentId": 12,
+    "sortOrder": 3,
+    "updateTime": "2026-07-20T16:35:29.684912"
+  },
+  {
+    "createTime": "2026-07-20T16:34:30.960753",
+    "deleted": 0,
+    "id": 14,
+    "name": "⬇️ 下载工具",
+    "parentId": null,
+    "sortOrder": 4,
+    "updateTime": "2026-07-20T16:34:30.96081"
+  },
+  {
+    "createTime": "2026-07-20T16:34:31.44205",
+    "deleted": 0,
+    "id": 15,
+    "name": "📝 简历制作",
+    "parentId": null,
+    "sortOrder": 5,
+    "updateTime": "2026-07-20T16:34:31.442095"
+  }
+]

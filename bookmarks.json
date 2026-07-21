@@ -329,12 +329,12 @@
     "createTime": "2026-07-20T14:07:57.815059",
     "deleted": 0,
     "description": "Java性能监控、分析和故障处理的可视化工具，集成多款JDK命令行工具",
-    "icon": "🔗",
+    "icon": "https://visualvm.github.io/favicon.ico",
     "id": 34,
     "isPin": 0,
     "name": "VisualVM",
     "sortOrder": 14,
-    "updateTime": null,
+    "updateTime": "2026-07-21T09:25:54.025207",
     "url": "https://visualvm.github.io/"
   },
   {
@@ -355,12 +355,12 @@
     "createTime": "2026-07-20T14:07:57.817032",
     "deleted": 0,
     "description": "OpenAI推出的AI编程智能体，支持多智能体协作编码与自动化开发",
-    "icon": "🔗",
+    "icon": "https://openai.com/favicon.svg",
     "id": 35,
     "isPin": 0,
     "name": "Codex | OpenAI",
     "sortOrder": 15,
-    "updateTime": null,
+    "updateTime": "2026-07-21T09:17:51.514658",
     "url": "https://openai.com/zh-Hans-CN/codex/"
   },
   {
@@ -628,12 +628,12 @@
     "createTime": "2026-07-20T14:07:57.847753",
     "deleted": 0,
     "description": "AI配音与语音合成软件，支持多情绪语态的音色生成",
-    "icon": "🔗",
+    "icon": "https://www.dubbingx.com/favicon.ico",
     "id": 50,
     "isPin": 0,
     "name": "DubbingX",
     "sortOrder": 30,
-    "updateTime": null,
+    "updateTime": "2026-07-21T09:24:07.16793",
     "url": "https://www.dubbingx.com/"
   },
   {
@@ -901,12 +901,12 @@
     "createTime": "2026-07-20T14:07:57.887341",
     "deleted": 0,
     "description": "我的世界基岩版第三方启动器，支持多版本自由切换。",
-    "icon": "🔗",
+    "icon": "https://bedrocklauncher.github.io/favicon.ico",
     "id": 71,
     "isPin": 0,
     "name": "BedrockLauncher",
     "sortOrder": 51,
-    "updateTime": null,
+    "updateTime": "2026-07-21T09:24:25.726265",
     "url": "https://bedrocklauncher.github.io/"
   },
   {

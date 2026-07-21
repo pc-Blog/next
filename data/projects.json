@@ -1,6 +1,30 @@
 {
-  "total": 8,
+  "total": 9,
   "rows": [
+    {
+      "categoryId": 35,
+      "categoryName": "软件",
+      "coverImage": "",
+      "createTime": "2026-07-21T15:35:36.646107",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/PC2005-cloud/simple-git-backup",
+      "id": 24,
+      "isPublished": 1,
+      "name": "simple-git-backup",
+      "sortOrder": 0,
+      "summary": "一键自动备份到 GitHub，大文件分包与断网续传全搞定",
+      "techs": [
+        {
+          "id": 20,
+          "name": "github"
+        },
+        {
+          "id": 9,
+          "name": "Python"
+        }
+      ],
+      "updateTime": "2026-07-21T15:35:36.65619"
+    },
     {
       "categoryId": 33,
       "categoryName": "Ai智能体",

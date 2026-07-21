@@ -378,19 +378,6 @@
   },
   {
     "categoryId": 107,
-    "createTime": "2026-07-20T14:07:57.818627",
-    "deleted": 0,
-    "description": "高性能AI API代理与协议转换网关，支持多模型统一管理和调度",
-    "icon": "https://github.com/favicon.ico",
-    "id": 36,
-    "isPin": 0,
-    "name": "ccx",
-    "sortOrder": 16,
-    "updateTime": null,
-    "url": "https://github.com/BenedictKing/ccx"
-  },
-  {
-    "categoryId": 107,
     "createTime": "2026-07-20T15:48:45.931685",
     "deleted": 0,
     "description": "本地运行大语言模型的工具",
@@ -407,13 +394,13 @@
     "createTime": "2026-07-20T14:07:57.821221",
     "deleted": 0,
     "description": "AI CLI工具配置管理软件，可一键切换API供应商和模型配置",
-    "icon": "https://github.com/favicon.ico",
+    "icon": "https://ccswitch.io/favicon.ico",
     "id": 37,
-    "isPin": 0,
+    "isPin": 1,
     "name": "cc-switch",
     "sortOrder": 17,
-    "updateTime": null,
-    "url": "https://github.com/farion1231/cc-switch"
+    "updateTime": "2026-07-21T07:08:28.297196",
+    "url": "https://ccswitch.io/zh/"
   },
   {
     "categoryId": 110,

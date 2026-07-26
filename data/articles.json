@@ -1,6 +1,146 @@
 {
-  "total": 61,
+  "total": 70,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-23T10:43:10",
+      "id": 141,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口",
+      "updateTime": "2026-07-22T10:43:10.058024",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-22T10:42:50.074356",
+      "id": 137,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "\"Go 没有 try-catch，错误就是普通的值。本文从哨兵错误、自定义错误类型、错误包装到实战模式，讲透 Go 的错误处理哲学。\"",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：错误处理——没有异常，只有 error",
+      "updateTime": "2026-07-22T10:42:50.074672",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-22T10:42:46.634236",
+      "id": 136,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：并发编程，Go 的王牌特性",
+      "updateTime": "2026-07-22T10:42:46.634384",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-22T10:42:43.68124",
+      "id": 135,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序",
+      "updateTime": "2026-07-22T10:42:43.681308",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-21T10:43:06",
+      "id": 140,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "接口是 Go 类型系统的核心。隐式实现、接口组合、类型断言、空接口 any——学会接口你就学会了 Go 的一半。本文用大量实战例子（包括 Git Cloud Drive 的存储接口）讲透接口。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：接口与面向接口编程——Go 最核心的设计",
+      "updateTime": "2026-07-22T10:43:06.528305",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-21T10:42:57",
+      "id": 139,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "\"Go 的函数支持多返回值、命名返回值，控制流只有 for 没有 while——这些设计让代码更简洁。本文用大量示例带你熟悉 Go 的函数和控制流语法。\"",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：函数与控制流——多返回值、for 与 if 的独特语法",
+      "updateTime": "2026-07-22T10:42:57.782245",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-21T10:42:52",
+      "id": 138,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "\"从数组到切片、从 Map 到结构体，再到 Go 的指针哲学。数组定长、切片灵活、Map 键值查询、struct 组织数据——一次搞懂 Go 的复合数据类型。\"",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针",
+      "updateTime": "2026-07-22T10:42:52.941695",
+      "viewCount": 0
+    },
     {
       "categoryId": 41,
       "categoryName": "技术教程",
@@ -9,10 +149,64 @@
       "id": 132,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "手把手教你安装 OpenAI Codex CLI，并通过 ccx 路由工具接入 DeepSeek 大模型，在终端、VS Code、JetBrains 中低成本使用 AI 编程助手，告别昂贵 API 账单。",
-      "tags": [],
+      "tags": [
+        {
+          "id": 23,
+          "name": "codex"
+        },
+        {
+          "id": 33,
+          "name": "VS Code"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
       "title": "Codex CLI 完全指南：安装配置与接入 DeepSeek 实战",
-      "updateTime": "2026-07-21T08:22:01.695366",
+      "updateTime": "2026-07-26T13:06:55.170262",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-20T10:41:02",
+      "id": 134,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "Go 的变量声明有三种方式：var + 类型、var 类型推断、:= 短声明。每种方式用在什么场景？int、float64、bool、string 等基本类型怎么用？一篇理清。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：变量声明与基本类型——三种写法一次搞懂",
+      "updateTime": "2026-07-22T10:41:02.433867",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-20T10:40:54",
+      "id": 133,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "\"从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。\"",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令",
+      "updateTime": "2026-07-22T10:40:54.833482",
       "viewCount": 0
     },
     {
@@ -23,6 +217,7 @@
       "id": 131,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。",
       "tags": [],
       "title": "Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试",
@@ -37,6 +232,7 @@
       "id": 130,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "深入讲解 Nginx valid_referers 模块的工作原理与配置方法，通过 referer 请求头校验实现图片、CSS、JS 等静态资源的防盗链，防止其他网站非法引用消耗你的带宽。",
       "tags": [],
       "title": "Nginx 防盗链配置实战：用 referer 模块保护网站静态资源",
@@ -51,6 +247,7 @@
       "id": 129,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "全面解析 Nginx rewrite 模块的语法规则、正则匹配、flag 标记及实战案例，教你如何将带参数的动态 URL 伪装成静态 HTML，提升网站 SEO 表现与用户体验。",
       "tags": [],
       "title": "Nginx 学习笔记：URL Rewrite 从入门到实战，让链接更优雅、更SEO友好",
@@ -65,6 +262,7 @@
       "id": 128,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "Nginx 负载均衡入门教程，从 upstream 配置到轮询、权重、IP Hash、Least Connections 等六大算法的配置与适用场景，并介绍 OpenResty + Lua、Consul 动态发现等企业级负载均衡方案思路，配合代码示例助你从基础到进阶全面理解。",
       "tags": [],
       "title": "Nginx 学习笔记：负载均衡配置教程，从基础算法到企业级动态方案",
@@ -79,6 +277,7 @@
       "id": 127,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "深入理解 Nginx 反向代理的核心原理与配置方法，通过实战案例掌握 proxy_pass 指令、URL 转发规则、请求头处理，以及解决代理过程中常见的 HTTPS 重定向问题。",
       "tags": [],
       "title": "Nginx 学习笔记：反向代理实战，从入门到配置详解",
@@ -93,6 +292,7 @@
       "id": 126,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。",
       "tags": [],
       "title": "Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战",
@@ -107,6 +307,7 @@
       "id": 125,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Nginx学习笔记",
       "summary": "从零开始，通过Docker快速搭建Nginx学习环境，深入理解Nginx核心配置参数与反向代理原理，适合初学者入门到精通的第一课。",
       "tags": [
         {
@@ -138,6 +339,7 @@
       "id": 124,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。",
       "tags": [],
       "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
@@ -152,6 +354,7 @@
       "id": 123,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。",
       "tags": [],
       "title": "PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合",
@@ -166,6 +369,7 @@
       "id": 122,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Redis学习笔记",
       "summary": "缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。",
       "tags": [],
       "title": "Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战",
@@ -180,6 +384,7 @@
       "id": 121,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Redis学习笔记",
       "summary": "Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。",
       "tags": [],
       "title": "Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证",
@@ -194,6 +399,7 @@
       "id": 120,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Redis学习笔记",
       "summary": "深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。",
       "tags": [],
       "title": "Redis学习笔记：Cluster 分片集群从原理到实战部署",
@@ -208,6 +414,7 @@
       "id": 119,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Redis学习笔记",
       "summary": "手把手带你基于Docker Compose搭建3节点Redis哨兵集群，从核心概念（SDOWN/ODOWN/Quorum/Tilt）到自动故障转移实验，再到DNS主机名坑点的完整解决方案。适合已掌握主从复制、想进一步实现高可用的开发者。",
       "tags": [],
       "title": "Redis学习笔记：哨兵集群实战，自动故障转移与高可用架构完整指南",
@@ -222,6 +429,7 @@
       "id": 118,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Redis学习笔记",
       "summary": "手把手教你用Docker Compose搭建Redis一主两从集群，详解主从配置、全量同步、增量同步、断线重连与读写分离。适合想深入理解Redis复制机制的开发者。",
       "tags": [],
       "title": "Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步",
@@ -236,6 +444,7 @@
       "id": 117,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。",
       "tags": [
         {
@@ -267,6 +476,7 @@
       "id": 116,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "深入剖析MySQL半同步复制的工作原理、与异步复制的核心区别，手把手带你完成插件安装、配置、超时降级测试与自动恢复验证，构建高可用、数据零丢失的数据库架构。",
       "tags": [
         {
@@ -294,6 +504,7 @@
       "id": 115,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "深入解析 MySQL GTID 复制的核心原理、与传统 File+Position 复制的优劣对比、详细配置步骤、故障切换实战，以及生产环境的最佳实践，帮助 DBA 和开发者构建高可用的 MySQL 集群架构。",
       "tags": [
         {
@@ -317,6 +528,7 @@
       "id": 114,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。",
       "tags": [
         {
@@ -344,6 +556,7 @@
       "id": 113,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "手把手教你集成 Druid 连接池到 Spring Boot 4 项目，涵盖依赖配置、连接池参数详解、监控控制台搭建，以及 Docker 部署踩坑实录。适合 Java 初学者入门数据库连接池。",
       "tags": [
         {
@@ -371,6 +584,7 @@
       "id": 112,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "MySQL学习笔记",
       "summary": "手把手教你用 Docker Compose 搭建 MySQL 8.0 主从复制集群，从复制原理（binlog、relay log、IO/SQL 线程）到完整部署步骤，含配置文件详解、复制用户创建、同步验证与常见问题，一篇掌握 MySQL 读写分离基础架构。",
       "tags": [],
       "title": "MySQL学习笔记：主从复制集群搭建以及原理详解",
@@ -385,6 +599,7 @@
       "id": 111,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "Resend 邮件服务的完整接入教程，涵盖免费额度（100 封/天）、域名 DKIM/SPF 配置、REST API 单发与组发，以及与 MailerLite 的对比分析。适合个人博客、小型项目的邮件通知场景。",
       "tags": [
         {
@@ -420,6 +635,7 @@
       "id": 72,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "KubeSphere学习笔记",
       "summary": "记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。",
       "tags": [],
       "title": "KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s",
@@ -434,6 +650,7 @@
       "id": 71,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Jenkins学习笔记",
       "summary": "从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。",
       "tags": [
         {
@@ -465,6 +682,7 @@
       "id": 70,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "KubeSphere学习笔记",
       "summary": "KubeSphere DevOps 模块从安装到流水线运行的完整实战记录，涵盖插件安装、凭证配置、代码仓库绑定、流水线创建及各种踩坑修复",
       "tags": [
         {
@@ -500,6 +718,7 @@
       "id": 69,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "Jenkins学习笔记",
       "summary": "从零开始，用 Docker 部署 Jenkins，完成初始化配置，并创建你的第一个 Pipeline 流水线任务，掌握 CI/CD 自动化构建基础。",
       "tags": [
         {
@@ -527,6 +746,7 @@
       "id": 68,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "KubeSphere学习笔记",
       "summary": "通过 KubeSphere 可视化平台在本地 Docker Desktop K8s 集群上完整部署 Nginx 网站的实战记录，涵盖 ConfigMap 配置管理、PVC 持久化存储、LoadBalancer 服务暴露、kubectl cp 文件上传及踩坑修复",
       "tags": [
         {
@@ -566,6 +786,7 @@
       "id": 67,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "无需付费即可替换 FinalShell 背景图片——通过修改 jar 包资源文件，绕过付费限制的完整操作步骤与踩坑记录。",
       "tags": [],
       "title": "FinalShell 自定义背景图片教程",
@@ -580,6 +801,7 @@
       "id": 66,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从零开始上手 openGauss 企业级开源数据库！本文详细介绍 Docker Compose 部署、gsql/psql 连接、IDEA 可视化配置及常用 SQL 操作，带你快速搭建国产数据库开发环境。",
       "tags": [
         {
@@ -615,6 +837,7 @@
       "id": 65,
       "isPinned": 0,
       "isPublished": 1,
+      "series": "KubeSphere学习笔记",
       "summary": "从零开始在 KubeSphere 上部署 MySQL，涵盖配置字典、持久卷声明、工作负载、LoadBalancer 外部访问等完整流程。",
       "tags": [
         {
@@ -650,6 +873,7 @@
       "id": 64,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "KubeSphere 完整入门教程，从 Helm 安装开始到 DevOps 插件配置。涵盖 K8s 环境检查、镜像超时排错（含 containerd 加速方案）、LoadBalancer 端口冲突解决、社区免费激活全流程，助你快速搭建 K8s 可视化管理平台。",
       "tags": [
         {
@@ -685,6 +909,7 @@
       "id": 63,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "Windows 下 Docker Desktop 启用 K8s 完整教程。从 K8s 基础概念到 kubectl 配置，再到 Nginx 部署访问，附 WSL 镜像网络配置与 kubeconfig 同步方案，适合初学者入门本地 Kubernetes 集群搭建与测试。",
       "tags": [
         {
@@ -716,6 +941,7 @@
       "id": 62,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从零开始，在 Windows 上搭建 WSL2 + Ubuntu + Docker Desktop 完整开发环境。涵盖 WSL 激活、Ubuntu 安装、Docker 配置、镜像加速、数据迁移、SSH 连接及开发工作流最佳实践，附性能对比与选型建议。",
       "tags": [
         {
@@ -743,6 +969,7 @@
       "id": 61,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": " Cloudflare Workers 日志功能完整教程。教你如何开启 Workers Logs、使用 console.log 结构化日志输出、通过 Dashboard 和 wrangler tail 实时查看日志、利用三个 API 接口程序化查询日志数据。免费额度每天 20 万条，附日志格式规范与最佳实践，帮你从零搭建 Worker 可观测体系。",
       "tags": [
         {
@@ -766,6 +993,7 @@
       "id": 60,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "在 MailerLite 免费计划下，通过保留 {$unsubscribe} 和品牌图片标记配合 CSS 隐藏，绕过平台强制注入退订链接与品牌广告，同时自建退订确认页实现完全自定义的退订流程。涵盖邮件模板改造、退订页开发、MailerLite API 双端删除、隐藏品牌标识的具体代码实现，适合用 MailerLite 发送 Newslette 的独立开发者参考。",
       "tags": [
         {
@@ -789,6 +1017,7 @@
       "id": 59,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "Bing 索引了页面却不在搜索结果中出现，因为爬虫拿到的 HTML 只有标题没有正文。一个成本几乎为零的改动，解决页面在搜索引擎中\"隐身\"的问题。",
       "tags": [
         {
@@ -816,6 +1045,7 @@
       "id": 58,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从零开始使用 Cloudflare Workers AI 为博客 Live2D 看板娘接入 AI 对话能力，涵盖产品选型、模型选择（Qwen3-30B-A3B）、Wrangler 配置、提示词设计、Token 分级管理、额度超限降级等完整实践。",
       "tags": [
         {
@@ -847,6 +1077,7 @@
       "id": 57,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "承接 Hotspot 功能篇，本文从技术视角完整拆解这款零成本热点追踪工具的底层实现逻辑。从整体轻量架构设计到 Playwright 浏览器自动化基座，从多维度反检测方案到流式回复稳定检测算法，从引用链接匹配机制到 JSON 双层容错解析，从 URL 三重验真体系到本地一键部署脚本，完整还原项目开发过程中的核心设计决策、技术方案选型与踩坑解决思路，适合想要自研同类 AI 自动化工具的开发者参考。",
       "tags": [
         {
@@ -874,6 +1105,7 @@
       "id": 56,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "针对社交热榜技术内容匮乏、搜索引擎信息杂乱的痛点，Hotspot 自动化技术热点追踪工具。基于 DeepSeek 免费网页版实现零成本搜索，支持多关键词批量处理、链接去重验真、时间排序与多视角观点提取，自动输出 JSON 与 HTML 双格式报告。",
       "tags": [
         {
@@ -901,6 +1133,7 @@
       "id": 55,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "基于实际项目经验的 MailerLite v2/v3 API 集成全记录，涵盖订阅者管理、Automation、Campaign 创建与发送、邮件模板、数据一致性校验等核心场景，以及 API 方案 vs 原生 RSS Campaign 的对比分析。",
       "tags": [
         {
@@ -932,6 +1165,7 @@
       "id": 54,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "为什么社交热榜TrendRadar无法满足程序员博客的内容需求？从数据源、过滤机制、适用场景三个角度对比分析，记录技术博客热点方案的选型过程。",
       "tags": [
         {
@@ -955,6 +1189,7 @@
       "id": 53,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "给自定义域名邮箱配置 Gravatar/Cravatar 头像，让每一封邮件都带上专属标识，无论发到哪都认得你。",
       "tags": [
         {
@@ -978,6 +1213,7 @@
       "id": 52,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "有了自己的域名放在 Cloudflare 后，你可以用它做什么——站点入口、邮箱身份、API 统一、品牌标识，以及域名作为数字资产的核心价值。",
       "tags": [
         {
@@ -1009,6 +1245,7 @@
       "id": 51,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从 Buttondown 迁移到 MailerLite 的完整教程：涵盖注册配置、自定义域名验证、订阅表单嵌入、分组管理、RSS 自动推送（免费）等核心功能，并附上与 Buttondown 的详细对比分析。",
       "tags": [
         {
@@ -1040,6 +1277,7 @@
       "id": 50,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从选型对比（MailChannels vs Resend vs MailerLite vs Buttondown）到域名配置、订阅表单嵌入、API 自动化推送，再到账户被锁、浏览器缓存踩坑，一篇覆盖 Newsletter 搭建全流程的实战记录。虽然最终选择了 MailerLite 作为主力方案，但 Buttondown 的探索过程同样有价值。",
       "tags": [
         {
@@ -1071,6 +1309,7 @@
       "id": 49,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "我的个人博客「栏轩阁」完全基于 Cloudflare 生态搭建后端：Workers 做运行时、D1 做数据库、Email Routing 做邮件系统、Workers AI 做看板娘对话。一篇覆盖架构设计、服务清单、真实体验与成本分析的全景式总结。",
       "tags": [
         {
@@ -1118,6 +1357,7 @@
       "id": 48,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "想让联系地址永远是你自己的域名，不受任何邮箱服务商绑架？本文手把手教你用 Cloudflare Email Routing 搭建私人邮件中转站，并借助 Worker + D1 实现邮件过滤、归档和动态路由，彻底掌控你的邮件数据。",
       "tags": [
         {
@@ -1145,6 +1385,7 @@
       "id": 47,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "不想自己搭后端，又想让评论数据握在自己手里？Giscus 看似完美：免费、无服务器、数据存 GitHub Discussions。但我用了一个月后，还是决定拆掉它。本文完整记录了从“一行 script 接入”到“因无法忍受而自建”的全过程——配置细节、样式定制、踩坑点、以及最终决策逻辑。如果你正在纠结评论方案，这篇能帮你省下至少一周的试错时间。",
       "tags": [
         {
@@ -1176,6 +1417,7 @@
       "id": 46,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "告别 Giscus 的样式局限与登录孤岛，用 Cloudflare Workers + GitHub App 打通 GitHub Discussions API，实现统一登录、自由样式、多账号体系兼容的评论区",
       "tags": [
         {
@@ -1211,6 +1453,7 @@
       "id": 45,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "为博客搭建统一的登录系统，用 GitHub OAuth 实现 GitHub 一键登录和账号密码登录，衔接自建评论系统",
       "tags": [
         {
@@ -1238,6 +1481,7 @@
       "id": 44,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "博客想加登录、评论、浏览量统计，却一直卡在“没有数据库”？Cloudflare D1 提供了免费的无服务器 SQLite 数据库，边缘节点毫秒级响应，免费额度足够个人博客挥霍。本文从建库、建表到登录接口实战，手把手带你搞定博客的后端基础设施。",
       "tags": [
         {
@@ -1269,6 +1513,7 @@
       "id": 43,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "传统爬虫发现新内容需要数天甚至数周。IndexNow 协议让你在发布、修改或删除文章的瞬间主动通知搜索引擎，收录耗时从几天压缩到几分钟。本文从需求场景出发，逐一拆解 Cloudflare Crawler Hints 一键开启、Bing IndexNow API 手动提交、Next.js 自动集成三种落地方式，并对比各自的优缺点与适用场景。",
       "tags": [
         {
@@ -1304,6 +1549,7 @@
       "id": 42,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "本文基于 Spring AI 1.1.2 + Redis + DashScope 构建的生产级 RAG 项目，完整拆解了从 PDF 文档解析、父子分层分段、向量化存储，到查询扩展、多库并发检索、上下文增强、LLM 流式生成的全链路实现。涵盖 MinerU 云端文档解析、HNSW 向量索引配置、父子分层分段策略、LLM 查询扩展、多存储并发检索、文档 ID 溯源等关键技术的实战经验，以及 5 个常见踩坑与解决方案。适合正在将 RAG 从 Demo 推向生产的技术团队参考。",
       "tags": [
         {
@@ -1335,6 +1581,7 @@
       "id": 41,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "用 Playwright 把 DeepSeek 网页版包装成 Anthropic Messages API 兼容的 HTTP 服务，让 Claude Code 可以直接把 DeepSeek 当后端模型使用——协议翻译、工具调用桥梁、PoW 绕过，三个环节拼出一个能跑的系统。",
       "tags": [
         {
@@ -1358,6 +1605,7 @@
       "id": 40,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "从 MinIO 本地管理迁移到 Cloudflare R2，利用免费额度搭建博客图床的完整指南，涵盖开通、建桶、自定义域名、CORS 配置、API 密钥及 Python SDK 上传。",
       "tags": [
         {
@@ -1385,6 +1633,7 @@
       "id": 39,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "详细介绍 Claude Code CLI 的安装、通过 CC Switch 中转接入 DeepSeek 模型的完整流程，以及在终端、VS Code、JetBrains 中的使用配置。",
       "tags": [
         {
@@ -1416,6 +1665,7 @@
       "id": 38,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "基于博客实际在用的生产级 Worker 脚本（约 270 行），围绕三个核心主题展开：并发拉取（pMapSerial 分片限流，30 天 × 6 维度数据逐天拉取汇总）、缓存策略（SHA-256 作为 POST 请求的缓存 key，Cache API + ctx.waitUntil 异步写入）、数据处理管线（从原始 GraphQL 响应到前端可直接消费的 JSON，涵盖缓存命中率计算、带宽换算、多维度分布汇总）。同时覆盖 wrangler 配置、CORS 处理、前端 TypeScript 类型定义与调用函数。适合已经掌握基础操作、想了解生产级 Worker 设计的读者。",
       "tags": [
         {
@@ -1443,6 +1693,7 @@
       "id": 37,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "介绍了三种获取 Cloudflare 网站流量数据的方式：Cloudflare 控制台直接查看（零代码）、GraphQL API 编程获取（Python 示例）、部署 Worker 作为数据中间层。涵盖 Zone ID 和 API Token 的获取、GraphQL 查询语句编写、API 维度说明（按天/按小时/按国家），以及通过 Wrangler 本地构建 Worker 的完整流程。适合首次接触 Cloudflare Analytics 的读者。",
       "tags": [
         {
@@ -1470,6 +1721,7 @@
       "id": 36,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "在阿里云购买域名，交给 Cloudflare 托管 DNS 并开启 CDN 加速，最后绑定到 GitHub Pages——手把手教你让你的博客拥有自定义域名，兼顾专业感与访问速度。全文涵盖域名购买、DNS 托管、解析配置、SSL 证书、性能优化及常见排错。",
       "tags": [
         {
@@ -1501,6 +1753,7 @@
       "id": 35,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "本教程将指导你如何将个人网站/博客提交到 Bing 搜索引擎，让 Bing 用户能够搜索到你的内容",
       "tags": [
         {
@@ -1524,6 +1777,7 @@
       "id": 33,
       "isPinned": 0,
       "isPublished": 1,
+      "series": null,
       "summary": "本教程将指导你完成 Codex 的安装，并通过 **CCX + CCSwitch** 将其接入 DeepSeek 等自定义 API。",
       "tags": [
         {

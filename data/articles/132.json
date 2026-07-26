@@ -7,14 +7,31 @@
   "id": 132,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 133,
+    "title": "Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令"
+  },
   "prev": {
     "id": 131,
     "title": "Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试"
   },
+  "series": null,
   "summary": "手把手教你安装 OpenAI Codex CLI，并通过 ccx 路由工具接入 DeepSeek 大模型，在终端、VS Code、JetBrains 中低成本使用 AI 编程助手，告别昂贵 API 账单。",
-  "tags": [],
+  "tags": [
+    {
+      "id": 23,
+      "name": "codex"
+    },
+    {
+      "id": 33,
+      "name": "VS Code"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
   "title": "Codex CLI 完全指南：安装配置与接入 DeepSeek 实战",
-  "updateTime": "2026-07-21T08:22:01.695366",
+  "updateTime": "2026-07-26T13:06:55.170262",
   "viewCount": 0
 }

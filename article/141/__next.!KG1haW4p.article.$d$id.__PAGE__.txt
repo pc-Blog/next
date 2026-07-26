@@ -1,0 +1,191 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:Tf7c,## 一、什么是 Wails
+
+Wails 是一个 Go 桌面应用框架。**用 Go 写后端逻辑，用 HTML/CSS/JS（Vue/React）写界面**，打包成一个桌面软件。
+
+对比 Electron：
+
+| 对比项 | Wails | Electron |
+|:-------|:------|:---------|
+| 打包大小 | ~5-15 MB | ~150 MB+ |
+| 内存占用 | ~30-50 MB | ~200 MB+ |
+| 后端语言 | Go | Node.js |
+| 前端技术 | Vue/React/任意 | 任意 |
+
+---
+
+## 二、环境要求
+
+| 依赖 | 要求 | 作用 |
+|:-----|:-----|:------|
+| **Go** | 1.25+ | 编译后端代码 |
+| **Node.js** | 18+ | 构建前端界面 |
+| **WebView2** | Windows 11 自带 | 渲染界面（浏览器内核） |
+
+查看版本：
+
+```bash
+go version      # 需要 1.25+
+node --version  # 需要 18+
+npm --version
+```
+
+---
+
+## 三、安装 Wails CLI
+
+```bash
+go install github.com/wailsapp/wails/v2/cmd/wails@latest
+```
+
+装完后验证：
+
+```bash
+wails version   # v2.13.0
+```
+
+> ⚠️ 如果终端提示找不到命令，检查 `$GOPATH/bin`（Windows 上通常是 `C:\Users\用户名\go\bin` 或自定义的 GOPATH）是否在系统 PATH 里。
+>
+> Windows 添加 PATH 步骤：系统属性 → 环境变量 → Path 编辑 → 新增 `D:\你的GOPATH\bin`
+
+---
+
+## 四、创建项目
+
+```bash
+wails init -n myapp -t vue
+```
+
+参数说明：
+
+| 参数 | 含义 | 可选值 |
+|:-----|:------|:-------|
+| `-n` | 项目名 | 任意 |
+| `-t` | 前端模板 | `vue` / `react` / `svelte` / `vanilla` |
+
+生成的项目结构：
+
+```
+myapp/
+├── main.go          ← Go 程序入口
+├── app.go           ← 绑定给前端的 Go 方法
+├── wails.json       ← Wails 项目配置
+├── go.mod / go.sum  ← Go 依赖
+├── frontend/        ← 前端界面（Vue 3 + Vite）
+│   ├── src/
+│   ├── index.html
+│   └── package.json
+└── build/           ← 打包资源（图标等）
+```
+
+---
+
+## 五、运行项目
+
+```bash
+cd myapp
+wails dev
+```
+
+启动过程：
+
+```
+1. go mod tidy              ← 整理 Go 依赖
+2. Generating bindings      ← 生成前后端绑定代码
+3. Installing frontend      ← npm install 装前端依赖
+4. Compiling frontend       ← Vite 构建前端
+5. Compiling application    ← Go 编译后端
+6. WebView2 Environment     ← 弹出桌面窗口
+```
+
+首次运行需要下载依赖，大约 2-3 分钟。
+
+---
+
+## 六、核心文件：app.go
+
+`app.go` 是前后端之间的桥梁：
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+)
+
+type App struct {
+    ctx context.Context
+}
+
+func NewApp() *App {
+    return &App{}
+}
+
+func (a *App) startup(ctx context.Context) {
+    a.ctx = ctx
+}
+
+// Greet 这个方法会被暴露给前端
+// 前端可以直接调用 App.Greet("pc")
+func (a *App) Greet(name string) string {
+    return fmt.Sprintf("Hello %s, It's show time!", name)
+}
+```
+
+前端 Vue 组件中调用：
+
+```js
+import { Greet } from '../wailsjs/go/main/App'
+
+// 调用 Go 方法，就像调用普通 JS 函数
+const result = await Greet("pc")
+console.log(result) // "Hello pc, It's show time!"
+```
+
+---
+
+## 七、开发与构建命令
+
+| 命令 | 用途 |
+|:-----|:------|
+| `wails dev` | 开发模式，支持热重载 |
+| `wails build` | 打包为可执行文件 |
+| `wails init` | 创建新项目 |
+
+---
+
+## 八、常见问题
+
+### 问题：`go run main.go` 报错
+
+Wails 项目不能用 `go run main.go` 运行，必须用 `wails dev` 或 `wails build`。
+
+### 问题：`wails` 命令找不到
+
+Go 安装的二进制文件在 `$GOPATH/bin` 目录下，需要把该目录添加到系统 PATH 环境变量。
+
+### 问题：首次 `wails dev` 卡住
+
+通常是 `npm install` 下载前端依赖较慢。可以取消后手动在 `frontend` 目录下执行 `npm install`。
+
+---
+
+## 九、小结
+
+| 步骤 | 命令 |
+|:-----|:------|
+| 安装 Wails | `go install github.com/wailsapp/wails/v2/cmd/wails@latest` |
+| 创建项目 | `wails init -n myapp -t vue` |
+| 运行开发模式 | `wails dev` |
+| 打包发布 | `wails build` |
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口\",\"item\":\"https://www.lxpavilion.top/article/141\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口\",\"headline\":\"Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口\",\"description\":\"Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。\",\"datePublished\":\"2026-07-23T10:43:10\",\"dateCreated\":\"2026-07-23T10:43:10\",\"dateModified\":\"2026-07-22T10:43:10.058024\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6hHSydJaX_dsXimxV-VUn"}
+3:{"id":"141"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

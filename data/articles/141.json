@@ -1,0 +1,26 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "## 一、什么是 Wails\n\nWails 是一个 Go 桌面应用框架。**用 Go 写后端逻辑，用 HTML/CSS/JS（Vue/React）写界面**，打包成一个桌面软件。\n\n对比 Electron：\n\n| 对比项 | Wails | Electron |\n|:-------|:------|:---------|\n| 打包大小 | ~5-15 MB | ~150 MB+ |\n| 内存占用 | ~30-50 MB | ~200 MB+ |\n| 后端语言 | Go | Node.js |\n| 前端技术 | Vue/React/任意 | 任意 |\n\n---\n\n## 二、环境要求\n\n| 依赖 | 要求 | 作用 |\n|:-----|:-----|:------|\n| **Go** | 1.25+ | 编译后端代码 |\n| **Node.js** | 18+ | 构建前端界面 |\n| **WebView2** | Windows 11 自带 | 渲染界面（浏览器内核） |\n\n查看版本：\n\n```bash\ngo version      # 需要 1.25+\nnode --version  # 需要 18+\nnpm --version\n```\n\n---\n\n## 三、安装 Wails CLI\n\n```bash\ngo install github.com/wailsapp/wails/v2/cmd/wails@latest\n```\n\n装完后验证：\n\n```bash\nwails version   # v2.13.0\n```\n\n> ⚠️ 如果终端提示找不到命令，检查 `$GOPATH/bin`（Windows 上通常是 `C:\\Users\\用户名\\go\\bin` 或自定义的 GOPATH）是否在系统 PATH 里。\n>\n> Windows 添加 PATH 步骤：系统属性 → 环境变量 → Path 编辑 → 新增 `D:\\你的GOPATH\\bin`\n\n---\n\n## 四、创建项目\n\n```bash\nwails init -n myapp -t vue\n```\n\n参数说明：\n\n| 参数 | 含义 | 可选值 |\n|:-----|:------|:-------|\n| `-n` | 项目名 | 任意 |\n| `-t` | 前端模板 | `vue` / `react` / `svelte` / `vanilla` |\n\n生成的项目结构：\n\n```\nmyapp/\n├── main.go          ← Go 程序入口\n├── app.go           ← 绑定给前端的 Go 方法\n├── wails.json       ← Wails 项目配置\n├── go.mod / go.sum  ← Go 依赖\n├── frontend/        ← 前端界面（Vue 3 + Vite）\n│   ├── src/\n│   ├── index.html\n│   └── package.json\n└── build/           ← 打包资源（图标等）\n```\n\n---\n\n## 五、运行项目\n\n```bash\ncd myapp\nwails dev\n```\n\n启动过程：\n\n```\n1. go mod tidy              ← 整理 Go 依赖\n2. Generating bindings      ← 生成前后端绑定代码\n3. Installing frontend      ← npm install 装前端依赖\n4. Compiling frontend       ← Vite 构建前端\n5. Compiling application    ← Go 编译后端\n6. WebView2 Environment     ← 弹出桌面窗口\n```\n\n首次运行需要下载依赖，大约 2-3 分钟。\n\n---\n\n## 六、核心文件：app.go\n\n`app.go` 是前后端之间的桥梁：\n\n```go\npackage main\n\nimport (\n    \"context\"\n    \"fmt\"\n)\n\ntype App struct {\n    ctx context.Context\n}\n\nfunc NewApp() *App {\n    return &App{}\n}\n\nfunc (a *App) startup(ctx context.Context) {\n    a.ctx = ctx\n}\n\n// Greet 这个方法会被暴露给前端\n// 前端可以直接调用 App.Greet(\"pc\")\nfunc (a *App) Greet(name string) string {\n    return fmt.Sprintf(\"Hello %s, It's show time!\", name)\n}\n```\n\n前端 Vue 组件中调用：\n\n```js\nimport { Greet } from '../wailsjs/go/main/App'\n\n// 调用 Go 方法，就像调用普通 JS 函数\nconst result = await Greet(\"pc\")\nconsole.log(result) // \"Hello pc, It's show time!\"\n```\n\n---\n\n## 七、开发与构建命令\n\n| 命令 | 用途 |\n|:-----|:------|\n| `wails dev` | 开发模式，支持热重载 |\n| `wails build` | 打包为可执行文件 |\n| `wails init` | 创建新项目 |\n\n---\n\n## 八、常见问题\n\n### 问题：`go run main.go` 报错\n\nWails 项目不能用 `go run main.go` 运行，必须用 `wails dev` 或 `wails build`。\n\n### 问题：`wails` 命令找不到\n\nGo 安装的二进制文件在 `$GOPATH/bin` 目录下，需要把该目录添加到系统 PATH 环境变量。\n\n### 问题：首次 `wails dev` 卡住\n\n通常是 `npm install` 下载前端依赖较慢。可以取消后手动在 `frontend` 目录下执行 `npm install`。\n\n---\n\n## 九、小结\n\n| 步骤 | 命令 |\n|:-----|:------|\n| 安装 Wails | `go install github.com/wailsapp/wails/v2/cmd/wails@latest` |\n| 创建项目 | `wails init -n myapp -t vue` |\n| 运行开发模式 | `wails dev` |\n| 打包发布 | `wails build` |\n",
+  "coverImage": "/data/media/708.png",
+  "createdAt": "2026-07-23T10:43:10",
+  "id": 141,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": null,
+  "prev": {
+    "id": 140,
+    "title": "Go学习笔记：接口与面向接口编程——Go 最核心的设计"
+  },
+  "series": "Go学习笔记",
+  "summary": "Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。",
+  "tags": [
+    {
+      "id": 79,
+      "name": "Go"
+    }
+  ],
+  "title": "Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口",
+  "updateTime": "2026-07-22T10:43:10.058024",
+  "viewCount": 0
+}

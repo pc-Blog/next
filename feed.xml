@@ -8,13 +8,105 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口]]></title>
+      <link>https://www.lxpavilion.top/article/141/</link>
+      <guid>https://www.lxpavilion.top/article/141/</guid>
+      <pubDate>Thu, 23 Jul 2026 10:43:10 GMT</pubDate>
+      <description><![CDATA[Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：错误处理——没有异常，只有 error]]></title>
+      <link>https://www.lxpavilion.top/article/137/</link>
+      <guid>https://www.lxpavilion.top/article/137/</guid>
+      <pubDate>Wed, 22 Jul 2026 10:42:50 GMT</pubDate>
+      <description><![CDATA["Go 没有 try-catch，错误就是普通的值。本文从哨兵错误、自定义错误类型、错误包装到实战模式，讲透 Go 的错误处理哲学。"]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：并发编程，Go 的王牌特性]]></title>
+      <link>https://www.lxpavilion.top/article/136/</link>
+      <guid>https://www.lxpavilion.top/article/136/</guid>
+      <pubDate>Wed, 22 Jul 2026 10:42:46 GMT</pubDate>
+      <description><![CDATA[goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序]]></title>
+      <link>https://www.lxpavilion.top/article/135/</link>
+      <guid>https://www.lxpavilion.top/article/135/</guid>
+      <pubDate>Wed, 22 Jul 2026 10:42:43 GMT</pubDate>
+      <description><![CDATA[Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：接口与面向接口编程——Go 最核心的设计]]></title>
+      <link>https://www.lxpavilion.top/article/140/</link>
+      <guid>https://www.lxpavilion.top/article/140/</guid>
+      <pubDate>Tue, 21 Jul 2026 10:43:06 GMT</pubDate>
+      <description><![CDATA[接口是 Go 类型系统的核心。隐式实现、接口组合、类型断言、空接口 any——学会接口你就学会了 Go 的一半。本文用大量实战例子（包括 Git Cloud Drive 的存储接口）讲透接口。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：函数与控制流——多返回值、for 与 if 的独特语法]]></title>
+      <link>https://www.lxpavilion.top/article/139/</link>
+      <guid>https://www.lxpavilion.top/article/139/</guid>
+      <pubDate>Tue, 21 Jul 2026 10:42:57 GMT</pubDate>
+      <description><![CDATA["Go 的函数支持多返回值、命名返回值，控制流只有 for 没有 while——这些设计让代码更简洁。本文用大量示例带你熟悉 Go 的函数和控制流语法。"]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针]]></title>
+      <link>https://www.lxpavilion.top/article/138/</link>
+      <guid>https://www.lxpavilion.top/article/138/</guid>
+      <pubDate>Tue, 21 Jul 2026 10:42:52 GMT</pubDate>
+      <description><![CDATA["从数组到切片、从 Map 到结构体，再到 Go 的指针哲学。数组定长、切片灵活、Map 键值查询、struct 组织数据——一次搞懂 Go 的复合数据类型。"]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Codex CLI 完全指南：安装配置与接入 DeepSeek 实战]]></title>
       <link>https://www.lxpavilion.top/article/132/</link>
       <guid>https://www.lxpavilion.top/article/132/</guid>
       <pubDate>Tue, 21 Jul 2026 08:21:56 GMT</pubDate>
       <description><![CDATA[手把手教你安装 OpenAI Codex CLI，并通过 ccx 路由工具接入 DeepSeek 大模型，在终端、VS Code、JetBrains 中低成本使用 AI 编程助手，告别昂贵 API 账单。]]></description>
       <category>技术教程</category>
-      
+      <tag>codex</tag>
+      <tag>VS Code</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：变量声明与基本类型——三种写法一次搞懂]]></title>
+      <link>https://www.lxpavilion.top/article/134/</link>
+      <guid>https://www.lxpavilion.top/article/134/</guid>
+      <pubDate>Mon, 20 Jul 2026 10:41:02 GMT</pubDate>
+      <description><![CDATA[Go 的变量声明有三种方式：var + 类型、var 类型推断、:= 短声明。每种方式用在什么场景？int、float64、bool、string 等基本类型怎么用？一篇理清。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令]]></title>
+      <link>https://www.lxpavilion.top/article/133/</link>
+      <guid>https://www.lxpavilion.top/article/133/</guid>
+      <pubDate>Mon, 20 Jul 2026 10:40:54 GMT</pubDate>
+      <description><![CDATA["从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。"]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
       <author>ppc</author>
     </item>
     <item>
@@ -118,106 +210,6 @@
       <description><![CDATA[缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。]]></description>
       <category>学习笔记</category>
       
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证]]></title>
-      <link>https://www.lxpavilion.top/article/121/</link>
-      <guid>https://www.lxpavilion.top/article/121/</guid>
-      <pubDate>Wed, 15 Jul 2026 22:57:22 GMT</pubDate>
-      <description><![CDATA[Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Redis学习笔记：Cluster 分片集群从原理到实战部署]]></title>
-      <link>https://www.lxpavilion.top/article/120/</link>
-      <guid>https://www.lxpavilion.top/article/120/</guid>
-      <pubDate>Wed, 15 Jul 2026 17:49:40 GMT</pubDate>
-      <description><![CDATA[深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Redis学习笔记：哨兵集群实战，自动故障转移与高可用架构完整指南]]></title>
-      <link>https://www.lxpavilion.top/article/119/</link>
-      <guid>https://www.lxpavilion.top/article/119/</guid>
-      <pubDate>Wed, 15 Jul 2026 15:43:35 GMT</pubDate>
-      <description><![CDATA[手把手带你基于Docker Compose搭建3节点Redis哨兵集群，从核心概念（SDOWN/ODOWN/Quorum/Tilt）到自动故障转移实验，再到DNS主机名坑点的完整解决方案。适合已掌握主从复制、想进一步实现高可用的开发者。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Redis学习笔记：主从集群搭建实战，从零掌握读写分离与数据同步]]></title>
-      <link>https://www.lxpavilion.top/article/118/</link>
-      <guid>https://www.lxpavilion.top/article/118/</guid>
-      <pubDate>Wed, 15 Jul 2026 13:13:09 GMT</pubDate>
-      <description><![CDATA[手把手教你用Docker Compose搭建Redis一主两从集群，详解主从配置、全量同步、增量同步、断线重连与读写分离。适合想深入理解Redis复制机制的开发者。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Mysql学习笔记：InnoDB Cluster 集群从零搭建实战，基于 Docker 实现高可用读写分离架构]]></title>
-      <link>https://www.lxpavilion.top/article/117/</link>
-      <guid>https://www.lxpavilion.top/article/117/</guid>
-      <pubDate>Sat, 11 Jul 2026 12:02:13 GMT</pubDate>
-      <description><![CDATA[本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Mysql</tag>
-      <tag>集群</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Mysql学习笔记：半同步复制深度解析，原理到实战，彻底解决主从数据一致性问题]]></title>
-      <link>https://www.lxpavilion.top/article/116/</link>
-      <guid>https://www.lxpavilion.top/article/116/</guid>
-      <pubDate>Sat, 11 Jul 2026 08:54:42 GMT</pubDate>
-      <description><![CDATA[深入剖析MySQL半同步复制的工作原理、与异步复制的核心区别，手把手带你完成插件安装、配置、超时降级测试与自动恢复验证，构建高可用、数据零丢失的数据库架构。]]></description>
-      <category>学习笔记</category>
-      <tag>Docker</tag>
-      <tag>Mysql</tag>
-      <tag>集群</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点]]></title>
-      <link>https://www.lxpavilion.top/article/115/</link>
-      <guid>https://www.lxpavilion.top/article/115/</guid>
-      <pubDate>Fri, 10 Jul 2026 15:42:17 GMT</pubDate>
-      <description><![CDATA[深入解析 MySQL GTID 复制的核心原理、与传统 File+Position 复制的优劣对比、详细配置步骤、故障切换实战，以及生产环境的最佳实践，帮助 DBA 和开发者构建高可用的 MySQL 集群架构。]]></description>
-      <category>学习笔记</category>
-      <tag>Mysql</tag>
-      <tag>集群</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[MySQL学习笔记：Druid连接池进阶——防火墙、慢SQL日志、多数据源与生产调优]]></title>
-      <link>https://www.lxpavilion.top/article/114/</link>
-      <guid>https://www.lxpavilion.top/article/114/</guid>
-      <pubDate>Fri, 10 Jul 2026 14:32:53 GMT</pubDate>
-      <description><![CDATA[深入 Druid 连接池高级功能实战：WallFilter SQL 防火墙配置与 9 个测试用例验证、慢 SQL 独立日志文件输出、MySQL 主从多数据源统一监控、生产环境核心参数调优公式与场景配置。]]></description>
-      <category>学习笔记</category>
-      <tag>Mysql</tag>
-      <tag>Druid</tag>
-      <tag>Spring Boot</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[MySQL学习笔记：Druid连接池基础教程——从入门到监控实战]]></title>
-      <link>https://www.lxpavilion.top/article/113/</link>
-      <guid>https://www.lxpavilion.top/article/113/</guid>
-      <pubDate>Fri, 10 Jul 2026 14:32:17 GMT</pubDate>
-      <description><![CDATA[手把手教你集成 Druid 连接池到 Spring Boot 4 项目，涵盖依赖配置、连接池参数详解、监控控制台搭建，以及 Docker 部署踩坑实录。适合 Java 初学者入门数据库连接池。]]></description>
-      <category>学习笔记</category>
-      <tag>Mysql</tag>
-      <tag>Druid</tag>
-      <tag>Spring Boot</tag>
       <author>ppc</author>
     </item>
   </channel>

@@ -1,0 +1,29 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "## 一、Go 的项目结构\n\nGo 的项目结构经历了两代：**GOPATH 模式**（旧）和 **Go Modules 模式**（新，现在用的）。\n\n### 1.1 GOPATH 模式（了解即可）\n\n早期 Go 的所有项目都必须放在 `$GOPATH/src` 下。`GOPATH` 默认是 `$HOME/go`（Linux/Mac）或 `C:\\Users\\用户名\\go`（Windows）。\n\n```\n$GOPATH/\n├── src/    ← 源代码放在这里\n├── pkg/    ← 编译后的包\n└── bin/    ← 编译后的可执行文件\n```\n\n查看当前的 GOPATH：\n\n```bash\ngo env GOPATH\n```\n\n### 1.2 Go Modules 模式（现代方式）\n\n从 Go 1.11 开始引入，**Go 1.16 起默认开启**。你不再需要把项目放在 GOPATH 下，任何目录都可以是一个 Go 项目。\n\n每个 Go 项目就是一个**模块（Module）**，模块根目录下必须有 `go.mod` 文件。\n\n---\n\n## 二、依赖管理：go.mod 和 go.sum\n\n### 2.1 go.mod — 模块定义文件\n\n类似于 Node.js 的 `package.json`，但更简洁。用 `go mod init` 创建：\n\n```bash\ngo mod init 项目名\n```\n\n生成的 `go.mod` 示例：\n\n```\nmodule gotest        ← 模块名\n\ngo 1.24              ← Go 版本\n\nrequire (            ← 依赖的第三方包\n    github.com/xxx v1.2.3\n)\n```\n\n### 2.2 go.sum — 依赖锁文件\n\n类似于 `package-lock.json` 或 `yarn.lock`。**不要手动编辑**，由 Go 自动维护。\n\n作用：\n- 记录每个依赖包的哈希值\n- 确保每次下载的依赖内容一致\n- 防止依赖被篡改\n\n### 2.3 常用依赖命令\n\n```bash\n# 添加依赖（在代码中 import 后，go mod tidy 会自动下载）\ngo mod tidy            # 整理依赖：添加需要的，移除没用的\n\n# 查看依赖\ngo list -m all         # 列出所有依赖\n\n# 下载依赖到本地缓存\ngo mod download\n\n# 将依赖复制到 vendor 目录（可选，类似于 node_modules）\ngo mod vendor\n```\n\n---\n\n## 三、GoLand 创建项目的三种模式\n\n创建项目时会看到三个选项：\n\n| 模式 | 说明 | 什么时候用 |\n|:-----|:------|:----------|\n| **Go** | 普通的 Go 项目，**使用 Go Modules**，最常用 | ✅ 默认选择 |\n| **Go (GOPATH)** | 老式 GOPATH 模式项目 | ❌ 除非维护老项目 |\n| **App Engine** | Google App Engine 专用 | ❌ 几乎用不到 |\n\n**现在一律选第一个「Go」模式**，它自动启用 Go Modules。\n\n---\n\n## 四、最简单的代码结构\n\n一个最小的 Go 项目：\n\n```\nmyapp/\n├── go.mod        ← go mod init 生成\n└── main.go       ← 入口文件\n```\n\n```go\n// main.go — 最简单的 Go 程序\npackage main      // 可执行程序必须用 package main\n\nimport \"fmt\"      // 标准库：格式化输入输出\n\nfunc main() {     // 程序入口\n    fmt.Println(\"Hello, Go!\")\n}\n```\n\n---\n\n## 五、常用运行命令\n\n```bash\n# 直接运行（编译 + 运行，不生成文件）\ngo run main.go\n\n# 编译为可执行文件\ngo build          # 生成 .exe（Windows）或 可执行文件（Linux/Mac）\n\n# 编译并安装到 GOBIN 目录\ngo install\n\n# 格式化代码（Go 官方标准）\ngofmt -l .        # 检查格式\ngofmt -w .        # 自动修正格式\n\n# 静态检查\ngo vet ./...      # 检查代码中可能的 bug\n\n# 查看环境信息\ngo env            # 打印所有环境变量\ngo version        # 查看 Go 版本\n```\n\n### run vs build 区别\n\n| 命令 | 作用 | 生成文件 |\n|:-----|:-----|:--------|\n| `go run` | 编译并运行，适合开发调试 | ❌ 不生成 |\n| `go build` | 编译为可执行文件 | ✅ 生成 |\n| `go install` | 编译并安装到 `GOBIN` | ✅ 安装到全局 |\n\n---\n\n## 六、小结\n\n| 知识点 | 一句话 |\n|:-------|:-------|\n| GOPATH | 旧的项目组织方式，默认 `~/go` |\n| Go Modules | 现在的标准，任何目录都能当项目 |\n| go.mod | 项目身份证，类似 package.json |\n| go.sum | 依赖锁文件，自动维护 |\n| go run | 直接跑代码 |\n| go build | 编译出可执行文件 |\n",
+  "coverImage": "/data/media/708.png",
+  "createdAt": "2026-07-20T10:40:54",
+  "id": 133,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 134,
+    "title": "Go学习笔记：变量声明与基本类型——三种写法一次搞懂"
+  },
+  "prev": {
+    "id": 132,
+    "title": "Codex CLI 完全指南：安装配置与接入 DeepSeek 实战"
+  },
+  "series": "Go学习笔记",
+  "summary": "\"从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。\"",
+  "tags": [
+    {
+      "id": 79,
+      "name": "Go"
+    }
+  ],
+  "title": "Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令",
+  "updateTime": "2026-07-22T10:40:54.833482",
+  "viewCount": 0
+}

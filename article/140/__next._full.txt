@@ -1,0 +1,470 @@
+1:"$Sreact.fragment"
+2:I[726908,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+4:I[222464,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+5:I[3799,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+6:I[956499,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+7:I[261421,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+8:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+9:I[837457,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+14:I[168027,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0pfaim.snoah2.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","140",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","140","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0h.wixd5qyz0z.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0ducef1ee~grw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0i.l9589uvx0j.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0dt9cnwomqq_u.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6hHSydJaX_dsXimxV-VUn"}
+17:I[706521,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+18:I[608123,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+19:I[418233,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1a:I[834858,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1b:I[523191,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/10r0_-nju~-2e.js"],"default"]
+1c:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"LoadingBoundaryProvider"]
+23:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ViewportBoundary"]
+29:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0ka02ds2ffr_2.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/10r0_-nju~-2e.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+2d:T26e1,## 一、什么是接口
+
+**接口（interface）定义了一组方法签名（方法名、参数、返回值）**。任何类型只要实现了这些方法，就自动"隐式"满足了这个接口。
+
+这是 Go 和 Java/C# 最大的不同——**不需要写 `implements`**。
+
+```go
+// 定义一个接口
+type Speaker interface {
+    Speak() string
+}
+
+// Dog 和 Cat 都没写 "implements Speaker"
+// 但只要有 Speak() 方法，它们就是 Speaker
+
+type Dog struct{ Name string }
+func (d Dog) Speak() string { return "汪汪！我是 " + d.Name }
+
+type Cat struct{ Name string }
+func (c Cat) Speak() string { return "喵~ 我是 " + c.Name }
+```
+
+### 接口怎么用？
+
+```go
+// 接受接口参数的函数：任何 Speaker 都能传进来
+func greet(s Speaker) {
+    fmt.Println(s.Speak())
+}
+
+greet(Dog{Name: "旺财"})   // 汪汪！我是 旺财
+greet(Cat{Name: "咪咪"})   // 喵~ 我是 咪咪
+```
+
+`greet` 函数**不关心传进来的是狗还是猫**，只关心它能不能 `Speak()`。这就是**面向接口编程**。
+
+---
+
+## 二、隐式实现（Duck Typing）
+
+Go 的接口实现是**隐式的**——类型不需要声明实现了哪个接口。
+
+```go
+// 不需要像 Java 这样写：
+// class Dog implements Speaker { ... }
+
+// Go：类型有了对应的方法，自动就实现了
+// 编译时检查，没实现就通不过编译
+```
+
+这就是经典的**鸭子类型**：如果一个东西走起来像鸭子、叫起来像鸭子，那它就是鸭子。
+
+```go
+var s Speaker
+s = Dog{Name: "旺财"}  // ✅ Dog 有 Speak()，编译通过
+// s = Robot{}          // ❌ Robot 没有 Speak()，编译错误
+```
+
+---
+
+## 三、接口匹配规则——必须是"复制粘贴"级别的一致
+
+### 3.1 匹配条件
+
+一个类型要实现接口，**方法名、参数类型、返回值类型必须完全一致**：
+
+```go
+type Speaker interface {
+    Speak() string
+}
+```
+
+下面这些**都实现不了** Speaker：
+
+```go
+// ❌ 返回值不同
+func (d Dog) Speak() {
+    fmt.Println("汪汪")
+}
+
+// ❌ 参数不同
+func (d Dog) Speak(volume int) string {
+    return "汪汪"
+}
+
+// ❌ 方法名不同
+func (d Dog) Bark() string {
+    return "汪汪"
+}
+
+// ✅ 完全匹配
+func (d Dog) Speak() string {
+    return "汪汪"
+}
+```
+
+### 3.2 匹配规则表
+
+| 条件 | 要求 |
+|:-----|:------|
+| **方法名** | 必须一模一样 |
+| **参数类型** | 个数、顺序、类型都必须一致 |
+| **返回值类型** | 个数、顺序、类型都必须一致 |
+| **参数名** | **不要求**，只看类型 |
+
+重点是最后一条——**参数名不影响匹配**：
+
+```go
+type Speaker interface {
+    Speak(message string) string
+}
+
+// 参数名叫 msg 也可以，不一定要叫 message
+func (d Dog) Speak(msg string) string {
+    return msg
+}
+
+// 只看类型：(string) string 对上了 ✅
+```
+
+> 💡 接口规定的是"签名形状"（signature），不是"参数名字"。
+
+---
+
+## 四、类型断言
+
+有了接口后，有时候需要**把接口还原为原始类型**。这叫类型断言。
+
+```go
+var s Speaker = Dog{Name: "旺财"}
+
+// 语法：s.(类型)
+dog := s.(Dog)           // 从接口中取出 Dog
+fmt.Println(dog.Name)    // 现在可以访问 Dog 特有的字段了
+```
+
+### 安全的断言（带 ok）
+
+```go
+// 不带 ok：如果猜错了，程序会 panic（崩溃）
+// dog := s.(Cat)   // ❌ panic！
+
+// 带 ok：安全，猜错也不会崩溃
+cat, ok := s.(Cat)
+if ok {
+    fmt.Println("是猫:", cat.Name)
+} else {
+    fmt.Println("不是猫")
+}
+```
+
+---
+
+## 四、类型 switch
+
+Go 为类型断言提供了专门的 switch 语法：**`switch v := x.(type)`**
+
+这在需要根据接口的**实际类型**做不同处理时非常有用。
+
+```go
+func describe(s Speaker) {
+    switch v := s.(type) {
+    case Dog:
+        fmt.Printf("🐕 狗，名字: %s\n", v.Name)
+    case Cat:
+        fmt.Printf("🐈 猫，名字: %s\n", v.Name)
+    default:
+        fmt.Println("❓ 未知类型")
+    }
+}
+```
+
+### 类型 switch 的特点
+
+| 特性 | 说明 |
+|:-----|:------|
+| `v := x.(type)` | 特殊写法，只能在 switch 中使用 |
+| `case Dog:` | 匹配具体类型 |
+| `default:` | 兜底 |
+| 变量 `v` | 在每个 case 中自动转换为对应类型 |
+
+### 与普通 switch 的区别
+
+```go
+// 普通 switch：匹配值
+switch x {
+case 1: ...
+case 2: ...
+}
+
+// 类型 switch：匹配类型
+switch v := x.(type) {
+case int:    fmt.Println("整数:", v)
+case string: fmt.Println("字符串:", v)
+}
+```
+
+> 💡 每个 case 里的 `v` 自动变成了对应的类型，不需要再做类型断言。
+
+---
+
+## 六、空接口 / any
+
+**空接口**就是没有任何方法要求的接口，所以**任何类型**都实现了它：
+
+```go
+// 两种写法等价
+var v1 interface{}
+var v2 any      // Go 1.18+ 推荐用 any
+```
+
+```go
+func printValue(v any) {
+    fmt.Printf("值: %v, 类型: %T\n", v, v)
+}
+
+printValue(42)          // 值: 42, 类型: int
+printValue("hello")     // 值: hello, 类型: string
+printValue(3.14)        // 值: 3.14, 类型: float64
+printValue(Dog{})       // 值: {}, 类型: main.Dog
+```
+
+### 什么时候用 any
+
+- 日志记录、序列化等需要处理任意类型的场景
+- 容器类型（如 `json.Marshal` 接受 `any`）
+- **不要滥用**——能用具体接口就用具体接口，用 `any` 会失去编译时类型检查
+
+---
+
+## 七、接口嵌套（组合）
+
+Go 的接口可以通过**嵌套**来组合多个接口：
+
+```go
+type Speaker interface { Speak() string }
+type Runner  interface { Run() string }
+
+// 组合成新的接口
+type Animal interface {
+    Speaker
+    Runner
+}
+```
+
+Go 推荐**组合（composition）**而不是继承（inheritance）。小接口组合成大接口，比一个大而全的接口更灵活。
+
+```go
+// 只依赖 Speaker 的函数
+func greet(s Speaker) { ... }
+
+// 只依赖 Runner 的函数
+func race(r Runner) { ... }
+
+// 需要两者
+func show(a Animal) {
+    fmt.Println(a.Speak())
+    fmt.Println(a.Run())
+}
+```
+
+---
+
+## 八、接口值的本质
+
+一个接口变量在底层存的是两个东西：
+
+```
+┌─────────────┐
+│  类型指针   │  ← 存着原始类型（Dog / Cat / ...）
+│  值指针     │  ← 存着原始值
+└─────────────┘
+```
+
+```go
+var s Speaker       // nil 接口：类型=nil，值=nil
+s = Dog{Name: "旺财"} // 类型=Dog，值=旺财
+```
+
+所以接口值判 nil 要注意：
+
+```go
+var s Speaker
+fmt.Println(s == nil)  // true
+
+s = Dog{Name: "旺财"}
+fmt.Println(s == nil)  // false
+
+// 注意：接口里存了 *Dog(nil) 时，接口本身 != nil
+var p *Dog = nil
+s = p
+fmt.Println(s == nil)  // false！因为接口的类型不是 nil
+```
+
+---
+
+## 九、实战：支付接口
+
+用一个贴近业务的例子来收尾。
+
+### 定义接口
+
+```go
+// Order 代表一笔订单
+type Order struct {
+    ID       string
+    Amount   float64
+    Currency string
+}
+
+// Payer 支付接口——任何支付方式都需要实现 Pay 方法
+type Payer interface {
+    Pay(order Order) (string, error)
+}
+```
+
+### 微信支付实现
+
+```go
+type WeChatPay struct {
+    AppID string
+}
+
+func (w WeChatPay) Pay(order Order) (string, error) {
+    // 调用微信支付 API
+    fmt.Printf("[微信支付] 订单 %s，金额 %.2f %s\n",
+        order.ID, order.Amount, order.Currency)
+    return "微信交易号: wx_" + order.ID, nil
+}
+```
+
+### 支付宝实现
+
+```go
+type AliPay struct {
+    AppID string
+}
+
+func (a AliPay) Pay(order Order) (string, error) {
+    // 调用支付宝 API
+    fmt.Printf("[支付宝] 订单 %s，金额 %.2f %s\n",
+        order.ID, order.Amount, order.Currency)
+    return "支付宝交易号: ali_" + order.ID, nil
+}
+```
+
+### 信用卡支付实现
+
+```go
+type CreditCard struct {
+    CardNumber string
+}
+
+func (c CreditCard) Pay(order Order) (string, error) {
+    fmt.Printf("[信用卡] 订单 %s，金额 %.2f %s\n",
+        order.ID, order.Amount, order.Currency)
+    return "信用卡交易号: cc_" + order.ID, nil
+}
+```
+
+### 业务代码只面对接口
+
+```go
+// checkout 只依赖 Payer 接口
+// 传微信、支付宝、信用卡都行
+func checkout(payer Payer, order Order) {
+    receipt, err := payer.Pay(order)
+    if err != nil {
+        fmt.Println("❌ 支付失败:", err)
+        return
+    }
+    fmt.Printf("✅ 支付成功！凭证: %s\n", receipt)
+}
+
+func main() {
+    order := Order{ID: "20240722001", Amount: 99.9, Currency: "CNY"}
+
+    // 同一个 checkout 函数，三种支付方式
+    checkout(WeChatPay{AppID: "wx_xxx"}, order)
+    checkout(AliPay{AppID: "ali_xxx"}, order)
+    checkout(CreditCard{CardNumber: "6222****1234"}, order)
+}
+```
+
+输出：
+
+```
+[微信支付] 订单 20240722001，金额 99.90 CNY
+✅ 支付成功！凭证: 微信交易号: wx_20240722001
+[支付宝] 订单 20240722001，金额 99.90 CNY
+✅ 支付成功！凭证: 支付宝交易号: ali_20240722001
+[信用卡] 订单 20240722001，金额 99.90 CNY
+✅ 支付成功！凭证: 信用卡交易号: cc_20240722001
+```
+
+### 为什么这样设计好
+
+| 场景 | 需要做的事 |
+|:-----|:----------|
+| 新增一种支付方式 | 写一个新 struct，实现 `Pay` 方法即可 |
+| 切换支付方式 | 调用时换一个实现类就行 |
+| 写单元测试 | 可以写一个 `MockPayer`，不用真的扣钱 |
+| 业务代码 | 完全不用改 |
+
+这就是**面向接口编程**的核心价值——**对扩展开放，对修改关闭**（开闭原则）。
+
+---
+
+## 十、总结
+
+| 知识点 | 一句话 |
+|:-------|:-------|
+| **接口定义** | 一组方法签名 |
+| **隐式实现** | 有方法就自动实现，不需要写 implements |
+| **类型断言** | `s.(Dog)` 从接口取出原始类型 |
+| **类型 switch** | `switch v := s.(type)` 按类型分支处理 |
+| **空接口 any** | `any` = 任何类型，但不要滥用 |
+| **接口嵌套** | 小接口组合成大接口，比继承更灵活 |
+| **面向接口编程** | 业务依赖接口不依赖实现，切换实现零成本 |
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：接口与面向接口编程——Go 最核心的设计\",\"item\":\"https://www.lxpavilion.top/article/140\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：接口与面向接口编程——Go 最核心的设计\",\"headline\":\"Go学习笔记：接口与面向接口编程——Go 最核心的设计\",\"description\":\"接口是 Go 类型系统的核心。隐式实现、接口组合、类型断言、空接口 any——学会接口你就学会了 Go 的一半。本文用大量实战例子（包括 Git Cloud Drive 的存储接口）讲透接口。\",\"datePublished\":\"2026-07-21T10:43:06\",\"dateCreated\":\"2026-07-21T10:43:06\",\"dateModified\":\"2026-07-22T10:43:06.528305\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Go学习笔记：接口与面向接口编程——Go 最核心的设计","initialContent":"$2d"}]]
+2c:{"id":"140"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Go学习笔记：接口与面向接口编程——Go 最核心的设计 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"接口是 Go 类型系统的核心。隐式实现、接口组合、类型断言、空接口 any——学会接口你就学会了 Go 的一半。本文用大量实战例子（包括 Git Cloud Drive 的存储接口）讲透接口。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/140/"}],["$","meta","5",{"property":"og:title","content":"Go学习笔记：接口与面向接口编程——Go 最核心的设计 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"接口是 Go 类型系统的核心。隐式实现、接口组合、类型断言、空接口 any——学会接口你就学会了 Go 的一半。本文用大量实战例子（包括 Git Cloud Drive 的存储接口）讲透接口。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/708.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.jpeg"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

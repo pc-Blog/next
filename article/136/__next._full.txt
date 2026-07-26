@@ -1,0 +1,431 @@
+1:"$Sreact.fragment"
+2:I[726908,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+4:I[222464,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+5:I[3799,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+6:I[956499,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+7:I[261421,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+8:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+9:I[837457,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+14:I[168027,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0pfaim.snoah2.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","136",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","136","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0h.wixd5qyz0z.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0ducef1ee~grw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0i.l9589uvx0j.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0dt9cnwomqq_u.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6hHSydJaX_dsXimxV-VUn"}
+17:I[706521,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+18:I[608123,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+19:I[418233,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1a:I[834858,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1b:I[523191,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/10r0_-nju~-2e.js"],"default"]
+1c:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"LoadingBoundaryProvider"]
+23:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ViewportBoundary"]
+29:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0ka02ds2ffr_2.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/10r0_-nju~-2e.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+2d:T23d6,## 一、并发 vs 并行
+
+在学习 goroutine 之前，先分清两个概念：
+
+| 概念 | 说明 | 比喻 |
+|:-----|:------|:------|
+| **并发（Concurrency）** | 同时处理多个任务 | 一个人同时泡面+刷手机，一会做这个一会做那个 |
+| **并行（Parallelism）** | 同时执行多个任务 | 两个人，一个泡面一个刷手机 |
+
+Go 的 goroutine 让编写并发代码变得极其简单——**它不保证并行（取决于 CPU 核数），但让你轻松写出并发逻辑**。
+
+---
+
+## 二、goroutine（协程）
+
+### 2.1 基本用法
+
+在函数调用前面加一个 `go` 关键字，这个函数就会在 goroutine 中并发执行：
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func printNumbers() {
+    for i := 1; i <= 5; i++ {
+        fmt.Println(i)
+        time.Sleep(500 * time.Millisecond)
+    }
+}
+
+func main() {
+    go printNumbers()       // 并发执行
+    fmt.Println("main 继续执行...")
+    time.Sleep(3 * time.Second) // 等 goroutine 跑完
+}
+```
+
+### 2.2 goroutine 的特点
+
+| 特性 | 说明 |
+|:-----|:------|
+| **轻量级** | 初始栈只有几 KB，可以轻松启动上万个 |
+| **非阻塞** | 启动 goroutine 后，程序继续往下执行 |
+| **不等待** | main 函数退出时，所有 goroutine 都会被强制结束 |
+
+> ⚠️ main 函数**不会等待 goroutine**。main 结束了，所有 goroutine 都会停止。所以上面的例子用了 `time.Sleep` 来等。
+
+---
+
+## 三、sync.WaitGroup（等待组）
+
+用 `time.Sleep` 来等 goroutine 是不靠谱的。正确的方式是用 `sync.WaitGroup`：
+
+```go
+import (
+    "fmt"
+    "sync"
+    "time"
+)
+
+func downloadFile(name string) {
+    fmt.Printf("下载中: %s\n", name)
+    time.Sleep(2 * time.Second)
+    fmt.Printf("完成: %s\n", name)
+}
+
+func main() {
+    var wg sync.WaitGroup
+
+    files := []string{"photo.jpg", "doc.pdf", "music.mp3"}
+
+    for _, f := range files {
+        wg.Add(1)      // 计数器 +1
+
+        go func(filename string) {
+            defer wg.Done()  // 计数器 -1（defer 确保函数结束时执行）
+            downloadFile(filename)
+        }(f)
+    }
+
+    wg.Wait()  // 阻塞，直到计数器归零
+    fmt.Println("全部下载完成！")
+}
+```
+
+### WaitGroup 的三个方法
+
+| 方法 | 作用 |
+|:-----|:------|
+| `wg.Add(n)` | 计数器 +n |
+| `wg.Done()` | 计数器 -1 |
+| `wg.Wait()` | 阻塞等待计数器归零 |
+
+> 💡 `defer` 关键字：函数返回前**一定会执行**的操作。`defer wg.Done()` 确保不管函数是否出错，计数器都会减一。
+
+---
+
+## 四、channel（通道）
+
+channel 是 goroutine 之间通信的管道。**一个 goroutine 发送数据到 channel，另一个 goroutine 从 channel 接收数据。**
+
+### 4.1 基本语法
+
+```go
+// 创建 channel
+ch := make(chan int)     // 无缓冲 channel，传输 int 类型
+ch := make(chan string)  // 传输 string 类型
+
+// 发送数据
+ch <- 42                 // 箭头指向 channel = 发送
+
+// 接收数据
+value := <-ch            // 箭头从 channel 出来 = 接收
+```
+
+### 4.2 生产者-消费者模式
+
+```go
+func producer(out chan<- string) {
+    for i := 1; i <= 5; i++ {
+        out <- fmt.Sprintf("消息 #%d", i)
+    }
+    close(out)   // 发送完毕，关闭 channel
+}
+
+func consumer(in <-chan string) {
+    for msg := range in {  // 用 range 持续接收
+        fmt.Println("收到:", msg)
+    }
+    fmt.Println("处理完毕")
+}
+
+func main() {
+    ch := make(chan string)
+    go producer(ch)
+    consumer(ch)
+}
+```
+
+### 4.3 channel 方向
+
+函数参数可以指定 channel 方向，让代码更安全：
+
+| 声明 | 方向 | 作用 |
+|:-----|:-----|:------|
+| `out chan<- string` | 只写 | 只能发送，不能接收 |
+| `in <-chan string` | 只读 | 只能接收，不能发送 |
+| `ch chan string` | 读写 | 双向 |
+
+```go
+// 如果尝试在只写 channel 里接收，编译不通过
+// val := <-out  // ❌ 编译错误
+```
+
+---
+
+## 五、无缓冲 vs 有缓冲
+
+### 5.1 无缓冲 channel
+
+- **发和收必须同时准备好**，否则阻塞
+- 保证发送和接收"同时发生"（同步）
+
+```go
+ch := make(chan int)  // 无缓冲
+
+// 发送方会阻塞，直到有人接收
+go func() {
+    ch <- 42  // 阻塞，直到 main 中的 <-ch 执行
+}()
+
+val := <-ch  // 接收，同时唤醒发送方
+```
+
+### 5.2 有缓冲 channel
+
+- 可以存 N 个值，**存满才阻塞**
+- 发和收解耦（异步）
+
+```go
+queue := make(chan string, 3)  // 容量 3
+
+queue <- "A"  // 不阻塞
+queue <- "B"  // 不阻塞
+queue <- "C"  // 不阻塞，缓冲区满了
+// queue <- "D"  // 阻塞！缓冲区满了，需要有人取走
+```
+
+| 类型 | 容量 | 行为 |
+|:-----|:-----|:------|
+| `make(chan T)` | 0 | 无缓冲，必须收发同时进行 |
+| `make(chan T, N)` | N | 有缓冲，存满才阻塞 |
+
+### 5.3 关闭 channel
+
+```go
+close(ch)     // 生产者发送完数据后关闭
+
+// 接收方用 range 自动检测关闭
+for msg := range ch {
+    fmt.Println(msg)
+}
+
+// 或者手动检测
+msg, ok := <-ch
+if !ok {
+    fmt.Println("channel 已关闭")
+}
+```
+
+> 💡 只应由**发送方**关闭 channel。向已关闭的 channel 发送数据会 panic。
+
+---
+
+## 六、select（多路复用）
+
+`select` 可以**同时等待多个 channel**，哪个 channel 有数据就处理哪个：
+
+```go
+func main() {
+    ch1 := make(chan string)
+    ch2 := make(chan string)
+
+    // 两个 goroutine 在不同时间返回
+    go func() {
+        time.Sleep(1 * time.Second)
+        ch1 <- "快递 A 到了"
+    }()
+
+    go func() {
+        time.Sleep(2 * time.Second)
+        ch2 <- "快递 B 到了"
+    }()
+
+    // 同时等待两个 channel
+    for i := 0; i < 2; i++ {
+        select {
+        case msg := <-ch1:
+            fmt.Println(msg)     // 1 秒后先到
+        case msg := <-ch2:
+            fmt.Println(msg)     // 2 秒后到
+        case <-time.After(3 * time.Second):
+            fmt.Println("超时")   // 防止永远阻塞
+        }
+    }
+}
+```
+
+### select 的特点
+
+| 特性 | 说明 |
+|:-----|:------|
+| **同时等待** | 多个 case 同时等待，谁先 ready 执行谁 |
+| **随机公平** | 如果多个 channel 同时 ready，随机选一个执行 |
+| **超时机制** | `time.After` 可以设置超时 |
+| **default** | 没有 channel ready 时执行 default（非阻塞） |
+
+---
+
+## 七、完整示例：并发下载管理器
+
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+    "time"
+)
+
+type Result struct {
+    Name string
+    Size int
+}
+
+func fetch(name string) Result {
+    // 模拟不同大小的文件耗时不同
+    time.Sleep(time.Duration(len(name) * 100) * time.Millisecond)
+    return Result{Name: name, Size: len(name) * 1024}
+}
+
+func main() {
+    urls := []string{"photo.jpg", "doc.pdf", "music.mp3", "video.mp4"}
+    resultCh := make(chan Result, len(urls))
+
+    var wg sync.WaitGroup
+
+    // 并发获取所有文件
+    for _, url := range urls {
+        wg.Add(1)
+        go func(u string) {
+            defer wg.Done()
+            resultCh <- fetch(u)
+        }(url)
+    }
+
+    // 等待所有下载完成，关闭 channel
+    go func() {
+        wg.Wait()
+        close(resultCh)
+    }()
+
+    // 读取结果（按完成顺序输出）
+    for r := range resultCh {
+        fmt.Printf("📄 %s (%d KB)\n", r.Name, r.Size)
+    }
+}
+```
+
+输出：
+
+```
+📄 doc.pdf (7168 KB)
+📄 music.mp3 (9216 KB)
+📄 video.mp4 (9216 KB)
+📄 photo.jpg (9216 KB)
+```
+
+注意：输出顺序**不固定**，每次运行可能不同——哪个文件先下载完就先显示哪个。
+
+---
+
+## 八、使用建议
+
+### 8.1 什么时候用 goroutine
+
+- **需要并发的 I/O 操作**（网络请求、文件读写、数据库查询）
+- **多个独立任务**（不影响彼此结果）
+- **后台任务**（定时清理、日志写入）
+
+### 8.2 注意事项
+
+```go
+// ❌ 错误：循环变量被共享
+for _, url := range urls {
+    go func() {
+        fetch(url)   // url 可能已经被循环改变了！
+    }()
+}
+
+// ✅ 正确：通过参数复制
+for _, url := range urls {
+    go func(u string) {
+        fetch(u)
+    }(url)
+}
+```
+
+### 8.3 Go 的并发哲学
+
+> **"Don't communicate by sharing memory; share memory by communicating."**
+> （不要通过共享内存来通信，要通过通信来共享内存。）
+
+意思是：不要用锁去保护共享变量，而是用 channel 把数据从一个 goroutine 传给另一个。**数据归谁，谁就操作它。**
+
+| 场景 | 推荐方案 |
+|:-----|:---------|
+| goroutine 间通信 | channel |
+| 保护共享变量 | `sync.Mutex` |
+| 等待多个 goroutine | `sync.WaitGroup` |
+| 只执行一次 | `sync.Once` |
+
+---
+
+## 九、小结
+
+| 知识点 | 一句话 |
+|:-------|:-------|
+| **goroutine** | `go fn()` 启动轻量级并发执行 |
+| **WaitGroup** | `Add/Done/Wait` 等待一组 goroutine |
+| **channel** | `ch <- v` 发送，`v := <-ch` 接收 |
+| **带缓冲 channel** | `make(chan T, N)` 解耦收发 |
+| **close** | 发送方关闭 channel，接收方用 range 读 |
+| **select** | 同时等待多个 channel，谁先来先处理谁 |
+| **defer** | `defer wg.Done()` 确保函数结束时执行 |
+| **并发哲学** | 用通信共享内存，不用共享内存通信 |
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：并发编程，Go 的王牌特性\",\"item\":\"https://www.lxpavilion.top/article/136\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：并发编程，Go 的王牌特性\",\"headline\":\"Go学习笔记：并发编程，Go 的王牌特性\",\"description\":\"goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。\",\"datePublished\":\"2026-07-22T10:42:46.634236\",\"dateCreated\":\"2026-07-22T10:42:46.634236\",\"dateModified\":\"2026-07-22T10:42:46.634384\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Go学习笔记：并发编程，Go 的王牌特性","initialContent":"$2d"}]]
+2c:{"id":"136"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Go学习笔记：并发编程，Go 的王牌特性 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/136/"}],["$","meta","5",{"property":"og:title","content":"Go学习笔记：并发编程，Go 的王牌特性 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/708.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.jpeg"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

@@ -1,0 +1,170 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:Tf3e,## 一、Go 的项目结构
+
+Go 的项目结构经历了两代：**GOPATH 模式**（旧）和 **Go Modules 模式**（新，现在用的）。
+
+### 1.1 GOPATH 模式（了解即可）
+
+早期 Go 的所有项目都必须放在 `$GOPATH/src` 下。`GOPATH` 默认是 `$HOME/go`（Linux/Mac）或 `C:\Users\用户名\go`（Windows）。
+
+```
+$GOPATH/
+├── src/    ← 源代码放在这里
+├── pkg/    ← 编译后的包
+└── bin/    ← 编译后的可执行文件
+```
+
+查看当前的 GOPATH：
+
+```bash
+go env GOPATH
+```
+
+### 1.2 Go Modules 模式（现代方式）
+
+从 Go 1.11 开始引入，**Go 1.16 起默认开启**。你不再需要把项目放在 GOPATH 下，任何目录都可以是一个 Go 项目。
+
+每个 Go 项目就是一个**模块（Module）**，模块根目录下必须有 `go.mod` 文件。
+
+---
+
+## 二、依赖管理：go.mod 和 go.sum
+
+### 2.1 go.mod — 模块定义文件
+
+类似于 Node.js 的 `package.json`，但更简洁。用 `go mod init` 创建：
+
+```bash
+go mod init 项目名
+```
+
+生成的 `go.mod` 示例：
+
+```
+module gotest        ← 模块名
+
+go 1.24              ← Go 版本
+
+require (            ← 依赖的第三方包
+    github.com/xxx v1.2.3
+)
+```
+
+### 2.2 go.sum — 依赖锁文件
+
+类似于 `package-lock.json` 或 `yarn.lock`。**不要手动编辑**，由 Go 自动维护。
+
+作用：
+- 记录每个依赖包的哈希值
+- 确保每次下载的依赖内容一致
+- 防止依赖被篡改
+
+### 2.3 常用依赖命令
+
+```bash
+# 添加依赖（在代码中 import 后，go mod tidy 会自动下载）
+go mod tidy            # 整理依赖：添加需要的，移除没用的
+
+# 查看依赖
+go list -m all         # 列出所有依赖
+
+# 下载依赖到本地缓存
+go mod download
+
+# 将依赖复制到 vendor 目录（可选，类似于 node_modules）
+go mod vendor
+```
+
+---
+
+## 三、GoLand 创建项目的三种模式
+
+创建项目时会看到三个选项：
+
+| 模式 | 说明 | 什么时候用 |
+|:-----|:------|:----------|
+| **Go** | 普通的 Go 项目，**使用 Go Modules**，最常用 | ✅ 默认选择 |
+| **Go (GOPATH)** | 老式 GOPATH 模式项目 | ❌ 除非维护老项目 |
+| **App Engine** | Google App Engine 专用 | ❌ 几乎用不到 |
+
+**现在一律选第一个「Go」模式**，它自动启用 Go Modules。
+
+---
+
+## 四、最简单的代码结构
+
+一个最小的 Go 项目：
+
+```
+myapp/
+├── go.mod        ← go mod init 生成
+└── main.go       ← 入口文件
+```
+
+```go
+// main.go — 最简单的 Go 程序
+package main      // 可执行程序必须用 package main
+
+import "fmt"      // 标准库：格式化输入输出
+
+func main() {     // 程序入口
+    fmt.Println("Hello, Go!")
+}
+```
+
+---
+
+## 五、常用运行命令
+
+```bash
+# 直接运行（编译 + 运行，不生成文件）
+go run main.go
+
+# 编译为可执行文件
+go build          # 生成 .exe（Windows）或 可执行文件（Linux/Mac）
+
+# 编译并安装到 GOBIN 目录
+go install
+
+# 格式化代码（Go 官方标准）
+gofmt -l .        # 检查格式
+gofmt -w .        # 自动修正格式
+
+# 静态检查
+go vet ./...      # 检查代码中可能的 bug
+
+# 查看环境信息
+go env            # 打印所有环境变量
+go version        # 查看 Go 版本
+```
+
+### run vs build 区别
+
+| 命令 | 作用 | 生成文件 |
+|:-----|:-----|:--------|
+| `go run` | 编译并运行，适合开发调试 | ❌ 不生成 |
+| `go build` | 编译为可执行文件 | ✅ 生成 |
+| `go install` | 编译并安装到 `GOBIN` | ✅ 安装到全局 |
+
+---
+
+## 六、小结
+
+| 知识点 | 一句话 |
+|:-------|:-------|
+| GOPATH | 旧的项目组织方式，默认 `~/go` |
+| Go Modules | 现在的标准，任何目录都能当项目 |
+| go.mod | 项目身份证，类似 package.json |
+| go.sum | 依赖锁文件，自动维护 |
+| go run | 直接跑代码 |
+| go build | 编译出可执行文件 |
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令\",\"item\":\"https://www.lxpavilion.top/article/133\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令\",\"headline\":\"Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令\",\"description\":\"\\\"从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。\\\"\",\"datePublished\":\"2026-07-20T10:40:54\",\"dateCreated\":\"2026-07-20T10:40:54\",\"dateModified\":\"2026-07-22T10:40:54.833482\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6hHSydJaX_dsXimxV-VUn"}
+3:{"id":"133"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

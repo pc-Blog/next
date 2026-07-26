@@ -1,0 +1,290 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T19ca,## 一、数组（Array）— 定长
+
+数组是**固定长度**的，一旦声明就不能改变长度。
+
+```go
+// 声明：var 变量名 [长度]类型
+var nums [3]int
+nums[0] = 10
+nums[1] = 20
+nums[2] = 30
+
+// 声明 + 初始化
+nums := [3]int{10, 20, 30}
+
+// 让 Go 自己数长度
+nums := [...]int{10, 20, 30}   // 自动推断长度为 3
+
+// 数组长度是类型的一部分
+nums1 := [3]int{1, 2, 3}
+nums2 := [5]int{1, 2, 3, 4, 5}
+// nums1 = nums2  ← ❌ 编译错误！长度不同，类型不同
+```
+
+**数组的局限：** 长度固定，不够灵活。实际开发中**很少直接用数组**，更常用的是切片。
+
+---
+
+## 二、切片（Slice）— 动态数组 ✅ 最常用
+
+切片是 Go **最常用的数据结构**，类似于 Python 的 list 或 Java 的 ArrayList。
+
+### 2.1 创建切片
+
+```go
+// 方式1：字面量创建
+names := []string{"Go", "Python", "Rust"}
+
+// 方式2：make 创建
+nums := make([]int, 3)       // [0, 0, 0]，长度 = 3
+nums := make([]int, 3, 5)    // 长度 = 3，容量 = 5
+
+// 方式3：从数组切取
+arr := [5]int{1, 2, 3, 4, 5}
+slice := arr[1:4]            // [2, 3, 4]  左闭右开
+```
+
+### 2.2 切片的增删改查
+
+```go
+// 追加元素
+nums := []int{1, 2, 3}
+nums = append(nums, 4)        // [1, 2, 3, 4]
+nums = append(nums, 5, 6)     // [1, 2, 3, 4, 5, 6]
+
+// 合并两个切片
+nums = append(nums, []int{7, 8}...)   // ... 把切片展开
+
+// 获取长度和容量
+fmt.Println(len(nums))   // 8，实际元素个数
+fmt.Println(cap(nums))   // 底层数组容量（自动扩容）
+
+// 遍历
+for i, v := range nums {
+    fmt.Printf("索引 %d = %d\n", i, v)
+}
+```
+
+### 2.3 长度 vs 容量
+
+```go
+nums := make([]int, 3, 5)   // 长度 3，容量 5
+// nums = [0, 0, 0, _, _]
+//           ↑ 长度 ↑ 容量（底层数组总大小）
+
+fmt.Println(len(nums))   // 3
+fmt.Println(cap(nums))   // 5
+
+nums = append(nums, 1)   // 还有容量，不会重新分配
+nums = append(nums, 2)   // [0, 0, 0, 1, 2]
+
+nums = append(nums, 3)   // 容量不够了 → 自动扩容为 2 倍
+```
+
+> 💡 `len` 表示能访问多少个元素，`cap` 表示底层数组能放多少个。追加元素时，如果没超过 cap 就不会重新分配内存，效率更高。
+
+---
+
+## 三、Map — 键值对
+
+类似于其他语言的字典 / HashMap。
+
+```go
+// 创建 map
+// map[键类型]值类型
+scores := make(map[string]int)
+scores["张三"] = 90
+scores["李四"] = 85
+
+// 创建 + 初始化
+scores := map[string]int{
+    "张三": 90,
+    "李四": 85,
+    "王五": 92,
+}
+
+// 取值（安全方式：带 ok 判断是否存在）
+score, ok := scores["赵六"]
+if ok {
+    fmt.Println("分数:", score)
+} else {
+    fmt.Println("此人不存在")
+}
+
+// 删除
+delete(scores, "李四")
+
+// 遍历（注意：map 遍历顺序不固定！）
+for name, score := range scores {
+    fmt.Printf("%s: %d\n", name, score)
+}
+```
+
+> ⚠️ 遍历 Map 时**顺序不固定**，每次运行可能都不一样。如果需要固定顺序，先把 key 取出来排序再遍历。
+
+---
+
+## 四、结构体（struct）— 自定义类型
+
+### 4.1 定义和使用
+
+```go
+// 定义结构体
+type User struct {
+    Name   string
+    Age    int
+    Email  string
+}
+
+// 使用
+u1 := User{"pc", 25, "pc@example.com"}                       // 按字段顺序（不推荐）
+u2 := User{Name: "pc", Age: 25, Email: "pc@example.com"}     // 指定字段名（推荐 ✅）
+u3 := User{Name: "pc"}                                        // 只赋值部分字段，其余为零值
+
+// 访问字段
+fmt.Println(u2.Name)   // "pc"
+u2.Age = 26            // 修改字段
+```
+
+### 4.2 结构体方法
+
+Go 没有 class，但可以给 struct 绑定方法：
+
+```go
+type User struct {
+    Name string
+    Age  int
+}
+
+// 值接收者（不修改原始数据）
+func (u User) SayHello() {
+    fmt.Printf("你好，我是 %s，今年 %d 岁\n", u.Name, u.Age)
+}
+
+// 指针接收者（可以修改原始数据）
+func (u *User) Birthday() {
+    u.Age++
+}
+
+// 使用
+u := User{Name: "pc", Age: 25}
+u.SayHello()        // 你好，我是 pc，今年 25 岁
+u.Birthday()        // Age 变成 26
+u.SayHello()        // 你好，我是 pc，今年 26 岁
+```
+
+> 💡 **什么时候用值接收者 vs 指针接收者？**
+> - 只读不修改 → 值接收者
+> - 需要修改字段 → 指针接收者
+> - 结构体很大 → 指针接收者（避免复制开销）
+
+---
+
+## 五、指针 — 简单理解
+
+Go 的指针**没有 C 的指针运算**，比 C 安全得多。
+
+```go
+// & 取地址  * 取值
+x := 10
+p := &x            // p 是一个指向 int 的指针
+
+fmt.Println(p)     // 0xc0000...（内存地址）
+fmt.Println(*p)    // 10（取指针指向的值）
+
+*p = 20            // 通过指针修改 x
+fmt.Println(x)     // 20
+```
+
+**为什么需要指针？**
+
+```go
+// 没有指针：值传递，原来的值不变
+func double(x int) {
+    x = x * 2
+}
+
+// 有指针：可以修改原来的值
+func double(x *int) {
+    *x = *x * 2
+}
+
+n := 5
+double(&n)
+fmt.Println(n)   // 10
+```
+
+> 💡 新手阶段掌握 `&` 和 `*` 就够了。在 Go 里，**大部分时间用的是指针接收者(struct 方法)和切片(内部就是指针)**，不需要像 C 那样手动操作指针。
+
+---
+
+## 六、完整示例
+
+```go
+type Student struct {
+    Name  string
+    Score float64
+}
+
+func (s Student) Info() string {
+    status := "不及格"
+    if s.Score >= 60 {
+        status = "及格"
+    }
+    return fmt.Sprintf("%s: %.1f分 - %s", s.Name, s.Score, status)
+}
+
+func main() {
+    // 用结构体 + 切片组织数据
+    students := []Student{
+        {"张三", 85},
+        {"李四", 42},
+        {"王五", 93},
+    }
+    
+    // 用 map 索引
+    index := make(map[string]float64)
+    for _, s := range students {
+        index[s.Name] = s.Score
+    }
+    
+    // 查询
+    for _, name := range []string{"张三", "赵六"} {
+        if score, ok := index[name]; ok {
+            fmt.Printf("%s 的分数: %.1f\n", name, score)
+        } else {
+            fmt.Printf("%s 不存在\n", name)
+        }
+    }
+    
+    // 遍历
+    for _, s := range students {
+        fmt.Println(s.Info())
+    }
+}
+```
+
+---
+
+## 七、小结
+
+| 类型 | 特点 | 常用程度 |
+|:-----|:-----|:--------|
+| 数组 `[n]T` | 定长，用的少 | ⭐⭐ |
+| 切片 `[]T` | 动态长度，最常用 | ⭐⭐⭐⭐⭐ |
+| Map `map[K]V` | 键值对，快速查询 | ⭐⭐⭐⭐ |
+| 结构体 `struct` | 组织多个字段，代替 class | ⭐⭐⭐⭐⭐ |
+| 指针 `*T` | 引用传值，注意 & 和 * | ⭐⭐⭐ |
+
+下一课预告：**错误处理与包管理**——学会用好 `error` 和 `go mod`。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针\",\"item\":\"https://www.lxpavilion.top/article/138\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针\",\"headline\":\"Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针\",\"description\":\"\\\"从数组到切片、从 Map 到结构体，再到 Go 的指针哲学。数组定长、切片灵活、Map 键值查询、struct 组织数据——一次搞懂 Go 的复合数据类型。\\\"\",\"datePublished\":\"2026-07-21T10:42:52\",\"dateCreated\":\"2026-07-21T10:42:52\",\"dateModified\":\"2026-07-22T10:42:52.941695\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6hHSydJaX_dsXimxV-VUn"}
+3:{"id":"138"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

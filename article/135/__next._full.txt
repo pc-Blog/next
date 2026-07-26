@@ -1,0 +1,456 @@
+1:"$Sreact.fragment"
+2:I[726908,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+4:I[222464,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+5:I[3799,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+6:I[956499,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+7:I[261421,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+8:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+9:I[837457,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+14:I[168027,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0pfaim.snoah2.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","135",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","135","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0h.wixd5qyz0z.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0ducef1ee~grw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0i.l9589uvx0j.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0dt9cnwomqq_u.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6hHSydJaX_dsXimxV-VUn"}
+17:I[706521,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+18:I[608123,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"default"]
+19:I[418233,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1a:I[834858,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js"],"default"]
+1b:I[523191,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/10r0_-nju~-2e.js"],"default"]
+1c:I[339756,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"LoadingBoundaryProvider"]
+23:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"ViewportBoundary"]
+29:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0ka02ds2ffr_2.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/10r0_-nju~-2e.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0pfaim.snoah2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+2d:T24c5,## 一、Go 的包系统概述
+
+Go 的包管理相比其他语言更简洁：
+
+| 语言 | 包管理 |
+|:-----|:-------|
+| Java | 目录层级 = 包名，`import com.example.utils` |
+| Node.js | 每个文件一个模块，`require('./utils')` |
+| **Go** | **一个目录一个包**，`import "module/utils"` |
+
+**Go 的核心规则就一条：一个目录下的所有 .go 文件必须属于同一个包。**
+
+---
+
+## 二、创建包
+
+### 2.1 包名规则
+
+- **包名 = 目录名**（约定，不强制但最好遵守）
+- 包名全小写，不用下划线，不用驼峰
+- `package xxx` 写在每个 .go 文件的第一行
+
+### 2.2 一个最简单的包
+
+```
+myapp/
+├── go.mod         ← module myapp
+├── main.go        ← package main
+└── mathutil/      ← 目录
+    └── mathutil.go  ← package mathutil
+```
+
+```go
+// mathutil/mathutil.go
+package mathutil
+
+func Add(a, b int) int {
+    return a + b
+}
+```
+
+> 💡 包名不一定要和目录名完全一致，但**强烈建议保持一致**，否则引用时会造成混乱。
+
+---
+
+## 三、导出与私有——大小写决定一切
+
+Go 没有 `public` / `private` / `protected` 关键字。可见性只由**首字母大小写**决定：
+
+| 首字母 | 可见性 | 示例 |
+|:------|:-------|:------|
+| **大写** | **导出（公开）**，其他包可以访问 | `Add()`, `Config`, `ErrNotFound` |
+| **小写** | **私有**，只在当前包内可用 | `add()`, `config`, `errNotFound` |
+
+```go
+package mathutil
+
+// Add 公开函数——其他包可以用
+func Add(a, b int) int {
+    return a + b
+}
+
+// logCalculation 私有函数——只能在 mathutil 包内用
+func logCalculation(name string, a, b, result int) {
+    println("[" + name + "]", a, b, "=>", result)
+}
+
+// Multiply 公开，内部调用私有函数
+func Multiply(a, b int) int {
+    result := a * b
+    logCalculation("Multiply", a, b, result)
+    return result
+}
+```
+
+```go
+// main.go
+import "myapp/mathutil"
+
+sum := mathutil.Add(10, 5)     // ✅ 公开的，可以访问
+mathutil.logCalculation(...)    // ❌ 编译错误！私有的，访问不到
+```
+
+### 这条规则适用于所有命名
+
+```go
+package example
+
+var Version = "1.0"        // 导出变量
+var version = "1.0"        // 私有变量
+
+const MaxSize = 1024        // 导出常量
+
+type User struct { ... }     // 导出类型
+type user struct { ... }     // 私有类型
+
+func NewUser() *User { ... } // 导出函数
+func newUser() *User { ... } // 私有函数
+```
+
+---
+
+## 四、导入
+
+### 4.1 标准导入
+
+```go
+import (
+    "fmt"                    // 标准库
+    "os"                     // 标准库
+
+    "myapp/mathutil"         // 项目内的包
+    "myapp/greet"            // 项目内的子目录包
+
+    "github.com/xxx/yyy"     // 第三方依赖
+)
+```
+
+**导入路径 = `go.mod` 中的 module 名 + 子目录路径**。
+
+例如 `go.mod` 中定义的是 `module myapp`，那么 `myapp/mathutil` 就对应项目根目录下的 `mathutil/` 目录。
+
+### 4.2 别名导入
+
+当包名冲突或太长时，可以起别名：
+
+```go
+import (
+    "crypto/rand"
+    mathutil "myapp/mathutil"    // 起别名
+    . "fmt"                      // 点导入：直接使用函数名（不推荐）
+    _ "image/png"                // 空导入：只跑 init，不使用包内功能
+)
+
+mathutil.Add(1, 2)    // 用别名调用
+Println("hello")      // 点导入后可以直接调用（但会让代码难以理解）
+```
+
+### 4.3 空导入
+
+有时候导入包只是为了执行它的 `init()` 函数（比如注册数据库驱动），不需要使用包里的任何函数。这时候用 `_`：
+
+```go
+import (
+    _ "github.com/go-sql-driver/mysql"   // 只执行 init()，注册驱动
+)
+```
+
+---
+
+## 五、init 函数
+
+`init()` 是 Go 的一个特殊函数：
+
+```go
+package mathutil
+
+func init() {
+    println("[mathutil] 包已初始化")
+}
+```
+
+### init 的规则
+
+| 规则 | 说明 |
+|:-----|:------|
+| **自动执行** | 包被导入时自动运行，不需要手动调用 |
+| **每个包可以有多个 init** | 按文件顺序执行（但建议一个包只写一个） |
+| **不能被调用** | `mathutil.init()` ❌ 不行 |
+| **没有参数和返回值** | `func init()` 是固定的签名 |
+
+### 执行顺序
+
+```
+[mathutil] 包已初始化          ← 1. 先初始化被依赖的包
+[greet] 包已初始化              ← 2. 按导入顺序
+[greet/chinese] 包已初始化      ← 3. 子包也是独立的包
+[main] main 包已初始化          ← 4. main 包最后执行
+main() 函数开始执行             ← 5. 所有 init 跑完才进 main
+```
+
+> 💡 **所有 init 都执行完毕后，才会执行 `main()` 函数。**
+
+---
+
+## 六、子包（Subpackage）
+
+Go 没有"子包"的概念，`greet/chinese` 只是一个独立的包 `chinese`，恰好放在 `greet` 目录下而已。
+
+```
+greet/               ← package greet（独立的包）
+├── greet.go
+└── chinese/         ← package chinese（另一个独立的包，和 greet 无关）
+    └── chinese.go
+```
+
+```go
+import (
+    "myapp/greet"           // 导入 greet 包
+    "myapp/greet/chinese"   // 导入 chinese 包（两个包是独立的）
+)
+
+greet.Greet("pc")               // 用 greet 包
+chinese.GoodMorning("pc")       // 用 chinese 包
+```
+
+**关键理解：** `chinese` 包不能直接访问 `greet` 包里的私有内容，即使它在目录结构上是"子目录"。它们是两个完全独立的包。
+
+---
+
+## 七、项目结构实例
+
+把前面学过的综合起来，一个标准的 Go 项目结构：
+
+```
+myapp/
+├── go.mod                    ← module myapp
+├── go.sum                    ← 依赖锁文件
+├── main.go                   ← package main，入口
+├── config/
+│   └── config.go             ← package config
+├── handler/
+│   ├── handler.go            ← package handler
+│   └── user.go               ← 同属于 package handler
+├── model/
+│   └── user.go               ← package model
+├── service/
+│   └── user.go               ← package service
+└── utils/
+    └── helper.go             ← package utils
+```
+
+```go
+// main.go
+package main
+
+import (
+    "myapp/config"
+    "myapp/handler"
+    "myapp/model"
+    "myapp/service"
+    "myapp/utils"
+)
+
+func main() {
+    // 按需调用各包的公开函数
+}
+```
+
+---
+
+## 八、循环依赖——红线
+
+Go **禁止循环依赖**，这是编译器的红线：
+
+```
+❌ 错误：
+  package a 引用了 package b
+  package b 又引用了 package a
+
+编译报错：import cycle not allowed
+```
+
+解决方式：
+1. **提取公共类型**到第三个包
+2. **接口解耦**——让一方依赖接口，另一方实现接口
+3. **重新设计**——通常意味着职责划分不够清晰
+
+---
+
+## 九、完整的多包示例
+
+### 项目结构
+
+```
+gotest/
+├── go.mod                  ← module gotest
+├── main.go                 ← package main
+├── mathutil/
+│   └── mathutil.go         ← package mathutil
+└── greet/
+    ├── greet.go            ← package greet
+    └── chinese/
+        └── chinese.go      ← package chinese
+```
+
+### mathutil/mathutil.go
+
+```go
+package mathutil
+
+func Add(a, b int) int {
+    return a + b
+}
+
+func Sub(a, b int) int {
+    return a - b
+}
+
+func Multiply(a, b int) int {
+    result := a * b
+    logCalc("Multiply", a, b, result)
+    return result
+}
+
+// 私有函数，仅在包内可见
+func logCalc(name string, a, b, result int) {
+    println("["+name+"]", a, b, "=>", result)
+}
+
+func init() {
+    println("[mathutil] init")
+}
+```
+
+### greet/greet.go
+
+```go
+package greet
+
+var count int
+
+func Greet(name string) string {
+    count++
+    return "你好，" + name + "！"
+}
+
+func GetCount() int {
+    return count
+}
+
+func init() {
+    println("[greet] init")
+}
+```
+
+### greet/chinese/chinese.go
+
+```go
+package chinese
+
+func GoodMorning(name string) string {
+    return "早上好，" + name + "！"
+}
+
+func init() {
+    println("[greet/chinese] init")
+}
+```
+
+### main.go
+
+```go
+package main
+
+import (
+    "fmt"
+    "gotest/greet"
+    "gotest/greet/chinese"
+    "gotest/mathutil"
+)
+
+func main() {
+    fmt.Println(mathutil.Add(10, 5))
+    fmt.Println(mathutil.Multiply(4, 3))
+
+    fmt.Println(greet.Greet("pc"))
+    fmt.Println(chinese.GoodMorning("pc"))
+
+    fmt.Println("问候次数:", greet.GetCount())
+}
+
+func init() {
+    println("[main] init")
+}
+```
+
+### 运行输出
+
+```
+[mathutil] init             ← 被依赖的包先 init
+[greet] init                ← 按导入顺序
+[greet/chinese] init        ← 子包
+[main] init                 ← main 包最后
+[Multiply] 4 3 => 12        ← 然后进入 main()
+15
+12
+你好，pc！
+早上好，pc！
+问候次数: 1
+```
+
+---
+
+## 十、小结
+
+| 知识点 | 一句话 |
+|:-------|:-------|
+| **包名 = 目录名** | 一个目录下的所有 .go 文件必须同属一个包 |
+| **大写导出小写私有** | 首字母大写 = 公开，小写 = 私有，没有 public/private 关键字 |
+| **导入路径** | `module/目录路径` |
+| **init()** | 自动执行，按依赖顺序，全部 init 跑完才进 main |
+| **子包** | 目录上看似父子，实际上是两个独立的包 |
+| **循环依赖** | 不允许，必须通过接口或公共类型解耦 |
+| **包级变量** | 在函数外声明的变量，整个包共享，常用于维护状态 |
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序\",\"item\":\"https://www.lxpavilion.top/article/135\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序\",\"headline\":\"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序\",\"description\":\"Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。\",\"datePublished\":\"2026-07-22T10:42:43.68124\",\"dateCreated\":\"2026-07-22T10:42:43.68124\",\"dateModified\":\"2026-07-22T10:42:43.681308\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序","initialContent":"$2d"}]]
+2c:{"id":"135"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/135/"}],["$","meta","5",{"property":"og:title","content":"Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/708.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.jpeg"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

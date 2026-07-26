@@ -1,0 +1,38 @@
+[
+  {
+    "series": "Go学习笔记",
+    "count": 9,
+    "coverImage": "/data/media/708.png",
+    "summary": "Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。"
+  },
+  {
+    "series": "Nginx学习笔记",
+    "count": 7,
+    "coverImage": "/data/media/696.png",
+    "summary": "从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。"
+  },
+  {
+    "series": "Redis学习笔记",
+    "count": 5,
+    "coverImage": "/data/media/690.png",
+    "summary": "缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。"
+  },
+  {
+    "series": "MySQL学习笔记",
+    "count": 6,
+    "coverImage": "/data/media/677.jpeg",
+    "summary": "本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。"
+  },
+  {
+    "series": "KubeSphere学习笔记",
+    "count": 4,
+    "coverImage": "/data/media/577.jpeg",
+    "summary": "记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。"
+  },
+  {
+    "series": "Jenkins学习笔记",
+    "count": 2,
+    "coverImage": "/data/media/625.png",
+    "summary": "从零开始使用 Jenkins Pipeline 配合 Docker 实现 CI/CD 自动化部署，涵盖 Jenkins 任务创建、Pipeline 配置、Docker Pipeline 插件安装、容器化 Jenkins 的 Docker 环境挂载，以及完整的 Jenkinsfile 解析。"
+  }
+]

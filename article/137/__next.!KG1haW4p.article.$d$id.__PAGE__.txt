@@ -1,0 +1,321 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/0m3~9.w9x-m2w.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1b7f,## 一、Go 的错误哲学
+
+Go 和其他语言最大的不同：**没有异常（Exception）**，没有 `try-catch-finally`。
+
+错误在 Go 里就是一个**普通的值**（value），和 `int`、`string` 没什么区别：
+
+```go
+// 错误就是一个返回值，和普通值一样处理
+result, err := doSomething()
+if err != nil {
+    // 处理错误
+    return err
+}
+```
+
+> 💡 这种设计的核心理念：**错误是预期的一部分，不是意外**。文件可能不存在、网络可能断开——这些不是"异常"，是正常业务流程的一部分。
+
+---
+
+## 二、创建错误：errors.New
+
+最基础的创建方式：
+
+```go
+import "errors"
+
+var ErrNotFound = errors.New("资源未找到")
+```
+
+### 命名规范
+
+导出的错误变量用 `Err` 开头（其他包能引用）：
+
+```go
+// 标准库中的例子
+var os.ErrNotExist  = errors.New("file does not exist")
+var sql.ErrNoRows   = errors.New("sql: no rows in result set")
+
+// 你自己的包
+var ErrNotFound = errors.New("资源未找到")
+var ErrAuthFail = errors.New("认证失败")
+var ErrInvalid  = errors.New("无效参数")
+```
+
+这些叫**哨兵错误（Sentinel Error）**——类似常量，用来比较错误类型。
+
+---
+
+## 三、判断错误：errors.Is
+
+不能用 `==` 比较错误（因为包装后会不同），要用 `errors.Is`：
+
+```go
+var ErrNotFound = errors.New("资源未找到")
+
+// 创建错误
+err := findUser(999)   // 返回 ErrNotFound
+
+// ❌ 不要这样
+if err == ErrNotFound { ... }
+
+// ✅ 正确方式
+if errors.Is(err, ErrNotFound) {
+    fmt.Println("没找到用户")
+}
+```
+
+`errors.Is` 会**沿着错误链一路找**，即使错误被包装过也能识别。
+
+---
+
+## 四、自定义错误类型 + errors.As
+
+有时候光一个字符串不够用，需要携带更多信息（比如哪个文件、什么操作）：
+
+```go
+type FileError struct {
+    Path string   // 哪个文件
+    Op   string   // 什么操作
+    Err  error    // 原始错误
+}
+
+// 实现 error 接口——只要实现这个方法，*FileError 就是 error
+func (e *FileError) Error() string {
+    return fmt.Sprintf("文件操作失败 [%s] %s: %v", e.Op, e.Path, e.Err)
+}
+```
+
+用 `errors.As` 提取自定义错误：
+
+```go
+_, err := readFile("secret.txt")
+
+var fileErr *FileError
+if errors.As(err, &fileErr) {
+    // 现在可以访问 FileError 特有的字段了
+    fmt.Printf("文件 %s 在 %s 操作中出错", fileErr.Path, fileErr.Op)
+}
+```
+
+### errors.Is vs errors.As
+
+| 函数 | 用途 | 类似 |
+|:-----|:------|:-----|
+| `errors.Is(err, target)` | 判断是否是**某个特定错误** | `==` |
+| `errors.As(err, &target)` | 提取**某种类型的错误** | 类型断言（`instanceof`） |
+
+---
+
+## 五、错误包装：%w
+
+实际项目中，错误极少直接返回，通常需要加上"上下文"信息：
+
+```go
+// 不包装：原始错误直接传上去，调用者不知道在哪出的问题
+return err
+
+// ✅ 包装：加上上下文，同时保留原始错误
+return fmt.Errorf("读取配置文件失败: %w", err)
+```
+
+**`%w` 的作用：**
+- 给错误增加描述信息（上下文）
+- 保留原始错误，`errors.Is` 和 `errors.As` 依然能找到它
+
+```go
+func readConfig() error {
+    err := readFile("config.yaml")
+    if err != nil {
+        return fmt.Errorf("读取配置失败: %w", err)
+    }
+    return nil
+}
+
+err := readConfig()
+if errors.Is(err, os.ErrNotExist) {
+    // ✅ 仍然能判断，尽管被包装了
+    fmt.Println("文件不存在")
+}
+```
+
+### 不加 %w 的情况
+
+如果不想暴露内部错误细节，用 `%v` 而不是 `%w`：
+
+```go
+// 这样上层只能用 errors.Is 判断 ErrPermission，看不到原始错误
+return fmt.Errorf("无权访问: %v", err)
+```
+
+---
+
+## 六、错误处理三大原则
+
+### 原则1：每个错误都必须处理
+
+```go
+// ❌ 绝对不能这样
+result, _ := doSomething()
+
+// ✅ 必须检查
+result, err := doSomething()
+if err != nil {
+    // 处理或返回
+}
+```
+
+### 原则2：错误只记录一次
+
+错误不要层层打印，否则日志里一堆重复信息：
+
+```go
+// ❌ 每一层都打印
+func a() {
+    err := b()
+    if err != nil {
+        log.Println(err)   // 打印
+        return err
+    }
+}
+func b() {
+    err := c()
+    if err != nil {
+        log.Println(err)   // 又打印
+        return err
+    }
+}
+
+// ✅ 只在最终处理的地方打印
+func a() {
+    err := b()
+    if err != nil {
+        log.Println(err)   // 只在这里打印
+        return err
+    }
+}
+func b() {
+    err := c()
+    if err != nil {
+        return fmt.Errorf("b 执行失败: %w", err)   // 不打印，只包装
+    }
+}
+```
+
+### 原则3：出错后程序继续跑
+
+实际项目中，处理一批任务时，某个出错不应该让全部崩溃：
+
+```go
+for _, item := range items {
+    err := process(item)
+    if err != nil {
+        log.Printf("处理 %v 出错: %v", item, err)
+        continue    // 跳过这个，处理下一个
+    }
+}
+```
+
+---
+
+## 七、完整示例
+
+```go
+package main
+
+import (
+    "errors"
+    "fmt"
+)
+
+// 哨兵错误
+var (
+    ErrNotFound = errors.New("资源未找到")
+    ErrInvalid  = errors.New("无效参数")
+)
+
+// 自定义错误类型
+type BizError struct {
+    Code    int
+    Message string
+}
+
+func (e *BizError) Error() string {
+    return fmt.Sprintf("[%d] %s", e.Code, e.Message)
+}
+
+// 业务函数
+func getUser(id int) (string, error) {
+    if id <= 0 {
+        return "", ErrInvalid
+    }
+    if id > 100 {
+        return "", fmt.Errorf("查询用户失败: %w", ErrNotFound)
+    }
+    if id == 50 {
+        return "", &BizError{Code: 403, Message: "该用户已被禁用"}
+    }
+    return "pc", nil
+}
+
+func main() {
+    testCases := []int{1, -1, 999, 50}
+
+    for _, id := range testCases {
+        name, err := getUser(id)
+        if err == nil {
+            fmt.Printf("[%d] ✅ 用户: %s\n", id, name)
+            continue
+        }
+
+        // 判断具体错误类型
+        switch {
+        case errors.Is(err, ErrInvalid):
+            fmt.Printf("[%d] ⚠️ 无效参数\n", id)
+        case errors.Is(err, ErrNotFound):
+            fmt.Printf("[%d] ❌ 未找到\n", id)
+        default:
+            // 自定义错误
+            var bizErr *BizError
+            if errors.As(err, &bizErr) {
+                fmt.Printf("[%d] 🚫 业务错误: %s\n", id, bizErr.Message)
+            } else {
+                fmt.Printf("[%d] ❓ 未知错误: %v\n", id, err)
+            }
+        }
+    }
+}
+```
+
+输出：
+
+```
+[1] ✅ 用户: pc
+[-1] ⚠️ 无效参数
+[999] ❌ 未找到
+[50] 🚫 业务错误: 该用户已被禁用
+```
+
+---
+
+## 八、小结
+
+| 知识点 | 一句话 |
+|:-------|:-------|
+| `errors.New("msg")` | 创建简单错误 |
+| `fmt.Errorf("...: %w", err)` | 包装错误，保留链 |
+| `errors.Is(err, target)` | 判断是否为目标错误 |
+| `errors.As(err, &target)` | 提取特定类型的错误 |
+| 自定义错误 | 实现 `Error() string` 即可成为 error |
+| 接口本质 | `error` 是一个接口，任何实现了 `Error() string` 的类型都是 error |
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：错误处理——没有异常，只有 error\",\"item\":\"https://www.lxpavilion.top/article/137\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：错误处理——没有异常，只有 error\",\"headline\":\"Go学习笔记：错误处理——没有异常，只有 error\",\"description\":\"\\\"Go 没有 try-catch，错误就是普通的值。本文从哨兵错误、自定义错误类型、错误包装到实战模式，讲透 Go 的错误处理哲学。\\\"\",\"datePublished\":\"2026-07-22T10:42:50.074356\",\"dateCreated\":\"2026-07-22T10:42:50.074356\",\"dateModified\":\"2026-07-22T10:42:50.074672\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Go学习笔记：错误处理——没有异常，只有 error","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6hHSydJaX_dsXimxV-VUn"}
+3:{"id":"137"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0m3~9.w9x-m2w.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

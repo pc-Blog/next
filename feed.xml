@@ -8,6 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流]]></title>
+      <link>https://www.lxpavilion.top/article/142/</link>
+      <guid>https://www.lxpavilion.top/article/142/</guid>
+      <pubDate>Sun, 26 Jul 2026 21:34:51 GMT</pubDate>
+      <description><![CDATA[从零开始掌握 Gitee API v5，涵盖用户管理、仓库操作、文件内容管理及提交推送等核心场景。Go 语言实战代码 + Swagger 文档解读，帮你用 API 驱动代码托管工作流自动化。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <tag>Git</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口]]></title>
       <link>https://www.lxpavilion.top/article/141/</link>
       <guid>https://www.lxpavilion.top/article/141/</guid>
@@ -199,16 +210,6 @@
       <pubDate>Thu, 16 Jul 2026 15:25:15 GMT</pubDate>
       <description><![CDATA[还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。]]></description>
       <category>数据库</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战]]></title>
-      <link>https://www.lxpavilion.top/article/122/</link>
-      <guid>https://www.lxpavilion.top/article/122/</guid>
-      <pubDate>Wed, 15 Jul 2026 23:28:19 GMT</pubDate>
-      <description><![CDATA[缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。]]></description>
-      <category>学习笔记</category>
       
       <author>ppc</author>
     </item>

@@ -1,6 +1,30 @@
 {
-  "total": 70,
+  "total": 71,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/710.png",
+      "createdAt": "2026-07-26T21:34:51.372497",
+      "id": 142,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Git学习笔记",
+      "summary": "从零开始掌握 Gitee API v5，涵盖用户管理、仓库操作、文件内容管理及提交推送等核心场景。Go 语言实战代码 + Swagger 文档解读，帮你用 API 驱动代码托管工作流自动化。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        },
+        {
+          "id": 81,
+          "name": "Git"
+        }
+      ],
+      "title": "Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流",
+      "updateTime": "2026-07-26T21:36:35.968187",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
@@ -344,7 +368,7 @@
       "tags": [],
       "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
       "updateTime": "2026-07-16T19:48:58.038132",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 39,
@@ -827,7 +851,7 @@
       ],
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
       "updateTime": "2026-07-05T17:24:04.305224",
-      "viewCount": 5
+      "viewCount": 6
     },
     {
       "categoryId": 44,
@@ -983,7 +1007,7 @@
       ],
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
       "updateTime": "2026-07-02T16:48:48.139246",
-      "viewCount": 5
+      "viewCount": 8
     },
     {
       "categoryId": 43,
@@ -1203,7 +1227,7 @@
       ],
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "updateTime": "2026-07-01T09:58:38.436744",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 42,
@@ -1539,7 +1563,7 @@
       ],
       "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
       "updateTime": "2026-06-27T21:53:12.731127",
-      "viewCount": 6
+      "viewCount": 7
     },
     {
       "categoryId": 37,

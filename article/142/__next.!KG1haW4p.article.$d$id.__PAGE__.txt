@@ -1,0 +1,591 @@
+1:"$Sreact.fragment"
+2:I[117467,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js","/_next/static/chunks/0ka02ds2ffr_2.js","/_next/static/chunks/04t8-7cad8976.js","/_next/static/chunks/0r7lf-7.my0tf.js","/_next/static/chunks/0yajf_ay~c.ax.js"],"default"]
+9:I[897367,["/_next/static/chunks/0h.wixd5qyz0z.js","/_next/static/chunks/0ducef1ee~grw.js","/_next/static/chunks/0i.l9589uvx0j.js","/_next/static/chunks/0dt9cnwomqq_u.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T62a1,## 概述
+
+Gitee API（v5）提供了完整的 RESTful 接口，让你可以通过 HTTP 请求完成几乎所有 Gitee 网页端能做的操作——从查询用户信息、管理仓库到推送文件内容。配合 Go 语言的 `net/http` 标准库，你可以快速搭建一套属于自己的代码托管自动化工具。
+
+本文将覆盖 **用户信息管理**、**仓库生命周期操作**、**仓库内容管理** 三大核心模块，并分析 Gitee API 的局限性及替代方案。
+
+**官方文档：** [Gitee API v5 Swagger](https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoBlamePath)
+
+## 前置准备：Token 认证
+
+所有 API 请求都需要在 Header 中携带 Personal Access Token（Gitee 个人设置 → 私人令牌 生成）：
+
+```go
+req.Header.Set("Authorization", "Bearer "+token)
+```
+
+## 公共请求函数
+
+每次请求都写一遍错误处理和 JSON 解析很繁琐，先封装一个通用函数，后续直接复用：
+
+```go
+func giteeAPI(method, url string, body io.Reader) (interface{}, error) {
+    req, _ := http.NewRequest(method, url, body)
+    req.Header.Set("Authorization", "Bearer "+token)
+    if body != nil {
+        req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+    }
+    resp, err := http.DefaultClient.Do(req)
+    if err != nil {
+        return nil, fmt.Errorf("请求失败: %v", err)
+    }
+    defer resp.Body.Close()
+    respBody, _ := io.ReadAll(resp.Body)
+    var result interface{}
+    json.Unmarshal(respBody, &result)
+    return result, nil
+}
+```
+
+## 1. 用户信息管理
+
+### 1.1 查询当前用户信息
+
+```go
+result, _ := giteeAPI("GET", "https://gitee.com/api/v5/user", nil)
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数：** 无（使用 token 认证）
+
+**输出示例（返回值 - UserDetail）：**
+
+```json
+{
+  "id": 12345,                                                                  // 用户 ID
+  "login": "cloud-drive-01",                                                    // 登录名
+  "name": "cloud-drive-01",                                                     // 昵称
+  "avatar_url": "https://gitee.com/assets/no_portrait.png",                     // 头像 URL
+  "url": "https://gitee.com/api/v5/users/cloud-drive-01",                       // API 地址
+  "html_url": "https://gitee.com/cloud-drive-01",                               // 个人主页
+  "remark": "",                                                                  // 企业备注
+  "followers_url": "https://gitee.com/api/v5/users/cloud-drive-01/followers",   // 关注者列表 API
+  "following_url": "https://gitee.com/api/v5/users/cloud-drive-01/following",   // 正在关注列表 API
+  "gists_url": "https://gitee.com/api/v5/users/cloud-drive-01/gists",           // 代码片段 API
+  "starred_url": "https://gitee.com/api/v5/users/cloud-drive-01/starred",       // 收藏仓库 API
+  "subscriptions_url": "https://gitee.com/api/v5/users/cloud-drive-01/subscriptions",  // 订阅 API
+  "organizations_url": "https://gitee.com/api/v5/users/cloud-drive-01/orgs",    // 组织列表 API
+  "repos_url": "https://gitee.com/api/v5/users/cloud-drive-01/repos",           // 仓库列表 API
+  "events_url": "https://gitee.com/api/v5/users/cloud-drive-01/events",         // 动态 API
+  "received_events_url": "https://gitee.com/api/v5/users/cloud-drive-01/received_events", // 收到的动态 API
+  "type": "User",                                                               // 用户类型
+  "member_role": "admin",                                                       // 成员角色
+  "blog": "https://github.com/8002124177",                                      // 博客地址
+  "weibo": "",                                                                  // 微博
+  "bio": "我修改了我的个签",                                                       // 个人签名
+  "public_repos": 5,                                                            // 公开仓库数
+  "public_gists": 0,                                                            // 公开代码片段数
+  "followers": 1,                                                               // 关注者数
+  "following": 0,                                                               // 正在关注数
+  "stared": 0,                                                                  // 收藏数
+  "watched": 1,                                                                 // 关注数
+  "created_at": "2024-01-01T00:00:00+08:00",                                   // 创建时间
+  "updated_at": "2024-06-15T12:00:00+08:00",                                   // 更新时间
+  "email": "user@example.com",                                                  // 邮箱
+  "bot_info": null                                                              // 机器人信息
+}
+```
+
+### 1.2 修改用户信息
+
+```go
+body := "name=cloud-drive-01&bio=这是我修改的个人签名"
+result, _ := giteeAPI("PATCH", "https://gitee.com/api/v5/user", strings.NewReader(body))
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数（formData 格式，全部可选）：**
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| `name` | string | 昵称 |
+| `blog` | string | 个人网站 |
+| `weibo` | string | 微博 |
+| `bio` | string | 个人签名 |
+
+**输出示例：** 同 1.1 返回结果，但**少了 `email` 和 `bot_info`** 两个字段。
+
+### 1.3 查询用户所有仓库
+
+```go
+result, _ := giteeAPI("GET",
+    "https://gitee.com/api/v5/user/repos?visibility=private&per_page=5&page=1", nil)
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数（query 参数，全部可选）：**
+
+| 参数            | 类型     | 说明                                                                                                     |
+| ------------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| `visibility`  | string | 筛选: `private` / `public` / `all`（默认 all）                                                               |
+| `affiliation` | string | 筛选: `owner` / `collaborator` / `organization_member` / `admin`                                         |
+| `type`        | string | 筛选: `all` / `owner` / `personal` / `member` / `public` / `private`（与 visibility/affiliation 冲突会返回 422） |
+| `sort`        | string | 排序: `created` / `updated` / `pushed` / `full_name`（默认 full_name）                                       |
+| `direction`   | string | 升序 `asc` / 降序 `desc`                                                                                   |
+| `q`           | string | 搜索关键字                                                                                                  |
+| `page`        | int    | 页码（默认 1）                                                                                               |
+| `per_page`    | int    | 每页条数（默认 20，最大 100）                                                                                     |
+
+**输出示例：** 返回 `Project[]` 数组，每个元素结构见 2.2 的输出示例。
+
+### 扩展：更多用户相关 API
+
+| 方法     | 路径                              | 说明        |
+| ------ | ------------------------------- | --------- |
+| GET    | `/v5/user/followers`            | 列出关注者     |
+| GET    | `/v5/user/following`            | 列出正在关注的用户 |
+| PUT    | `/v5/user/following/{username}` | 关注一个用户    |
+| DELETE | `/v5/user/following/{username}` | 取消关注      |
+| GET    | `/v5/user/keys`                 | 列出 SSH 公钥 |
+| POST   | `/v5/user/keys`                 | 添加 SSH 公钥 |
+| GET    | `/v5/user/orgs`                 | 列出所属组织    |
+| GET    | `/v5/user/emails`               | 查看邮箱信息    |
+|        |                                 |           |
+
+## 2. 仓库信息管理
+
+### 2.1 创建仓库
+
+```go
+data := "name=gitee-api-test-repo" +
+    "&description=由 Gitee API 创建的测试仓库" +
+    "&private=true&auto_init=true&gitignore_template=Go" +
+    "&has_issues=true&has_wiki=true"
+
+result, _ := giteeAPI("POST", "https://gitee.com/api/v5/user/repos", strings.NewReader(data))
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数（formData 格式）：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `name` | string | ✅ | 仓库名称 |
+| `description` | string | — | 仓库描述 |
+| `private` | bool | — | 是否私有 |
+| `has_issues` | bool | — | 是否开启 Issue（默认 true） |
+| `has_wiki` | bool | — | 是否开启 Wiki（默认 true） |
+| `auto_init` | bool | — | 是否初始化 README（默认 false） |
+| `gitignore_template` | string | — | Git Ignore 模板（如 Go、Python） |
+| `license_template` | string | — | License 模板（如 MIT、Apache-2.0） |
+| `homepage` | string | — | 主页地址 |
+| `path` | string | — | 仓库路径（默认取 name） |
+| `namespace` | string | — | 命名空间路径，不传则创建到个人 |
+| `public` | int | — | 0=私有，1=外部开源，2=内部开源 |
+| `can_comment` | bool | — | 是否允许评论（默认 true） |
+| `outsourced` | bool | — | 是否外包仓库（默认 false） |
+| `members` | string | — | 成员列表（逗号分隔） |
+
+**常见错误：**
+
+```json
+{"error": {"base": ["已存在同地址仓库（忽略大小写）"]}}
+```
+
+**输出示例：** 返回字段同查询仓库详情（2.2），成功状态码为 `201 Created`。
+
+### 2.2 查询仓库详情
+
+```go
+result, _ := giteeAPI("GET",
+    "https://gitee.com/api/v5/repos/cloud-drive-01/gitee-api-test-repo", nil)
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数（path 参数）：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `owner` | string | ✅ | 仓库所属空间（个人/企业/组织路径） |
+| `repo` | string | ✅ | 仓库路径 |
+
+**输出示例（返回值 - Project）：**
+
+```json
+{
+  "id": 12345678,                                                              // 仓库 ID
+  "full_name": "cloud-drive-01/gitee-api-test-repo",                          // 完整仓库名
+  "human_name": "gitee-api-test-repo",                                        // 人类可读名称
+  "url": "https://gitee.com/api/v5/repos/cloud-drive-01/gitee-api-test-repo", // API 地址
+  "html_url": "https://gitee.com/cloud-drive-01/gitee-api-test-repo",         // 网页地址
+  "description": "由 Gitee API 创建的测试仓库",                                   // 仓库描述
+  "private": true,                                                            // 是否私有
+  "owner": {                                                                  // 仓库所有者
+    "id": 12345, "login": "cloud-drive-01", "name": "cloud-drive-01",
+    "avatar_url": "https://gitee.com/assets/no_portrait.png"
+  },
+  "default_branch": "master",                                                 // 默认分支
+  "language": "Go",                                                           // 主要语言
+  "has_issues": true,                                                         // 是否开启 Issue
+  "has_wiki": true,                                                           // 是否开启 Wiki
+  "fork": false,                                                              // 是否为 Fork
+  "open_issues_count": 0,                                                     // 开启的 Issue 数
+  "created_at": "2024-06-01T10:00:00+08:00",                                  // 创建时间
+  "updated_at": "2024-06-15T12:00:00+08:00"                                   // 更新时间
+}
+```
+
+### 2.3 修改仓库信息
+
+```go
+data := "name=gitee-api-tes-repo&description=修改了描述信息&has_issues=false"
+result, _ := giteeAPI("PATCH",
+    "https://gitee.com/api/v5/repos/cloud-drive-01/gitee-api-tes-repo",
+    strings.NewReader(data))
+pretty, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(pretty))
+```
+
+**参数：** 除 2.2 的 `owner`、`repo` 外，额外支持：
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `name` | string | ✅ | 仓库名称 |
+| `description` | string | — | 仓库描述 |
+| `homepage` | string | — | 主页地址 |
+| `private` | bool | — | 是否私有 |
+| `path` | string | — | 修改仓库路径 |
+| `default_branch` | string | — | 设置默认分支 |
+| `has_issues` | bool | — | 是否开启 Issue |
+| `has_wiki` | bool | — | 是否开启 Wiki |
+
+**输出示例：** 同 2.2 的 Project 结构，字段值反映修改后的内容。
+
+### 2.4 删除仓库
+
+```go
+url := "https://gitee.com/api/v5/repos/cloud-drive-01/gitee-api-tes-repo"
+req, _ := http.NewRequest("DELETE", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+body, _ := io.ReadAll(resp.Body)
+fmt.Printf("返回体: %s\n", string(body))
+```
+
+**参数：** `owner`、`repo`（同 2.2）
+
+**输出示例：**
+
+```
+状态码: 204   // 删除成功，不返回内容
+状态码: 404   // 仓库不存在，返回: {"message":"Not Found Project"}
+```
+
+### 2.5 清空仓库
+
+清空仓库中的所有文件内容，但保留仓库本身。
+
+```go
+url := "https://gitee.com/api/v5/repos/cloud-drive-01/upload-test/clear"
+req, _ := http.NewRequest("PUT", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+fmt.Printf("状态码: %d\n", resp.StatusCode)  // 204 表示成功
+```
+
+**参数：** `owner`、`repo`（同 2.2）
+
+**输出示例：** `状态码: 204（仓库已清空，本身还在）`
+
+### 扩展：更多仓库管理 API
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/v5/repos/{owner}/{repo}/branches` | 列出仓库分支 |
+| POST | `/v5/repos/{owner}/{repo}/branches` | 创建分支 |
+| GET | `/v5/repos/{owner}/{repo}/tags` | 列出标签 |
+| POST | `/v5/repos/{owner}/{repo}/tags` | 创建标签 |
+| GET | `/v5/repos/{owner}/{repo}/contributors` | 获取贡献者 |
+| GET | `/v5/repos/{owner}/{repo}/forks` | 查看 Forks |
+| POST | `/v5/repos/{owner}/{repo}/forks` | Fork 仓库 |
+| GET | `/v5/repos/{owner}/{repo}/hooks` | 管理 Webhooks |
+| GET | `/v5/repos/{owner}/{repo}/releases` | 管理 Releases |
+
+## 3. 仓库内容管理
+
+### 3.1 提交推送记录（Commits API）
+
+一次提交可以同时执行多个操作：创建、更新、重命名、移动、删除文件。这是 Gitee API 最强大的功能之一。
+
+#### 批量上传：遍历本地目录构建操作列表
+
+```go
+actions := []map[string]string{}
+filepath.Walk("upload", func(path string, info os.FileInfo, err error) error {
+    if info.IsDir() {
+        return nil
+    }
+    relPath := filepath.ToSlash(path)
+    data, _ := os.ReadFile(path)
+    ext := strings.ToLower(filepath.Ext(path))
+    encoding := "text"
+    content := string(data)
+    if ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".gif" || ext == ".ico" {
+        encoding = "base64"
+        content = base64.StdEncoding.EncodeToString(data)
+    }
+    actions = append(actions, map[string]string{
+        "action": "create", "path": relPath, "content": content, "encoding": encoding,
+    })
+    return nil
+})
+```
+
+```go
+body := map[string]interface{}{
+    "branch": "master", "message": "上传本地文件", "actions": actions,
+}
+jsonData, _ := json.Marshal(body)
+req, _ := http.NewRequest("POST",
+    "https://gitee.com/api/v5/repos/cloud-drive-01/upload-test/commits",
+    bytes.NewReader(jsonData))
+req.Header.Set("Content-Type", "application/json")
+req.Header.Set("Authorization", "Bearer "+token)
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+respBody, _ := io.ReadAll(resp.Body)
+var v interface{}
+json.Unmarshal(respBody, &v)
+pretty, _ := json.MarshalIndent(v, "", "  ")
+fmt.Printf("状态码: %d\n%s\n", resp.StatusCode, string(pretty))
+```
+
+#### 多类型操作：一次提交完成创建/更新/重命名/移动/删除
+
+```go
+commit := map[string]interface{}{
+    "branch": "master", "message": "对已有文件进行操作：更新/重命名/移动/删除",
+    "actions": []map[string]string{
+        // 更新内容
+        {"action": "update", "path": "src/main.go",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n\tfmt.Println(\"v2\")\n}",
+            "encoding": "text"},
+        // 重命名 docs/readme.txt → docs/intro.txt
+        {"action": "move", "path": "docs/intro.txt",
+            "previous_path": "docs/readme.txt", "content": "这是改名后的文件", "encoding": "text"},
+        // 移动 scripts/build.sh → tools/build.sh
+        {"action": "move", "path": "tools/build.sh",
+            "previous_path": "scripts/build.sh", "content": "echo build v2", "encoding": "text"},
+        // 删除
+        {"action": "delete", "path": "config/app.yaml"},
+        // 新增
+        {"action": "create", "path": "CHANGELOG.md",
+            "content": "# Changelog\n\n## v1.0\n- 初始版本", "encoding": "text"},
+    },
+}
+// 请求方式同上
+```
+
+**Action 参数一览：**
+
+| action | 说明 | 必填参数 |
+|--------|------|---------|
+| `create` | 创建新文件 | `path`、`content`、`encoding` |
+| `update` | 更新已有文件 | `path`、`content`、`encoding` |
+| `move` | 重命名/移动文件 | `path`、`content`、`encoding`、`previous_path` |
+| `delete` | 删除文件 | `path` |
+
+**输出示例（返回值 - Commit）：**
+
+```json
+{
+  "sha": "a1b2c3d4e5f6...",                      // 提交 SHA
+  "commit": {                                      // 提交详情
+    "message": "上传本地文件",                       // 提交信息
+    "author": { "name": "pc2005", "date": "..." }, // 作者
+    "committer": { "name": "pc2005", "date": "..." } // 提交者
+  },
+  "html_url": "https://gitee.com/cloud-drive-01/upload-test/commit/a1b2c3d..." // 网页链接
+}
+```
+
+### 3.2 获取文件列表
+
+```go
+url := fmt.Sprintf("https://gitee.com/api/v5/repos/%s/%s/contents", owner, repo)
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+body, _ := io.ReadAll(resp.Body)
+var v interface{}
+json.Unmarshal(body, &v)
+pretty, _ := json.MarshalIndent(v, "", "  ")
+fmt.Printf("=== 根目录 ===\n%s\n", string(pretty))
+```
+
+**参数（path + query）：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `owner`、`repo` | string | ✅ | 仓库所属空间和仓库名（同 2.2） |
+| `path` | string | ✅ | 目录路径（空字符串 = 根目录） |
+| `ref` | string | — | 分支/tag/commit（默认 master） |
+
+**输出示例（返回值 - FileContent[]）：**
+
+```json
+[
+  {
+    "_links": {                                                                 // 链接集合
+      "html": "https://gitee.com/cloud-drive-01/upload-test/blob/master/assets",  // 网页链接
+      "self": "https://gitee.com/api/v5/repos/cloud-drive-01/upload-test/contents/assets" // API 链接
+    },
+    "download_url": "https://gitee.com/cloud-drive-01/upload-test/raw/master/assets",  // 下载链接
+    "html_url": "https://gitee.com/cloud-drive-01/upload-test/blob/master/assets",      // 网页地址
+    "name": "assets",                                                           // 文件名
+    "path": "assets",                                                           // 路径
+    "sha": "247dbf206f88150f34187a7f6e48b5fefb190fd5",                         // 文件 SHA
+    "size": null,                                                               // 文件大小（目录为 null）
+    "type": "dir",                                                              // 类型: "file" 或 "dir"
+    "url": "https://gitee.com/api/v5/repos/cloud-drive-01/upload-test/contents/assets" // 资源 URL
+  }
+]
+```
+
+### 3.3 下载单个文件（Raw）
+
+```go
+url := fmt.Sprintf("https://gitee.com/api/v5/repos/cloud-drive-01/%s/raw/hello.txt", repo)
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+content, _ := io.ReadAll(resp.Body)
+fmt.Printf("状态码: %d\n内容: %s\n", resp.StatusCode, string(content))
+```
+
+**参数：** `owner`、`repo`、`path`（文件路径），同 2.2 的 path 参数格式。
+
+**输出示例：** 文件原始内容，支持最大 **100MB**。
+
+### 3.4 单个文件 CRUD（Contents API）
+
+适合操作单个文件，批量操作推荐使用 3.1 的 Commits API。
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| POST | `/v5/repos/{owner}/{repo}/contents/{path}` | 新建文件 |
+| PUT | `/v5/repos/{owner}/{repo}/contents/{path}` | 更新文件 |
+| DELETE | `/v5/repos/{owner}/{repo}/contents/{path}` | 删除文件 |
+
+**输出示例：** 成功返回 `Commit` 对象（同 3.1 的返回结构）。
+
+## 4. Git Data API（只读）
+
+Gitee 只提供了两个 Git Data **读取**接口，没有写入接口，这是与 GitHub API 的一个显著差异。
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/v5/repos/{owner}/{repo}/git/blobs/{sha}` | 通过 Blob SHA 获取文件原始内容 |
+| GET | `/v5/repos/{owner}/{repo}/git/trees/{sha}` | 获取目录树结构（支持 `?recursive=1` 递归） |
+
+**输出示例（Blob）：**
+
+```json
+{
+  "sha": "247dbf206f88150f34187a7f6e48b5fefb190fd5",  // Blob SHA
+  "size": 1024,                                        // 文件大小（字节）
+  "encoding": "base64",                                // 编码方式
+  "content": "cGFja2FnZSBtYWlu...\n"                   // 文件内容（Base64 编码）
+}
+```
+
+**输出示例（Tree）：**
+
+```json
+{
+  "sha": "3b88c5b8a7e9d1f2...",                       // Tree SHA
+  "tree": [                                             // 文件树条目
+    {
+      "path": "src",                                   // 路径
+      "mode": "040000",                                // 文件模式
+      "type": "tree",                                  // 类型: blob / tree / commit
+      "sha": "a1b2c3d4e5f6...",                       // 条目 SHA
+      "size": null                                     // 文件大小（目录为 null）
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4e5f6a7b8c9...",
+      "size": 512                                      // 文件大小（字节）
+    }
+  ]
+}
+```
+
+## 总览：API 端点速查表
+
+### 用户管理
+
+| 方法 | 路径 | 功能 |
+|------|------|------|
+| GET | `/v5/user` | 获取当前用户信息 |
+| PATCH | `/v5/user` | 修改用户信息 |
+| GET | `/v5/user/repos` | 列出用户仓库 |
+| POST | `/v5/user/repos` | 创建仓库 |
+
+### 仓库管理
+
+| 方法 | 路径 | 功能 |
+|------|------|------|
+| GET | `/v5/repos/{owner}/{repo}` | 查询仓库信息 |
+| PATCH | `/v5/repos/{owner}/{repo}` | 修改仓库信息 |
+| DELETE | `/v5/repos/{owner}/{repo}` | 删除仓库 |
+| PUT | `/v5/repos/{owner}/{repo}/clear` | 清空仓库 |
+
+### 内容管理
+
+| 方法 | 路径 | 功能 |
+|------|------|------|
+| GET | `/v5/repos/{owner}/{repo}/contents(/{path})` | 获取目录内容/文件列表 |
+| POST | `/v5/repos/{owner}/{repo}/contents/{path}` | 新建文件 |
+| PUT | `/v5/repos/{owner}/{repo}/contents/{path}` | 更新文件 |
+| DELETE | `/v5/repos/{owner}/{repo}/contents/{path}` | 删除文件 |
+| POST | `/v5/repos/{owner}/{repo}/commits` | 提交文件变更（批量） |
+| GET | `/v5/repos/{owner}/{repo}/raw/{path}` | 下载 raw 文件（≤100MB） |
+
+### Git Data（只读）
+
+| 方法  | 路径                                         | 功能        |
+| --- | ------------------------------------------ | --------- |
+| GET | `/v5/repos/{owner}/{repo}/git/blobs/{sha}` | 获取文件 Blob |
+| GET | `/v5/repos/{owner}/{repo}/git/trees/{sha}` | 获取目录 Tree |
+|     |                                            |           |
+
+## 局限性与替代方案
+
+**已知问题：**
+
+1. **Git Data API 只有读操作**：仅有 `GET blob` 和 `GET tree`，没有 `create blob`、`create tree`、`create commit`、`update ref` 等写入接口。
+2. **场景受限**：例如「清空历史提交保留最新一个」这种需求，标准的 Git Data API（GitHub）可以通过 创建新 blob → 新 tree → 新 commit → 更新 ref 实现，但 Gitee 无法做到。
+
+**替代方案：**
+
+- 缺失的 Git Data 写入能力，可用本地 git 命令 + 3.1 的 Commits API 组合替代。
+- 需要完整的 Git Data 写入（`git/refs`、`git/commits`、`git/trees`、`git/blobs`），建议考虑 GitHub API。
+
+## 结语
+
+Gitee API v5 覆盖了日常代码托管的大部分场景：用户管理、仓库生命周期、文件内容管理等，足以支撑自动化工作流和个人效率工具的构建。Go 语言的 `net/http` 标准库加上 `encoding/json`，就可以完成全部调用，无需额外依赖。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流\",\"item\":\"https://www.lxpavilion.top/article/142\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流\",\"headline\":\"Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流\",\"description\":\"从零开始掌握 Gitee API v5，涵盖用户管理、仓库操作、文件内容管理及提交推送等核心场景。Go 语言实战代码 + Swagger 文档解读，帮你用 API 驱动代码托管工作流自动化。\",\"datePublished\":\"2026-07-26T21:34:51.372497\",\"dateCreated\":\"2026-07-26T21:34:51.372497\",\"dateModified\":\"2026-07-26T21:36:35.968187\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/710.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"_z7ZVon9gKpI20N9tWVAH"}
+3:{"id":"142"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/04t8-7cad8976.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/0r7lf-7.my0tf.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0yajf_ay~c.ax.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

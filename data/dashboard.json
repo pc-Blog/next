@@ -1,23 +1,23 @@
 {
-  "articleCount": 70,
+  "articleCount": 71,
   "projectCount": 9,
   "skillCount": 8,
   "timelineCount": 6,
   "topArticles": [
     {
-      "id": 43,
-      "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
-      "viewCount": 6
-    },
-    {
       "id": 61,
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
-      "viewCount": 5
+      "viewCount": 8
+    },
+    {
+      "id": 43,
+      "title": "IndexNow 实战指南：告别漫长等待，让搜索引擎秒抓你的博客更新",
+      "viewCount": 7
     },
     {
       "id": 66,
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
-      "viewCount": 5
+      "viewCount": 6
     },
     {
       "id": 45,
@@ -30,6 +30,6 @@
       "viewCount": 3
     }
   ],
-  "totalViews": 54,
+  "totalViews": 61,
   "commentCount": 3
 }

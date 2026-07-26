@@ -1,0 +1,29 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "## 一、数组（Array）— 定长\n\n数组是**固定长度**的，一旦声明就不能改变长度。\n\n```go\n// 声明：var 变量名 [长度]类型\nvar nums [3]int\nnums[0] = 10\nnums[1] = 20\nnums[2] = 30\n\n// 声明 + 初始化\nnums := [3]int{10, 20, 30}\n\n// 让 Go 自己数长度\nnums := [...]int{10, 20, 30}   // 自动推断长度为 3\n\n// 数组长度是类型的一部分\nnums1 := [3]int{1, 2, 3}\nnums2 := [5]int{1, 2, 3, 4, 5}\n// nums1 = nums2  ← ❌ 编译错误！长度不同，类型不同\n```\n\n**数组的局限：** 长度固定，不够灵活。实际开发中**很少直接用数组**，更常用的是切片。\n\n---\n\n## 二、切片（Slice）— 动态数组 ✅ 最常用\n\n切片是 Go **最常用的数据结构**，类似于 Python 的 list 或 Java 的 ArrayList。\n\n### 2.1 创建切片\n\n```go\n// 方式1：字面量创建\nnames := []string{\"Go\", \"Python\", \"Rust\"}\n\n// 方式2：make 创建\nnums := make([]int, 3)       // [0, 0, 0]，长度 = 3\nnums := make([]int, 3, 5)    // 长度 = 3，容量 = 5\n\n// 方式3：从数组切取\narr := [5]int{1, 2, 3, 4, 5}\nslice := arr[1:4]            // [2, 3, 4]  左闭右开\n```\n\n### 2.2 切片的增删改查\n\n```go\n// 追加元素\nnums := []int{1, 2, 3}\nnums = append(nums, 4)        // [1, 2, 3, 4]\nnums = append(nums, 5, 6)     // [1, 2, 3, 4, 5, 6]\n\n// 合并两个切片\nnums = append(nums, []int{7, 8}...)   // ... 把切片展开\n\n// 获取长度和容量\nfmt.Println(len(nums))   // 8，实际元素个数\nfmt.Println(cap(nums))   // 底层数组容量（自动扩容）\n\n// 遍历\nfor i, v := range nums {\n    fmt.Printf(\"索引 %d = %d\\n\", i, v)\n}\n```\n\n### 2.3 长度 vs 容量\n\n```go\nnums := make([]int, 3, 5)   // 长度 3，容量 5\n// nums = [0, 0, 0, _, _]\n//           ↑ 长度 ↑ 容量（底层数组总大小）\n\nfmt.Println(len(nums))   // 3\nfmt.Println(cap(nums))   // 5\n\nnums = append(nums, 1)   // 还有容量，不会重新分配\nnums = append(nums, 2)   // [0, 0, 0, 1, 2]\n\nnums = append(nums, 3)   // 容量不够了 → 自动扩容为 2 倍\n```\n\n> 💡 `len` 表示能访问多少个元素，`cap` 表示底层数组能放多少个。追加元素时，如果没超过 cap 就不会重新分配内存，效率更高。\n\n---\n\n## 三、Map — 键值对\n\n类似于其他语言的字典 / HashMap。\n\n```go\n// 创建 map\n// map[键类型]值类型\nscores := make(map[string]int)\nscores[\"张三\"] = 90\nscores[\"李四\"] = 85\n\n// 创建 + 初始化\nscores := map[string]int{\n    \"张三\": 90,\n    \"李四\": 85,\n    \"王五\": 92,\n}\n\n// 取值（安全方式：带 ok 判断是否存在）\nscore, ok := scores[\"赵六\"]\nif ok {\n    fmt.Println(\"分数:\", score)\n} else {\n    fmt.Println(\"此人不存在\")\n}\n\n// 删除\ndelete(scores, \"李四\")\n\n// 遍历（注意：map 遍历顺序不固定！）\nfor name, score := range scores {\n    fmt.Printf(\"%s: %d\\n\", name, score)\n}\n```\n\n> ⚠️ 遍历 Map 时**顺序不固定**，每次运行可能都不一样。如果需要固定顺序，先把 key 取出来排序再遍历。\n\n---\n\n## 四、结构体（struct）— 自定义类型\n\n### 4.1 定义和使用\n\n```go\n// 定义结构体\ntype User struct {\n    Name   string\n    Age    int\n    Email  string\n}\n\n// 使用\nu1 := User{\"pc\", 25, \"pc@example.com\"}                       // 按字段顺序（不推荐）\nu2 := User{Name: \"pc\", Age: 25, Email: \"pc@example.com\"}     // 指定字段名（推荐 ✅）\nu3 := User{Name: \"pc\"}                                        // 只赋值部分字段，其余为零值\n\n// 访问字段\nfmt.Println(u2.Name)   // \"pc\"\nu2.Age = 26            // 修改字段\n```\n\n### 4.2 结构体方法\n\nGo 没有 class，但可以给 struct 绑定方法：\n\n```go\ntype User struct {\n    Name string\n    Age  int\n}\n\n// 值接收者（不修改原始数据）\nfunc (u User) SayHello() {\n    fmt.Printf(\"你好，我是 %s，今年 %d 岁\\n\", u.Name, u.Age)\n}\n\n// 指针接收者（可以修改原始数据）\nfunc (u *User) Birthday() {\n    u.Age++\n}\n\n// 使用\nu := User{Name: \"pc\", Age: 25}\nu.SayHello()        // 你好，我是 pc，今年 25 岁\nu.Birthday()        // Age 变成 26\nu.SayHello()        // 你好，我是 pc，今年 26 岁\n```\n\n> 💡 **什么时候用值接收者 vs 指针接收者？**\n> - 只读不修改 → 值接收者\n> - 需要修改字段 → 指针接收者\n> - 结构体很大 → 指针接收者（避免复制开销）\n\n---\n\n## 五、指针 — 简单理解\n\nGo 的指针**没有 C 的指针运算**，比 C 安全得多。\n\n```go\n// & 取地址  * 取值\nx := 10\np := &x            // p 是一个指向 int 的指针\n\nfmt.Println(p)     // 0xc0000...（内存地址）\nfmt.Println(*p)    // 10（取指针指向的值）\n\n*p = 20            // 通过指针修改 x\nfmt.Println(x)     // 20\n```\n\n**为什么需要指针？**\n\n```go\n// 没有指针：值传递，原来的值不变\nfunc double(x int) {\n    x = x * 2\n}\n\n// 有指针：可以修改原来的值\nfunc double(x *int) {\n    *x = *x * 2\n}\n\nn := 5\ndouble(&n)\nfmt.Println(n)   // 10\n```\n\n> 💡 新手阶段掌握 `&` 和 `*` 就够了。在 Go 里，**大部分时间用的是指针接收者(struct 方法)和切片(内部就是指针)**，不需要像 C 那样手动操作指针。\n\n---\n\n## 六、完整示例\n\n```go\ntype Student struct {\n    Name  string\n    Score float64\n}\n\nfunc (s Student) Info() string {\n    status := \"不及格\"\n    if s.Score >= 60 {\n        status = \"及格\"\n    }\n    return fmt.Sprintf(\"%s: %.1f分 - %s\", s.Name, s.Score, status)\n}\n\nfunc main() {\n    // 用结构体 + 切片组织数据\n    students := []Student{\n        {\"张三\", 85},\n        {\"李四\", 42},\n        {\"王五\", 93},\n    }\n    \n    // 用 map 索引\n    index := make(map[string]float64)\n    for _, s := range students {\n        index[s.Name] = s.Score\n    }\n    \n    // 查询\n    for _, name := range []string{\"张三\", \"赵六\"} {\n        if score, ok := index[name]; ok {\n            fmt.Printf(\"%s 的分数: %.1f\\n\", name, score)\n        } else {\n            fmt.Printf(\"%s 不存在\\n\", name)\n        }\n    }\n    \n    // 遍历\n    for _, s := range students {\n        fmt.Println(s.Info())\n    }\n}\n```\n\n---\n\n## 七、小结\n\n| 类型 | 特点 | 常用程度 |\n|:-----|:-----|:--------|\n| 数组 `[n]T` | 定长，用的少 | ⭐⭐ |\n| 切片 `[]T` | 动态长度，最常用 | ⭐⭐⭐⭐⭐ |\n| Map `map[K]V` | 键值对，快速查询 | ⭐⭐⭐⭐ |\n| 结构体 `struct` | 组织多个字段，代替 class | ⭐⭐⭐⭐⭐ |\n| 指针 `*T` | 引用传值，注意 & 和 * | ⭐⭐⭐ |\n\n下一课预告：**错误处理与包管理**——学会用好 `error` 和 `go mod`。\n",
+  "coverImage": "/data/media/708.png",
+  "createdAt": "2026-07-21T10:42:52",
+  "id": 138,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 139,
+    "title": "Go学习笔记：函数与控制流——多返回值、for 与 if 的独特语法"
+  },
+  "prev": {
+    "id": 137,
+    "title": "Go学习笔记：错误处理——没有异常，只有 error"
+  },
+  "series": "Go学习笔记",
+  "summary": "\"从数组到切片、从 Map 到结构体，再到 Go 的指针哲学。数组定长、切片灵活、Map 键值查询、struct 组织数据——一次搞懂 Go 的复合数据类型。\"",
+  "tags": [
+    {
+      "id": 79,
+      "name": "Go"
+    }
+  ],
+  "title": "Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针",
+  "updateTime": "2026-07-22T10:42:52.941695",
+  "viewCount": 0
+}

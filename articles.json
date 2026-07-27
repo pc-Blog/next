@@ -1,6 +1,77 @@
 {
-  "total": 71,
+  "total": 74,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/710.png",
+      "createdAt": "2026-07-27T21:20:43.759969",
+      "id": 146,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Git学习笔记",
+      "summary": "从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。",
+      "tags": [],
+      "title": "Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统",
+      "updateTime": "2026-07-27T21:32:06.29921",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/710.png",
+      "createdAt": "2026-07-27T20:32:29.955559",
+      "id": 145,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Git学习笔记",
+      "summary": "深入掌握 GitHub Git Data API，通过实战示例学会 blob、tree、commit、ref 的创建与读取，理解 Git 底层数据结构并用 Go 实现高级版本控制操作。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        },
+        {
+          "id": 81,
+          "name": "Git"
+        },
+        {
+          "id": 27,
+          "name": "Github"
+        }
+      ],
+      "title": "Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象",
+      "updateTime": "2026-07-27T21:32:47.383042",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/710.png",
+      "createdAt": "2026-07-27T18:01:02.329693",
+      "id": 144,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Git学习笔记",
+      "summary": "从零开始掌握 GitHub REST API，通过 12 个实战示例学会用户管理、仓库操作与 Contents API 的文件增删改查，每段代码都附带详细字段说明，是 Go 开发者操作 GitHub 的最佳入门教程。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        },
+        {
+          "id": 81,
+          "name": "Git"
+        },
+        {
+          "id": 27,
+          "name": "Github"
+        }
+      ],
+      "title": "Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件",
+      "updateTime": "2026-07-27T21:33:27.484189",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

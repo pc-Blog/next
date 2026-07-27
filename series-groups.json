@@ -1,9 +1,9 @@
 [
   {
     "series": "Git学习笔记",
-    "count": 1,
+    "count": 4,
     "coverImage": "/data/media/710.png",
-    "summary": "从零开始掌握 Gitee API v5，涵盖用户管理、仓库操作、文件内容管理及提交推送等核心场景。Go 语言实战代码 + Swagger 文档解读，帮你用 API 驱动代码托管工作流自动化。"
+    "summary": "从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。"
   },
   {
     "series": "Go学习笔记",

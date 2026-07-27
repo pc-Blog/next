@@ -9,7 +9,10 @@
   "id": 23,
   "isPublished": 1,
   "name": "Hotspot",
-  "next": null,
+  "next": {
+    "id": 24,
+    "name": "simple-git-backup"
+  },
   "prev": {
     "id": 20,
     "name": "EduMark"

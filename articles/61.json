@@ -1,18 +1,21 @@
 {
   "categoryId": 43,
   "categoryName": "开发拾遗",
-  "commentCount": 0,
   "content": "## 什么是 Workers Logs\n\nWorkers Logs 是 Cloudflare 为 Workers 提供的内置日志服务。你在代码里写 `console.log`，输出会自动采集到 Cloudflare 仪表盘，无需额外配置日志服务器。\n\n支持 `console.log`、`console.warn`、`console.error`，用法和浏览器/Node.js 完全一致。\n\n## 免费额度\n\n| 套餐 | 每日额度 | 保留时长 |\n|------|---------|---------|\n| Free | 20 万条/天 | 3 天 |\n| Paid | 2000 万条/月 + $0.6/百万条 | 7 天 |\n\n个人项目完全够用。\n\n## 开启方式\n\n在 `wrangler.json` 中添加 observability 配置：\n\n```json\n{\n  \"observability\": {\n    \"enabled\": true,\n    \"head_sampling_rate\": 1\n  }\n}\n```\n\n- `enabled`: 开启日志采集\n- `head_sampling_rate`: 采样率，1 表示 100% 请求都记录，0.1 表示只记录 10%\n\n部署后日志自动生效。\n\n## 查看日志\n\n有两种方式：\n\n### 1. Cloudflare 仪表盘\n\n登录 [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → 选择你的 Worker → **Logs** 标签。\n\n在这里可以看到所有 `console.log` 输出的消息和结构化字段。\n\n### 2. 命令行实时查看\n\n```bash\nnpx wrangler tail\n```\n\n只查看错误：\n\n```bash\nnpx wrangler tail --status error\n```\n\n适合开发调试时实时观察日志输出。\n\n## 日志格式建议\n\n### 基本写法\n\n```typescript\nconsole.log(\"用户登录成功\", { userId: 123, role: \"admin\" });\nconsole.warn(\"API 返回空数据\", { url: \"https://api.xxx.com/data\", status: 200 });\nconsole.error(\"数据库查询失败\", { error: \"Connection timeout\" });\n```\n\n### 推荐规则\n\n- 第一个参数用字符串写描述，让人一眼看懂\n- 第二个参数传 JSON 对象，Dashboard 会自动提取为结构化字段，支持筛选和排序\n- JSON 键名用英文，方便 Dashboard 识别\n- `console.log` 记正常流程，`console.warn` 记预期内的异常，`console.error` 记真正的错误\n\n### 在哪些位置打日志\n\n- **外部 API 调用**：请求 URL、返回状态码、数据条数\n- **缓存操作**：命中/未命中\n- **错误处理**：catch 块中记异常信息和上下文\n- **请求入口/出口**：请求参数、处理结果\n\n### 避免记录的内容\n\n- API Token、密钥等敏感信息\n- 用户密码、邮箱等个人数据\n- 大块完整数据（记录条数或摘要即可）\n\n## 常见问题\n\n### 日志怎么删除？\n\nWorkers Logs **不支持主动删除**。免费计划保留 3 天，3 天后自动过期。\n\n### 日志量太大怎么办？\n\n调低采样率：\n\n```json\n{\n  \"observability\": {\n    \"enabled\": true,\n    \"head_sampling_rate\": 0.1\n  }\n}\n```\n\n这样只记录 10% 的请求。\n\n### 日志能导出吗？\n\n付费计划支持 Logpush（推送到 R2、S3、Datadog 等）和 OTel Export（导出到 Sentry、Honeycomb 等 APM 平台）。\n\n## 常用 API\n\nWorkers Logs 提供三个 API 接口，可用于程序化查询日志，适合自动化巡检或集成到自己的后台。\n\nBase URL：\n```\nhttps://api.cloudflare.com/client/v4/accounts/{account_id}/workers/observability/telemetry\n```\n\n认证方式：`Authorization: Bearer <API Token>`，需要 `workers_observability:read` 权限。\n\n### 查询日志\n\n```\nPOST /query\n```\n\n查询 Workers 日志数据，支持按字段筛选和时间范围过滤。返回 `console.log` 输出的消息和结构化字段。\n\n示例请求体：\n```json\n{\n  \"limit\": 20,\n  \"filters\": [\n    {\n      \"key\": \"module\",\n      \"type\": \"eq\",\n      \"value\": \"platform\"\n    }\n  ]\n}\n```\n\n### 查看可查询的字段\n\n```\nPOST /keys\n```\n\n返回所有可用的日志字段名，方便你构建筛选条件。\n\n### 查看字段的取值\n\n```\nPOST /values\n```\n\n查看某个字段有哪些可能的取值，比如查看 `module` 字段有哪些模块名。\n\n### 实际应用场景\n\n- 定时查询最近 N 分钟的 `console.error` 日志，发现异常自动告警\n- 统计某个外部 API 的调用失败率\n- 在自己的管理后台嵌入日志面板，替代 Cloudflare 仪表盘\n- 分析各模块的调用频率和错误分布\n\n## 总结\n\nWorkers Logs 是 Cloudflare Workers 最实用的功能之一，配置简单（加一行配置就行），免费额度对于个人项目完全够用。核心要点：\n\n- 在代码中加 `console.log`，日志自动采集到 Dashboard\n- 推荐用 `console.log(\"中文描述\", { key: \"value\" })` 的格式，兼顾可读性和结构化筛选\n- 遇到接口异常时，日志能帮你快速定位问题原因，不用再手动 curl 猜\n- 三个 API 接口可以在需要时用于程序化查询日志\n",
   "coverImage": "/data/media/540.png",
   "createdAt": "2026-07-02T16:48:48.05911",
   "id": 61,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 62,
+    "title": "Windows 下 WSL2 + Docker Desktop + Ubuntu 开发环境搭建指南"
+  },
   "prev": {
     "id": 60,
     "title": "在 MailerLite 免费计划下实现完全自定义退订与隐藏品牌广告"
   },
+  "series": null,
   "summary": " Cloudflare Workers 日志功能完整教程。教你如何开启 Workers Logs、使用 console.log 结构化日志输出、通过 Dashboard 和 wrangler tail 实时查看日志、利用三个 API 接口程序化查询日志数据。免费额度每天 20 万条，附日志格式规范与最佳实践，帮你从零搭建 Worker 可观测体系。",
   "tags": [
     {
@@ -26,5 +29,5 @@
   ],
   "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
   "updateTime": "2026-07-02T16:48:48.139246",
-  "viewCount": 0
+  "viewCount": 8
 }

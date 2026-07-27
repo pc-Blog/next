@@ -19,6 +19,5 @@
   "summary": "一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。",
   "tags": [],
   "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
-  "updateTime": "2026-07-16T19:48:58.038132",
-  "viewCount": 2
+  "updateTime": "2026-07-16T19:48:58.038132"
 }

@@ -19,6 +19,5 @@
   "summary": "还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。",
   "tags": [],
   "title": "PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合",
-  "updateTime": "2026-07-16T15:25:25.224024",
-  "viewCount": 1
+  "updateTime": "2026-07-16T15:25:25.224024"
 }

@@ -19,6 +19,5 @@
   "summary": "从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。",
   "tags": [],
   "title": "Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试",
-  "updateTime": "2026-07-19T17:30:05.732424",
-  "viewCount": 0
+  "updateTime": "2026-07-19T17:30:05.732424"
 }

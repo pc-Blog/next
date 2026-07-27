@@ -19,6 +19,5 @@
   "summary": "深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。",
   "tags": [],
   "title": "Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战",
-  "updateTime": "2026-07-19T10:59:24.839148",
-  "viewCount": 0
+  "updateTime": "2026-07-19T10:59:24.839148"
 }

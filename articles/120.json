@@ -19,6 +19,5 @@
   "summary": "深入解析 Redis Cluster 分片集群的核心架构、哈希槽分配机制、Gossip 通信协议，并手把手带你用 Docker 搭建 6 节点高可用集群，涵盖创建、验证、故障转移及 Hash Tag 最佳实践。",
   "tags": [],
   "title": "Redis学习笔记：Cluster 分片集群从原理到实战部署",
-  "updateTime": "2026-07-15T17:52:56.945662",
-  "viewCount": 0
+  "updateTime": "2026-07-15T17:52:56.945662"
 }

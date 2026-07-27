@@ -9,7 +9,10 @@
   "id": 20,
   "isPublished": 1,
   "name": "EduMark",
-  "next": null,
+  "next": {
+    "id": 23,
+    "name": "Hotspot"
+  },
   "prev": {
     "id": 19,
     "name": "PlaneWar"

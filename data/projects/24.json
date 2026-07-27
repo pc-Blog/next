@@ -9,10 +9,7 @@
   "id": 24,
   "isPublished": 1,
   "name": "simple-git-backup",
-  "next": {
-    "id": 25,
-    "name": "a'sa's"
-  },
+  "next": null,
   "prev": {
     "id": 23,
     "name": "Hotspot"

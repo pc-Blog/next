@@ -7,10 +7,7 @@
   "id": 142,
   "isPinned": 0,
   "isPublished": 1,
-  "next": {
-    "id": 143,
-    "title": "121"
-  },
+  "next": null,
   "prev": {
     "id": 141,
     "title": "Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口"

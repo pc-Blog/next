@@ -1,21 +1,6 @@
 {
-  "total": 72,
+  "total": 71,
   "rows": [
-    {
-      "categoryId": 44,
-      "categoryName": "学习笔记",
-      "coverImage": "",
-      "createdAt": "2026-07-27T14:11:15.253644",
-      "id": 143,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "1221",
-      "tags": [],
-      "title": "121",
-      "updateTime": "2026-07-27T14:11:15.385061",
-      "viewCount": 0
-    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

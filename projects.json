@@ -1,6 +1,21 @@
 {
-  "total": 9,
+  "total": 10,
   "rows": [
+    {
+      "categoryId": 33,
+      "categoryName": "Ai智能体",
+      "coverImage": "",
+      "createTime": "2026-07-27T14:13:07.4705",
+      "demoUrl": "",
+      "githubUrl": "",
+      "id": 25,
+      "isPublished": 1,
+      "name": "a'sa's",
+      "sortOrder": 0,
+      "summary": "a'sa",
+      "techs": [],
+      "updateTime": "2026-07-27T14:13:07.470661"
+    },
     {
       "categoryId": 35,
       "categoryName": "软件",

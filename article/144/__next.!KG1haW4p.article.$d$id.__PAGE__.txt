@@ -1,0 +1,738 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/0h76zevmh0g6x.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T4ba6,## 概述
+
+GitHub API 是开发者与 GitHub 平台交互的桥梁。无论你是想自动化仓库管理、构建 CI/CD 工具，还是开发云存储类应用，掌握 GitHub API 都是一项核心技能。
+
+### 为什么要学习 GitHub API？
+
+- **自动化**：脚本化完成重复操作，如批量创建仓库、同步文件
+- **集成**：将 GitHub 能力嵌入你的应用——云存储、博客后端、CI/CD 管线
+- **效率**：无需打开浏览器，几行代码即可完成界面点击几十次的操作
+
+### GitHub API 的分类与区别
+
+GitHub 提供了三类 API：
+
+| API 类型 | 风格 | 适用场景 |
+|---|---|---|
+| **REST API** | 资源导向，端点固定 | 大多数通用场景，文件操作、仓库管理 |
+| **GraphQL API** | 按需查询，灵活返回字段 | 需要精确控制数据、减少请求次数 |
+| **Git Data API** | 操作 Git 底层对象（blob、tree、commit） | 高级版本控制、自定义 Git 逻辑 |
+
+本文聚焦 **REST API** 中的 **Contents API**——它是最易上手、生态最完善的选择，也是构建云存储或文件管理类应用的理想方案。
+
+## 前置准备
+
+### 环境要求
+
+- Go 1.16+
+- 一个 GitHub 账号
+- 一个 Personal Access Token（[创建教程](https://github.com/settings/tokens)）
+
+### Token 权限说明
+
+| 权限 | 用途 |
+|---|---|
+| `repo`（完整） | 私有仓库读写 |
+| `user` | 用户信息读写 |
+| `delete_repo` | 删除仓库 |
+
+### 通用请求头
+
+所有 REST API 请求都需包含以下头部：
+
+| 头 | 值 | 说明 |
+|---|---|---|
+| `Authorization` | `Bearer <token>` | 身份认证 |
+| `Accept` | `application/vnd.github+json` | 指定 API 版本 |
+
+---
+
+## 第一部分：用户管理
+
+用户管理是 GitHub API 的入门操作，涵盖认证、查询和修改三个基本模式。
+
+### 1. 查询用户信息
+
+> 热身：通过已认证的 Token 获取当前用户信息。
+
+**请求**
+
+```
+GET https://api.github.com/user
+```
+
+**示例代码**
+
+```go
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+)
+
+token := "ghp_你的token"
+url := "https://api.github.com/user"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("登录名: %s\n", result["login"])
+fmt.Printf("用户ID: %v\n", result["id"])
+fmt.Printf("仓库数: %v\n", result["public_repos"])
+```
+
+**返回结果示例**
+
+| 字段 | 说明 | 类型 |
+|---|---|---|
+| `login` | 用户名 | string |
+| `id` | 用户 ID | number |
+| `public_repos` | 公开仓库数 | number |
+| `avatar_url` | 头像地址 | string |
+| `created_at` | 注册时间 | string |
+
+---
+
+### 2. 修改用户信息
+
+通过 `PATCH` 请求更新个人资料。
+
+**请求**
+
+```
+PATCH /user
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `name` | 显示名称 | 否 |
+| `bio` | 个人简介 | 否 |
+| `location` | 所在地 | 否 |
+| `company` | 公司 | 否 |
+| `blog` | 个人网站 | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/user"
+
+bodyJson := `{"bio":"GitHub API 学习者","location":"China"}`
+req, _ := http.NewRequest("PATCH", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("bio: %s\n", result["bio"])
+fmt.Printf("location: %s\n", result["location"])
+```
+
+**返回说明**
+
+返回更新后的完整用户信息，关键字段：
+
+| 字段 | 说明 |
+|---|---|
+| `login` | 登录名 |
+| `name` | 显示名称 |
+| `bio` | 个人简介 |
+| `location` | 所在地 |
+
+> **注意**：`PATCH /user` 会**覆盖**而非合并字段。建议始终传入需要保留的字段值。
+
+---
+
+## 第二部分：仓库管理
+
+仓库管理是日常使用频率最高的 API 集合，涵盖 CRUD 全流程。
+
+### 3. 创建仓库
+
+在当前用户下创建一个新仓库。
+
+**请求**
+
+```
+POST /user/repos
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `name` | 仓库名 | **是** |
+| `description` | 描述 | 否 |
+| `private` | 是否私有（默认 false） | 否 |
+| `auto_init` | 是否自动初始化 README | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/user/repos"
+
+bodyJson := `{"name":"test-create-api","description":"通过API创建的仓库","private":true}`
+req, _ := http.NewRequest("POST", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("仓库名: %s\n", result["name"])
+fmt.Printf("完整名称: %s\n", result["full_name"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `name` | 仓库名 |
+| `full_name` | 完整名称（格式：owner/repo） |
+| `private` | 是否私有 |
+| `html_url` | 仓库地址 |
+
+> **提示**：创建私有仓库需要 Token 拥有 `repo` 权限。
+
+---
+
+### 4. 删除仓库
+
+> ⚠️ **高危操作**：删除仓库不可撤销，请谨慎使用。
+
+**请求**
+
+```
+DELETE /repos/{owner}/{repo}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/test-create-api"
+
+req, _ := http.NewRequest("DELETE", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+```
+
+**说明**
+
+- 成功返回 **204 No Content**（无返回体）
+- 需要 Token 拥有 `delete_repo` 权限
+
+---
+
+### 5. 查询仓库详情
+
+获取单个仓库的详细信息，包括 Star 数、Fork 数等。
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("名称: %s\n", result["full_name"])
+fmt.Printf("描述: %s\n", result["description"])
+fmt.Printf("私有: %v\n", result["private"])
+fmt.Printf("Star: %v\n", result["stargazers_count"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `full_name` | 完整名称 |
+| `description` | 描述 |
+| `private` | 是否私有 |
+| `language` | 主要语言 |
+| `stargazers_count` | Star 数 |
+| `forks_count` | Fork 数 |
+| `html_url` | 仓库地址 |
+| `default_branch` | 默认分支 |
+
+---
+
+### 6. 查询用户所有仓库
+
+分页获取当前用户的所有仓库，支持筛选。
+
+**请求**
+
+```
+GET /user/repos
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `per_page` | 每页数量（默认 30，最大 100） | 否 |
+| `page` | 页码 | 否 |
+| `type` | 类型：`all` / `owner` / `public` / `private` | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/user/repos?per_page=50&page=1&type=owner"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var repos []map[string]any
+json.Unmarshal(body, &repos)
+
+fmt.Printf("仓库总数: %d\n", len(repos))
+for _, r := range repos {
+	fmt.Printf("- %s (%s)\n", r["full_name"], r["description"])
+}
+```
+
+**返回说明**
+
+返回仓库对象数组，关键字段：
+
+| 字段 | 说明 |
+|---|---|
+| `name` | 仓库名 |
+| `full_name` | 完整名称（owner/repo） |
+| `description` | 描述 |
+| `private` | 是否私有 |
+| `html_url` | 仓库地址 |
+| `language` | 主要语言 |
+
+> **分页处理**：GitHub API 默认返回前 30 条记录。可通过 `Link` 响应头获取下一页地址，实现全量遍历。
+
+---
+
+### 7. 修改仓库信息
+
+更新已有仓库的属性。
+
+**请求**
+
+```
+PATCH /repos/{owner}/{repo}
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `name` | 新仓库名 | 否 |
+| `description` | 仓库描述 | 否 |
+| `private` | 是否私有 | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t"
+
+bodyJson := `{"description":"这是一个测试仓库"}`
+req, _ := http.NewRequest("PATCH", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("仓库名: %s\n", result["name"])
+fmt.Printf("描述: %s\n", result["description"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `name` | 仓库名 |
+| `description` | 仓库描述 |
+| `private` | 是否私有 |
+
+---
+
+## 第三部分：Contents API — 文件操作
+
+Contents API 是 GitHub REST API 中最实用的部分之一。它将 Git 的底层复杂度封装在 HTTP 接口背后，让开发者可以像操作本地文件系统一样管理远程仓库文件——这正是它在云存储和自动化工具场景中大受欢迎的原因。
+
+### 8. 获取文件列表（目录内容）
+
+获取仓库指定目录下的文件和子目录列表。如果 `path` 指向的是文件，则返回该文件的详细信息；如果指向目录，则返回目录下的内容数组。
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/contents/{path}
+```
+
+> `path` 为目录路径，不传或传空则返回仓库根目录内容。
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `path` | 目录路径（空=根目录） | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t/contents/"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var items []map[string]any
+json.Unmarshal(body, &items)
+
+for _, item := range items {
+	fmt.Printf("  %s  %s  %s\n", item["type"], item["name"], item["sha"])
+}
+```
+
+**返回说明**
+
+返回文件/目录对象数组，每个对象字段：
+
+| 字段 | 说明 |
+|---|---|
+| `type` | 类型：`file` 或 `dir` |
+| `name` | 文件/目录名 |
+| `path` | 完整路径 |
+| `sha` | 文件的 SHA |
+| `size` | 文件大小（目录无此字段） |
+| `download_url` | 下载地址（目录无此字段） |
+
+> **实现递归遍历**：当返回项的类型为 `dir` 时，可用该路径再次调用接口，实现递归遍历整个仓库目录树。
+
+---
+
+### 9. 下载单个文件
+
+获取仓库中某个文件的内容和元数据。
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/contents/{path}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `path` | 文件路径 | **是** |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t/contents/test.txt"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+content, _ := base64.StdEncoding.DecodeString(result["content"].(string))
+fmt.Printf("文件名: %s\n", result["name"])
+fmt.Printf("大小: %v bytes\n", result["size"])
+fmt.Printf("SHA: %s\n", result["sha"])
+fmt.Printf("内容: %s\n", content)
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `name` | 文件名 |
+| `path` | 文件路径 |
+| `content` | 文件内容（**base64 编码**，需解码） |
+| `sha` | 文件 SHA |
+| `size` | 文件大小（字节） |
+| `download_url` | 原始文件下载地址 |
+
+> **注意**：`content` 字段返回的是 base64 编码字符串，Go 中需用 `base64.StdEncoding.DecodeString()` 解码。对于大文件（超过 1MB），建议使用 `download_url` 直接下载原始文件以减少 API 开销。
+
+---
+
+### 10. 创建文件
+
+在仓库中创建新文件并自动生成一次 Git 提交。
+
+**请求**
+
+```
+PUT /repos/{owner}/{repo}/contents/{path}
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `message` | 提交信息 | **是** |
+| `content` | 文件内容（base64 编码） | **是** |
+| `branch` | 分支名（默认当前分支） | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t/contents/test.txt"
+
+content := base64.StdEncoding.EncodeToString([]byte("hello world"))
+bodyJson := fmt.Sprintf(`{"message":"create test.txt","content":"%s"}`, content)
+req, _ := http.NewRequest("PUT", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("路径: %s\n", result["content"].(map[string]any)["path"])
+fmt.Printf("SHA: %s\n", result["content"].(map[string]any)["sha"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `content.path` | 文件路径 |
+| `content.sha` | 文件 SHA（更新/删除时需要） |
+| `commit.sha` | 提交 SHA |
+
+> **注意**：如果路径已存在文件，`PUT` 请求会返回错误（除非提供 `sha` 参数用于更新）。创建新文件时，确保路径不存在或预先检查。
+
+---
+
+### 11. 更新文件
+
+与创建文件使用同一端点，多传入 `sha` 参数即可将操作变为更新。
+
+**请求**
+
+```
+PUT /repos/{owner}/{repo}/contents/{path}
+```
+
+**参数**
+
+| 字段        | 说明                        | 必填    |
+| --------- | ------------------------- | ----- |
+| `message` | 提交信息                      | **是** |
+| `content` | 新文件内容（base64 编码）          | **是** |
+| `sha`     | **当前文件的 SHA**（用于指定更新哪个版本） | **是** |
+| `branch`  | 分支名                       | 否     |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t/contents/test.txt"
+
+content := base64.StdEncoding.EncodeToString([]byte("你好，更新后的内容"))
+bodyJson := fmt.Sprintf(`{"message":"update test.txt","content":"%s","sha":"旧文件的SHA"}`, content)
+req, _ := http.NewRequest("PUT", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("路径: %s\n", result["content"].(map[string]any)["path"])
+fmt.Printf("新SHA: %s\n", result["content"].(map[string]any)["sha"])
+```
+
+**说明**
+
+- `sha` 是文件的当前 SHA，GitHub 用此确保你更新的是最新版本，防止并发冲突
+- SHA 可以通过 `GET /contents/{path}` 获取（参见第 9 节）
+- 在多人协作场景中，建议先获取最新文件信息再更新，避免覆盖他人修改
+
+---
+
+### 12. 删除文件
+
+删除仓库中的指定文件，并生成一条删除记录的 Git 提交。
+
+**请求**
+
+```
+DELETE /repos/{owner}/{repo}/contents/{path}
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `message` | 提交信息 | **是** |
+| `sha` | 要删除的文件的 SHA | **是** |
+| `branch` | 分支名 | 否 |
+
+**示例代码**
+
+```go
+url := "https://api.github.com/repos/cloud-drive-01/t/contents/test.txt"
+
+bodyJson := `{"message":"delete test.txt","sha":"要删除文件的SHA"}`
+req, _ := http.NewRequest("DELETE", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("状态码: %d\n", resp.StatusCode)
+fmt.Printf("提交信息: %s\n", result["commit"].(map[string]any)["message"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `commit.message` | 提交信息 |
+| `commit.sha` | 提交 SHA |
+| `content` | 无（删除后无文件内容） |
+
+---
+
+## 总结
+
+### 操作模式一览
+
+| API 分类 | HTTP 方法 | 核心端点 | 功能 |
+|---|---|---|---|
+| 用户管理 | `GET` / `PATCH` | `/user` | 获取/修改用户信息 |
+| 仓库管理 | `GET` / `POST` / `PATCH` / `DELETE` | `/user/repos` / `/repos/{owner}/{repo}` | 仓库 CRUD |
+| 文件管理（Contents API） | `GET` / `PUT` / `DELETE` | `/repos/{owner}/{repo}/contents/{path}` | 文件 CRUD |
+
+### Contents API 的优缺点
+
+**优点：**
+- **简洁直观**：一个端点覆盖文件的增、删、改、查全部操作
+- **版本控制**：通过 SHA 机制自动管理文件版本，无需手动处理 Git 底层命令
+- **集成方便**：每次操作自动产生 Git 提交，所有变更完整可追溯
+- **轻量易用**：无需克隆仓库到本地，纯 HTTP 请求即可操作
+
+**局限：**
+- **文件大小限制**：单文件不超过 1MB（超出需使用 Git Data API 或直接 push）
+- **不支持空文件夹**：Git 本身不跟踪空目录，Contents API 也无此概念
+- **单文件操作**：不支持批量上传或下载，逐文件处理效率较低
+
+### 三种 API 的选择建议
+
+| 场景 | 推荐 API | 原因 |
+|---|---|---|
+| 文件管理 / 云存储 | **REST Contents API** | 简单直观，满足绝大多数文件操作需求 |
+| 复杂数据查询 | **GraphQL API** | 一次请求获取多维度关联数据 |
+| 高级版本控制 | **Git Data API** | 需要直接操作 blob、tree、commit 等 Git 底层对象 |
+
+Contents API 是 GitHub REST API 中设计最优雅、功能最实用的模块之一。它将 Git 的版本控制能力以 HTTP 接口的形式开放出来，让开发者能以最少的代码实现远程仓库文件的管理。掌握了它，你就拥有了以编程方式驾驭 GitHub 仓库的核心能力。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件\",\"item\":\"https://www.lxpavilion.top/article/144\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件\",\"headline\":\"Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件\",\"description\":\"从零开始掌握 GitHub REST API，通过 12 个实战示例学会用户管理、仓库操作与 Contents API 的文件增删改查，每段代码都附带详细字段说明，是 Go 开发者操作 GitHub 的最佳入门教程。\",\"datePublished\":\"2026-07-27T18:01:02.329693\",\"dateCreated\":\"2026-07-27T18:01:02.329693\",\"dateModified\":\"2026-07-27T21:33:27.484189\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/710.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"OOcCeqLCBSYL2rEGRIPZs"}
+3:{"id":"144"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0h76zevmh0g6x.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

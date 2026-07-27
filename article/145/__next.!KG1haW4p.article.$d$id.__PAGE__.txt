@@ -1,0 +1,899 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/0h76zevmh0g6x.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T6ea5,## 概述
+
+### 什么是 Git Data API？
+
+Git Data API 允许开发者直接操作 Git 的底层数据结构——blob、tree、commit、ref。与 Contents API 的"文件即黑盒"不同，Git Data API 让你可以精细控制每次提交的构成。
+
+### 什么时候需要 Git Data API？
+
+- **批量操作**：一次提交含多个文件的增/删/改
+- **高级版本控制**：创建分支、合并、回滚
+- **自定义 Git 逻辑**：构建自动化工具、CI/CD 管线
+- **大文件处理**：超过 1MB 的文件（Contents API 限制）
+
+### Git 底层数据结构
+
+```
+Blob（文件内容） → Tree（目录结构） → Commit（快照） → Ref（分支/标签指针）
+```
+
+- **Blob**：文件内容的二进制快照
+- **Tree**：目录结构，记录文件名 → Blob 的映射
+- **Commit**：一次提交，指向一个 Tree，包含作者、时间、提交信息
+- **Ref**：指向 Commit 的指针（如 `refs/heads/main`）
+
+### 与 Contents API 的对比
+
+| 维度 | Contents API | Git Data API |
+|---|---|---|
+| 操作粒度 | 文件级 | Git 对象级 |
+| 一次提交多文件 | ❌ 不支持 | ✅ 灵活支持 |
+| 文件大小限制 | ≤ 1MB | 无限制 |
+| 复杂度 | 低 | 较高 |
+| 适用场景 | 日常文件管理 | 高级版本控制 |
+
+---
+
+## 前置准备
+
+### 环境要求
+
+- Go 1.16+
+- 一个 GitHub 账号
+- 一个 Personal Access Token（需 `repo` 权限）
+
+### 通用请求头
+
+| 头 | 值 | 说明 |
+|---|---|---|
+| `Authorization` | `Bearer <token>` | 身份认证 |
+| `Accept` | `application/vnd.github+json` | 指定 API 版本 |
+| `Content-Type` | `application/json` | 请求体格式 |
+
+---
+
+## 第一部分：Blob — 文件内容存储
+
+Blob 是 Git 最底层的对象，存储文件的原始二进制内容。
+
+### 1. 创建 Blob
+
+将文件内容编码为 blob 对象，返回唯一的 SHA 标识。
+
+**请求**
+
+```
+POST /repos/{owner}/{repo}/git/blobs
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `content` | 文件内容（base64 编码） | **是** |
+| `encoding` | 编码方式：`base64` 或 `utf-8` | **是** |
+
+**示例代码**
+
+```go
+// 1. 创建 Blob：将文件内容编码为 Git 底层对象
+url := "https://api.github.com/repos/cloud-drive-01/t/git/blobs"
+
+// 内容必须 base64 编码
+content := base64.StdEncoding.EncodeToString([]byte("hello git data api"))
+bodyJson := fmt.Sprintf(`{"content":"%s","encoding":"base64"}`, content)
+
+req, _ := http.NewRequest("POST", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)        // 认证
+req.Header.Set("Accept", "application/vnd.github+json") // 指定 API 版本
+req.Header.Set("Content-Type", "application/json")       // 请求体格式
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("Blob SHA: %s\n", result["sha"]) // SHA 是后续操作的关键标识
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `sha` | Blob 的唯一标识，后续创建 Tree 时使用 |
+| `url` | 该 blob 的 API 地址 |
+
+
+### 2. 获取 Blob
+
+通过 SHA 获取已创建的 blob 内容。
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/git/blobs/{sha}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `sha` | Blob 的 SHA | **是** |
+
+**示例代码**
+
+```go
+// 2. 获取 Blob：通过 SHA 读取已创建的 blob
+sha := "blob的SHA"
+url := "https://api.github.com/repos/cloud-drive-01/t/git/blobs/" + sha
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("大小: %v bytes\n", result["size"])
+fmt.Printf("编码: %s\n", result["encoding"])
+fmt.Printf("内容(base64): %s\n", result["content"]) // 返回的是 base64，需解码
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `content` | 文件内容（base64 编码） |
+| `encoding` | 编码方式 |
+| `size` | 文件大小（字节） |
+| `sha` | Blob SHA |
+
+---
+
+## 第二部分：Tree — 目录结构
+
+Tree 记录了目录中所有文件/子目录的布局，每个 Tree 条目指向一个 Blob（文件）或另一个 Tree（子目录）。
+
+### 3. 创建 Tree
+
+创建一个包含文件（blob）引用的 tree 对象。
+
+**请求**
+
+```
+POST /repos/{owner}/{repo}/git/trees
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `tree` | Tree 条目数组 | **是** |
+| `tree[].path` | 文件路径 | **是** |
+| `tree[].mode` | 文件模式（见下表） | **是** |
+| `tree[].type` | 类型：`blob`、`tree`、`commit` | **是** |
+| `tree[].sha` | 引用的 SHA | **是** |
+
+**示例代码**
+
+```go
+// 3. 创建 Tree：将 blob 组织成目录结构
+url := "https://api.github.com/repos/cloud-drive-01/t/git/trees"
+
+// tree 数组：每个条目映射一个文件/目录
+bodyJson := `{"tree":[{"path":"hello.txt","mode":"100644","type":"blob","sha":"blob的SHA"}]}`
+req, _ := http.NewRequest("POST", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("Tree SHA: %s\n", result["sha"]) // 此 SHA 用于创建 commit
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `sha` | Tree 的唯一标识，后续创建 Commit 时使用 |
+| `tree` | Tree 条目数组 |
+
+> **文件模式（mode）说明：**
+>
+> Git 诞生于 Linux 生态，mode 本质上是 Linux 文件权限的简化版。当 checkout 到 Linux/Mac 时，Git 会按 mode 设置实际文件权限：
+>
+> | 值 | 含义 | Checkout 后权限 | 说明 |
+> |---|---|---|---|
+> | `100644` | 普通文件 | `-rw-r--r--` | **最常用**，大多数文件用此值 |
+> | `100755` | 可执行文件 | **`-rwxr-xr-x`** | 如 shell 脚本、二进制程序，CI/CD 需要此权限 |
+> | `040000` | 子目录 | — | `type` 必须为 `tree`，区分文件和目录 |
+> | `120000` | 符号链接 | — | Linux/Mac 常用，Windows 少见 |
+> | `160000` | git submodule | — | 指向另一个 Git 仓库的特定 commit |
+>
+> **注意**：Windows 不直接使用这些权限位，但如果你提交的 shell 脚本用了 `100644`，Linux/Mac 开发者 pull 后需手动 `chmod +x` 才能运行。**作为 API 调用者，记住三个就够了：`100644`（普通文件）、`100755`（可执行文件）、`040000`（目录）。**
+
+
+### 4. 获取 Tree
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/git/trees/{sha}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `sha` | Tree 的 SHA | **是** |
+
+**示例代码**
+
+```go
+// 4. 获取 Tree：查看目录结构
+sha := "tree的SHA"
+url := "https://api.github.com/repos/cloud-drive-01/t/git/trees/" + sha
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+// 遍历 tree 条目，查看所有文件/目录
+for _, item := range result["tree"].([]any) {
+	f := item.(map[string]any)
+	fmt.Printf("  %s  %s  %s\n", f["mode"], f["path"], f["sha"])
+}
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `sha` | Tree SHA |
+| `tree` | 条目数组 |
+| `truncated` | 是否被截断 |
+
+---
+
+## 第三部分：Commit — 提交快照
+
+Commit 指向一个 Tree，并记录父 Commit、作者、时间和提交信息。一个 Commit 代表一次完整的仓库快照。
+
+### 5. 创建 Commit
+
+创建一个指向 tree 的 commit 对象，需指定 parent commit。
+
+**请求**
+
+```
+POST /repos/{owner}/{repo}/git/commits
+```
+
+**参数**
+
+| 字段        | 说明                       | 必填    |
+| --------- | ------------------------ | ----- |
+| `message` | 提交信息                     | **是** |
+| `tree`    | 指向的 Tree SHA             | **是** |
+| `parents` | 父 Commit SHA 数组（首次提交可为空） | **是** |
+
+**示例代码**
+
+```go
+// 5. 创建 Commit：创建一个提交快照
+// 先获取最新 commit SHA（作为 parent）
+refUrl := "https://api.github.com/repos/cloud-drive-01/t/git/ref/heads/main"
+req, _ := http.NewRequest("GET", refUrl, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+body, _ := io.ReadAll(resp.Body)
+var ref map[string]any
+json.Unmarshal(body, &ref)
+parentSha := ref["object"].(map[string]any)["sha"].(string) // 当前分支指向的 commit
+resp.Body.Close()
+
+// 创建 commit：绑定 tree 和 parent
+url := "https://api.github.com/repos/cloud-drive-01/t/git/commits"
+bodyJson := fmt.Sprintf(`{"message":"commit msg","tree":"tree的SHA","parents":["%s"]}`, parentSha)
+req2, _ := http.NewRequest("POST", url, strings.NewReader(bodyJson))
+req2.Header.Set("Authorization", "Bearer "+token)
+req2.Header.Set("Content-Type", "application/json")
+req2.Header.Set("Accept", "application/vnd.github+json")
+
+resp2, _ := http.DefaultClient.Do(req2)
+defer resp2.Body.Close()
+body2, _ := io.ReadAll(resp2.Body)
+
+var result map[string]any
+json.Unmarshal(body2, &result)
+fmt.Printf("Commit SHA: %s\n", result["sha"]) // 此 SHA 用于更新分支指针
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `sha` | Commit SHA |
+| `tree.sha` | 关联的 Tree SHA |
+| `message` | 提交信息 |
+| `author` | 作者信息 |
+
+
+### 6. 获取 Commit
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/git/commits/{sha}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `sha` | Commit SHA | **是** |
+
+**示例代码**
+
+```go
+// 6. 获取 Commit：读取提交详情
+sha := "commit的SHA"
+url := "https://api.github.com/repos/cloud-drive-01/t/git/commits/" + sha
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("信息: %s\n", result["message"])
+fmt.Printf("Tree: %s\n", result["tree"].(map[string]any)["sha"])    // 此 commit 的快照
+fmt.Printf("作者: %s\n", result["author"].(map[string]any)["name"]) // 提交者
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `sha` | Commit SHA |
+| `message` | 提交信息 |
+| `tree.sha` | 关联的 Tree SHA |
+| `author` | 作者信息（name / email / date） |
+| `parents` | 父 Commit 数组 |
+
+---
+
+## 第四部分：Ref — 分支与标签指针
+
+Ref 是指向 Commit 的指针，分支、标签本质上都是 Ref（`refs/heads/main`、`refs/tags/v1.0`）。
+
+### 7. 创建 Ref
+
+创建一个新的分支指针。
+
+**请求**
+
+```
+POST /repos/{owner}/{repo}/git/refs
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `ref` | 完整的 ref 路径，如 `refs/heads/branch-name` | **是** |
+| `sha` | 指向的 Commit SHA | **是** |
+
+**示例代码**
+
+```go
+// 7. 创建 Ref：创建一个新分支指针
+url := "https://api.github.com/repos/cloud-drive-01/t/git/refs"
+
+// ref: 完整的引用路径，sha: 指向的 commit
+bodyJson := `{"ref":"refs/heads/test-branch","sha":"commit的SHA"}`
+req, _ := http.NewRequest("POST", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("Ref: %s\n", result["ref"])
+fmt.Printf("指向: %s\n", result["object"].(map[string]any)["sha"])
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `ref` | 完整 ref 路径 |
+| `object.sha` | 指向的 Commit SHA |
+| `object.type` | 类型（`commit`） |
+
+> ref 格式：`refs/heads/分支名` 或 `refs/tags/标签名`。
+
+
+### 8. 获取 Ref
+
+**请求**
+
+```
+GET /repos/{owner}/{repo}/git/ref/{ref}
+```
+
+**路径参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `owner` | 仓库所有者 | **是** |
+| `repo` | 仓库名 | **是** |
+| `ref` | Ref 路径（如 `heads/main`） | **是** |
+
+**示例代码**
+
+```go
+// 8. 获取 Ref：查看分支/标签当前指向哪个 commit
+url := "https://api.github.com/repos/cloud-drive-01/t/git/ref/heads/main"
+
+req, _ := http.NewRequest("GET", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("Ref: %s\n", result["ref"])
+fmt.Printf("指向: %s\n", result["object"].(map[string]any)["sha"]) // 当前分支的最新 commit
+```
+
+**返回说明**
+
+| 字段 | 说明 |
+|---|---|
+| `ref` | 完整 ref 路径 |
+| `object.sha` | 指向的 Commit SHA |
+
+
+### 9. 更新 Ref
+
+将分支指针移动到另一个 commit。
+
+**请求**
+
+```
+PATCH /repos/{owner}/{repo}/git/refs/{ref}
+```
+
+**参数**
+
+| 字段 | 说明 | 必填 |
+|---|---|---|
+| `sha` | 目标 Commit SHA | **是** |
+| `force` | 是否强制更新（默认 false） | 否 |
+
+**示例代码**
+
+```go
+// 9. 更新 Ref：将分支指针移到新 commit（即"推送"）
+url := "https://api.github.com/repos/cloud-drive-01/t/git/refs/heads/main"
+
+// force:true 强制覆盖，false 时需提供 expected_sha 防冲突
+bodyJson := `{"sha":"目标commit的SHA","force":true}`
+req, _ := http.NewRequest("PATCH", url, strings.NewReader(bodyJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+body, _ := io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+
+fmt.Printf("Ref: %s\n", result["ref"])
+fmt.Printf("指向: %s\n", result["object"].(map[string]any)["sha"]) // 现在指向新 commit
+```
+
+**说明**
+
+- 非强制更新时，要求提供当前 SHA 作为 `expected_sha`，防止覆盖他人修改
+- 强制更新（`force: true`）会直接覆盖，适合单人开发
+
+
+### 10. 删除 Ref
+
+**请求**
+
+```
+DELETE /repos/{owner}/{repo}/git/refs/{ref}
+```
+
+**示例代码**
+
+```go
+// 10. 删除 Ref：删除一个分支或标签
+url := "https://api.github.com/repos/cloud-drive-01/t/git/refs/heads/test-branch"
+
+req, _ := http.NewRequest("DELETE", url, nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+
+resp, _ := http.DefaultClient.Do(req)
+defer resp.Body.Close()
+
+fmt.Printf("状态码: %d\n", resp.StatusCode) // 204 = 删除成功
+```
+
+- 成功返回 **204 No Content**
+
+---
+
+## 综合实战：一次提交多文件
+
+将 blob → tree → commit → ref 串联起来，在一次操作中创建整个项目骨架。
+
+**示例目录结构**
+
+```
+├── README.md
+├── src/
+│   ├── main.go
+│   └── utils/
+│       └── helper.go
+└── config.json
+```
+
+**完整流程**
+
+```
+创建 Blob(s) → 创建 Tree（引用 Blob） → 创建 Commit（引用 Tree） → 更新 Ref（指向 Commit）
+```
+
+**示例代码**
+
+```go
+owner := "cloud-drive-01"
+repo := "t"
+base := fmt.Sprintf("https://api.github.com/repos/%s/%s/git", owner, repo)
+
+// ============================================
+// 1. 创建多个 Blob — 每个文件内容存成一个 blob
+// ============================================
+files := []struct {
+	path    string // 文件路径
+	content string // 文件内容
+}{
+	{"README.md", "# My Project\nThis is a test."},
+	{"src/main.go", "package main\n\nfunc main() {\n\tprintln(\"hello\")\n}"},
+	{"src/utils/helper.go", "package utils\n\nfunc Help() string {\n\treturn \"help\"\n}"},
+	{"config.json", `{"version":"1.0"}`},
+}
+
+var treeItems []map[string]string // 收集 tree 条目
+for _, f := range files {
+	// base64 编码文件内容
+	b64 := base64.StdEncoding.EncodeToString([]byte(f.content))
+	bodyJson := fmt.Sprintf(`{"content":"%s","encoding":"base64"}`, b64)
+	req, _ := http.NewRequest("POST", base+"/blobs", strings.NewReader(bodyJson))
+	req.Header.Set("Authorization", "Bearer "+token)
+	req.Header.Set("Accept", "application/vnd.github+json")
+	req.Header.Set("Content-Type", "application/json")
+	resp, _ := http.DefaultClient.Do(req)
+	body, _ := io.ReadAll(resp.Body)
+	var blob map[string]any
+	json.Unmarshal(body, &blob)
+	resp.Body.Close()
+	// 保存 path + sha，后续组装 tree 用
+	treeItems = append(treeItems, map[string]string{
+		"path": f.path, "mode": "100644",
+		"type": "blob", "sha": blob["sha"].(string),
+	})
+}
+
+// ============================================
+// 2. 创建 Tree — 将所有 blob 组织成目录结构
+// ============================================
+treeJson, _ := json.Marshal(map[string]any{"tree": treeItems})
+req, _ := http.NewRequest("POST", base+"/trees", strings.NewReader(string(treeJson)))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+resp, _ := http.DefaultClient.Do(req)
+body, _ := io.ReadAll(resp.Body)
+var tree map[string]any
+json.Unmarshal(body, &tree)
+resp.Body.Close()
+treeSha := tree["sha"].(string) // 此 tree SHA 用于创建 commit
+
+// ============================================
+// 3. 获取最新 commit SHA — 作为新 commit 的 parent
+// ============================================
+req, _ = http.NewRequest("GET", base+"/ref/heads/main", nil)
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+resp, _ = http.DefaultClient.Do(req)
+body, _ = io.ReadAll(resp.Body)
+var ref map[string]any
+json.Unmarshal(body, &ref)
+parentSha := ref["object"].(map[string]any)["sha"].(string) // 当前分支最新 commit
+resp.Body.Close()
+
+// ============================================
+// 4. 创建 Commit — 关联 tree，指定 parent
+// ============================================
+commitJson := fmt.Sprintf(`{"message":"create project skeleton","tree":"%s","parents":["%s"]}`, treeSha, parentSha)
+req, _ = http.NewRequest("POST", base+"/commits", strings.NewReader(commitJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Content-Type", "application/json")
+req.Header.Set("Accept", "application/vnd.github+json")
+resp, _ = http.DefaultClient.Do(req)
+body, _ = io.ReadAll(resp.Body)
+var commit map[string]any
+json.Unmarshal(body, &commit)
+resp.Body.Close()
+
+// ============================================
+// 5. 更新 Ref（推送）— 分支指向新 commit
+// ============================================
+refJson := fmt.Sprintf(`{"sha":"%s","force":true}`, commit["sha"])
+req, _ = http.NewRequest("PATCH", base+"/refs/heads/main", strings.NewReader(refJson))
+req.Header.Set("Authorization", "Bearer "+token)
+req.Header.Set("Accept", "application/vnd.github+json")
+req.Header.Set("Content-Type", "application/json")
+resp, _ = http.DefaultClient.Do(req)
+body, _ = io.ReadAll(resp.Body)
+var result map[string]any
+json.Unmarshal(body, &result)
+fmt.Printf("✅ 提交成功！新 commit: %s\n", commit["sha"])
+```
+
+**流程总结**
+
+| 步骤  | 操作                           | 说明                      |
+| --- | ---------------------------- | ----------------------- |
+| 1   | `POST /git/blobs` × N        | 每个文件创建一个 blob           |
+| 2   | `POST /git/trees`            | 将所有 blob 组装到一棵 tree（含嵌套目录） |
+| 3   | `GET /git/ref/heads/main`    | 获取当前最新 commit 作为 parent |
+| 4   | `POST /git/commits`          | 创建 commit 指向新 tree      |
+| 5   | `PATCH /git/refs/heads/main` | 将分支指针指向新 commit         |
+|     |                              |                         |
+
+> 这就是 Git Data API 的核心价值：**一次提交包含多个文件的增/删/改，且支持任意层级的目录嵌套**，这是 Contents API 做不到的。
+
+---
+
+---
+
+## 实战：清空仓库（重置提交历史）
+
+使用 Git 内置的空 tree SHA，**一键清空所有文件 + 可选重置提交历史**。不需要创建 blob 和 tree，两步搞定。
+
+### 请求
+
+```json
+POST /repos/{owner}/{repo}/git/commits
+{
+  "message": "clear all",
+  "tree": "4b825dc642cb6eb9a060e54bf8d69288fbee4904",
+  "parents": []
+}
+```
+
+### 示例代码
+
+```go
+// 直接引用空 tree SHA（无需创建 tree）
+// parents:[] 表示无父 commit，历史只剩这一条
+commitJson := fmt.Sprintf(`{"message":"clear all","tree":"4b825dc642cb6eb9a060e54bf8d69288fbee4904","parents":[]}`)
+r, _ := post(baseURL+"/commits", commitJson)
+// force 更新 ref
+patch(baseURL+"/refs/heads/main", fmt.Sprintf(`{"sha":"%s","force":true}`, r["sha"]))
+```
+
+### 说明
+
+| 要点                      | 说明                                                                                     |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| **为什么不用 `{"tree":[]}`** | GitHub API 不允许创建空 tree，会返回 **422 Invalid tree info**                                   |
+| **为什么是这个值**             | `4b825dc642cb6eb9a060e54bf8d69288fbee4904` 是 Git 底层的**空 tree 哈希值**，所有 Git 仓库都一样，直接引用即可 |
+| **`parents:[]`**        | 无父 commit，**历史重置为 1 条**                                                                |
+| **保留历史链**               | 传入当前 parent SHA，则只是清空文件，提交历史保留                                                         |
+| **永久删除**                | 本操作只清空文件，仓库本身还在。想完全删除仓库需用 `DELETE /repos/{owner}/{repo}`                               |
+
+> **流程**：空 tree SHA → commit → force 更新 ref。没有 blob，没有 tree 创建，是目前最简单的一个实战。
+
+---
+
+## 推送实践：增量修改已有代码（两种删除方式）
+
+真实开发场景不是每次新建项目，而是在已有代码基础上做增量修改。Git Data API 支持两种删除文件的方式。
+
+### 两种删除方式对比
+
+| 方式 | 做法 | 适用场景 |
+|---|---|---|
+| **方式1：不写入 tree** | 构造完整 tree 时，跳过要删的文件 | 重新组织整个目录结构时 |
+| **方式2：`sha:null` + `base_tree`** | 基于原 tree，把要删的文件 `sha` 设为 `null` | 只想做增量修改时，不用列出所有保留的文件 |
+
+### 操作流程
+
+```
+状态1（初始）: README.md, config.json, src/
+                 ↓ 方式1：完整 tree 不写 config.json
+状态2:          README.md(新), DEPLOY.md(新), src/
+                 ↓ 方式2：base_tree + sha:null 删 README.md
+状态3（最终）:  DEPLOY.md, src/
+```
+
+### 示例代码
+
+```go
+token := "ghp_你的token"
+baseURL := "https://api.github.com/repos/cloud-drive-01/gitdata-demo/git"
+
+// ===== 提交1：方式1 - 构造完整 tree，不写 = 删除 =====
+
+// 创建新 blob（更新 README.md + 新增 DEPLOY.md）
+readmeB64 := base64.StdEncoding.EncodeToString([]byte("# Project\n\nUpdated"))
+r, _ := post(baseURL+"/blobs", fmt.Sprintf(`{"content":"%s","encoding":"base64"}`, readmeB64))
+readmeSHA := r["sha"].(string)
+
+deployB64 := base64.StdEncoding.EncodeToString([]byte("# Deploy\n\nRun make"))
+r, _ = post(baseURL+"/blobs", fmt.Sprintf(`{"content":"%s","encoding":"base64"}`, deployB64))
+deploySHA := r["sha"].(string)
+
+// 完整构造 tree（不写 config.json = 隐式删除）
+// src 子 tree 的 SHA 从当前 tree 中获取，保持不变
+newTree := fmt.Sprintf(`{"tree":[
+	{"path":"README.md","mode":"100644","type":"blob","sha":"%s"},
+	{"path":"DEPLOY.md","mode":"100644","type":"blob","sha":"%s"},
+	{"path":"src","mode":"040000","type":"tree","sha":"%s"}
+]}`, readmeSHA, deploySHA, srcSubTreeSHA)
+
+r, _ = post(baseURL+"/trees", newTree)
+r, _ = post(baseURL+"/commits", fmt.Sprintf(`{"message":"删除config.json","tree":"%s","parents":["%s"]}`, r["sha"], parentSHA))
+patch(baseURL+"/refs/heads/main", fmt.Sprintf(`{"sha":"%s","force":true}`, r["sha"]))
+
+// ===== 提交2：方式2 - base_tree + sha:null =====
+
+// 获取当前最新 tree SHA
+// 只写要删除的文件，其余保持不变
+delTree := fmt.Sprintf(`{"base_tree":"%s","tree":[
+	{"path":"README.md","mode":"100644","type":"blob","sha":null}
+]}`, currentTreeSHA)
+
+r, _ = post(baseURL+"/trees", delTree)
+r, _ = post(baseURL+"/commits", fmt.Sprintf(`{"message":"删除README.md","tree":"%s","parents":["%s"]}`, r["sha"], parentSHA2))
+patch(baseURL+"/refs/heads/main", fmt.Sprintf(`{"sha":"%s","force":true}`, r["sha"]))
+```
+
+> **注意**：`post()` 和 `patch()` 是简化的辅助函数封装，实际使用时每个 API 调用都需要设置认证头和处理错误。
+
+### 关键理解
+
+在 Git Data API 中，tree 就是完整的目录快照：
+- **文件不在 tree 里** = 被删了（隐式删除）
+- **`sha: null`** = 显式标记删除（配合 `base_tree` 使用更简洁）
+- **blob 换成新的** = 文件内容更新了
+- **新增条目** = 新增文件
+
+> **删除推荐用 `sha: null`**：创建 tree 时传入 `base_tree`（原 tree 的 SHA），然后只列出要变动的条目，要删除的文件设置 `"sha":null`：
+> ```json
+> {"base_tree":"原treeSHA","tree":[
+>   {"path":"README.md","mode":"100644","type":"blob","sha":"新blob"},
+>   {"path":"config.json","mode":"100644","type":"blob","sha":null}
+> ]}
+> ```
+> 这样不用列出所有保留的文件，增量更新更简洁。
+- **blob 换成新的** = 文件内容更新了
+- **新增条目** = 新增文件
+
+### 一个 tree 就够了
+
+上面为了演示原理，按照 `src/utils/` 从内到外创建了多个 tree。**实际上 GitHub 允许在根 tree 中用完整路径直接引用 blob，自动生成中间 tree：**
+
+```json
+{"tree": [
+  {"path":"README.md","mode":"100644","type":"blob","sha":"新blob"},
+  {"path":"src/main.go","mode":"100644","type":"blob","sha":"不变blob"},
+  {"path":"src/utils/helper.go","mode":"100644","type":"blob","sha":"新blob"},
+  {"path":"DEPLOY.md","mode":"100644","type":"blob","sha":"新blob"}
+  /* config.json 不出现 = 删除 */
+]}
+```
+
+**一次 `POST /git/trees` 就够**，GitHub 会自动创建 `src/` 和 `src/utils/` 子 tree。推送到仓库后会看到：
+
+| 方式 | 请求次数 | 可读性 |
+|---|---|---|
+| 多 tree（从内到外） | 3 次 `POST /git/trees` | 慢但容易理解目录层次 |
+| **单 tree（完整路径）** | **1 次 `POST /git/trees`** | **简洁高效** ✅ |
+
+> **建议**：日常开发用单 tree 写法更简洁；需要精细控制子目录权限或复用子 tree 结构时，再用多 tree 拆分。
+
+> Contents API 本质上是 Git Data API 的精简封装——前者一次只能改一个文件，后者一次可以改整个仓库的全部文件。
+
+---
+
+## 总结
+
+### 操作模式一览
+
+| 对象     | HTTP 方法                             | 端点             |
+| ------ | ----------------------------------- | -------------- |
+| Blob   | `POST` / `GET`                      | `/git/blobs`   |
+| Tree   | `POST` / `GET`                      | `/git/trees`   |
+| Commit | `POST` / `GET`                      | `/git/commits` |
+| Ref    | `GET` / `POST` / `PATCH` / `DELETE` | `/git/refs`    |
+
+### Git Data API 工作流程
+
+```
+创建 Blob(s) → 创建 Tree（引用 Blob） → 创建 Commit（引用 Tree） → 更新 Ref（指向 Commit）
+```
+
+### 注意事项
+
+- 所有内容均需 **base64 编码**
+- Blob 内容创建后不可修改，要更新文件需创建新 Blob 并关联到新 Tree
+- 更新 Ref 时需提供 `force` 标志或当前 Commit 的 SHA 防止冲突
+
+---
+
+开始
+
+结语总结
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象\",\"item\":\"https://www.lxpavilion.top/article/145\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象\",\"headline\":\"Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象\",\"description\":\"深入掌握 GitHub Git Data API，通过实战示例学会 blob、tree、commit、ref 的创建与读取，理解 Git 底层数据结构并用 Go 实现高级版本控制操作。\",\"datePublished\":\"2026-07-27T20:32:29.955559\",\"dateCreated\":\"2026-07-27T20:32:29.955559\",\"dateModified\":\"2026-07-27T21:32:47.383042\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/710.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"OOcCeqLCBSYL2rEGRIPZs"}
+3:{"id":"145"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0h76zevmh0g6x.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

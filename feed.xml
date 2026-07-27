@@ -8,6 +8,40 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统]]></title>
+      <link>https://www.lxpavilion.top/article/146/</link>
+      <guid>https://www.lxpavilion.top/article/146/</guid>
+      <pubDate>Mon, 27 Jul 2026 21:20:43 GMT</pubDate>
+      <description><![CDATA[从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象]]></title>
+      <link>https://www.lxpavilion.top/article/145/</link>
+      <guid>https://www.lxpavilion.top/article/145/</guid>
+      <pubDate>Mon, 27 Jul 2026 20:32:29 GMT</pubDate>
+      <description><![CDATA[深入掌握 GitHub Git Data API，通过实战示例学会 blob、tree、commit、ref 的创建与读取，理解 Git 底层数据结构并用 Go 实现高级版本控制操作。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <tag>Git</tag>
+      <tag>Github</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件]]></title>
+      <link>https://www.lxpavilion.top/article/144/</link>
+      <guid>https://www.lxpavilion.top/article/144/</guid>
+      <pubDate>Mon, 27 Jul 2026 18:01:02 GMT</pubDate>
+      <description><![CDATA[从零开始掌握 GitHub REST API，通过 12 个实战示例学会用户管理、仓库操作与 Contents API 的文件增删改查，每段代码都附带详细字段说明，是 Go 开发者操作 GitHub 的最佳入门教程。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <tag>Git</tag>
+      <tag>Github</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流]]></title>
       <link>https://www.lxpavilion.top/article/142/</link>
       <guid>https://www.lxpavilion.top/article/142/</guid>
@@ -177,39 +211,6 @@
       <pubDate>Sun, 19 Jul 2026 10:52:04 GMT</pubDate>
       <description><![CDATA[深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。]]></description>
       <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx入门实战：从Docker部署到核心配置完全解析]]></title>
-      <link>https://www.lxpavilion.top/article/125/</link>
-      <guid>https://www.lxpavilion.top/article/125/</guid>
-      <pubDate>Sun, 19 Jul 2026 09:34:08 GMT</pubDate>
-      <description><![CDATA[从零开始，通过Docker快速搭建Nginx学习环境，深入理解Nginx核心配置参数与反向代理原理，适合初学者入门到精通的第一课。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <tag>nginx</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程]]></title>
-      <link>https://www.lxpavilion.top/article/124/</link>
-      <guid>https://www.lxpavilion.top/article/124/</guid>
-      <pubDate>Thu, 16 Jul 2026 19:48:58 GMT</pubDate>
-      <description><![CDATA[一篇吃透 Qdrant 向量数据库：核心概念、Docker 部署、Web 控制台可视化操作、过滤条件与嵌套查询，最后通过 Java 客户端实战串联全流程。适合 AI 应用开发者、RAG 架构师快速上手。]]></description>
-      <category>数据库</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合]]></title>
-      <link>https://www.lxpavilion.top/article/123/</link>
-      <guid>https://www.lxpavilion.top/article/123/</guid>
-      <pubDate>Thu, 16 Jul 2026 15:25:15 GMT</pubDate>
-      <description><![CDATA[还在单独搭向量数据库？PostgreSQL + pgvector 插件就能搞定！本文从 Docker 部署讲起，涵盖 SQL 基本操作、IVFFlat 索引原理，最后手把手带你在 SpringBoot + MyBatisPlus 项目中集成 pgvector，实现商品相似度检索的完整 Demo。]]></description>
-      <category>数据库</category>
       
       <author>ppc</author>
     </item>

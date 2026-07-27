@@ -1,0 +1,473 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/0h76zevmh0g6x.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T38d5,## 核心设计思想
+
+Git 不是传统意义上的"版本控制系统"，它的设计理念和 SVN、CVS 完全不同。
+
+### 传统 VCS：基于 diff
+
+SVN 等系统记录的是"文件的变更"——第一次提交是完整文件，后续只保存每次修改的**差异**。要还原版本，需要从初始状态起逐个叠加 diff。
+
+### Git：基于快照
+
+Git 每次提交保存的是**完整的文件快照**，不是差异。如果文件没变，就复用一个引用。这种设计的优势：
+
+| 特性 | 效果 |
+|---|---|
+| **完整性** | 每个版本都是完整的，不会因为 diff 链断裂而丢失数据 |
+| **速度** | 切换分支/版本只需替换工作目录文件，不用逐个计算 diff |
+| **分布式** | 每个克隆都是完整仓库，不依赖中央服务器 |
+
+### 内容寻址
+
+Git 最核心的设计：**所有对象通过其内容的 SHA-1 哈希值来寻址**。
+
+```
+内容 → SHA-1 哈希 → 文件名（存在 .git/objects 目录下）
+```
+
+这意味着：
+- 同样的内容永远产生同样的 SHA（在不同仓库、不同机器上）
+- 内容变了，SHA 就变 —— 所以**对象一旦创建就不可修改**
+- 修改 = 创建新对象，原对象仍然存在
+
+---
+
+## 四类底层对象
+
+Git 只有四类底层对象，所有功能都建立在这四类之上：
+
+```
+Blob（文件内容） → Tree（目录结构） → Commit（快照） → Ref（指针）
+```
+
+### 1. Blob — 文件内容
+
+Blob 是最底层的对象，只存文件内容，**不存文件名**。
+
+```
+┌─────────────┐
+│  Blob       │
+│  size: 11   │
+│  content:   │
+│  "hello"    │
+│  SHA: abc12 │
+└─────────────┘
+```
+
+> 内容 → SHA → 存进 `.git/objects/ab/c123...`
+
+**关键理解**：Blob 不关心文件名。文件名属于 tree 的职责。所以把一个文件改名后提交，Git 存储的 blob 不变，只是 tree 里的路径变了。
+
+### 2. Tree — 目录结构
+
+Tree 记录一个目录里所有文件和子目录的布局：
+
+```
+┌──────────────────────────┐
+│  Tree                    │
+│  blob  abc12  README.md  │
+│  blob  def34  main.go    │
+│  tree  ghi56  src/       │
+│  SHA: xyz78              │
+└──────────────────────────┘
+```
+
+每个条目包含：
+- **mode**：文件模式（普通文件、可执行文件、目录、符号链接）
+- **type**：blob（文件）或 tree（子目录）
+- **sha**：指向的 blob 或 tree 的哈希
+- **path**：文件名或目录名
+
+**关键理解**：Tree 是整个目录的**完整快照**。更新一个文件 = 创建新 blob → 新 tree（指向新 blob）→ 新 commit。
+
+### 3. Commit — 提交快照
+
+Commit 将 tree 固定为一个历史版本：
+
+```
+┌────────────────────────┐
+│  Commit                │
+│  tree   xyz78          │  ← 当时完整的目录快照
+│  parent  older123       │  ← 前一个版本
+│  author "You"          │
+│  msg   "feat: add x"   │
+│  SHA: commit456        │
+└────────────────────────┘
+```
+
+**关键理解**：Commit 本质上是指向 tree 的指针，加上时间戳和作者信息。不存 diff，不存变更内容——就是一张完整的目录照片。
+
+### 4. Ref — 分支 / 标签
+
+Ref 是指向 commit 的指针，是 Git 里唯一"可变"的东西：
+
+```
+refs/heads/main  →  commit456
+refs/heads/dev   →  commit789
+refs/tags/v1.0   →  commit123
+```
+
+**关键理解**：分支就是 ref。创建分支 = 创建指向某个 commit 的 ref。切换分支 = 把工作目录还原到 ref 指向的 commit 的 tree。
+
+---
+
+## .git 目录结构
+
+以上四类对象在磁盘上是怎么存的？初始化一个仓库看看 `.git` 目录：
+
+```bash
+git init myrepo
+tree .git
+```
+
+```
+.git/
+├── HEAD                    # 当前分支指针（内容：ref: refs/heads/main）
+├── config                  # 仓库配置（用户信息、远程地址等）
+├── description             # 仓库描述
+├── hooks/                  # 钩子脚本（pre-commit、post-receive 等）
+├── info/
+│   └── exclude             # 本地排除规则（类似 .gitignore，不提交）
+├── objects/                # ★ 对象库 —— 核心
+│   ├── 22/                 #    SHA 前两位 = 目录
+│   │   └── 596363b3de...   #    后 38 位 = 文件名（压缩后的对象）
+│   ├── ab/
+│   │   └── c123def456...   #    一个文件 = 一个对象
+│   ├── info/               #    对象库的索引信息
+│   └── pack/               #    压缩后的打包文件（git gc 后产生）
+└── refs/                   # ★ 指针 —— 分支和标签
+    ├── heads/
+    │   ├── main            #    refs/heads/main 内容是一个 SHA
+    │   └── dev             #    refs/heads/dev  也是 40 位 SHA
+    └── tags/
+        └── v1.0            #    refs/tags/v1.0  指向某个 commit
+```
+
+### 关键目录详解
+
+### objects/ — 对象库
+
+所有 blob、tree、commit 都存这里。存储规则：
+
+```
+SHA = 22596363b3de40b06f981fb85dac12e096651f52
+       ↑                       ↑
+       前 2 位 = 目录名         后 38 位 = 文件名
+```
+
+路径：`.git/objects/22/596363b3de40b06f981fb85dac12e096651f52`
+
+文件内容是经过 **zlib 压缩**的对象数据，不是明文。可以用 `git cat-file` 查看：
+
+```bash
+# 查看 blob 内容
+git cat-file -p 22596363b3de40b06f981fb85dac12e096651f52
+# → "hello\n"
+
+# 查看对象类型
+git cat-file -t 22596363b3de40b06f981fb85dac12e096651f52
+# → blob
+```
+
+#### blob、tree、commit 都在一个目录？
+
+**对，全部混在一起。** 没有按类型分文件夹：
+
+```
+.git/objects/22/5963...   ← 可能是 blob
+.git/objects/ab/cdef...   ← 可能是 commit
+.git/objects/12/3456...   ← 可能是 tree
+```
+
+Git 怎么区分？**靠文件内部的头部信息。** 每个对象存的是：
+
+```
+对象类型 内容长度\0原始数据
+```
+
+所以磁盘上同样的 `22596363...` 文件，实际内容可能是：
+
+```
+blob 6\0hello\n
+```
+
+而不是只有 `hello\n`。Git 读取时先解析 `blob 6\0` 这个头部，就知道：
+
+- 类型是 `blob`
+- 内容长度 6 字节
+- 之后 `hello\n` 才是真正的内容
+
+用 `git cat-file -t` 只看类型，`-p` 解压并显示纯内容，自动跳过头部。
+
+#### refs/ — 指针目录
+
+分支和标签在这里只是**普通文本文件**，文件内容就是目标 commit 的 40 位 SHA：
+
+```bash
+cat .git/refs/heads/main
+# → 22596363b3de40b06f981fb85dac12e096651f52
+```
+
+这就是为什么"创建分支成本为零"——只是写一个 40 字节的文件。
+
+#### HEAD — 当前在哪
+
+```bash
+cat .git/HEAD
+# → ref: refs/heads/main
+```
+
+HEAD 指向一个 ref，ref 指向一个 commit，commit 指向一个 tree，tree 指向 blob——**一条链就到了文件内容**。
+
+### 磁盘上的完整链条
+
+```
+.git/HEAD  →  ref: refs/heads/main
+                  ↓
+.git/refs/heads/main  →  commit SHA
+                  ↓
+.git/objects/ab/cdef...  (commit 对象)
+                  ↓  包含 tree 的 SHA
+.git/objects/12/3456...  (tree 对象)
+                  ↓  包含 blob 的 SHA
+.git/objects/22/5963...  (blob 对象 = 文件内容)
+```
+
+你平时执行 `git log`、`git checkout main`、`git diff` 等命令，Git 就是在遍历这条链。
+
+---
+
+## 工作区 / 暂存区 / 仓库
+
+Git 的三棵树（Three Trees）概念：
+
+```
+工作区（Working Directory）     ← 你眼睛看到的文件
+    │
+    │ git add
+    ↓
+暂存区（Staging Area / Index）  ← .git/index，准备提交的内容
+    │
+    │ git commit
+    ↓
+仓库（Repository / .git）       ← 已提交的历史版本
+```
+
+### 工作区
+
+就是你电脑上看到的文件目录。你在这里新建、编辑、删除文件——这些操作 **Git 不会主动记录**。
+
+### 暂存区（Index）
+
+`.git/index` 文件，存的是**下次要提交的文件清单**。就是 `git add` 后的状态：
+
+```bash
+# 暂存区里到底存了什么？
+git ls-files --stage
+# → 100644 22596363b3de40b06f981fb85dac12e096651f52 0   README.md
+#   ↑mode   ↑blob SHA                                      ↑文件名
+```
+
+暂存区不存文件内容，只存 **blob SHA → 文件路径** 的映射。文件内容已经进了 `.git/objects/`。
+
+### 仓库（Repository）
+
+就是 `.git/` 目录，已提交的所有历史版本都在这里。
+
+### 三棵树的工作流程
+
+```
+文件在手里（工作区）
+    │ git add → 内容写入 objects/，路径写入 index
+    ↓
+文件在暂存区（.git/index）
+    │ git commit → 创建 tree（当前 index 的快照）→ 创建 commit
+    ↓
+文件在仓库（.git/objects/ + refs/）
+```
+
+所以 `git commit` 的本质是：
+
+```
+把 .git/index（暂存区）拍一张快照 → 存成 tree → 创建 commit 指向它
+```
+
+> 这就是为什么 Git 说"先 add 再 commit"——add 把内容存进 `objects/`，commit 把目录结构存成 tree。
+
+---
+
+## 链条：从文件到版本
+
+一次完整的提交链条：
+
+```
+文件内容 → SHA → Blob
+                         ↘
+                      Tree（目录结构）
+                         ↙
+                   Commit（快照）
+                      │
+                      ↓
+                  Ref（指针：分支/标签）
+```
+
+**具体流程：**
+
+```
+1. 你在本地：echo "hello" > README.md
+             ↓
+2. Git 计算 "hello\n" 的 SHA → 存为 blob
+             ↓
+3. Git 创建一个 tree，记录 README.md → blob 的 SHA
+             ↓
+4. Git 创建一个 commit，指向这个 tree，记录时间/作者
+             ↓
+5. 分支 refs/heads/main 指向这个 commit
+```
+
+### 同一个内容的文件，只存一份
+
+如果你在两个仓库里都创建了内容为 `hello\n` 的文件，它们的 blob SHA **完全一样**。因为 SHA 只依赖内容：
+
+```bash
+# 在任何机器上运行，结果都一样
+echo "hello" | git hash-object --stdin
+# → 22596363b3de40b06f981fb85dac12e096651f52
+```
+
+这就是**内容寻址**的优势：同样的内容，全球共享一个 SHA，Git 不需要重复存储。
+
+---
+
+## 为什么这些设计重要
+
+### 1. 不可变性 = 数据完整性
+
+对象创建后不可修改。如果有人篡改了仓库的某个版本，它的 SHA 会变，后续所有 commit 的链条都会断裂——篡改无处遁形。
+
+### 2. 分支便宜得像白菜
+
+分支就是一个文件（ref），存的是 40 位 SHA。创建一百个分支只需要写一百个小文件，和仓库大小无关。
+
+### 3. 分布式不需要中央服务器
+
+每个克隆的 `git clone` 复制的是**完整的对象库**。你本地就有全部历史，离线也能提交、查日志、对比版本。
+
+### 4. 快照对比 diff 的优势
+
+| | 基于 diff | 基于快照（Git） |
+|---|---|---|
+| 还原 v100 | 应用 99 个 diff | 直接取出第 100 个 tree |
+| 切换分支 | 逐个计算差异 | 直接替换工作目录文件 |
+| 仓库损坏 | diff 链断裂 → 全损 | 每个快照独立 |
+
+
+## 用 curl 验证这些概念
+
+以下示例用 GitHub 的 Git Data API 验证上面的理论。不需要 Go，`curl` 就够了。
+
+### 1. 创建一个 blob
+
+```bash
+# 文件内容 "hello" → blob
+curl -s -X POST https://api.github.com/repos/cloud-drive-01/t/git/blobs \
+  -H "Authorization: Bearer $token" \
+  -H "Content-Type: application/json" \
+  -d '{"content":"aGVsbG8K","encoding":"base64"}'
+
+# 返回:
+{"sha":"22596363b3de40b06f981fb85dac12e096651f52",...}
+```
+
+> `aGVsbG8K` 是 `"hello\n"` 的 base64 编码。这个 SHA 在任何 Git 仓库中，只要内容是 `hello\n`，就一模一样。
+
+### 2. 创建一个 tree
+
+```bash
+# blob → tree（把文件组织到目录里）
+curl -s -X POST https://api.github.com/repos/cloud-drive-01/t/git/trees \
+  -H "Authorization: Bearer $token" \
+  -H "Content-Type: application/json" \
+  -d '{"tree":[{"path":"README.md","mode":"100644","type":"blob","sha":"22596363b3de40b06f981fb85dac12e096651f52"}]}'
+```
+
+### 3. 创建一个 commit
+
+```bash
+# tree → commit（拍一张快照）
+curl -s -X POST https://api.github.com/repos/cloud-drive-01/t/git/commits \
+  -H "Authorization: Bearer $token" \
+  -H "Content-Type: application/json" \
+  -d '{"message":"first commit","tree":"<tree的SHA>","parents":[]}'
+```
+
+### 4. 更新 ref
+
+```bash
+# commit → ref（让分支指向这个版本）
+curl -s -X PATCH https://api.github.com/repos/cloud-drive-01/t/git/refs/heads/main \
+  -H "Authorization: Bearer $token" \
+  -H "Content-Type: application/json" \
+  -d '{"sha":"<commit的SHA>","force":true}'
+```
+
+**这四步就是 Git 提交的完整链。** 你平时敲 `git add`、`git commit`、`git push` 时，Git 就在背后做这些事。
+
+### 验证一下
+
+```bash
+# 查看当前仓库的根 tree
+curl -s https://api.github.com/repos/cloud-drive-01/t/git/trees/<tree的SHA> \
+  -H "Authorization: Bearer $token"
+
+# 返回的 tree 里每个条目就是一个文件或子目录
+```
+
+---
+
+## 总结
+
+### 四类对象的职责
+
+| 对象 | 职责 | 可变 | 存什么 |
+|---|---|---|---|
+| Blob | 文件内容 | ❌ 不可变 | 原始二进制内容 |
+| Tree | 目录结构 | ❌ 不可变 | 文件名 → SHA 的映射 |
+| Commit | 版本快照 | ❌ 不可变 | 指向 tree + 时间 + 作者 |
+| Ref | 指针 | ✅ 可变 | 指向 commit 的 SHA |
+
+### 数据流
+
+```
+文件内容
+   ↓ (SHA-1)
+Blob
+   ↓ (加入 tree)
+Tree（目录结构的快照）
+   ↓ (创建提交)
+Commit（历史版本）
+   ↓ (指向)
+Ref（分支/标签）
+```
+
+### Git 设计哲学
+
+- **内容寻址**：一切通过内容哈希定位，同样的内容只存一次
+- **不可变对象**：只创建，不修改，保证历史完整性
+- **快照代替 diff**：每次提交是完整目录快照，切换/还原极快
+- **指针代替副本**：分支只是一个文件（40 字节），创建成本为零
+- **完整本地仓库**：每个 clone 包含全部对象，不依赖网络
+
+---
+
+> 理解 Git 的底层设计后，再看 Git Data API 和 Contents API——它们不是"附加功能"，而是 Git 核心设计的外露接口。Blob、tree、commit、ref 不是 GitHub 的概念，是 Git 本身的概念。你日常敲的每一行 `git` 命令，最终都在操作这四类对象。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统\",\"item\":\"https://www.lxpavilion.top/article/146\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统\",\"headline\":\"Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统\",\"description\":\"从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。\",\"datePublished\":\"2026-07-27T21:20:43.759969\",\"dateCreated\":\"2026-07-27T21:20:43.759969\",\"dateModified\":\"2026-07-27T21:32:06.29921\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/710.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"OOcCeqLCBSYL2rEGRIPZs"}
+3:{"id":"146"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/0h76zevmh0g6x.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

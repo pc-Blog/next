@@ -19,6 +19,5 @@
   "summary": "手把手带你基于Docker Compose搭建3节点Redis哨兵集群，从核心概念（SDOWN/ODOWN/Quorum/Tilt）到自动故障转移实验，再到DNS主机名坑点的完整解决方案。适合已掌握主从复制、想进一步实现高可用的开发者。",
   "tags": [],
   "title": "Redis学习笔记：哨兵集群实战，自动故障转移与高可用架构完整指南",
-  "updateTime": "2026-07-15T15:43:35.994552",
-  "viewCount": 0
+  "updateTime": "2026-07-15T15:43:35.994552"
 }

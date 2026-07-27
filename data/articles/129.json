@@ -19,6 +19,5 @@
   "summary": "全面解析 Nginx rewrite 模块的语法规则、正则匹配、flag 标记及实战案例，教你如何将带参数的动态 URL 伪装成静态 HTML，提升网站 SEO 表现与用户体验。",
   "tags": [],
   "title": "Nginx 学习笔记：URL Rewrite 从入门到实战，让链接更优雅、更SEO友好",
-  "updateTime": "2026-07-19T15:41:53.225966",
-  "viewCount": 0
+  "updateTime": "2026-07-19T15:41:53.225966"
 }

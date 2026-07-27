@@ -19,6 +19,5 @@
   "summary": "Redis Cluster 原生不支持读写分离，但通过 Lettuce 客户端的 ReadFrom 策略可以优雅实现。本文从理论到实战，解决 Docker 网络坑点，并用 CLIENT LIST 的 flags=r 标记真实验证读操作走了从节点。",
   "tags": [],
   "title": "Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证",
-  "updateTime": "2026-07-15T22:57:22.611842",
-  "viewCount": 0
+  "updateTime": "2026-07-15T22:57:22.611842"
 }

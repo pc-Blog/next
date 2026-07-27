@@ -19,6 +19,5 @@
   "summary": "深入讲解 Nginx valid_referers 模块的工作原理与配置方法，通过 referer 请求头校验实现图片、CSS、JS 等静态资源的防盗链，防止其他网站非法引用消耗你的带宽。",
   "tags": [],
   "title": "Nginx 防盗链配置实战：用 referer 模块保护网站静态资源",
-  "updateTime": "2026-07-19T15:48:17.900709",
-  "viewCount": 0
+  "updateTime": "2026-07-19T15:48:17.900709"
 }

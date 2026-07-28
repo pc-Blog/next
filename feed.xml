@@ -8,6 +8,17 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Git学习笔记：GitHub Actions 从零到实战]]></title>
+      <link>https://www.lxpavilion.top/article/147/</link>
+      <guid>https://www.lxpavilion.top/article/147/</guid>
+      <pubDate>Tue, 28 Jul 2026 10:08:40 GMT</pubDate>
+      <description><![CDATA[从零开始掌握 GitHub Actions，通过循序渐进的实战示例学习 Workflow 编写、触发器配置、Marketplace 生态与 CI/CD 部署，每个阶段都有可验证的测试代码。]]></description>
+      <category>学习笔记</category>
+      <tag>Git</tag>
+      <tag>Github</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统]]></title>
       <link>https://www.lxpavilion.top/article/146/</link>
       <guid>https://www.lxpavilion.top/article/146/</guid>
@@ -200,16 +211,6 @@
       <guid>https://www.lxpavilion.top/article/127/</guid>
       <pubDate>Sun, 19 Jul 2026 12:12:10 GMT</pubDate>
       <description><![CDATA[深入理解 Nginx 反向代理的核心原理与配置方法，通过实战案例掌握 proxy_pass 指令、URL 转发规则、请求头处理，以及解决代理过程中常见的 HTTPS 重定向问题。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：Server 块配置详解，域名路由与多站点部署实战]]></title>
-      <link>https://www.lxpavilion.top/article/126/</link>
-      <guid>https://www.lxpavilion.top/article/126/</guid>
-      <pubDate>Sun, 19 Jul 2026 10:52:04 GMT</pubDate>
-      <description><![CDATA[深入理解 Nginx Server 块的路由分发原理，详解 server_name 精确匹配、通配符、正则表达式等全部匹配规则及优先级，并通过多域名实战让你轻松掌握一台 Nginx 托管多个网站的配置方法。]]></description>
       <category>学习笔记</category>
       
       <author>ppc</author>

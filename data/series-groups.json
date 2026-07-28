@@ -1,9 +1,9 @@
 [
   {
     "series": "Git学习笔记",
-    "count": 4,
+    "count": 5,
     "coverImage": "/data/media/710.png",
-    "summary": "从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。"
+    "summary": "从零开始掌握 GitHub Actions，通过循序渐进的实战示例学习 Workflow 编写、触发器配置、Marketplace 生态与 CI/CD 部署，每个阶段都有可验证的测试代码。"
   },
   {
     "series": "Go学习笔记",

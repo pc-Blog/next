@@ -1,6 +1,30 @@
 {
-  "total": 74,
+  "total": 75,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/710.png",
+      "createdAt": "2026-07-28T10:08:40.494311",
+      "id": 147,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Git学习笔记",
+      "summary": "从零开始掌握 GitHub Actions，通过循序渐进的实战示例学习 Workflow 编写、触发器配置、Marketplace 生态与 CI/CD 部署，每个阶段都有可验证的测试代码。",
+      "tags": [
+        {
+          "id": 81,
+          "name": "Git"
+        },
+        {
+          "id": 27,
+          "name": "Github"
+        }
+      ],
+      "title": "Git学习笔记：GitHub Actions 从零到实战",
+      "updateTime": "2026-07-28T10:09:10.060199",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",
@@ -1315,7 +1339,7 @@
       ],
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "updateTime": "2026-07-01T09:58:38.436744",
-      "viewCount": 3
+      "viewCount": 4
     },
     {
       "categoryId": 42,
@@ -1379,7 +1403,7 @@
       ],
       "title": "免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）",
       "updateTime": "2026-06-28T21:52:40.011553",
-      "viewCount": 1
+      "viewCount": 3
     },
     {
       "categoryId": 41,
@@ -1411,7 +1435,7 @@
       ],
       "title": "我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录",
       "updateTime": "2026-06-28T21:57:28.305078",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 42,
@@ -1459,7 +1483,7 @@
       ],
       "title": "选择cloudflare，给我的博客带来了什么",
       "updateTime": "2026-07-01T15:18:49.782057",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 42,
@@ -1519,7 +1543,7 @@
       ],
       "title": "使用 Giscus 为博客搭建评论系统：从入门到放弃",
       "updateTime": "2026-06-28T09:34:25.527012",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 40,
@@ -1555,7 +1579,7 @@
       ],
       "title": "为我的博客自建评论系统，摆脱 Giscus 局限",
       "updateTime": "2026-06-27T22:01:52.468013",
-      "viewCount": 1
+      "viewCount": 5
     },
     {
       "categoryId": 40,

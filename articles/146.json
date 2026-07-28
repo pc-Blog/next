@@ -7,7 +7,10 @@
   "id": 146,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 147,
+    "title": "Git学习笔记：GitHub Actions 从零到实战"
+  },
   "prev": {
     "id": 145,
     "title": "Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象"

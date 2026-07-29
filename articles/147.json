@@ -7,7 +7,10 @@
   "id": 147,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 148,
+    "title": "Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战"
+  },
   "prev": {
     "id": 146,
     "title": "Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统"

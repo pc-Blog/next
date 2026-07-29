@@ -1,0 +1,838 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0bhz0wet4z.0z.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","148",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","148","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0bhz0wet4z.0z.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0k5~8fl8d4hgz.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"HuNJtlSlMdM0ytuvSO54c"}
+17:I[6521,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js"],"default"]
+1a:I[34858,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js"],"default"]
+1b:I[23191,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0can3rjmlq38k.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0bhz0wet4z.0z.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T4d53,## 一、Location 是什么？为什么重要？
+
+Location 是 Nginx 中最核心的配置指令之一，它决定了**一个请求 URL 应该由谁来处理**。
+
+```nginx
+location [修饰符] /path/ {
+    # 匹配后的处理逻辑
+    proxy_pass http://backend;
+    # 或 return、root、try_files 等
+}
+```
+
+无论是静态文件服务、反向代理、URL 重写还是访问控制，都离不开 location。**理解 location 的匹配规则是掌握 Nginx 的必经之路。**
+
+### 本文目标
+
+- 搞懂五种 location 修饰符的区别
+- 掌握 location 优先级排序规则
+- 通过 **Docker 实战测试**验证每一个知识点
+- 了解命名 location、try_files、root/alias 等进阶用法
+
+---
+
+## 二、五种 Location 修饰符详解
+
+Nginx 的 location 共有 **5 种修饰符**（也可以说 4 种 + 无修饰符），每一种都有不同的匹配行为。
+
+### 1. 精确匹配 `=`
+
+```nginx
+location = /exact {
+    # 只匹配 URI 为 /exact 的请求
+}
+```
+
+| 特点 | 说明 |
+|------|------|
+| **严格相等** | URI 必须完全等于指定的路径 |
+| **不扩散** | `/exact` 不匹配 `/exact.html` 或 `/exact/` |
+| **优先级** | **最高**，一旦匹配就立即处理，不再检查其他 location |
+
+### 2. 优先前缀匹配 `^~`
+
+```nginx
+location ^~ /api/ {
+    # 匹配以 /api/ 开头的所有请求
+}
+```
+
+| 特点 | 说明 |
+|------|------|
+| **前缀匹配** | 只要 URI 以指定路径开头就匹配 |
+| **阻止正则** | 匹配成功后**不再检查正则 location**（`~` 和 `~*`） |
+| **优先级** | 仅次于 `=` 精确匹配 |
+
+### 3. 正则匹配 `~`（区分大小写）
+
+```nginx
+location ~ \.html$ {
+    # 匹配所有 .html 结尾的 URI，区分大小写
+}
+```
+
+| 特点 | 说明 |
+|------|------|
+| **正则匹配** | URI 必须匹配正则表达式 |
+| **区分大小写** | `.HTML` 不会被匹配 |
+| **顺序敏感** | 多个正则按**配置顺序**匹配，**先命中先处理** |
+| **优先级** | 低于 `^~`，高于普通前缀 |
+
+### 4. 正则匹配 `~*`（不区分大小写）
+
+```nginx
+location ~* \.(jpg|jpeg|png|gif|webp)$ {
+    # 匹配所有图片文件，不区分大小写
+}
+```
+
+与 `~` 的唯一区别：**不区分大小写**。`.JPG`、`.jpg`、`.Jpg` 都会被匹配。
+
+### 5. 普通前缀匹配（无修饰符）
+
+```nginx
+location /prefix {
+    # 匹配以 /prefix 开头的 URI
+}
+```
+
+| 特点 | 说明 |
+|------|------|
+| **前缀匹配** | 只要 URI 以指定路径开头就匹配 |
+| **正则优先** | 如果也有正则匹配上了，**正则胜出** |
+| **优先级** | 仅高于默认 `/` |
+
+### 6. 默认兜底 `/`
+
+```nginx
+location / {
+    # 匹配所有未匹配的请求
+}
+```
+
+这是**最后的兜底方案**，所有没有被其他 location 匹配的请求都会走到这里。优先级最低。
+
+---
+
+## 三、Location 里的常用指令（匹配之后做什么？）
+
+Location 决定了"谁来处理请求"，但匹配到之后**做什么**，由里面的指令决定。这些指令才是 location 的真正内容。
+
+### 1. `return` — 直接返回响应
+
+`return` 是 Nginx 里最简单的指令：**直接返回一个响应，不再执行后面的任何指令。**
+
+```nginx
+return 状态码 [文本] [URL];
+```
+
+**三种用法：**
+
+```nginx
+# 1. 只返回状态码
+return 403;
+return 404;
+
+# 2. 返回状态码 + 文本（浏览器直接显示这段文字）
+return 200 "请求成功";
+return 403 "你没有权限";
+
+# 3. 返回状态码 + URL（浏览器跳转到新地址）
+return 301 /new-page;
+return 302 http://example.com;
+```
+
+常见状态码：
+
+| 状态码 | 含义 | return 配合什么 |
+|--------|------|----------------|
+| `200` | OK 正常返回 | 文本 |
+| `204` | 无内容 | 什么都不加 |
+| `301` | 永久重定向 | URL（浏览器会缓存这个跳转） |
+| `302` | 临时重定向 | URL（下次还问原地址） |
+| `403` | Forbidden 禁止访问 | 文本 或 什么都不加 |
+| `404` | Not Found 找不到 | 文本 或 什么都不加 |
+| `500` | 服务器内部错误 | 文本 或 什么都不加 |
+| `502` | Bad Gateway 后端挂了 | 文本 或 什么都不加 |
+
+**关键特性：`return` 之后的指令全部被忽略。**
+
+```nginx
+location /api/ {
+    return 403 "拒绝访问";
+    proxy_pass http://backend;   # ← 这行永远不会执行
+    add_header X-Custom "val";   # ← 这行也永远不会执行
+}
+```
+
+这就是为什么本文大量用 `return` 来测试 location 匹配——它只返回一句话，不干别的事，一眼就能看出来"当前请求命中了哪个 location"。
+
+### 2. `proxy_pass` — 反向代理（最常用）
+
+```nginx
+location /api/ {
+    proxy_pass http://backend-server:3000;
+}
+```
+
+把请求转发给**后端服务器**，后端处理完再把结果返回给客户端。这是 Nginx 作为反向代理的核心用法。
+
+#### 重点：路径拼接规则
+
+很多人搞不清 `proxy_pass` 的路径是怎么拼的。规则只有一句话：
+
+> **`proxy_pass` 的 URL 有路径（包括 `/`）→ 替换 location 匹配部分**
+> **没有路径 → 原样传完整 URI**
+
+**情况 1：proxy_pass 没有路径 → 原样转发**
+
+```nginx
+location /api1/ {
+    proxy_pass http://backend:3000;     # ← 末尾没有 /
+}
+# 请求 /api1/users
+# 后端收到 /api1/users（原样）
+```
+
+**情况 2：proxy_pass 有 `/` → 替换掉 location 路径**
+
+```nginx
+location /api2/ {
+    proxy_pass http://backend:3000/;    # ← 末尾有 /
+}
+# 请求 /api2/users
+# 后端收到 /users（/api2/ 被替换成 /）
+```
+
+**情况 3：proxy_pass 有具体路径 → 替换成指定路径**
+
+```nginx
+location /api3/ {
+    proxy_pass http://backend:3000/app/;  # ← 有具体路径
+}
+# 请求 /api3/users
+# 后端收到 /app/users（/api3/ 被替换成 /app/）
+```
+
+#### 快速记忆
+
+```
+proxy_pass 后端没有路径 → 传完整 URI
+proxy_pass 后端有路径   → 替换掉 location 匹配部分
+```
+
+这和之前讲的 `alias` 是同一个逻辑：**有路径就替换，没路径就原样**。
+
+### 3. `root` — 指定静态文件目录
+
+```nginx
+location /static/ {
+    root /var/www;
+}
+# 请求 /static/js/app.js → 找 /var/www/static/js/app.js
+```
+
+`root` 是 `root路径 + 请求URI` 拼接去找文件。
+
+### 4. `alias` — 路径别名
+
+```nginx
+location /static/ {
+    alias /var/www/html/;
+}
+# 请求 /static/js/app.js → 找 /var/www/html/js/app.js
+```
+
+`alias` 是**替换**：把 location 的路径替换成 alias 的路径。注意末尾 `/` 的问题，之前已经讲过。
+
+### 5. `try_files` — 依次尝试找文件
+
+```nginx
+location / {
+    try_files $uri $uri/ /index.html;
+}
+```
+
+按顺序尝试：
+1. `$uri` — 先找当前 URI 对应的文件
+2. `$uri/` — 找不到就试目录下的 index
+3. `/index.html` — 再找不到就返回 SPA 入口
+
+### 6. `rewrite` — URL 重写
+
+```nginx
+location /old-path/ {
+    rewrite ^/old-path/(.*)$ /new-path/$1 permanent;
+}
+```
+
+把 URL 从一种格式重写为另一种。`permanent` 返回 301，`redirect` 返回 302，不加就内部重写。
+
+### 7. `index` — 默认首页
+
+```nginx
+location / {
+    index index.html index.htm;
+}
+```
+
+访问目录时默认显示哪个文件。Nginx 会按顺序找，找到哪个返回哪个。
+
+### 8. `add_header` — 自定义响应头
+
+```nginx
+location ~* \.(css|js|jpg)$ {
+    add_header Cache-Control "public, max-age=86400";
+    add_header X-Custom "hello";
+}
+```
+
+给响应加 HTTP 头，常用于**缓存控制**、**CORS 跨域**、**安全策略**。
+
+### 9. `expires` — 缓存过期时间
+
+```nginx
+location ~* \.(jpg|png|css|js)$ {
+    expires 30d;
+}
+```
+
+相当于 `add_header Cache-Control` 的快捷方式。告诉浏览器这个资源可以缓存 30 天。
+
+### 10. `deny / allow` — 访问控制
+
+```nginx
+location /admin/ {
+    deny all;
+    allow 192.168.1.0/24;
+}
+```
+
+按 IP 控制访问权限。顺序重要：**先允许后拒绝**。
+
+### 11. `if` — 条件判断
+
+```nginx
+location / {
+    if ($request_method = DELETE) {
+        return 405;
+    }
+}
+```
+
+在 location 里做条件判断，通常配合 `$invalid_referer`、`$request_method` 等变量使用。
+
+### 12. `set` — 设置变量
+
+```nginx
+location / {
+    set $cache_key $uri;
+    set $debug "true";
+}
+```
+
+自定义变量，用于后面的逻辑判断或日志记录。
+
+---
+
+### 小结：一个真实 location 里能放什么？
+
+```nginx
+location ^~ /api/ {
+    # 访问控制
+    deny all;
+    allow 192.168.1.0/24;
+
+    # 设置变量
+    set $backend "http://app-server:3000";
+
+    # 转发到后端
+    proxy_pass $backend;
+    proxy_set_header Host $host;
+
+    # 自定义响应头
+    add_header X-Upstream "app-server";
+
+    # 超时控制
+    proxy_connect_timeout 5s;
+    proxy_read_timeout 10s;
+}
+```
+
+**一个 location 里可以组合多个指令**，它们按顺序执行。但 `return` 是特例——**遇到 return 就直接返回了，后面的指令不执行**。
+
+---
+
+## 四、Location 优先级规则（核心！）
+
+这是 location 配置中**最重要**的部分。Nginx 的 location 匹配遵循以下优先级顺序：
+
+```
+精确匹配 (=)          ← 优先级最高
+    ↓ 未匹配
+优先前缀 (^~)         ← 如果匹配，跳过正则
+    ↓ 未匹配
+正则匹配 (~ / ~*)     ← 按配置顺序匹配，命中即停
+    ↓ 未匹配
+普通前缀（无修饰符）   ← 取最长的匹配
+    ↓ 未匹配
+默认兜底 (/)          ← 优先级最低
+```
+
+### 匹配流程详解
+
+```
+收到请求 URI
+    │
+    ├─ 第 1 步：检查所有 = 精确匹配
+    │   └─ 匹配 → 直接响应 ✅
+    │
+    ├─ 第 2 步：检查所有 ^~ 优先前缀
+    │   └─ 匹配 → 跳过正则，直接响应 ✅
+    │
+    ├─ 第 3 步：检查所有 ~ / ~* 正则（按配置顺序）
+    │   └─ 匹配 → 直接响应 ✅
+    │
+    ├─ 第 4 步：检查所有普通前缀，取最长匹配
+    │   └─ 未匹配 → 走到 /
+    │
+    └─ 第 5 步：走到 / 默认兜底
+```
+
+**关键规则**：
+- 正则之间**谁先定义谁处理**，同一个请求只会被第一个匹配的正则处理
+- 普通前缀取**最长的匹配**，但如果有正则也匹配，正则胜出
+- `^~` 一旦匹配，**完全跳过**正则检查
+
+---
+
+## 五、Docker 实战测试验证
+
+理论说再多不如动手测一遍。下面我用 Docker 启动 Nginx，实测验证每一条规则。
+
+### 启动测试环境
+
+```bash
+# 启动 nginx 容器
+docker run -d --name nginx-location -p 19092:80 nginx:latest
+
+# 复制配置文件
+docker cp nginx.conf nginx-location:/etc/nginx/nginx.conf
+
+# 重载配置
+docker exec nginx-location nginx -s reload
+```
+
+### 测试配置
+
+```nginx
+# 五种修饰符
+location = /exact {
+    return 200 "精确匹配 (=) 命中！";
+}
+
+location ^~ /api/ {
+    return 200 "优先前缀 (^~) 命中！";
+}
+
+location ~ \.html$ {
+    return 200 "正则 (~) 命中！";
+}
+
+location ~* \.(jpg|jpeg|png|gif|webp)$ {
+    return 200 "正则 (~*) 命中！";
+}
+
+location /prefix {
+    return 200 "前缀匹配命中！";
+}
+
+location / {
+    return 200 "默认兜底 (/) 命中！";
+}
+```
+
+### 测试结果
+
+#### 测试 1：精确匹配 `= /exact`
+
+```bash
+curl http://localhost:19092/exact
+```
+
+```
+精确匹配 (=) 命中！
+规则: location = /exact
+特点: URI 必须完全等于 /exact
+优先级: 最高
+```
+
+**结论**：`= /exact` 只匹配 `/exact`，精确无误。
+
+#### 测试 2：精确匹配不扩散
+
+```bash
+curl http://localhost:19092/exact.html
+```
+
+```
+正则 (~) 命中！
+规则: location ~ \.html
+```
+
+**结论**：`= /exact` 不会匹配 `/exact.html`，精确匹配是严格相等。
+
+#### 测试 3：优先前缀 `^~ /api/`
+
+```bash
+curl http://localhost:19092/api/test
+```
+
+```
+优先前缀 (^~) 命中！
+规则: location ^~ /api/
+特点: 匹配以 /api/ 开头，不再检查正则
+```
+
+#### 测试 4：`^~` 阻止正则检查 ⭐
+
+```bash
+# /api/test.html 同时匹配 ^~ /api/ 和 ~ .html
+curl http://localhost:19092/api/test.html
+```
+
+```
+优先前缀 (^~) 命中！
+```
+
+**这是最重要的测试之一**：即使 `.html` 正则也匹配，但 `^~` 命中后**不再检查正则**。
+
+#### 测试 5：正则区分大小写
+
+```bash
+curl http://localhost:19092/test.html    # 匹配 ✅
+curl http://localhost:19092/test.HTML    # 不匹配 ❌
+```
+
+`.HTML` 不会被 `~ \.html$` 匹配，会走到默认兜底。
+
+#### 测试 6：正则不区分大小写
+
+```bash
+curl http://localhost:19092/image.JPG
+curl http://localhost:19092/image.jpg
+```
+
+两者都会被 `~* \.(jpg|jpeg|png|gif|webp)$` 匹配。
+
+#### 测试 7：前缀 vs 正则冲突 ⭐
+
+```bash
+# /prefix 和 .html 都匹配
+curl http://localhost:19092/prefix/test.html
+```
+
+```
+正则 (~) 命中！
+```
+
+**关键知识点**：普通前缀和正则都匹配时，**正则胜出**。
+
+#### 测试 8：正则顺序
+
+```nginx
+location ~ ^/order1 {
+    return 200 "第一个正则在前面";
+}
+
+location ~ ^/order1 {
+    return 200 "第二个永远不会执行";
+}
+```
+
+```bash
+curl http://localhost:19092/order1
+```
+
+```
+顺序测试: 第一个正则在前面
+```
+
+**正则按配置顺序匹配，先定义先处理**。后面的同名正则永远没有机会执行。
+
+---
+
+## 六、进阶用法
+
+### 1. 命名 Location `@`
+
+命名 location **不能从外部直接访问**，只能通过内部跳转（try_files、error_page 等）调用。
+
+```nginx
+location /test-fallback {
+    try_files /nonexistent @error_page;
+}
+
+location @error_page {
+    return 200 "这是备用处理逻辑";
+}
+```
+
+```bash
+curl http://localhost:19092/test-fallback
+```
+
+```
+命名 location @error_page 命中！
+```
+
+**用途**：统一的错误处理、备用逻辑、请求收尾。
+
+### 2. try_files 链式查找
+
+```nginx
+location /tryfiles {
+    try_files /test.html /backup.html @final_fallback;
+}
+```
+
+按顺序尝试：
+1. 先找 `/test.html` → 找到就返回
+2. 找不到找 `/backup.html` → 找到就返回
+3. 都找不到 → 跳到 `@final_fallback`
+
+**非常适用于 SPA（单页应用）的优雅降级和静态文件 fallback。**
+
+### 3. root vs alias 的区别
+
+这是 location 配置中非常容易混淆的两个指令。
+
+| 指令 | 路径拼接方式 | 示例 |
+|------|------------|------|
+| `root` | `root + URI` | `root /var/www;` → 请求 `/images/1.jpg` → `/var/www/images/1.jpg` |
+| `alias` | `alias + (URI - location路径)` | `alias /var/www/;` → 请求 `/images/1.jpg` → `/var/www/1.jpg` |
+
+**root 示例**：
+
+```nginx
+location /root-test/ {
+    root /usr/share/nginx/html;
+}
+# 请求 /root-test/index.html → /usr/share/nginx/html/root-test/index.html
+```
+
+**alias 示例**：
+
+```nginx
+location /alias-test/ {
+    alias /usr/share/nginx/html/;
+}
+# 请求 /alias-test/index.html → /usr/share/nginx/html/index.html
+```
+
+### ⚠️ 重要：alias 末尾的 `/` 决定了能不能找到文件
+
+`alias` 的路径末尾**必须带 `/`**，否则路径拼接会出错。实测对比：
+
+```nginx
+# ❌ 错误：alias 末尾没有 /
+location /alias-test/ {
+    alias /usr/share/nginx/html;
+}
+# 请求 /alias-test/index.html
+# → alias 把 /alias-test/ 替换成 /usr/share/nginx/html
+# → 结果：/usr/share/nginx/htmlindex.html（斜杠没了！）
+# → 404 Not Found ❌
+
+
+# ✅ 正确：alias 末尾有 /
+location /alias-test/ {
+    alias /usr/share/nginx/html/;
+}
+# 请求 /alias-test/index.html
+# → alias 把 /alias-test/ 替换成 /usr/share/nginx/html/
+# → 结果：/usr/share/nginx/html/index.html
+# → 200 OK ✅
+```
+
+**为什么 root 没这个问题？**
+
+```nginx
+location /test/ {
+    root /usr/share/nginx/html;
+}
+```
+
+`root` 的拼接方式是 `root路径 + 完整URI`：
+- `/usr/share/nginx/html` + `/test/index.html`
+- 两个路径之间自然有 `/` 分隔，所以 `root` **不需要纠结末尾斜杠**
+
+| 配置 | 请求 | 结果 | 原因 |
+|------|------|------|------|
+| `alias /path/;` 带 `/` | `/test/` | 200 ✅ | 拼接正确 |
+| `alias /path;` 无 `/` | `/test/index.html` | **404** ❌ | `/usr/share/nginx/htmlindex.html` 少了个斜杠 |
+| `root /path;` 无 `/` | `/test/index.html` | 200 ✅ | root 拼接方式自带斜杠 |
+
+**简单记法**：`alias` 是做**替换**（把 location 路径替换成 alias 路径），替换后斜杠要自己保证；`root` 是做**拼接**（root + URI），斜杠天然有。
+
+其他注意：`alias` **不支持 `@` 命名 location**，用在正则 location 时行为也不同，建议能用 `root` 的地方优先用 `root`。
+
+### 4. 防盗链实战组合
+
+结合 `valid_referers` 在 location 中做防盗链：
+
+```nginx
+location ~* \.(jpg|jpeg|png|gif|webp)$ {
+    valid_referers none blocked localhost;
+    if ($invalid_referer) {
+        return 403;
+    }
+    root /usr/share/nginx/html;
+}
+```
+
+测试效果：
+
+```bash
+# 带本地 Referer → 允许 ✅
+curl -e "http://localhost/page.html" http://localhost:19092/image.JPG
+
+# 无 Referer → 允许 ✅（因为有 none）
+curl http://localhost:19092/image.JPG
+
+# 盗链 Referer → 拒绝 ❌
+curl -e "http://evil.com" http://localhost:19092/image.JPG
+# 输出: 盗链检测到！请求被拒绝
+```
+
+---
+
+## 七、常见场景与最佳实践
+
+### 场景 1：静态文件服务
+
+```nginx
+# 精确匹配根路径
+location = / {
+    index index.html;
+}
+
+# 静态资源用正则匹配，缓存策略
+location ~* \.(css|js|jpg|png|woff2)$ {
+    expires 30d;
+    add_header Cache-Control "public, immutable";
+}
+
+# API 反向代理用 ^~ 避免正则干扰
+location ^~ /api/ {
+    proxy_pass http://backend;
+}
+```
+
+### 场景 2：SPA 单页应用
+
+```nginx
+location / {
+    try_files $uri $uri/ /index.html;
+}
+```
+
+所有找不到文件的请求都 fallback 到 `index.html`，由前端路由处理。
+
+### 场景 3：动静分离
+
+```nginx
+# 静态资源直接由 Nginx 处理
+location ~* \.(jpg|png|css|js)$ {
+    root /var/www/static;
+    expires 30d;
+}
+
+# 动态请求转发给后端
+location / {
+    proxy_pass http://backend:3000;
+}
+```
+
+### 最佳实践总结
+
+| 建议 | 说明 |
+|------|------|
+| **精确路径用 `=`** | 如 `= /favicon.ico`，避免正则检查开销 |
+| **API 路径用 `^~`** | 避免被正则意外拦截 |
+| **文件类型用正则** | `~* \.(jpg|css|js)$` 统一处理 |
+| **正则不要重复** | 同一个模式不要写两个正则，后面的不会执行 |
+| **`/` 放最后** | 默认兜底始终放在 server 块的最后 |
+| **测试后再上线** | 优先级的坑很容易踩，用 curl 逐条验证 |
+
+---
+
+## 八、总结
+
+### Location 优先级速查表
+
+```
+优先级  修饰符       示例                     说明
+─────────────────────────────────────────────────────
+高   │ =           location = /exact        精确匹配
+    │ ^~          location ^~ /api/        优先前缀，阻止正则
+    │ ~ / ~*      location ~ \.html$       正则匹配（顺序敏感）
+    │ 无修饰符    location /prefix         普通前缀（最长优先）
+低   │ /           location /              默认兜底
+```
+
+### 核心要点
+
+| 要点 | 说明 |
+|------|------|
+| **=` 最高** | 完全相等的 URI 用 `=`，性能最好 |
+| **^~ 阻止正则** | 一旦 `^~` 匹配，所有正则都不再检查 |
+| **正则顺序敏感** | 正则之间谁先定义谁处理 |
+| **前缀比不过正则** | 普通前缀匹配到的请求，如果也有正则匹配，正则胜出 |
+| **命名 location** | `@name` 只能内部跳转，不能外部访问 |
+| **推荐组合** | `^~` 保护 API + 正则处理静态资源 + `/` 兜底 |
+
+Nginx 的 location 配置看似简单，但优先级规则在实践中很容易踩坑。**记住一句话：`=` 最高 → `^~` 跳过正则 → 正则顺序匹配 → 普通前缀 → `/` 兜底。**
+
+动手用 Docker 测一遍，比死记硬背有效一百倍。
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战\",\"item\":\"https://www.lxpavilion.top/article/148\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战\",\"headline\":\"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战\",\"description\":\"深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。\",\"datePublished\":\"2026-07-28T17:02:41.078633\",\"dateCreated\":\"2026-07-28T17:02:41.078633\",\"dateModified\":\"2026-07-28T17:04:24.088882\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/696.png\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战","initialContent":"$2d"}]]
+2c:{"id":"148"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/148/"}],["$","meta","5",{"property":"og:title","content":"Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/696.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.jpeg"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

@@ -1,0 +1,538 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T3bb1,## 一、Dockerfile 是什么？
+
+Dockerfile 是一个**文本文件**，里面写的是"怎么构建一个镜像"的指令。
+
+```dockerfile
+FROM alpine:latest
+RUN echo "hello" > /tmp/test
+CMD ["cat", "/tmp/test"]
+```
+
+每一行指令，最终会变成镜像里的**一层**。Docker 按顺序执行这些指令，最终产出可以运行的镜像。
+
+### 做一个 Dockerfile 需要什么？
+
+- **Docker 已安装** ✅
+- **一个文本编辑器**
+- **一个想容器化的应用**（没有就用个脚本练手）
+
+---
+
+## 二、核心指令（先跑起来）
+
+### 1. `FROM` — 基础镜像，一切从这里开始
+
+**每个 Dockerfile 必须以 `FROM` 开头。**
+
+```dockerfile
+FROM alpine:latest          # Alpine Linux，极小 (~7MB)
+FROM python:3.12-slim       # Python 运行环境
+FROM nginx:alpine           # Nginx + Alpine
+FROM ubuntu:22.04           # Ubuntu 完整系统
+FROM scratch                # 空镜像，从零开始
+```
+
+基础镜像决定了你的镜像"起点"有多大：
+
+| 基础镜像 | 大小 | 适用场景 |
+|---------|------|---------|
+| `alpine` | ~7 MB | 静态二进制、轻量服务 |
+| `python:3.12-slim` | ~50 MB | Python 应用 |
+| `nginx:alpine` | ~27 MB | Web 服务 |
+| `ubuntu` | ~80 MB | 需要完整系统工具 |
+
+### 2. `RUN` — 构建时执行命令
+
+```dockerfile
+RUN apk add --no-cache curl
+RUN pip install -r requirements.txt
+RUN echo "构建时执行" > /tmp/test
+```
+
+**关键点**：`RUN` 在构建时执行，每一行 `RUN` 都会增加**一层**。
+
+### 为什么合并 RUN 和清理缓存很重要？
+
+先看一个实验：
+
+```dockerfile
+# ❌ 两个 RUN：先创建文件，再删除
+FROM alpine:latest
+RUN dd if=/dev/zero of=/bigfile bs=1M count=10   # 创建 10MB 文件
+RUN rm /bigfile                                    # "删除"这个文件
+```
+
+构建结果：**23.4 MB**
+
+原因？用 `docker history` 看每一层：
+
+```
+SIZE     层内容
+10.5MB   第 1 个 RUN：创建 /bigfile（10MB 文件在这层留下了！）
+4.1kB    第 2 个 RUN：rm /bigfile（只是记了个"删了"，文件还在上一层）
+```
+
+**每一层都是一个独立的快照。** 第 2 层的"删除"只是在第 2 层标记了"已删除"，但第 1 层的 10MB 文件依然存在。
+
+```
+第 2 层（记了"已删除"  ← 这只是个标记）
+第 1 层（10MB 文件）    ← 文件还在！
+基础镜像
+```
+
+文件只是被"挡住了"，不是真的没了。这就是为什么**镜像比你想象的大**。
+
+```dockerfile
+# ✅ 一个 RUN：创建并删除，文件没进过镜像
+FROM alpine:latest
+RUN dd if=/dev/zero of=/bigfile bs=1M count=10 && rm /bigfile
+```
+
+构建结果：**12.9 MB**（差了一倍！）
+
+```
+SIZE     层内容
+4.1kB    同一个 RUN 创建又删除，文件从来没进入任何一层
+```
+
+**放到 `apt` 的场景也是一样的道理：**
+
+```dockerfile
+# ❌ 错误写法
+RUN apt-get update                         # 把包列表下载到 /var/lib/apt/lists/（~30MB）
+RUN apt-get install -y curl                # 装 curl
+RUN rm -rf /var/lib/apt/lists/*            # 在不同层"删除"包列表
+# 实际：30MB 的包列表还在上一层！最终镜像白白多了 30MB
+
+# ✅ 正确写法
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+# 下载→安装→删除 在同一层，包列表没进过任何一层
+```
+
+**原则：同一个逻辑的操作放在一个 `RUN` 里，用 `&&` 连接。**
+
+### 3. `CMD` — 容器启动时执行的命令
+
+```dockerfile
+CMD ["python", "app.py"]      # ✅ 推荐写法（JSON 数组格式）
+CMD python app.py              # ❌ shell 格式，不推荐
+```
+
+`CMD` 和 `RUN` 最大的区别：
+
+| 指令    | 什么时候执行                  | 执行几次      |
+| ----- | ----------------------- | --------- |
+| `RUN` | **构建时**执行               | 1 次，构建时   |
+| `CMD` | **运行时**执行（`docker run`） | 每次启动容器都执行 |
+
+测试验证：
+
+```dockerfile
+FROM alpine:latest
+RUN echo "RUN：构建时执行"
+CMD ["echo", "CMD：运行时执行"]
+```
+
+```bash
+# 构建时（RUN 执行）
+docker build -t test .
+
+# 运行时（CMD 执行）
+docker run --rm test
+# 输出：CMD：运行时执行
+```
+
+### 4. `WORKDIR` — 工作目录
+
+```dockerfile
+WORKDIR /app
+# 之后的 COPY、RUN、CMD 都在 /app 目录下执行
+```
+
+`WORKDIR` 等价于 `cd`，但更好——**目录不存在时会自动创建**。
+
+```dockerfile
+WORKDIR /app          # 自动创建 /app
+COPY app.py .         # 复制到 /app/app.py
+RUN pwd               # 输出 /app
+CMD ["python", "app.py"]  # 从 /app 启动
+```
+
+### 5. `COPY` — 把文件放进镜像
+
+```dockerfile
+# 把本地的 index.html 复制到镜像的 /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html/
+
+# 配合 WORKDIR 使用更简洁
+WORKDIR /usr/share/nginx/html
+COPY index.html .     # 复制到当前工作目录
+```
+
+**`COPY` vs `ADD`**：
+
+| 指令 | 区别 |
+|------|------|
+| `COPY` | 只复制文件，不做其他事。推荐优先用 |
+| `ADD` | 复制文件 + 自动解压 tar + 支持 URL。只在需要解压时用 |
+
+---
+
+## 三、层缓存 — 为什么顺序很重要
+
+Docker 的构建是**分层**的。每一层构建完会缓存起来，下次**同一层没有变化就直接用缓存**。
+
+### 错误写法（改代码就要重装依赖）
+
+```dockerfile
+COPY . .
+RUN pip install -r requirements.txt    # ← 代码改了，依赖也要重装
+```
+
+### 正确写法（依赖放前面，代码放后面）
+
+```dockerfile
+COPY requirements.txt .                 # ← requirements.txt 不常变，走缓存
+RUN pip install -r requirements.txt     # ← 走缓存，不用重装
+COPY . .                                # ← 只重新复制代码
+```
+
+验证效果：
+
+```bash
+# 第一次构建：正常安装
+docker build -t myapp .
+# pip install... 耗时 20s
+
+# 第二次构建（代码改了，依赖没改）
+docker build -t myapp .
+# COPY requirements.txt → CACHED
+# RUN pip install → CACHED           ← 走缓存！
+# COPY . → 重新复制代码
+# 总耗时：< 1秒
+```
+
+**原则**：把不常变的东西放前面，常变的东西放后面。
+
+---
+
+## 四、多阶段构建 — 镜像瘦身的核心技巧
+
+"编译环境要大没关系，运行环境要小"。
+
+用多个 `FROM`，每个 `FROM` 是一个阶段。最后只取需要的产物。
+
+### 场景：Go 语言应用
+
+```dockerfile
+# ===== 阶段 1：编译 =====
+FROM golang:alpine AS build     # 364 MB，包含 Go 编译器
+WORKDIR /src
+COPY server.go .
+RUN go build -o /server server.go
+
+# ===== 阶段 2：运行 =====
+FROM alpine:latest              # ~7 MB，只有系统
+COPY --from=build /server /server
+CMD ["/server"]
+```
+
+**关键指令：`COPY --from=`**
+
+从其他阶段复制文件，而不是从宿主机。
+
+```dockerfile
+COPY --from=build /server /server        # 从 build 阶段复制
+COPY --from=nginx:alpine /usr/share/nginx/html/index.html /index.html  # 从其他镜像复制
+```
+
+最终效果：
+
+| 镜像 | 大小 |
+|------|------|
+| `golang:alpine`（仅编译用） | 364 MB ~~丢弃~~ |
+| `alpine:latest`（基础系统） | 7 MB |
+| **最终产物** | **21 MB** |
+
+编译需要的 Go 编译器、工具链全部被丢掉了，只留编译好的二进制。
+
+### 适用于任何语言
+
+```dockerfile
+# Python 也可以多阶段
+FROM python:3.12-slim AS builder
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+FROM python:3.12-slim
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY app.py .
+CMD ["python", "app.py"]
+```
+
+**多阶段构建的核心思想**：每个阶段各司其职，最终产物只保留运行时需要的东西。
+
+---
+
+## 五、进阶指令
+
+### 1. `ARG` vs `ENV` — 两种变量
+
+| 指令 | 作用时间 | 作用域 | 覆盖方式 |
+|------|---------|-------|---------|
+| `ARG` | **构建时** | 只在 `docker build` 时存在 | `--build-arg VERSION=2.0` |
+| `ENV` | **运行时** | 容器启动后仍然存在 | `-e APP_ENV=dev` |
+
+```dockerfile
+ARG VERSION=1.0               # 默认值 1.0，构建时可覆盖
+ENV APP_ENV=production         # 运行时的环境变量
+
+# 如果需要把 ARG 的值带到运行时，赋值给 ENV
+ARG VERSION
+ENV APP_VERSION=$VERSION
+```
+
+```bash
+# 构建时修改 ARG
+docker build --build-arg VERSION=2.0 -t myapp .
+
+# 运行时修改 ENV
+docker run -e APP_ENV=development myapp
+```
+
+### 2. `ENTRYPOINT` vs `CMD` — 入口 vs 默认参数
+
+两个都是容器启动时执行的命令，区别在于**能不能被覆盖**。
+
+```dockerfile
+ENTRYPOINT ["echo"]           # 主程序，固定不可变
+CMD ["Hello, World!"]          # 默认参数，可以被覆盖
+```
+
+| 运行方式 | 效果 |
+|---------|------|
+| `docker run image` | 执行 `echo "Hello, World!"` |
+| `docker run image Hi` | 执行 `echo Hi`（覆盖了 CMD） |
+| `docker run --entrypoint bash image` | 覆盖 ENTRYPOINT |
+
+**组合模式**：
+
+```dockerfile
+# ENTRYPOINT 是"这个容器是干什么的"
+# CMD 是"默认怎么干"
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+### 3. `HEALTHCHECK` — 健康检查
+
+Docker 默认只看**进程是否活着**，不管服务能不能用。`HEALTHCHECK` 让 Docker 主动检查你的服务。
+
+```dockerfile
+HEALTHCHECK --interval=10s --timeout=3s --retries=2 \
+  CMD curl -f http://localhost:5000/ || exit 1
+```
+
+| 参数 | 说明 |
+|------|------|
+| `--interval` | 每隔多久检查一次 |
+| `--timeout` | 每次检查超时时间 |
+| `--retries` | 连续失败几次算不健康 |
+| `--start-period` | 启动后等多久再开始检查 |
+
+查看健康状态：
+
+```bash
+docker inspect 容器名 --format '{{.State.Health.Status}}'
+# starting → healthy / unhealthy
+```
+
+### 4. `EXPOSE` — 声明端口（只是文档）
+
+```dockerfile
+EXPOSE 8080
+```
+
+**仅仅是个说明**，告诉用户"这个容器监听 8080 端口"。不真的暴露端口。要暴露还是要加 `-p`。
+
+### 5. `USER` — 别用 root
+
+生产环境**不要用 root 运行应用**。但 `USER app` 不会自动创建用户，必须先创建再切换：
+
+```dockerfile
+FROM alpine:latest
+
+# 第一步：创建用户
+RUN addgroup -S app && adduser -S app -G app
+
+# 第二步：切换到该用户
+USER app
+```
+
+**常见错误：只 `USER` 不创建**
+
+```dockerfile
+USER nonexistent    # ← 这个用户不存在！
+```
+
+构建不会报错，但运行时直接挂掉：
+
+```
+docker: Error response from daemon: unable to find user nonexistent
+```
+
+**不同基础镜像创建用户的命令**：
+
+| 基础镜像 | 创建用户命令 |
+|---------|-------------|
+| Alpine | `adduser -S app -G app` |
+| Ubuntu/Debian | `useradd -r -s /bin/false app` |
+| 通用 | `RUN addgroup -S app && adduser -S app -G app` |
+
+---
+
+## 六、完整的生产级 Dockerfile（实际项目）
+
+下面两个是我**实际生产在用**的 Dockerfile，分别对应 Java 后端和 Next.js 前端。
+
+### Java / Spring Boot 后端
+
+```dockerfile
+# ── 阶段 1：编译 ──
+# Maven + JDK 21 的构建环境，镜像很大但只是临时用
+FROM maven:3.9-eclipse-temurin-21 AS build
+
+# 设置工作目录，之后所有命令都在 /app 下执行
+WORKDIR /app
+
+# 先复制 pom.xml（利用层缓存：pom.xml 不改就不重装依赖）
+COPY pom.xml .
+# 复制 Maven 私服配置（如果有私有仓库）
+COPY .mvn/settings.xml settings.xml
+
+# 离线下载所有依赖（go-offline 会下载 pom.xml 定义的所有 jar 包，但只下载不编译）
+RUN mvn dependency:go-offline -B -s settings.xml
+
+# pom.xml 和 settings.xml 的层缓存命中后，才复制源码
+COPY src ./src
+
+# 真正编译打包，跳过测试
+RUN mvn clean package -DskipTests -B -s settings.xml
+
+# ── 阶段 2：运行 ──
+# 只用 JRE（Java 运行环境），没有编译器，小得多
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+# 从 build 阶段复制打好的 jar 包
+COPY --from=build /app/target/ROOT.jar app.jar
+
+# 声明容器内端口（只起文档作用，真要暴露还得 docker run -p）
+EXPOSE 8080
+
+# 容器启动命令：JSON 数组格式，正确接收 SIGTERM 信号
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+```
+
+**用了什么技巧？**
+
+| 技巧 | 对应指令 |
+|------|---------|
+| 多阶段构建 | `FROM maven:... AS build` → `FROM eclipse-temurin:21-jre` |
+| 层缓存加速 | `COPY pom.xml` 在前，`COPY src` 在后，依赖只装一次 |
+| JSON 格式 | `ENTRYPOINT ["java", "-jar", "app.jar"]` ✅ |
+| 产物分离 | 编译阶段 2GB+，运行阶段只用 JRE，小得多 |
+
+### Next.js 前端
+
+```dockerfile
+# ── 阶段 1：构建 ──
+# Node.js 22 的编译环境，装依赖 + 打包
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+
+# 先复制依赖描述文件，利用层缓存加速
+COPY package.json package-lock.json ./
+
+# npm ci 比 npm install 更快更严格，完全按 lock 文件安装
+RUN npm ci
+
+# 复制所有源码（这层常变，但上面的依赖层已经缓存了）
+COPY . .
+
+# 删除 postbuild 脚本（避免构建时触发额外操作），然后构建
+RUN npm pkg delete scripts.postbuild && npm run build
+
+# ── 阶段 2：运行 ──
+FROM node:22-alpine AS runner
+
+WORKDIR /app
+
+# 设置生产环境变量
+ENV NODE_ENV=production
+
+# 只复制运行需要的文件，不要 node_modules 里的 devDependencies
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+# 声明端口（文档作用）
+EXPOSE 3000
+
+# 启动 Node.js 服务
+CMD ["node", "server.js"]
+```
+
+**用了什么技巧？**
+
+| 技巧       | 对应指令                                                  |
+| -------- | ----------------------------------------------------- |
+| 多阶段构建    | `builder` 装依赖 + 构建，`runner` 只跑产物                      |
+| 层缓存      | `package.json` + `package-lock.json` 先复制，`npm ci` 走缓存 |
+| 按需复制     | 只复制运行需要的文件（standalone、static、public）                  |
+| `npm ci` | 比 `npm install` 更快更严格，锁定版本                            |
+
+---
+
+## 七、总结
+
+### 指令速查表
+
+| 指令 | 作用 | 执行时机 |
+|------|------|---------|
+| `FROM` | 指定基础镜像 | 必需，第一行 |
+| `RUN` | 执行命令（构建时） | 构建时 |
+| `CMD` | 容器启动命令 | 运行时 |
+| `COPY` | 复制文件到镜像 | 构建时 |
+| `WORKDIR` | 设置工作目录 | 构建时 |
+| `ARG` | 构建时变量 | 构建时 |
+| `ENV` | 运行时环境变量 | 构建时 + 运行时 |
+| `ENTRYPOINT` | 容器入口程序 | 运行时 |
+| `HEALTHCHECK` | 健康检查 | 运行时 |
+| `EXPOSE` | 声明端口（文档） | — |
+| `USER` | 切换用户 | 构建时 + 运行时 |
+
+### Dockerfile 最佳实践
+
+| 原则 | 说明 |
+|------|------|
+| **不常变的放前面** | 利用层缓存，加速构建 |
+| **每个 RUN 只做一件事** | 但同一件事的多个命令用 `&&` 合并，减少层数 |
+| **多阶段构建** | 编译环境和运行环境分离，镜像体积差 10 倍以上 |
+| **不用 root 运行** | 建一个普通用户，`USER app` |
+| **不要用 `ADD` 除非要解压** | 优先用 `COPY` |
+| **`.dockerignore`** | 过滤掉 `node_modules`、`.git` 等无用文件 |
+| **尽量用 Alpine** | 基础镜像越小越好 |
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像\",\"item\":\"https://www.lxpavilion.top/article/149\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像\",\"headline\":\"从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像\",\"description\":\"从 FROM 到 HEALTHCHECK，系统学习 Dockerfile 的每一个核心指令。用 Docker 实战验证层缓存、多阶段构建、ARG/ENV/ENTRYPOINT 的原理，理解\\\"构建镜像\\\"的完整流程。\",\"datePublished\":\"2026-07-29T10:44:39.799187\",\"dateCreated\":\"2026-07-29T10:44:39.799187\",\"dateModified\":\"2026-07-29T10:48:18.026748\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/712.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"HuNJtlSlMdM0ytuvSO54c"}
+3:{"id":"149"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

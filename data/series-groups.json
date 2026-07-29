@@ -1,5 +1,11 @@
 [
   {
+    "series": "Nginx学习笔记",
+    "count": 8,
+    "coverImage": "/data/media/696.png",
+    "summary": "深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。"
+  },
+  {
     "series": "Git学习笔记",
     "count": 5,
     "coverImage": "/data/media/710.png",
@@ -10,12 +16,6 @@
     "count": 9,
     "coverImage": "/data/media/708.png",
     "summary": "Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。"
-  },
-  {
-    "series": "Nginx学习笔记",
-    "count": 7,
-    "coverImage": "/data/media/696.png",
-    "summary": "从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。"
   },
   {
     "series": "Redis学习笔记",

@@ -8,6 +8,30 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像]]></title>
+      <link>https://www.lxpavilion.top/article/149/</link>
+      <guid>https://www.lxpavilion.top/article/149/</guid>
+      <pubDate>Wed, 29 Jul 2026 10:44:39 GMT</pubDate>
+      <description><![CDATA[从 FROM 到 HEALTHCHECK，系统学习 Dockerfile 的每一个核心指令。用 Docker 实战验证层缓存、多阶段构建、ARG/ENV/ENTRYPOINT 的原理，理解"构建镜像"的完整流程。]]></description>
+      <category>技术教程</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战]]></title>
+      <link>https://www.lxpavilion.top/article/148/</link>
+      <guid>https://www.lxpavilion.top/article/148/</guid>
+      <pubDate>Tue, 28 Jul 2026 17:02:41 GMT</pubDate>
+      <description><![CDATA[深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>nginx</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Git学习笔记：GitHub Actions 从零到实战]]></title>
       <link>https://www.lxpavilion.top/article/147/</link>
       <guid>https://www.lxpavilion.top/article/147/</guid>
@@ -191,26 +215,6 @@
       <guid>https://www.lxpavilion.top/article/129/</guid>
       <pubDate>Sun, 19 Jul 2026 15:41:53 GMT</pubDate>
       <description><![CDATA[全面解析 Nginx rewrite 模块的语法规则、正则匹配、flag 标记及实战案例，教你如何将带参数的动态 URL 伪装成静态 HTML，提升网站 SEO 表现与用户体验。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：负载均衡配置教程，从基础算法到企业级动态方案]]></title>
-      <link>https://www.lxpavilion.top/article/128/</link>
-      <guid>https://www.lxpavilion.top/article/128/</guid>
-      <pubDate>Sun, 19 Jul 2026 13:32:14 GMT</pubDate>
-      <description><![CDATA[Nginx 负载均衡入门教程，从 upstream 配置到轮询、权重、IP Hash、Least Connections 等六大算法的配置与适用场景，并介绍 OpenResty + Lua、Consul 动态发现等企业级负载均衡方案思路，配合代码示例助你从基础到进阶全面理解。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：反向代理实战，从入门到配置详解]]></title>
-      <link>https://www.lxpavilion.top/article/127/</link>
-      <guid>https://www.lxpavilion.top/article/127/</guid>
-      <pubDate>Sun, 19 Jul 2026 12:12:10 GMT</pubDate>
-      <description><![CDATA[深入理解 Nginx 反向代理的核心原理与配置方法，通过实战案例掌握 proxy_pass 指令、URL 转发规则、请求头处理，以及解决代理过程中常见的 HTTPS 重定向问题。]]></description>
       <category>学习笔记</category>
       
       <author>ppc</author>

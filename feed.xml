@@ -8,6 +8,19 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战]]></title>
+      <link>https://www.lxpavilion.top/article/150/</link>
+      <guid>https://www.lxpavilion.top/article/150/</guid>
+      <pubDate>Wed, 29 Jul 2026 14:28:59 GMT</pubDate>
+      <description><![CDATA[用最直观的「朋友关系」理解图数据库——从 Docker 部署到 Spring Data Neo4j 集成，30 分钟跑通第一个知识图谱应用。Java 后端开发者适用。]]></description>
+      <category>数据库</category>
+      <tag>RAG</tag>
+      <tag>Docker</tag>
+      <tag>Spring Boot</tag>
+      <tag>Neo4J</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像]]></title>
       <link>https://www.lxpavilion.top/article/149/</link>
       <guid>https://www.lxpavilion.top/article/149/</guid>
@@ -205,16 +218,6 @@
       <guid>https://www.lxpavilion.top/article/130/</guid>
       <pubDate>Sun, 19 Jul 2026 15:48:17 GMT</pubDate>
       <description><![CDATA[深入讲解 Nginx valid_referers 模块的工作原理与配置方法，通过 referer 请求头校验实现图片、CSS、JS 等静态资源的防盗链，防止其他网站非法引用消耗你的带宽。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：URL Rewrite 从入门到实战，让链接更优雅、更SEO友好]]></title>
-      <link>https://www.lxpavilion.top/article/129/</link>
-      <guid>https://www.lxpavilion.top/article/129/</guid>
-      <pubDate>Sun, 19 Jul 2026 15:41:53 GMT</pubDate>
-      <description><![CDATA[全面解析 Nginx rewrite 模块的语法规则、正则匹配、flag 标记及实战案例，教你如何将带参数的动态 URL 伪装成静态 HTML，提升网站 SEO 表现与用户体验。]]></description>
       <category>学习笔记</category>
       
       <author>ppc</author>

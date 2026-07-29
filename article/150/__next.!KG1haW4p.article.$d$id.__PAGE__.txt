@@ -1,0 +1,337 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T2b0d,## 一、Neo4j 是什么，为什么要学它？
+
+Neo4j 是目前最流行的图数据库，它用 **节点（Node）** 和 **关系（Relationship）** 来存储数据，而不是关系型数据库的行和列。
+
+**核心优势：**
+- **关系查询快**：多对多关联查询比 MySQL 递归 CTE 快 1-2 个数量级
+- **查询直观**：Cypher 语法接近自然语言，比 SQL 多重 JOIN 易读得多
+- **ACID 事务支持**：不像某些 NoSQL 需要重新理解一致性模型
+
+**适合场景：**
+- 社交网络（好友关系、影响力传播）
+- 知识图谱（实体关联、多跳推理）
+- 权限系统（RBAC/ABAC 模型）
+- 反欺诈（团伙识别、异常环检测）
+- **RAG 增强**：GraphRAG——用知识图谱为 LLM 提供结构化上下文
+
+## 二、在项目实战中有什么作用？
+
+Neo4j 和关系型数据库是 **互补关系**，不是替代关系。在实际落地中，通常作为**专项场景的增强组件**：
+
+| 场景 | 传统方案痛点 | Neo4j 方案 |
+|------|-------------|-----------|
+| 「张三的朋友的朋友在哪些公司？」 | 需要 3 层 JOIN 或递归 CTE，性能差 | `MATCH (:人{name:'张三'})-[:KNOWS*2]->()-[:WORKS_AT]->(c) RETURN c.name`，一行搞定 |
+| 知识图谱搜索 | 无法高效表达和推理实体关系 | 节点+关系建模，天然适合 |
+| RAG 多跳查询 | 向量检索只能找语义相似的 chunk | 图检索提供精确的结构化事实，消除 LLM 幻觉 |
+
+> ⚡ 特别提示：如果你的业务中没有密集的关联查询，不必为了用而用。但作为后端开发者，掌握图数据库思维和 Cypher 查询，遇到问题时就有路数。
+
+## 三、环境
+
+| 环境 | 选择 |
+|------|------|
+| 部署环境 | WSL + Docker |
+| 开发语言 | Java 21 + Spring Boot 3.3.5 |
+| 数据库版本 | Neo4j 5.x |
+
+## 四、Neo4j 核心概念速览
+
+| 概念 | 类比 SQL | 说明 |
+|------|---------|------|
+| **节点（Node）** | 行（记录） | 带标签的实体，例如 `(:User {name:'张三'})` |
+| **标签（Label）** | 表名 | 节点的分类，例如 `User`、`Company` |
+| **关系（Relationship）** | 外键 + JOIN | 有方向、有类型的连线，例如 `[:KNOWS]` |
+| **属性（Property）** | 列（字段） | 节点或关系的键值对 |
+| **Cypher** | SQL | 图查询语言，本文章所有操作都基于它 |
+
+## 五、部署：Docker 安装 Neo4j
+
+执行以下命令启动 Neo4j 容器：
+
+```bash
+docker run -d \
+  --name neo4j \
+  -p 7474:7474 \
+  -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/password123 \
+  -v neo4j_data:/data \
+  neo4j:5
+```
+
+**命令解析：**
+
+| 参数 | 作用 |
+|------|------|
+| `-p 7474:7474` | 映射 Neo4j Browser（Web 控制台，HTTP）|
+| `-p 7687:7687` | 映射 Bolt 协议端口（驱动程序连接）|
+| `-e NEO4J_AUTH=neo4j/password123` | 设置用户名和密码 |
+| `-v neo4j_data:/data` | 持久化数据，容器删除后数据不丢失 |
+
+验证是否启动成功：
+
+```bash
+docker ps --filter name=neo4j
+```
+
+## 六、控制台测试
+
+### 6.1 登录 Browser
+
+浏览器访问 [http://localhost:7474](http://localhost:7474)，输入用户名 `neo4j` 和密码 `password123`。
+
+![image.png](/data/media/713.png)
+
+### 6.2 创建节点
+
+```cypher
+CREATE (u:User {name:'张三', age:30}) RETURN u
+CREATE (u:User {name:'李四', age:28}) RETURN u
+CREATE (c:Company {name:'字节跳动', industry:'互联网'}) RETURN c
+CREATE (t:Tech {name:'Neo4j', type:'图数据库'}) RETURN t
+```
+
+**命令解析：**
+
+| 语法 | 说明 |
+|------|------|
+| `CREATE` | 创建节点或关系 |
+| `(u:User {…})` | `u` 是变量名，`User` 是标签，`{…}` 是属性 |
+| `RETURN u` | 返回创建的节点，类似 SQL 的 `SELECT` |
+
+执行后在 Browser 左侧的星形图标（Database）刷新，可以看到图结构：
+
+![image.png](/data/media/714.png)
+
+### 6.3 创建关系
+
+```cypher
+MATCH (a:User {name:'张三'}), (b:User {name:'李四'})
+CREATE (a)-[:KNOWS]->(b)
+
+MATCH (a:User {name:'张三'}), (b:Company {name:'字节跳动'})
+CREATE (a)-[:WORKS_AT {position:'后端开发'}]->(b)
+
+MATCH (a:User {name:'张三'}), (b:Tech {name:'Neo4j'})
+CREATE (a)-[:LEARNING]->(b)
+```
+
+**命令解析：**
+
+| 语法                  | 说明                           |
+| ------------------- | ---------------------------- |
+| `MATCH`             | 匹配已存在的节点，类似 SQL 的 `WHERE`    |
+| `(a)-[:KNOWS]->(b)` | 从 `a` 指向 `b` 的关系，类型为 `KNOWS` |
+| `{position:'后端开发'}` | 关系也可以带属性                     |
+
+![image.png](/data/media/715.png)
+
+### 6.4 查询
+
+```cypher
+// 看张三认识的人
+MATCH (:User {name:'张三'})-[:KNOWS]->(friend)
+RETURN friend.name
+
+// 张三的所有关系
+MATCH (n:User {name:'张三'})-[r]->(m)
+RETURN n.name, type(r), m.name
+
+// 张三的朋友的朋友（多跳查询）
+MATCH (:User {name:'张三'})-[:KNOWS]->()-[:KNOWS]->(fof)
+RETURN fof.name
+```
+
+> 💡 **一步到位**：最后这个查询如果用 MySQL 写，至少需要 `user JOIN user_friend JOIN user AS friend JOIN user_friend JOIN user AS fof` 三层连接；而 Cypher 只用一行就表达了完整的路径语义。
+
+## 七、代码测试：Spring Boot + Spring Data Neo4j
+
+### 7.1 项目依赖
+
+创建 Maven 项目，在 `pom.xml` 中添加：
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.5</version>
+</parent>
+
+<dependencies>
+    <!-- Spring Data Neo4j：核心依赖 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-neo4j</artifactId>
+    </dependency>
+    <!-- Web（可选，方便后续扩展 REST API） -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+
+### 7.2 配置文件
+
+`application.yml`：
+
+```yaml
+spring:
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: password123
+```
+
+### 7.3 实体类定义
+
+```java
+@Node("User")
+public class User {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Property("name")
+    private String name;
+
+    @Property("age")
+    private Integer age;
+
+    @Relationship(type = "KNOWS", direction = Relationship.Direction.OUTGOING)
+    private List<User> friends = new ArrayList<>();
+
+    @Relationship(type = "WORKS_AT", direction = Relationship.Direction.OUTGOING)
+    private List<Company> companies = new ArrayList<>();
+
+    @Relationship(type = "LEARNING", direction = Relationship.Direction.OUTGOING)
+    private List<Tech> techs = new ArrayList<>();
+}
+```
+
+**关键注解说明：**
+
+| 注解 | 作用 |
+|------|------|
+| `@Node("User")` | 映射到 Neo4j 的 `User` 标签 |
+| `@Id` / `@GeneratedValue` | 主键，自动生成 |
+| `@Property("name")` | 映射到节点的 `name` 属性 |
+| `@Relationship` | 映射关系到 Java 集合，级联保存 |
+| `direction = OUTGOING` | 关系方向：`(当前实体)—→(目标实体)` 向外指 |
+
+### 7.4 Repository 层
+
+```java
+public interface UserRepository extends Neo4jRepository<User, Long> {
+
+    // 方法命名查询：按名字查找
+    User findByName(@Param("name") String name);
+
+    // 自定义 Cypher 查询：查朋友
+    @Query("MATCH (u:User {name: $name})-[:KNOWS]->(friend) RETURN friend")
+    List<User> findFriendsByName(@Param("name") String name);
+
+    // 多跳查询：朋友的朋友
+    @Query("""
+        MATCH (u:User {name: $name})-[:KNOWS*2]->(fof)
+        WHERE fof <> u RETURN DISTINCT fof
+        """)
+    List<User> findFriendsOfFriends(@Param("name") String name);
+
+    // 反向查询：谁在某公司工作
+    @Query("MATCH (u:User)-[:WORKS_AT]->(c:Company {name: $companyName}) RETURN u")
+    List<User> findUsersByCompany(@Param("companyName") String companyName);
+
+    // 跨关系查询：朋友的公司
+    @Query("""
+        MATCH (u:User {name: $userName})-[:KNOWS]->(friend)-[:WORKS_AT]->(c:Company)
+        RETURN DISTINCT c.name
+        """)
+    List<String> findFriendsCompanyNames(@Param("userName") String userName);
+}
+```
+
+> `Neo4jRepository` 类似 JPA 的 `JpaRepository`，提供了开箱即用的 `save()`、`findById()`、`deleteAll()` 等方法。自定义查询通过 `@Query` 注解直接写 Cypher。
+>
+> **💡 为什么只 `save(zs)` 就能存完所有人、公司和技术？**
+> 因为 Spring Data Neo4j 会**级联保存**——`save(zs)` 时，它遍历 `zs` 上所有 `@Relationship` 字段，把关联的节点一路往下存到底：
+> ```
+> save(zs)
+>   ├─ User{张三}
+>   ├─ friends → User{李四} → companies → Company{阿里巴巴}
+>   │                        → techs → Tech{Java}
+>   ├─ friends → User{王五} → companies → Company{腾讯}
+>   │                        → techs → Tech{Spring Boot}
+>   ├─ companies → Company{字节跳动}
+>   └─ techs → Tech{Neo4j}, Tech{Java}, Tech{Spring Boot}
+> ```
+> 只需要保存入口节点，整张图自动写进去。这就是图数据库的直观之处——**关系是实体的自然组成部分**，存实体时关系自动跟着存。
+
+### 7.5 测试代码
+
+```java
+@SpringBootTest
+class Neo4jTest {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Test
+    void testNeo4j() {
+        // === 1. 创建实体 ===
+        User zs = new User("张三", 30);
+        User ls = new User("李四", 28);
+        Company bytedance = new Company("字节跳动", "互联网");
+        Company alibaba = new Company("阿里巴巴", "电商");
+        Tech neo4j = new Tech("Neo4j", "图数据库");
+
+        // === 2. 建立关系 ===
+        zs.getFriends().add(ls);
+        zs.getCompanies().add(bytedance);
+        zs.getTechs().add(neo4j);
+        ls.getCompanies().add(alibaba);
+
+        // === 3. 保存（级联：save(zs)一路自动存完李四、公司、技术） ===
+        userRepository.save(zs);
+
+        // === 4. 查询验证 ===
+        assertNotNull(userRepository.findByName("张三"));
+        assertEquals(1, userRepository.findFriendsByName("张三").size());
+        assertTrue(userRepository.findFriendsCompanyNames("张三").contains("阿里巴巴"));
+    }
+}
+```
+
+## 八、测试结果
+
+```
+✅ 查询张三：User{id=4, name='张三', age=30}
+✅ 张三的朋友：User{id=9, name='李四', age=28}
+✅ 在字节跳动工作的人：User{id=4, name='张三', age=30}
+✅ 张三的朋友的公司：[阿里巴巴]
+```
+## 九、总结
+
+### 你学到了什么？
+
+| 知识点 | 掌握程度 |
+|--------|---------|
+| 图数据库核心概念（节点/关系/属性/标签） | ✅ |
+| Cypher 基本操作（CRUD + 多跳查询） | ✅ |
+| Docker 部署 Neo4j | ✅ |
+| Spring Data Neo4j 实体映射 | ✅ |
+| 自定义 Cypher 查询 | ✅ |
+
+> 如果你正在做 RAG 项目，建议下一步尝试：用 LLM 从文档抽取实体 → 写入 Neo4j → 查询时混合图检索和向量检索。这是目前生产级知识图谱 RAG 的最佳实践。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战\",\"item\":\"https://www.lxpavilion.top/article/150\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战\",\"headline\":\"Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战\",\"description\":\"用最直观的「朋友关系」理解图数据库——从 Docker 部署到 Spring Data Neo4j 集成，30 分钟跑通第一个知识图谱应用。Java 后端开发者适用。\",\"datePublished\":\"2026-07-29T14:28:59.173622\",\"dateCreated\":\"2026-07-29T14:28:59.173622\",\"dateModified\":\"2026-07-29T14:29:09.176335\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/716.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"zt6V3QCFARd9m0NqJ3exJ"}
+3:{"id":"150"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

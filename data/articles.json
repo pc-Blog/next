@@ -1,6 +1,74 @@
 {
-  "total": 78,
+  "total": 80,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-29T22:16:54.719942",
+      "id": 152,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "MySQL学习笔记",
+      "summary": "基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 63,
+          "name": "Linux"
+        },
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 71,
+          "name": "集群"
+        }
+      ],
+      "title": "Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南",
+      "updateTime": "2026-07-29T22:17:39.654836",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/677.jpeg",
+      "createdAt": "2026-07-29T22:15:57.375669",
+      "id": 151,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "MySQL学习笔记",
+      "summary": "从架构设计到容器化部署，手把手教你用ShardingSphere-Proxy搭建双集群分片架构，实现分库分表与读写分离，附完整Docker Compose配置与验证方法。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 66,
+          "name": "Mysql"
+        },
+        {
+          "id": 71,
+          "name": "集群"
+        }
+      ],
+      "title": "Mysql学习笔记：ShardingSphere-Proxy分库分表+读写分离从零搭建指南",
+      "updateTime": "2026-07-29T22:17:51.711029",
+      "viewCount": 0
+    },
     {
       "categoryId": 39,
       "categoryName": "数据库",
@@ -863,7 +931,7 @@
       "summary": "记录在 Docker Desktop 上使用 KubeSphere DevOps 流水线部署 FastAPI 应用时踩过的坑——Docker Desktop 架构限制导致无法在 Pipeline 中构建镜像等问题及最终解决方案。",
       "tags": [],
       "title": "KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s",
-      "updateTime": "2026-07-08T09:38:14.473543",
+      "updateTime": "2026-07-29T15:02:05.868947",
       "viewCount": 0
     },
     {

@@ -1,5 +1,11 @@
 [
   {
+    "series": "MySQL学习笔记",
+    "count": 8,
+    "coverImage": "/data/media/677.jpeg",
+    "summary": "基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。"
+  },
+  {
     "series": "Nginx学习笔记",
     "count": 8,
     "coverImage": "/data/media/696.png",
@@ -22,12 +28,6 @@
     "count": 5,
     "coverImage": "/data/media/690.png",
     "summary": "缓存穿透、缓存击穿、缓存雪崩是线上最常遇到的三大问题，外加缓存与数据库的一致性难题。本文逐一拆解根因，给出布隆过滤器、互斥锁、降级策略、延迟双删等实战解法，让你真正理解而不是死记八股文。"
-  },
-  {
-    "series": "MySQL学习笔记",
-    "count": 6,
-    "coverImage": "/data/media/677.jpeg",
-    "summary": "本文详细讲解 MySQL InnoDB Cluster 的核心概念与完整搭建过程。使用 Docker 部署 3 节点集群 + MySQL Router，涵盖 MGR 组复制配置、MySQL Shell 管理集群、Router 读写分离路由等核心步骤。适合已有主从复制基础的开发者快速上手高可用 MySQL 架构。"
   },
   {
     "series": "KubeSphere学习笔记",

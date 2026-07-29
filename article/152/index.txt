@@ -1,0 +1,377 @@
+1:"$Sreact.fragment"
+2:I[26908,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ThemeProvider"]
+3:I[54774,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+4:I[22464,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+5:I[3799,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+6:I[56499,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+7:I[61421,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+8:I[39756,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+9:I[37457,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+14:I[68027,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default",1]
+:HL["/_next/static/chunks/0b6qmajyolz_f.css","style"]
+:HL["/_next/static/chunks/0bhz0wet4z.0z.css","style"]
+:HL["/_next/static/media/geist_latin-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono_latin-s.p.09zddjkbdep5a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/noto_serif_sc_latin-s.p.0xqqmnf1a3x8p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","article","152",""],"q":"","i":false,"f":[[["",{"children":["(main)",{"children":["article",{"children":[["id","152","d",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",4]},"$undefined","$undefined",8]},"$undefined","$undefined",24],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0bhz0wet4z.0z.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0k5~8fl8d4hgz.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0~r8x2txo..2b.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/148ko75-ihlmp.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/10odz-6irn5el.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"geistsans_a510a867-module__GV7SnW__variable geistmono_3a5088c3-module__hmvxwq__variable notoserif_f8cbb9e8-module__p3nKta__variable h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"utf-8"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"\n              #app-mount-root { opacity: 0; visibility: hidden; pointer-events: none; }\n              html.splash-seen #app-mount-root { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                if (sessionStorage.getItem('hasSeenSplash') === 'true') {\n                  document.documentElement.classList.add('splash-seen');\n                }\n              } catch (e) {}\n            "}}]]}],["$","body",null,{"className":"w-full overflow-y-scroll min-h-full flex flex-col relative transition-colors duration-1000 bg-slate-50 dark:bg-slate-950 font-serif","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","div",null,{"id":"app-mount-root","className":"flex-1 flex flex-col min-h-0 transition-opacity duration-1000","children":[["$","div",null,{"className":"fixed inset-0 z-[-1] pointer-events-none overflow-hidden","children":[["$","$L4",null,{}],["$","$L5",null,{}],["$","div",null,{"className":"absolute inset-0 z-[-8] opacity-60 dark:opacity-20 mix-blend-color transition-opacity duration-1000 transform-gpu","style":{"background":"linear-gradient(-45deg, #a18cd1, #fbc2eb, #a1c4fd, #c2e9fb)","backgroundSize":"400% 400%","animation":"gradientMove 15s ease infinite"}}],["$","div",null,{"className":"absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/40 dark:bg-indigo-900/20 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/30 dark:bg-purple-900/30 blur-[100px] rounded-full z-[-7] md:mix-blend-overlay"}],["$","div",null,{"className":"hidden md:block absolute inset-0 w-full h-full","children":["$","$L6",null,{}]}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$L7",null,{}]}],["$","div",null,{"className":"relative z-10 flex-1 flex flex-col min-h-0","children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],"$La"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$Lb","$Lc"]}],"$Ld"]}]}]]}]]}],{"children":["$Le",{"children":["$Lf",{"children":["$L10",{"children":["$L11",{},null,false,null]},null,false,"$@12"]},null,false,"$@12"]},null,false,null]},null,false,null],"$L13",false]],"m":"$undefined","G":["$14",["$L15","$L16"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"XKucfOouGKw3alqeJbdUE"}
+17:I[6521,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+18:I[8123,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"default"]
+19:I[18233,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js"],"default"]
+1a:I[34858,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js"],"default"]
+1b:I[23191,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/0482ma-iocmg6.js"],"default"]
+1c:I[39756,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"LoadingBoundaryProvider"]
+23:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+24:"$Sreact.suspense"
+27:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"ViewportBoundary"]
+29:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"MetadataBoundary"]
+a:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","style",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"\n              @keyframes gradientMove {\n                0% { background-position: 0% 50%; }\n                50% { background-position: 100% 50%; }\n                100% { background-position: 0% 50%; }\n              }\n            "}}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0can3rjmlq38k.js","async":true,"nonce":"$undefined"}]],[["$","$L19",null,{}],["$","$L1a",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1b",null,{"children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":[["$","script","script-0",{"src":"/_next/static/chunks/0482ma-iocmg6.js","async":true}]],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:1:props:children:2:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$a:props:style","children":["$","h2",null,{"style":"$a:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-auto py-8 text-center","children":["$","p",null,{"className":"text-xs text-slate-400 dark:text-slate-500","children":["© ",2026," ","栏轩·阁",". Built with Next.js & Tailwind CSS."]}]}]]]}]
+f:["$","$L1c",null,{"loading":[["$","$1","l",{"children":[["$","div",null,{"className":"h-10 w-40 bg-slate-200 dark:bg-slate-700 rounded-lg mb-2 animate-pulse"}],["$","div",null,{"className":"h-5 w-64 bg-slate-200 dark:bg-slate-700 rounded-md mb-6 animate-pulse"}],["$","div",null,{"className":"h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-xl mb-4 animate-pulse"}],["$","div",null,{"className":"flex gap-2 mb-4","children":[["$","div","0",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","1",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","2",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","3",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}],["$","div","4",{"className":"h-8 w-20 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"}]]}],["$","div",null,{"className":"flex gap-2 mb-8","children":[["$","div","0",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"0ms"}}],["$","div","1",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"100ms"}}],["$","div","2",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"200ms"}}],["$","div","3",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"300ms"}}],["$","div","4",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"400ms"}}],["$","div","5",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"500ms"}}],["$","div","6",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"600ms"}}],["$","div","7",{"className":"h-6 w-14 bg-slate-200 dark:bg-slate-700 rounded-md animate-pulse","style":{"animationDelay":"700ms"}}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-6","children":[["$","div","0",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"0ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","1",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"100ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}],["$","div","2",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"200ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],"$L1d"]}],"$L1e","$L1f","$L20"]}]]}],[],[]],"children":"$L21"}]
+10:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:["$","$1","c",{"children":["$L22",[["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true,"nonce":"$undefined"}]],["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}]
+26:[]
+12:"$W26"
+13:["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","div",null,{"hidden":true,"children":["$","$L29",null,{"children":["$","$24",null,{"name":"Next.Metadata","children":"$L2a"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+15:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0b6qmajyolz_f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0bhz0wet4z.0z.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1d:["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]
+1e:["$","div","3",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"300ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+1f:["$","div","4",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"400ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+20:["$","div","5",{"className":"rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 p-6 animate-pulse","style":{"animationDelay":"500ms"},"children":[["$","div",null,{"className":"h-5 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md mb-3"}],["$","div",null,{"className":"h-4 w-full bg-slate-200 dark:bg-slate-700 rounded-md mb-2"}],["$","div",null,{"className":"h-4 w-2/3 bg-slate-200 dark:bg-slate-700 rounded-md mb-4"}],["$","div",null,{"className":"flex gap-2","children":[["$","div",null,{"className":"h-5 w-16 bg-slate-200 dark:bg-slate-700 rounded-full"}],["$","div",null,{"className":"h-5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full"}]]}]]}]
+21:["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+2b:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+2d:T2f26,## 一、ShardingSphere-JDBC 是什么
+
+ShardingSphere-JDBC 是 ShardingSphere 的嵌入式模式——**JDBC 驱动直接嵌入应用内**，应用通过它连接数据库，它负责把 SQL 路由到正确的物理库/表。
+
+| 特性 | JDBC（嵌入应用） | Proxy（独立服务） |
+|------|-----------------|------------------|
+| 部署方式 | 引入 Maven 依赖 | 部署独立 Docker 容器 |
+| 网络开销 | 无中间跳转 | 多一次网络转发 |
+| 管理成本 | 随应用部署 | 独立运维 |
+| 适用场景 | 单体应用、微服务 | 多应用共享、异构语言 |
+
+**本文场景**：上一篇我们用 Proxy 搭建了 2 集群 × 1主2从的 MySQL 分片架构，现在用 Spring Boot 应用通过 JDBC 模式直连同一个 MySQL 集群。
+
+> 如果你还没部署后端 MySQL 集群，请先阅读上一篇 [ShardingSphere-Proxy 搭建指南](Mysql学习笔记：.md) 的 五~六节，先把 6 个 MySQL 跑起来。
+
+## 二、架构说明
+
+```
+Spring Boot 应用
+      │
+      ▼
+ShardingSphere-JDBC（嵌入应用内）
+      │
+      │  user_id % 2 → 分库
+      │  order_id % 2 → 分表
+      │  写→Master，读→Slave
+      │
+      ├── ds_0 (user_id 偶数)
+      │     ├── 22220 Master（写入）
+      │     ├── 22221 Slave1（读取）
+      │     └── 22222 Slave2（读取）
+      │
+      └── ds_1 (user_id 奇数)
+            ├── 22223 Master（写入）
+            ├── 22224 Slave1（读取）
+            └── 22225 Slave2（读取）
+```
+
+**分片规则：**
+- `user_id % 2 == 0` → Cluster A（ds_0）
+- `user_id % 2 == 1` → Cluster B（ds_1）
+- `order_id % 2 == 0` → `t_order_0`
+- `order_id % 2 == 1` → `t_order_1`
+
+**读写分离：**
+- `INSERT / UPDATE / DELETE` → Master
+- `SELECT` → Slave（轮询负载均衡）
+
+## 三、环境准备
+
+| 工具 | 版本 |
+|------|------|
+| Java | 17+ |
+| Spring Boot | 4.0.7 |
+| ShardingSphere-JDBC | 5.5.2 |
+| MyBatis Plus | 3.5.16（spring-boot4-starter） |
+| MySQL | 8.0（6个容器，已在运行） |
+
+## 四、项目搭建
+
+### 4.1 项目结构
+
+```
+sharding-jdbc-demo/
+├── pom.xml
+└── src/main/
+    ├── java/com/example/sharding/
+    │   ├── ShardingJdbcApplication.java
+    │   ├── entity/Order.java
+    │   ├── mapper/OrderMapper.java
+    │   └── service/OrderService.java
+    └── resources/
+        ├── application.yml
+        └── sharding-config.yaml
+```
+
+### 4.2 依赖配置
+
+关键 Maven 依赖（`pom.xml`）：
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.0.7</version>
+</parent>
+
+<properties>
+    <java.version>17</java.version>
+    <shardingsphere.version>5.5.2</shardingsphere.version>
+</properties>
+
+<dependencies>
+    <!-- Spring Boot Web -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- MyBatis Plus（Spring Boot 4.x 专用） -->
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
+        <version>3.5.16</version>
+    </dependency>
+
+    <!-- ShardingSphere-JDBC（5.5.x ✅ 原生支持 snakeyaml 2.x） -->
+    <dependency>
+        <groupId>org.apache.shardingsphere</groupId>
+        <artifactId>shardingsphere-jdbc</artifactId>
+        <version>${shardingsphere.version}</version>
+    </dependency>
+
+    <!-- MySQL JDBC 驱动 -->
+    <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+
+    <!-- Lombok -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    </dependency>
+</dependencies>
+```
+
+> **⚠️ 版本注意**：
+> - MyBatis Plus `mybatis-plus-spring-boot3-starter` 只支持 Spring Boot 3.x，Spring Boot 4.x 必须使用 `mybatis-plus-spring-boot4-starter`，版本 ≥ 3.5.13
+> - ShardingSphere-JDBC 5.5.x 原生支持 `snakeyaml 2.x`（Spring Boot 3+ 内置），无需额外兼容
+
+### 4.3 配置数据源与分片规则
+
+**`application.yml`** — 使用 ShardingSphere 驱动方式：
+
+```yaml
+spring:
+  datasource:
+    # 使用 ShardingSphere 提供的 JDBC 驱动
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    # 指定分片配置文件位置（classpath 根目录）
+    url: jdbc:shardingsphere:classpath:sharding-config.yaml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+```
+
+**`sharding-config.yaml`** — 核心分片 + 读写分离配置：
+
+```yaml
+dataSources:
+  # ===== Cluster A (ds_0) =====
+  ds_0_master:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22220/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  ds_0_slave1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22221/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  ds_0_slave2:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22222/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+
+  # ===== Cluster B (ds_1) =====
+  ds_1_master:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22223/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  ds_1_slave1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22224/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  ds_1_slave2:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:22225/sharding_db?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+
+rules:
+  # ===== 分片规则 =====
+  - !SHARDING
+    tables:
+      t_order:
+        actualDataNodes: ds_$->{0..1}.t_order_$->{0..1}
+        databaseStrategy:
+          standard:
+            shardingColumn: user_id
+            shardingAlgorithmName: db_inline
+        tableStrategy:
+          standard:
+            shardingColumn: order_id
+            shardingAlgorithmName: table_inline
+    shardingAlgorithms:
+      db_inline:
+        type: INLINE                                  # Groovy 表达式路由
+        props:
+          algorithm-expression: ds_${user_id % 2}     # 偶数→ds_0，奇数→ds_1
+      table_inline:
+        type: INLINE
+        props:
+          algorithm-expression: t_order_${order_id % 2}
+
+  # ===== 读写分离 =====
+  - !READWRITE_SPLITTING
+    dataSourceGroups:
+      ds_0:
+        writeDataSourceName: ds_0_master
+        readDataSourceNames:
+          - ds_0_slave1
+          - ds_0_slave2
+      ds_1:
+        writeDataSourceName: ds_1_master
+        readDataSourceNames:
+          - ds_1_slave1
+          - ds_1_slave2
+
+props:
+  sql-show: true                                     # 控制台打印实际路由 SQL
+```
+
+> **🔑 关键说明**：
+> - JDBC 配置中的 `ds_0_master` 等名称，与 `!READWRITE_SPLITTING` 中的 `writeDataSourceName` / `readDataSourceNames` 对应
+> - `!SHARDING` 中的 `actualDataNodes: ds_$->{0..1}.t_order_$->{0..1}` 使用 Groovy 表达式语法，`$->{}` 表示范围
+> - 这里用的是**读写分离与分片共存**：ShardingSphere 先分片决定目标组（ds_0/ds_1），再走读写分离决定是 Master 还是 Slave
+
+## 五、功能验证
+
+> Java 实体类、Mapper、Service 与普通 MyBatis Plus 用法完全一致，唯一区别是数据源配置改为 ShardingSphereDriver，此处不再赘述。
+
+直接用 MySQL 客户端插入数据验证分片效果：
+
+```sql
+INSERT INTO t_order (order_id, user_id, product_name, status) VALUES
+  (1, 1, '商品A', 1),
+  (2, 2, '商品B', 1),
+  (3, 3, '商品C', 1),
+  (4, 4, '商品D', 1);
+
+SELECT * FROM t_order ORDER BY order_id;
+```
+
+应用启动后，控制台输出实际 SQL 路由日志：
+
+```
+# 插入：全部走 Master
+
+INSERT INTO t_order (order_id,user_id,product_name,status) VALUES (?,?,?,?)
+  → ds_1_master ::: INSERT INTO t_order_1  VALUES (1, 1, 商品A, 1)    # user_id=1 奇数 → ds_1, order_id=1 奇数 → t_order_1
+  → ds_0_master ::: INSERT INTO t_order_0  VALUES (2, 2, 商品B, 1)    # user_id=2 偶数 → ds_0, order_id=2 偶数 → t_order_0
+  → ds_1_master ::: INSERT INTO t_order_1  VALUES (3, 3, 商品C, 1)    # user_id=3 奇数 → ds_1, order_id=3 奇数 → t_order_1
+  → ds_0_master ::: INSERT INTO t_order_0  VALUES (4, 4, 商品D, 1)    # user_id=4 偶数 → ds_0, order_id=4 偶数 → t_order_0
+
+# 查询：全部走 Slave
+
+SELECT order_id,user_id,product_name,status FROM t_order
+  → ds_0_slave1 ::: SELECT ... FROM t_order_0
+  → ds_0_slave2 ::: SELECT ... FROM t_order_1
+  → ds_1_slave1 ::: SELECT ... FROM t_order_0
+  → ds_1_slave2 ::: SELECT ... FROM t_order_1
+
+# 查询结果（4条数据全部返回）
+order_id=2, user_id=2, product=商品B
+order_id=4, user_id=4, product=商品D
+order_id=1, user_id=1, product=商品A
+order_id=3, user_id=3, product=商品C
+```
+
+**验证结论：**
+
+| 验证项 | 预期 | 实际结果 |
+|--------|------|---------|
+| 分库：user_id 偶数 → ds_0 | `ds_0_master` | ✅ |
+| 分库：user_id 奇数 → ds_1 | `ds_1_master` | ✅ |
+| 分表：order_id 偶数 → t_order_0 | `t_order_0` | ✅ |
+| 分表：order_id 奇数 → t_order_1 | `t_order_1` | ✅ |
+| 读写分离：INSERT → Master | Master 节点 | ✅ |
+| 读写分离：SELECT → Slave | Slave 节点 | ✅ |
+| 数据完整性 | 4条数据全量返回 | ✅ |
+
+## 六、Proxy 与 JDBC 对比总结
+
+| 对比维度    | ShardingSphere-Proxy              | ShardingSphere-JDBC                                       |
+| ------- | --------------------------------- | --------------------------------------------------------- |
+| 部署方式    | Docker 独立容器                       | 引入 Maven 依赖                                               |
+| 配置位置    | `global.yaml` + `database-*.yaml` | `application.yml` + `sharding-config.yaml`                |
+| 分片配置    | `dataSourceGroups`（5.5.x）         | 同 Proxy 语法                                                |
+| JDBC 驱动 | Proxy 内置                          | `ShardingSphereDriver` + `jdbc:shardingsphere:classpath:` |
+| 版本兼容    | 独立发布                              | 需与 Spring Boot snakeyaml 版本匹配                             |
+| 运维      | 单独管理 Proxy 容器                     | 随应用部署                                                     |
+| 性能      | 多一次网络跳转                           | 直连数据库                                                     |
+| 适用      | 多应用共享分片规则                         | 单个应用需要分片                                                  |
+
+## 七、总结
+
+通过本文，你用 ShardingSphere-JDBC 完成了：
+
+| 目标 | 状态 |
+|------|------|
+| 搭建 Spring Boot 4.0.7 + ShardingSphere-JDBC 项目 | ✅ |
+| 通过 `ShardingSphereDriver` 加载分片配置 | ✅ |
+| 实现 `user_id % 2` 分库 | ✅ |
+| 实现 `order_id % 2` 分表 | ✅ |
+| 实现读写分离（写 Master / 读 Slave） | ✅ |
+| JUnit 验证分片与路由正确性 | ✅ |
+
+**下一步建议：**
+- 接入分布式主键（Snowflake 算法）
+- 配置分片事务（`@ShardingSphereTransaction`）
+- 分片 + 加密规则组合使用
+22:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南\",\"item\":\"https://www.lxpavilion.top/article/152\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南\",\"headline\":\"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南\",\"description\":\"基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。\",\"datePublished\":\"2026-07-29T22:16:54.719942\",\"dateCreated\":\"2026-07-29T22:16:54.719942\",\"dateModified\":\"2026-07-29T22:17:39.654836\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/677.jpeg\"}"}}],["$","$L2b",null,{"params":"$@2c","articleTitle":"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南","initialContent":"$2d"}]]
+2c:{"id":"152"}
+28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:I[27201,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"IconMark"]
+25:null
+2a:[["$","title","0",{"children":"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","1",{"name":"description","content":"基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。"}],["$","meta","2",{"name":"keywords","content":"栏轩阁,lxpavilion,ppc,个人博客,技术博客,后端开发,Java,Spring Boot,Spring Cloud Alibaba,微服务架构,MyBatis-Plus,RabbitMQ,云原生,Docker,Kubernetes,KubeSphere,DevOps,CI/CD,AI 应用开发,RAG,Spring AI,向量检索,Claude Code,MySQL,Redis,Elasticsearch,OpenGauss,全栈开发,Vue 3,TypeScript,Next.js,Cloudflare,Cloudflare Workers,学习笔记,项目实践,Bing SEO,IndexNow,MailerLite"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://www.lxpavilion.top/article/152/"}],["$","meta","5",{"property":"og:title","content":"Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南 | 栏轩阁 - 个人技术博客与作品集"}],["$","meta","6",{"property":"og:description","content":"基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。"}],["$","meta","7",{"property":"og:image","content":"https://www.lxpavilion.top/data/media/677.jpeg"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"栏轩阁 - 个人技术博客与作品集"}],["$","meta","12",{"name":"twitter:description","content":"栏轩阁 - 个人技术博客，记录后端开发、云原生架构与全栈工程实践，分享从 Spring Boot 微服务到 Vue 3 前端的技术探索与项目心得。"}],["$","meta","13",{"name":"twitter:image","content":"https://www.lxpavilion.top/seo/logo.jpeg"}],["$","link","14",{"rel":"icon","href":"/favicon.ico?favicon.0r60ci_~rf5g0.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L2e","15",{}]]

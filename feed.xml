@@ -8,6 +8,33 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南]]></title>
+      <link>https://www.lxpavilion.top/article/152/</link>
+      <guid>https://www.lxpavilion.top/article/152/</guid>
+      <pubDate>Wed, 29 Jul 2026 22:16:54 GMT</pubDate>
+      <description><![CDATA[基于Spring Boot 4.0+，用ShardingSphere-JDBC连接已有MySQL集群，嵌入应用内实现分库分表与读写分离，附完整Maven配置与JUnit验证代码。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Linux</tag>
+      <tag>Mysql</tag>
+      <tag>集群</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Mysql学习笔记：ShardingSphere-Proxy分库分表+读写分离从零搭建指南]]></title>
+      <link>https://www.lxpavilion.top/article/151/</link>
+      <guid>https://www.lxpavilion.top/article/151/</guid>
+      <pubDate>Wed, 29 Jul 2026 22:15:57 GMT</pubDate>
+      <description><![CDATA[从架构设计到容器化部署，手把手教你用ShardingSphere-Proxy搭建双集群分片架构，实现分库分表与读写分离，附完整Docker Compose配置与验证方法。]]></description>
+      <category>学习笔记</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Mysql</tag>
+      <tag>集群</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战]]></title>
       <link>https://www.lxpavilion.top/article/150/</link>
       <guid>https://www.lxpavilion.top/article/150/</guid>
@@ -200,26 +227,6 @@
       <description><![CDATA["从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。"]]></description>
       <category>学习笔记</category>
       <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：Keepalived 高可用实战，Docker 环境搭建与故障转移测试]]></title>
-      <link>https://www.lxpavilion.top/article/131/</link>
-      <guid>https://www.lxpavilion.top/article/131/</guid>
-      <pubDate>Sun, 19 Jul 2026 17:30:05 GMT</pubDate>
-      <description><![CDATA[从零开始，使用 Docker 搭建 Nginx + Keepalived 高可用环境，掌握 VRRP 协议原理、主备配置、VIP 漂移机制，并通过实战测试验证 master 宕机后的自动故障转移。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 防盗链配置实战：用 referer 模块保护网站静态资源]]></title>
-      <link>https://www.lxpavilion.top/article/130/</link>
-      <guid>https://www.lxpavilion.top/article/130/</guid>
-      <pubDate>Sun, 19 Jul 2026 15:48:17 GMT</pubDate>
-      <description><![CDATA[深入讲解 Nginx valid_referers 模块的工作原理与配置方法，通过 referer 请求头校验实现图片、CSS、JS 等静态资源的防盗链，防止其他网站非法引用消耗你的带宽。]]></description>
-      <category>学习笔记</category>
-      
       <author>ppc</author>
     </item>
   </channel>

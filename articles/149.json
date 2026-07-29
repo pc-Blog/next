@@ -7,7 +7,10 @@
   "id": 149,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 150,
+    "title": "Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战"
+  },
   "prev": {
     "id": 148,
     "title": "Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战"

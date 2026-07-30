@@ -1,6 +1,34 @@
 {
-  "total": 80,
+  "total": 81,
   "rows": [
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "coverImage": "/data/media/717.png",
+      "createdAt": "2026-07-30T12:43:10.200549",
+      "id": 153,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": null,
+      "summary": "一篇带你从零上手 Elasticsearch 的实战教程：涵盖 ES 核心概念、与 MySQL/Redis 的对比、WSL+Docker 部署、REST API 操作、Spring Boot 4.0 集成及 CRUD 代码示例，适合 Java 开发者快速入门。",
+      "tags": [
+        {
+          "id": 61,
+          "name": "WSL"
+        },
+        {
+          "id": 62,
+          "name": "Docker"
+        },
+        {
+          "id": 84,
+          "name": "Elasticsearch"
+        }
+      ],
+      "title": "Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南",
+      "updateTime": "2026-07-30T12:43:10.201404",
+      "viewCount": 0
+    },
     {
       "categoryId": 44,
       "categoryName": "学习笔记",

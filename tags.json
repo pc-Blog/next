@@ -1,6 +1,13 @@
 {
-  "total": 51,
+  "total": 52,
   "rows": [
+    {
+      "createTime": "2026-07-30T12:42:28.591951",
+      "deleted": 0,
+      "id": 84,
+      "name": "Elasticsearch",
+      "updateTime": "2026-07-30T12:42:28.592752"
+    },
     {
       "createTime": "2026-07-29T14:27:03.092985",
       "deleted": 0,

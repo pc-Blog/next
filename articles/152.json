@@ -7,7 +7,10 @@
   "id": 152,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 153,
+    "title": "Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南"
+  },
   "prev": {
     "id": 151,
     "title": "Mysql学习笔记：ShardingSphere-Proxy分库分表+读写分离从零搭建指南"

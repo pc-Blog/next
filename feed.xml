@@ -8,6 +8,18 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南]]></title>
+      <link>https://www.lxpavilion.top/article/153/</link>
+      <guid>https://www.lxpavilion.top/article/153/</guid>
+      <pubDate>Thu, 30 Jul 2026 12:43:10 GMT</pubDate>
+      <description><![CDATA[一篇带你从零上手 Elasticsearch 的实战教程：涵盖 ES 核心概念、与 MySQL/Redis 的对比、WSL+Docker 部署、REST API 操作、Spring Boot 4.0 集成及 CRUD 代码示例，适合 Java 开发者快速入门。]]></description>
+      <category>数据库</category>
+      <tag>WSL</tag>
+      <tag>Docker</tag>
+      <tag>Elasticsearch</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Mysql学习笔记：ShardingSphere-JDBC分库分表+读写分离嵌入式实战指南]]></title>
       <link>https://www.lxpavilion.top/article/152/</link>
       <guid>https://www.lxpavilion.top/article/152/</guid>
@@ -215,16 +227,6 @@
       <guid>https://www.lxpavilion.top/article/134/</guid>
       <pubDate>Mon, 20 Jul 2026 10:41:02 GMT</pubDate>
       <description><![CDATA[Go 的变量声明有三种方式：var + 类型、var 类型推断、:= 短声明。每种方式用在什么场景？int、float64、bool、string 等基本类型怎么用？一篇理清。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：基本概念与项目结构——GOPATH、Go Modules 与常用命令]]></title>
-      <link>https://www.lxpavilion.top/article/133/</link>
-      <guid>https://www.lxpavilion.top/article/133/</guid>
-      <pubDate>Mon, 20 Jul 2026 10:40:54 GMT</pubDate>
-      <description><![CDATA["从零理解 Go 的项目结构（GOPATH vs Go Modules）、依赖管理机制（go.mod/go.sum）以及最常用的运行和编译命令，帮你搭建第一个 Go 项目时不再迷茫。"]]></description>
       <category>学习笔记</category>
       <tag>Go</tag>
       <author>ppc</author>

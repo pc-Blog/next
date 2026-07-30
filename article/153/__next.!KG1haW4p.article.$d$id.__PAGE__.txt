@@ -1,0 +1,382 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T28e6,# Elasticsearch 从零到实战：Docker 部署 + Spring Boot 4.0 集成
+
+## 一、Elasticsearch 是什么？为什么要学？
+
+### 1.1 什么是 Elasticsearch
+
+Elasticsearch（简称 ES）是一个基于 **Apache Lucene** 构建的**分布式、RESTful 风格的搜索和分析引擎**。它能够以**近实时**的方式存储、搜索和分析海量数据。
+
+### 1.2 为什么需要 ES？
+
+传统关系型数据库（如 MySQL）在面对以下场景时显得力不从心：
+
+| 场景 | MySQL 的痛点 | ES 的优势 |
+|------|-------------|----------|
+| **全文搜索** | `LIKE "%keyword%"` 无法走索引，全表扫描性能极差 | 倒排索引 + 分词器，毫秒级响应 |
+| **海量数据聚合分析** | `GROUP BY` + `COUNT` 在千万级数据下慢如蜗牛 | 分布式聚合，秒级出结果 |
+| **模糊搜索 / 拼写纠错** | 不支持 | 内置 fuzzy 查询、自动补全 |
+| **日志分析** | 不适合存日志，写入瓶颈 | 日处理 TB 级日志，Kibana 可视化 |
+
+### 1.3 企业实战场景
+
+- **电商搜索**：淘宝商品搜索、筛选、排序
+- **日志分析**：ELK 栈（Elasticsearch + Logstash + Kibana）处理服务器日志
+- **全文检索**：文档系统、知识库、代码搜索
+- **指标监控**：APM 指标、业务指标的实时聚合
+- **推荐系统**：基于用户行为的"猜你喜欢"
+
+---
+
+## 二、ES vs 传统数据库
+
+很多人问："有 MySQL 为什么还要用 ES？" 来看看它们的核心差异：
+
+| 维度 | MySQL | Redis | Elasticsearch |
+|------|-------|-------|---------------|
+| **数据模型** | 关系型表 | Key-Value | 文档型（JSON） |
+| **查询方式** | SQL | 命令 | RESTful API + DSL |
+| **索引结构** | B+ 树 | 哈希表 | **倒排索引** |
+| **分词搜索** | ❌ `LIKE` 性能差 | ❌ 不支持 | ✅ IK/SmartCN 分词 |
+| **聚合分析** | 一般 | 弱 | **极强** |
+| **分布式** | 需分库分表 | 集群模式 | **天然分布式** |
+| **一致性** | ACID | 最终一致性 | 最终一致性（准实时） |
+| **存储** | 磁盘 | 内存 | 磁盘 |
+| **主要用途** | 事务性存储 | 缓存/会话 | **搜索与分析** |
+
+> **结论**：ES 不是用来替代 MySQL 的，而是与 MySQL 配合——MySQL 负责事务存储，ES 负责搜索分析。典型架构：业务数据写入 MySQL → 同步到 ES → 搜索请求走 ES。
+
+---
+
+## 三、环境搭建：WSL + Docker
+
+### 3.1 拉取 ES 镜像
+
+```bash
+# 拉取 Elasticsearch 9.4.3
+docker pull docker.elastic.co/elasticsearch/elasticsearch:9.4.3
+```
+
+### 3.2 创建挂载目录和配置文件
+
+```bash
+mkdir -p es/data es/config
+```
+
+在 `es/config/elasticsearch.yml` 中写入：
+
+```yaml
+# 集群名称，同一网络下相同 cluster.name 的节点会自动组成集群
+cluster.name: "docker-cluster"
+
+# 监听地址，0.0.0.0 表示允许所有来源访问（生产环境建议锁定 IP）
+network.host: 0.0.0.0
+
+# 集群发现方式，single-node 为单节点模式，跳过集群发现
+discovery.type: single-node
+
+# 安全认证开关，false 关闭认证，可直接 HTTP 访问（仅开发环境）
+xpack.security.enabled: false
+```
+
+### 3.3 启动容器
+
+```bash
+docker run -d \                                # 后台运行容器
+  --name es-943 \                               # 容器名
+  -p 9200:9200 \                                # HTTP API 端口（宿主机:容器）
+  -p 9300:9300 \                                # 节点间通信端口
+  -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \         # JVM 堆内存（建议物理内存一半）
+  -v "$(pwd)/es/data:/usr/share/elasticsearch/data" \           # 挂载数据目录
+  -v "$(pwd)/es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml" \  # 挂载配置文件
+  docker.elastic.co/elasticsearch/elasticsearch:9.4.3  # 镜像:版本
+
+# 注意：discovery.type 和 xpack.security 已在 elasticsearch.yml 中配置
+# 所以不需要再用 -e 重复设置，避免混淆
+```
+
+### 3.4 验证部署
+
+```bash
+curl http://localhost:9200
+```
+
+返回正常说明启动成功：
+
+```json
+{
+  "name" : "xxx",
+  "cluster_name" : "docker-cluster",
+  "version" : {
+    "number" : "9.4.3",
+    "lucene_version" : "10.4.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+
+---
+
+## 四、CRUD 基础操作
+
+### 4.1 新增文档
+
+```bash
+# 指定 ID（幂等）
+curl -X PUT "http://localhost:9200/myblog/_doc/1" -H "Content-Type: application/json" -d '{
+  "title": "Docker 基础教程",
+  "content": "Docker 是一个容器化平台",
+  "tags": ["docker"],
+  "view_count": 256
+}'
+
+# 自动生成 ID
+curl -X POST "http://localhost:9200/myblog/_doc" -H "Content-Type: application/json" -d '{
+  "title": "Elasticsearch 入门",
+  "content": "ES 是一款强大的搜索引擎"
+}'
+```
+
+### 4.2 查询文档
+
+```bash
+# 查全部
+GET /myblog/_search
+
+# 全文搜索（match）
+GET /myblog/_search
+{
+  "query": {
+    "match": { "content": "搜索引擎" }
+  }
+}
+
+# 精确匹配（term）
+GET /myblog/_search
+{
+  "query": {
+    "term": { "tags": "docker" }
+  }
+}
+
+# 范围查询
+GET /myblog/_search
+{
+  "query": {
+    "range": { "view_count": { "gte": 200 } }
+  }
+}
+```
+
+### 4.3 更新 / 删除
+
+```bash
+# 更新部分字段
+POST /myblog/_update/1
+{
+  "doc": { "view_count": 300 }
+}
+
+# 删除
+DELETE /myblog/_doc/1
+```
+
+---
+
+## 五、可视化工具
+
+推荐两款工具来管理 ES：
+
+| 特性 | Kibana（官方） | DBX（第三方） |
+|------|---------------|---------------|
+| **定位** | ES 专属分析平台 | 多数据库管理（ES、MySQL、Redis...） |
+| **集群管理** | ✅ 完整的集群监控、节点管理 | ❌ 基础功能 |
+| **可视化** | ✅ Dashboard、图表、地图 | ❌ 不支持 |
+| **Dev Tools** | ✅ 自带 Console，自动补全 | ⚠️ 基础查询 |
+| **日志分析** | ✅ 对接 Logstash、Filebeat | ❌ |
+| **安装复杂度** | 需要部署 Kibana 容器 | 轻量客户端 |
+| **适合场景** | **生产环境、日志分析、监控** | **日常开发、多库管理** |
+
+> **建议**：开发时用 DBX 快速查看数据，生产环境必须上 Kibana。
+
+---
+
+## 六、Spring Boot 4.0 集成 ES
+
+### 6.1 版本兼容
+
+| 组件 | 版本 |
+|------|------|
+| Spring Boot | 4.0.7+ |
+| Spring Data Elasticsearch | 6.1.x（由 BOM 管理） |
+| Elasticsearch Server | 9.4.x |
+| Java | 21+ |
+
+> **注意**：Spring Boot 4.0 底层客户端已从 `RestClient` 迁移到 `Rest5Client`，配置定制类改为 `Rest5ClientBuilderCustomizer`。
+
+### 6.2 Maven 依赖（pom.xml）
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.0.7</version>
+</parent>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+
+### 6.3 配置文件（application.yml）
+
+```yaml
+server:
+  port: 8080
+
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+```
+
+### 6.4 核心代码
+
+#### 实体类
+
+```java
+@Document(indexName = "articles")
+public class Article {
+    @Id
+    private String id;
+    @Field(type = FieldType.Text)
+    private String title;
+    @Field(type = FieldType.Text)
+    private String content;
+    @Field(type = FieldType.Keyword)
+    private String author;
+    @Field(type = FieldType.Integer)
+    private Integer viewCount;
+    // getters & setters
+}
+```
+
+#### Repository 接口
+
+```java
+@Repository
+public interface ArticleRepository extends ElasticsearchRepository<Article, String> {
+    List<Article> findByAuthor(String author);
+    List<Article> findByTitleContaining(String keyword);
+}
+```
+
+> `ElasticsearchRepository` 继承了 `PagingAndSortingRepository`，自带 CRUD + 分页 + 排序。
+
+#### Controller
+
+```java
+@RestController
+@RequestMapping("/articles")
+public class ArticleController {
+
+    private final ArticleRepository repository;
+
+    public ArticleController(ArticleRepository repository) {
+        this.repository = repository;
+    }
+
+    @PostMapping
+    public Article add(@RequestBody Article article) {
+        return repository.save(article);
+    }
+
+    @GetMapping
+    public Iterable<Article> findAll() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/author/{author}")
+    public List<Article> findByAuthor(@PathVariable String author) {
+        return repository.findByAuthor(author);
+    }
+
+    @GetMapping("/search")
+    public List<Article> search(@RequestParam String keyword) {
+        return repository.findByTitleContaining(keyword);
+    }
+
+    @GetMapping("/{id}")
+    public Article findById(@PathVariable String id) { ... }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) { ... }
+}
+```
+
+### 6.5 测试验证
+
+启动项目后，用 curl 测试全部接口：
+
+```bash
+# 新增
+curl -X POST http://localhost:8080/articles \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Spring Boot 集成 ES","content":"测试文章","author":"pc","viewCount":100}'
+
+# 查全部
+curl http://localhost:8080/articles
+
+# 按作者查
+curl http://localhost:8080/articles/author/pc
+
+# 按标题搜索
+curl "http://localhost:8080/articles/search?keyword=Spring"
+
+# 按 ID 查
+curl http://localhost:8080/articles/<id>
+
+# 删除
+curl -X DELETE http://localhost:8080/articles/<id>
+```
+
+---
+
+## 七、总结
+
+### 学完这篇你掌握了什么？
+
+1. ✅ **ES 核心概念**——倒排索引、文档、分片、集群
+2. ✅ **ES vs MySQL/Redis**——各自定位和选型依据
+3. ✅ **Docker 部署 ES**——容器化启动 + 数据卷挂载
+4. ✅ **REST API 基础操作**——增删改查 + 搜索语法
+5. ✅ **Spring Boot 4.0 集成**——实体、Repository、Controller 一套打通
+6. ✅ **可视化工具选择**——Kibana vs DBX 的使用场景
+
+### 下一步可以学什么
+
+- **中文分词**：安装 IK 分词器，自定义词典
+- **高级查询**：布尔查询 `bool`、高亮 `highlight`、聚合 `aggs`
+- **数据同步**：Canal / Logstash 实现 MySQL → ES 同步
+- **集群部署**：多节点 + 分片 + 副本 + 故障转移
+- **ELK 全家桶**：ES + Logstash + Kibana + Beats 日志分析体系
+
+---
+
+> **Elasticsearch 是后端开发的必备技能——从搜索到分析，从日志到监控，无处不在。现在你已经成功迈出了第一步，动手试试吧！**
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南\",\"item\":\"https://www.lxpavilion.top/article/153\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南\",\"headline\":\"Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南\",\"description\":\"一篇带你从零上手 Elasticsearch 的实战教程：涵盖 ES 核心概念、与 MySQL/Redis 的对比、WSL+Docker 部署、REST API 操作、Spring Boot 4.0 集成及 CRUD 代码示例，适合 Java 开发者快速入门。\",\"datePublished\":\"2026-07-30T12:43:10.200549\",\"dateCreated\":\"2026-07-30T12:43:10.200549\",\"dateModified\":\"2026-07-30T12:43:10.201404\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/717.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TJ0-2Q4q-vwABGUkCIYLy"}
+3:{"id":"153"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

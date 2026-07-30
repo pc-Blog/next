@@ -1,5 +1,11 @@
 [
   {
+    "series": "Elasticsearch 学习笔记",
+    "count": 2,
+    "coverImage": "/data/media/717.png",
+    "summary": "手把手搭建 ES 6 节点集群，深入理解 Master 和 Data 节点的角色分工，并通过节点宕机实测验证集群的故障转移与自愈能力，适合已经掌握 ES 基础的开发者进阶学习。"
+  },
+  {
     "series": "MySQL学习笔记",
     "count": 8,
     "coverImage": "/data/media/677.jpeg",

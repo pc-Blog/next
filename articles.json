@@ -1,16 +1,16 @@
 {
-  "total": 81,
+  "total": 82,
   "rows": [
     {
       "categoryId": 39,
       "categoryName": "数据库",
       "coverImage": "/data/media/717.png",
-      "createdAt": "2026-07-30T12:43:10.200549",
-      "id": 153,
+      "createdAt": "2026-07-30T16:04:12.189138",
+      "id": 154,
       "isPinned": 0,
       "isPublished": 1,
-      "series": null,
-      "summary": "一篇带你从零上手 Elasticsearch 的实战教程：涵盖 ES 核心概念、与 MySQL/Redis 的对比、WSL+Docker 部署、REST API 操作、Spring Boot 4.0 集成及 CRUD 代码示例，适合 Java 开发者快速入门。",
+      "series": "Elasticsearch 学习笔记",
+      "summary": "手把手搭建 ES 6 节点集群，深入理解 Master 和 Data 节点的角色分工，并通过节点宕机实测验证集群的故障转移与自愈能力，适合已经掌握 ES 基础的开发者进阶学习。",
       "tags": [
         {
           "id": 61,
@@ -21,12 +21,31 @@
           "name": "Docker"
         },
         {
+          "id": 71,
+          "name": "集群"
+        },
+        {
           "id": 84,
           "name": "Elasticsearch"
         }
       ],
-      "title": "Elasticsearch 从零到实战：Docker 部署 + Spring Boot 集成完整指南",
-      "updateTime": "2026-07-30T12:43:10.201404",
+      "title": "Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）",
+      "updateTime": "2026-07-30T16:05:21.938866",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 39,
+      "categoryName": "数据库",
+      "coverImage": "/data/media/717.png",
+      "createdAt": "2026-07-30T12:43:10.200549",
+      "id": 153,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Elasticsearch 学习笔记",
+      "summary": "一篇带你从零上手 Elasticsearch 的实战教程：涵盖 ES 核心概念、与 MySQL/Redis 的对比、WSL+Docker 部署、REST API 操作、Spring Boot 4.0 集成及 CRUD 代码示例，适合 Java 开发者快速入门。",
+      "tags": [],
+      "title": "Elasticsearch 学习笔记：从零到实战（Docker 部署 + Spring Boot 集成）",
+      "updateTime": "2026-07-30T16:04:46.457563",
       "viewCount": 0
     },
     {

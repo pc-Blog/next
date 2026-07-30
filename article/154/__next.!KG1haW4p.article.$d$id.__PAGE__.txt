@@ -1,0 +1,341 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T27a4,## 一、为什么需要集群？
+
+单节点 ES 能跑，但有两个致命问题：
+
+| 问题 | 单节点 | 集群 |
+|------|-------|------|
+| **高可用** | 节点挂了 = 服务全挂 | 节点挂了，副本顶上，服务不中断 |
+| **承载能力** | 受单机磁盘/内存上限 | 横向扩展，PB 级数据 |
+
+ES 集群的核心价值就在于**分布式 + 高可用**——数据分片存储、副本冗余、故障自动转移。
+
+## 二、集群架构设计
+
+### 2.1 节点角色
+
+ES 集群中有两种核心角色：
+
+| 角色 | 职责 | 生产建议 |
+|------|------|---------|
+| **Master（控制节点）** | 维护集群状态、管理分片分配、选主 | 至少 3 个，奇数个防止脑裂 |
+| **Data（数据节点）** | 存储数据、执行 CRUD、聚合查询 | 至少 2 个，保证副本分布 |
+
+> **为什么要分离？** 控制节点不存数据，轻量稳定，确保集群管理不因数据压力受影响。数据节点则专注读写，资源不够时加数据节点即可。
+
+### 2.2 本机集群规划
+
+本教程在本地部署 6 个节点，全部运行在 Docker 中：
+
+```
+es-master-1  ─┐
+es-master-2  ─┤  控制节点（master）
+es-master-3  ─┘
+               ───  集群通信（9300 内部端口）
+es-data-1    ─┐
+es-data-2    ─┤  数据节点（data）
+es-data-3    ─┘
+
+对外暴露 es-master-1 的 9200 端口供 API 调用
+```
+
+硬件要求：至少 8GB 可用内存（6 × 512MB JVM + 系统开销），本机 32GB 足够。
+
+---
+
+## 三、Docker Compose 部署
+
+### 3.1 docker-compose.yml
+
+```yaml
+name: es-cluster
+
+networks:
+  es-net:
+    driver: bridge
+
+services:
+  # ─── 控制节点 ───────────────────────
+  es-master-1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.3
+    container_name: es-master-1
+    environment:
+      - node.name=es-master-1                     # 节点名称
+      - cluster.name=es-cluster                    # 集群名称（同名自动组集群）
+      - node.roles=master                          # 角色：仅控制
+      - network.host=0.0.0.0                       # 监听所有网卡
+      - discovery.seed_hosts=es-master-2,es-master-3,es-data-1,es-data-2,es-data-3  # 种子节点
+      - cluster.initial_master_nodes=es-master-1,es-master-2,es-master-3  # 初始可投票节点
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m             # JVM 堆内存
+      - xpack.security.enabled=false               # 开发环境关闭认证
+    ports:
+      - "9200:9200"   # 对外暴露 HTTP API
+    networks:
+      - es-net
+
+  es-master-2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.3
+    container_name: es-master-2
+    environment:
+      - node.name=es-master-2
+      - cluster.name=es-cluster
+      - node.roles=master
+      - network.host=0.0.0.0
+      - discovery.seed_hosts=es-master-1,es-master-3,es-data-1,es-data-2,es-data-3
+      - cluster.initial_master_nodes=es-master-1,es-master-2,es-master-3
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+    networks:
+      - es-net
+
+  es-master-3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.3
+    container_name: es-master-3
+    environment:
+      - node.name=es-master-3
+      - node.roles=master
+      # ... 同上
+    networks:
+      - es-net
+
+  # ─── 数据节点 ────────────────────────
+  es-data-1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.3
+    container_name: es-data-1
+    environment:
+      - node.name=es-data-1
+      - cluster.name=es-cluster
+      - node.roles=data                            # 角色：仅数据
+      - network.host=0.0.0.0
+      - discovery.seed_hosts=es-master-1,es-master-2,es-master-3,es-data-2,es-data-3
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g                # 数据节点给更多内存
+      - xpack.security.enabled=false
+    networks:
+      - es-net
+
+  es-data-2:   # ... 同上
+  es-data-3:   # ... 同上
+```
+
+> **关键配置说明**：
+> - `node.roles`：指定节点角色，`master` 或 `data`，可组合（如 `master,data`）
+> - `discovery.seed_hosts`：告诉节点去哪些地址发现集群，用 Docker 服务名即可
+> - `cluster.initial_master_nodes`：集群首次启动时参与选主的节点列表
+> - 控制节点给 512MB，数据节点给 1GB，学习用途够用
+
+### 3.2 一键启动
+
+```bash
+cd docker-compose.yml 所在目录
+docker compose up -d
+```
+
+等待约 30~60 秒，集群完成选举和分片分配。
+
+### 3.3 验证集群
+
+```bash
+# 查看集群健康状态
+curl http://localhost:9200/_cluster/health?pretty
+
+# 查看节点列表
+curl http://localhost:9200/_cat/nodes?v
+```
+
+成功输出：
+
+```
+ip         node.role master name
+172.21.0.6 m         -      es-master-1
+172.21.0.5 d         -      es-data-2
+172.21.0.4 m         -      es-master-3
+172.21.0.2 m         *      es-master-2    ← * 表示当前主节点
+172.21.0.7 d         -      es-data-1
+172.21.0.3 d         -      es-data-3
+```
+
+`node.role` 列：`m` = master，`d` = data，`*` = 当前集群主节点。
+
+---
+
+## 四、分片与副本分布
+
+创建索引，观察分片如何在 3 个数据节点上分布：
+
+```bash
+# 创建 3 分片 2 副本的索引
+curl -X PUT "http://localhost:9200/products" -H "Content-Type: application/json" -d '{
+  "settings": {
+    "number_of_shards": 3,     # 3 个主分片
+    "number_of_replicas": 2    # 每个主分片 2 个副本
+  }
+}'
+
+# 查看分片分布
+curl "http://localhost:9200/_cat/shards/products?v&h=index,shard,prirep,state,node"
+```
+
+输出：
+
+```
+index    shard prirep state   node
+products 0     r      STARTED es-data-2
+products 0     p      STARTED es-data-3
+products 0     r      STARTED es-data-1
+products 1     r      STARTED es-data-2
+products 1     r      STARTED es-data-3
+products 1     p      STARTED es-data-1
+products 2     p      STARTED es-data-2
+products 2     r      STARTED es-data-3
+products 2     r      STARTED es-data-1
+```
+
+可以看到分片均匀分布在 3 个数据节点上，`p` 为主分片，`r` 为副本：
+
+```
+                data-1      data-2      data-3
+shard 0         副本         副本         主分片
+shard 1         主分片       副本         副本
+shard 2         副本         主分片       副本
+```
+
+每个节点各持 3 个分片，没有节点负载过高。这就是 ES 的**自动分片分配**。
+
+---
+
+## 五、故障转移实测
+
+集群的真正价值体现在节点宕机时。下面模拟一个数据节点故障。
+
+### 5.1 模拟宕机
+
+```bash
+# 停掉一个数据节点
+docker stop es-data-1
+```
+
+观察集群反应：
+
+```json
+{
+  "cluster_name" : "es-cluster",
+  "status" : "yellow",              // green → yellow
+  "number_of_nodes" : 5,            // 6 → 5
+  "number_of_data_nodes" : 2,       // 3 → 2
+  "active_shards" : 9,
+  "unassigned_shards" : 4,          // 4 个副本未分配
+  "active_shards_percent_as_number" : 69.23  // 100% → 69%
+}
+```
+
+es-data-1 上的 4 个副本丢失，状态降为 `yellow`。但 **数据仍然可读写**：
+
+```bash
+# 查询正常
+curl "http://localhost:9200/products/_search"
+# 5 条数据全部返回，_shards.successful = 3 ✅
+```
+
+### 5.2 宕机后分片重分配
+
+```bash
+curl "http://localhost:9200/_cat/shards/products?v&h=index,shard,prirep,state,node,unassigned.reason"
+```
+
+```
+shard 0 副本 UNASSIGNED  NODE_LEFT   ← es-data-1 上的副本标记为"节点离开"
+shard 1 副本 UNASSIGNED  NODE_LEFT
+shard 2 副本 UNASSIGNED  NODE_LEFT
+```
+
+集群发现节点离开后，将丢失的副本标记为 `UNASSIGNED`。剩余节点上的副本和主分片正常工作。
+
+### 5.3 节点恢复
+
+```bash
+# 重启节点
+docker start es-data-1
+```
+
+等待约 15~30 秒，节点自动加入集群，分片自动回迁：
+
+```json
+{
+  "status" : "green",               // yellow → green ✅
+  "number_of_nodes" : 6,            // 恢复 6 节点
+  "active_shards" : 13,             // 全部分片恢复
+  "active_shards_percent_as_number" : 100.0
+}
+```
+
+es-data-1 重新上线后，ES 自动将副本分配回去，集群回到 `green`，**全程无需人工干预**。
+
+---
+
+## 六、集群关键概念总结
+
+### 6.1 三种集群状态
+
+| 状态 | 含义 | 要不要管 |
+|------|------|---------|
+| **green** | 所有主分片和副本都正常分配 | ✅ 一切正常 |
+| **yellow** | 所有主分片正常，部分副本缺失 | ⚠️ 节点挂了，但数据完整，尽快恢复节点 |
+| **red** | 有主分片缺失 | 🆘 部分数据不可用，立即排查 |
+
+### 6.2 脑裂与奇数节点
+
+ES 集群使用 **Bully 算法（推举算法）** 选举主节点。需要**半数以上**节点投票才能选出主节点：
+
+```
+3 个控制节点 → 至少 2 票 → 最多容忍 1 个控制节点故障
+2 个控制节点 → 至少 2 票 → 任意一个挂了就无法选主（脑裂风险）
+```
+
+所以控制节点必须是**奇数个**，生产环境至少 3 个。
+
+### 6.3 副本数量计算
+
+```
+总分片数 = 主分片 × (1 + 副本数)
+
+示例：3 主分片 × 2 副本 = 9 总分片
+要求：数据节点数 ≥ 副本数 + 1
+
+检验：
+3 数据节点 ≥ 2(副本数) + 1 = 3  ✅
+→ 每个分片的主副本分散在不同节点上
+→ 挂 1 个节点数据不丢
+```
+
+---
+
+## 七、总结
+
+### 你学到了什么
+
+1. ✅ **集群角色分工**——Master 管集群状态，Data 管数据存储
+2. ✅ **Docker Compose 一键部署 6 节点集群**
+3. ✅ **分片分配机制**——主分片和副本自动均匀分布
+4. ✅ **故障转移全过程**——节点宕机 → `yellow` → 恢复 → `green`
+5. ✅ **集群状态解读**——green / yellow / red 的含义及应对
+
+### 集群 vs 单节点
+
+| 能力 | 单节点 | 6 节点集群 |
+|------|-------|-----------|
+| 部署复杂度 | 1 条命令 | Docker Compose 配置 |
+| 高可用 | ❌ 挂了就停 | ✅ 任意挂 1 个数据节点不影响 |
+| 数据可靠性 | ❌ 无副本 | ✅ 2 副本，挂 1 个节点不丢数据 |
+| 查询性能 | 单机瓶颈 | ✅ 分片分布，并行查询 |
+| 资源占用 | 512MB | 约 4GB（学习环境） |
+
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）\",\"item\":\"https://www.lxpavilion.top/article/154\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）\",\"headline\":\"Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）\",\"description\":\"手把手搭建 ES 6 节点集群，深入理解 Master 和 Data 节点的角色分工，并通过节点宕机实测验证集群的故障转移与自愈能力，适合已经掌握 ES 基础的开发者进阶学习。\",\"datePublished\":\"2026-07-30T16:04:12.189138\",\"dateCreated\":\"2026-07-30T16:04:12.189138\",\"dateModified\":\"2026-07-30T16:05:21.938866\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/717.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"RHdG4g3aja76Llsycl8mN"}
+3:{"id":"154"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

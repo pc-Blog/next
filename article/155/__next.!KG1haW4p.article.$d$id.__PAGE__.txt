@@ -1,0 +1,638 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T5233,## 前言
+
+Go 的 `net/http` 标准库功能强大，但很多教程只停在 `http.Get(url)` 的层面。一旦涉及真实场景——统一管理连接、记录请求日志、跟踪大文件传输进度——新手就容易卡住。
+
+这篇文章从一个**真实的 Go 项目源码**出发，拆解 HTTP 请求的完整链路。你不需要了解该项目的业务逻辑，只需要关注 Go 代码本身的设计模式。
+
+我们会依次覆盖：
+
+- **基础流程**：Client → Request → Do → 解析 Body
+- **连接复用**：为什么 `http.Client` 需要复用
+- **非阻塞特性**：`client.Do` 到底在等什么
+- **响应体读取**：`io.ReadAll` vs `json.NewDecoder` 怎么选
+- **请求日志**：通过 `RoundTripper` 无侵入拦截所有请求
+- **进度追踪**：通过包装 `io.Reader` 实现上传/下载进度
+
+---
+
+## 一、Go HTTP 请求的标准流程
+
+先看最核心的四个步骤：
+
+1. **创建 http.Client** —— 配置超时、传输层
+2. **创建 http.Request** —— 指定方法、URL、请求体、上下文
+3. **执行 client.Do** —— 发起请求、获取响应
+4. **解析响应体** —— 读取 Body、解码 JSON
+
+### 1.1 创建 http.Client
+
+`http.Client` 是 Go HTTP 请求的总管，它负责：
+
+- 管理连接池（复用 TCP 连接，避免频繁三次握手）
+- 设置超时
+- 配置重定向策略
+- 指定传输层实现（`Transport`）
+
+来看实际代码中的典型用法：
+
+```go
+httpClient := &http.Client{
+    Timeout: 30 * time.Second,
+}
+```
+
+> **核心理解**：`http.Client` 是**线程安全**的，应该在整个应用生命周期内**复用同一个实例**，而不是每次请求都新建。这样可以复用底层连接池，减少 TCP 握手开销。
+
+`Transport` 字段我们放到第三节专门讲——它是实现请求日志拦截的关键。
+
+### 1.2 创建 Request
+
+`http.NewRequestWithContext` 是创建请求的标准方式：
+
+```go
+req, err := http.NewRequestWithContext(ctx, method, url, bodyReader)
+```
+
+- `ctx`：控制请求生命周期（超时、取消）
+- `method`：GET、POST、PUT、DELETE 等
+- `url`：完整的请求 URL
+- `bodyReader`：请求体，类型为 `io.Reader`
+
+第三个参数 `body` 是一个 `io.Reader`。这意味着：
+
+- 如果请求体是内存中的小数据，传 `bytes.NewReader(jsonBytes)`
+- 如果请求体是大文件，传 `os.File`，Go 会流式读取，不会把整个文件加载到内存
+
+来看看实际项目中如何封装请求创建：
+
+```go
+func doRequest(ctx context.Context, client *http.Client, setAuth func(*http.Request),
+    method, url string, body interface{}, result interface{}, expectedStatuses ...int) error {
+
+    var bodyReader io.Reader
+    if body != nil {
+        jsonBody, _ := json.Marshal(body)
+        bodyReader = bytes.NewReader(jsonBody)
+    }
+
+    req, err := http.NewRequestWithContext(ctx, method, url, bodyReader)
+    // ...
+}
+```
+
+（这个 `doRequest` 的完整实现在下一节展开）
+
+**为什么一定要传 Context？**
+
+`context.Context` 是 Go 中控制请求生命周期的标准方式：
+
+- **超时控制**：`context.WithTimeout(ctx, 5*time.Second)` 让请求 5 秒后自动取消
+- **取消传播**：用户 Ctrl+C 时，所有通过该 Context 发起的请求都会自动取消
+- **链路追踪**：Context 可以携带请求 ID、Trace 信息，贯穿整个请求链路
+
+如果不传 Context（用 `http.NewRequest`），请求一旦发出就无法中途取消，这在云原生环境中是不可接受的。
+
+### 1.3 执行请求：client.Do
+
+```go
+resp, err := client.Do(req)
+```
+
+**这里有一个非常关键的特性：`client.Do` 是非阻塞的。**
+
+什么意思？如果你上传一个 2GB 的文件，`client.Do` 会在**建立连接并发起请求后立即返回**，它不会等到服务器把 2GB 数据全部接收完才返回响应。它返回的 `resp` 中，`Body` 字段是一个流式读取器。
+
+真正阻塞的地方是**读取响应体**：
+
+```go
+data, err := io.ReadAll(resp.Body)  // 这里才真正阻塞，等待数据传输完毕
+```
+
+或者对于 JSON 响应：
+
+```go
+json.NewDecoder(resp.Body).Decode(&result)  // 流式解码，边读边解析
+```
+
+这两种读取方式的行为差异，我们下一节详细讨论。
+
+### 1.4 解析响应体
+
+拿到 `resp.Body` 后，如何读取数据？主要有两种方式。
+
+#### 方式一：io.ReadAll —— 全部读入内存
+
+```go
+body, err := io.ReadAll(resp.Body)
+if err != nil {
+    return nil, fmt.Errorf("读取响应体失败: %w", err)
+}
+
+// 然后按需解析
+var items []Item
+json.Unmarshal(body, &items)
+```
+
+**适用场景**：
+
+- 响应体较小（API 响应通常只有几 KB 到几十 KB）
+- 需要多次处理同一份数据
+- 需要把原始响应内容保存下来（比如用于调试）
+
+**注意**：对于大文件下载，`io.ReadAll` 会把整个文件加载到内存。如果文件是 200MB，这段代码就会分配 200MB 内存。
+
+#### 方式二：json.NewDecoder —— 流式解码
+
+```go
+var items []Item
+if err := json.NewDecoder(resp.Body).Decode(&items); err != nil {
+    return nil, fmt.Errorf("解析响应失败: %w", err)
+}
+```
+
+**适用场景**：
+
+- 明确知道响应是 JSON 格式
+- 响应体非常大，希望边下载边解析
+- 每次只需要解析一次
+
+#### 如何选择？
+
+有一个典型场景需要先 `io.ReadAll` 再解析：API 返回的可能是数组（目录列表）也可能是单个对象（文件信息），需要先读取原始字节再判断。
+
+```go
+// 先全部读取
+body, err := io.ReadAll(resp.Body)
+
+// 尝试解析为数组
+var items []Item
+if err := json.Unmarshal(body, &items); err == nil {
+    return items, nil
+}
+// 尝试解析为单个对象
+var single Item
+if err := json.Unmarshal(body, &single); err == nil {
+    return []Item{single}, nil
+}
+```
+
+这种情况不能用 `json.NewDecoder`，因为响应体是**一次性读取器**——读完就没了，不能失败了再重试。
+
+但如果你确认 API 返回的 JSON 结构是已知的，直接用 `json.NewDecoder` 更高效：
+
+```go
+if result != nil {
+    if err := json.NewDecoder(resp.Body).Decode(result); err != nil {
+        return fmt.Errorf("解析响应失败: %w", err)
+    }
+}
+```
+
+### 1.5 别忘了关闭 Body
+
+```go
+defer resp.Body.Close()
+```
+
+这是一个**必须养成的习惯**。如果不关闭 `resp.Body`，连接池中的连接不会被回收，最终会导致连接泄漏。
+
+标准做法是：在拿到 `resp` 后立即 `defer resp.Body.Close()`，即使你打算忽略响应体也要关闭。
+
+---
+
+## 二、统一封装 HTTP 请求
+
+在实际项目中，每个 API 调用都写一遍完整的请求流程会非常繁琐。更常见的做法是封一个通用函数：
+
+```go
+func doRequest(
+    ctx context.Context,
+    client *http.Client,
+    setAuth func(*http.Request),
+    method, url string,
+    body interface{},       // 请求体，自动 JSON 序列化
+    result interface{},     // 响应体，自动 JSON 反序列化
+    expectedStatuses ...int, // 期望的 HTTP 状态码
+) error {
+    var bodyReader io.Reader
+    if body != nil {
+        jsonBody, _ := json.Marshal(body)
+        bodyReader = bytes.NewReader(jsonBody)
+    }
+
+    req, _ := http.NewRequestWithContext(ctx, method, url, bodyReader)
+    setAuth(req)
+
+    resp, err := client.Do(req)
+    if err != nil {
+        return fmt.Errorf("请求失败: %w", err)
+    }
+    defer resp.Body.Close()
+
+    statusOK := false
+    for _, s := range expectedStatuses {
+        if resp.StatusCode == s {
+            statusOK = true
+            break
+        }
+    }
+    if !statusOK {
+        body, _ := io.ReadAll(resp.Body)
+        return fmt.Errorf("请求失败 (HTTP %d): %s", resp.StatusCode, string(body))
+    }
+
+    if result != nil {
+        json.NewDecoder(resp.Body).Decode(result)
+    }
+    return nil
+}
+```
+
+调用方只需关注业务逻辑：
+
+```go
+// GET 请求，返回的数据解析到 repos
+var repos []Repo
+doRequest(ctx, client, setAuth,
+    http.MethodGet, "https://api.example.com/repos", nil, &repos, http.StatusOK)
+
+// POST 请求，发送 body，返回值解析到 repo
+body := map[string]interface{}{"name": name, "private": false}
+var repo Repo
+doRequest(ctx, client, setAuth,
+    http.MethodPost, "https://api.example.com/repos", body, &repo, http.StatusCreated)
+```
+
+这种封装的好处：
+
+- **去重**：所有 API 调用的错误处理、状态码校验、JSON 解析逻辑集中在一处
+- **一致性**：序列化、认证、日志都走同一套代码
+- **可维护性**：想加中间件（统一重试、统一监控）只需要改一个函数
+
+---
+
+## 三、进阶：自定义请求日志（RoundTripper）
+
+现在有个需求：**记录每次 HTTP 请求的方法、URL、状态码、响应体摘要，但不能把 Token 打到日志里。**
+
+最直接的想法是在每个 API 调用前后手动加 log，但那样会有一堆重复代码，而且很容易忘记。更好的做法是：利用 `http.RoundTripper` 接口，实现请求日志的**自动拦截**。
+
+### 3.1 什么是 RoundTripper？
+
+`http.RoundTripper` 是 Go HTTP 客户端的核心接口，它只有一个方法：
+
+```go
+type RoundTripper interface {
+    RoundTrip(*Request) (*Response, error)
+}
+```
+
+`http.Client.Do` 内部就是调用 `Transport.RoundTrip`。我们可以写一个包装器，在调用真正的 `RoundTrip` 前后插入逻辑。
+
+### 3.2 日志包装器实现
+
+```go
+type loggingRoundTripper struct {
+    wrapped http.RoundTripper
+    prefix  string // 标识来源，如 "api"
+}
+
+func (l *loggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+    // ---- 请求阶段 ----
+    safeURL := req.URL.String()
+    // 脱敏：防止 Token 泄漏到日志中
+    if idx := strings.Index(safeURL, "access_token="); idx > 0 {
+        safeURL = safeURL[:idx+13] + "***"
+    }
+    log.Printf("[%s] >>> %s %s", l.prefix, req.Method, safeURL)
+
+    // 执行实际请求
+    resp, err := l.wrapped.RoundTrip(req)
+    if err != nil {
+        log.Printf("[%s] <<< 请求失败: %v", l.prefix, err)
+        return nil, err
+    }
+
+    // ---- 响应阶段 ----
+    log.Printf("[%s] <<< HTTP %d", l.prefix, resp.StatusCode)
+    return resp, nil
+}
+```
+
+使用方式：
+
+```go
+client := &http.Client{
+    Timeout: 30 * time.Second,
+    Transport: &loggingRoundTripper{
+        wrapped: http.DefaultTransport,
+        prefix:  "api",
+    },
+}
+```
+
+从此以后，通过这个 `client` 发起的**所有请求**都会自动记录日志，一行业务代码都不需要改。
+
+### 3.3 流式采样：响应体日志不阻塞大文件
+
+光记录状态码还不够，有时需要看响应体内容（特别是错误信息）。但如果响应体很大（比如下载 200MB 的文件），我们不能等全部下载完再记录日志——那会**阻塞进度**。
+
+解决方案：用包装器替换原始 `resp.Body`，**只采样前 N 字节**：
+
+```go
+type bodySampleReader struct {
+    src   io.ReadCloser
+    buf   bytes.Buffer
+    limit int
+}
+
+func (r *bodySampleReader) Read(p []byte) (int, error) {
+    n, err := r.src.Read(p)
+    // 只采样前 limit 字节
+    if n > 0 && r.buf.Len() < r.limit {
+        remain := r.limit - r.buf.Len()
+        if n < remain {
+            r.buf.Write(p[:n])
+        } else {
+            r.buf.Write(p[:remain])
+        }
+    }
+    return n, err
+}
+
+func (r *bodySampleReader) Close() error {
+    bodyStr := r.buf.String()
+    if len(bodyStr) > 3000 {
+        bodyStr = bodyStr[:3000] + " ...(truncated)"
+    }
+    if bodyStr != "" {
+        log.Printf("<<< body=%s", bodyStr)
+    }
+    return r.src.Close()
+}
+```
+
+然后把 `loggingRoundTripper.RoundTrip` 中的响应体替换一下：
+
+```go
+func (l *loggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+    // ... 请求阶段日志 ...
+
+    resp, err := l.wrapped.RoundTrip(req)
+    if err != nil {
+        return nil, err
+    }
+
+    // 替换响应体为流式采样器
+    resp.Body = &bodySampleReader{
+        src:   resp.Body,
+        limit: 3000,
+    }
+
+    log.Printf("[%s] <<< HTTP %d", l.prefix, resp.StatusCode)
+    return resp, nil
+}
+```
+
+**设计亮点**：
+
+- **不阻塞流式读取**：采样器只记录，不等待。上层调用 `io.ReadAll` 读取大文件时，采样器不会拖慢速度
+- **自动在 Close 时输出日志**：当响应体被读完（触发 Close）时，会自动将采样内容写入日志——业务代码完全无感知
+- **防日志爆炸**：只保留前 3000 字节，超过部分截断
+
+最终日志输出效果：
+
+```
+[api] >>> GET https://api.example.com/user?access_token=***
+[api] <<< HTTP 200
+[api] <<< body={"login":"user","name":"...","bio":"..."}
+```
+
+---
+
+## 四、进阶：数据传输进度追踪
+
+当上传或下载大文件时，调用方想知道当前传输进度。Go 的 `io.Reader` 包装模式让这变得非常简单。
+
+### 4.1 progressReader 实现
+
+```go
+type progressReader struct {
+    src        io.Reader
+    counter    int64
+    threshold  int64
+    lastReport int64
+    cb         func(downloaded int64)
+}
+
+func (r *progressReader) Read(p []byte) (int, error) {
+    n, err := r.src.Read(p)
+    r.counter += int64(n)
+
+    // 累计读取量超过阈值时触发回调
+    if r.cb != nil && r.counter-r.lastReport >= r.threshold {
+        r.lastReport = r.counter
+        r.cb(r.counter)
+    }
+    return n, err
+}
+
+func NewProgressReader(src io.Reader, threshold int64, cb func(downloaded int64)) io.Reader {
+    if threshold <= 0 {
+        threshold = 64 * 1024 // 默认 64KB
+    }
+    return &progressReader{
+        src:       src,
+        threshold: threshold,
+        cb:        cb,
+    }
+}
+```
+
+### 4.2 在下载中使用
+
+```go
+resp, err := client.Do(req)
+if err != nil {
+    return err
+}
+defer resp.Body.Close()
+
+// 创建进度追踪读取器，每读取 64KB 回调一次
+proxyBody := NewProgressReader(resp.Body, 64*1024, func(downloaded int64) {
+    fmt.Printf("\r已下载: %d 字节", downloaded)
+})
+
+// 读取数据（过程中自动触发进度回调）
+data, err := io.ReadAll(proxyBody)
+```
+
+### 4.3 在上传中使用
+
+进度读取器同样适用于上传。`http.NewRequestWithContext` 的 `body` 参数本身就是 `io.Reader`，这意味着上传也是流式的：
+
+```go
+func uploadFile(ctx context.Context, client *http.Client, url string, data []byte, progress func(int64)) error {
+    var bodyReader io.Reader = bytes.NewReader(data)
+
+    if progress != nil {
+        bodyReader = NewProgressReader(bodyReader, 64*1024, progress)
+    }
+
+    req, err := http.NewRequestWithContext(ctx, http.MethodPut, url, bodyReader)
+    if err != nil {
+        return fmt.Errorf("创建请求失败: %w", err)
+    }
+
+    resp, err := client.Do(req)
+    if err != nil {
+        return fmt.Errorf("请求失败: %w", err)
+    }
+    defer resp.Body.Close()
+    // ...
+}
+```
+
+**核心思想**：Go 的 `io.Reader` 是流式的，通过包装 Reader，我们可以在不影响业务逻辑的前提下，插入任何横切关注点——日志、进度、限速、加密等等。
+
+---
+
+## 五、附录：io.Reader 链全景图
+
+把本文讲的所有模式串起来，数据流是这样的：
+
+### 读取流程（下载 / GET 请求）
+
+```
+HTTP 响应体 (网络数据流)
+  │
+  ▼
+┌──────────────────────────────────────────────────────────┐
+│  loggingRoundTripper.RoundTrip                           │
+│   → 注入 bodySampleReader：流式采样前 3000 字节用于日志   │
+└──────────────────────────────────────────────────────────┘
+  │
+  ▼
+┌──────────────────────────────────────────────────────────┐
+│  progressReader (可选)                                    │
+│   → 每读 64KB 触发一次进度回调                            │
+└──────────────────────────────────────────────────────────┘
+  │
+  ▼
+┌──────────────────────────────────────────────────────────┐
+│  最终读取方式：                                          │
+│  ├─ io.ReadAll(resp.Body)           → 全部读入内存       │
+│  └─ json.NewDecoder(resp.Body)      → 流式解码 JSON      │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 写入流程（上传 / POST/PUT 请求）
+
+```
+请求体数据 (内存 JSON / 文件)
+  │
+  ▼
+┌──────────────────────────────────────────────────────────┐
+│  progressReader (可选)                                    │
+│   → 每上传 64KB 触发一次进度回调                          │
+└──────────────────────────────────────────────────────────┘
+  │
+  ▼
+┌──────────────────────────────────────────────────────────┐
+│  http.NewRequestWithContext(ctx, method, url, bodyReader) │
+│   → 流式发送，不会等全部数据就绪                          │
+└──────────────────────────────────────────────────────────┘
+  │
+  ▼
+  HTTP 请求 → loggingRoundTripper 记录请求日志 → 发送到服务器
+```
+
+这种"**洋葱模型**"的层层包装，是 Go 中处理流式数据的精髓。每一层只关心一件事，层与层之间通过 `io.Reader` 接口解耦。想加新功能？再包一层就好了。
+
+---
+
+## 六、常见陷阱与最佳实践
+
+### 陷阱 1：resp.Body 未关闭导致连接泄漏
+
+```go
+// ❌ 错误写法
+resp, _ := client.Do(req)
+body, _ := io.ReadAll(resp.Body)
+// 忘记 resp.Body.Close() —— 连接不会被回收
+
+// ✅ 正确写法
+resp, err := client.Do(req)
+if err != nil {
+    return err
+}
+defer resp.Body.Close()  // 拿到 resp 后立即 defer
+body, _ := io.ReadAll(resp.Body)
+```
+
+### 陷阱 2：每次请求都新建 http.Client
+
+```go
+// ❌ 错误写法：每次请求都新建，无法复用连接池
+for i := 0; i < 100; i++ {
+    client := &http.Client{Timeout: 10 * time.Second}
+    client.Get("https://api.example.com/...")
+}
+
+// ✅ 正确写法：复用同一个 Client
+client := &http.Client{Timeout: 10 * time.Second}
+for i := 0; i < 100; i++ {
+    client.Get("https://api.example.com/...")
+}
+```
+
+### 陷阱 3：没有设置超时
+
+```go
+// ❌ 危险：没有超时，请求可能永远挂起
+client := &http.Client{}
+
+// ✅ 安全：设置合理的超时
+client := &http.Client{Timeout: 30 * time.Second}
+```
+
+`http.DefaultClient` 没有设置超时，这是很多生产事故的根源。
+
+### 陷阱 4：忽略 io.EOF
+
+`json.NewDecoder` 读到流结尾时会返回 `io.EOF`，但 `Decode` 方法内部已经处理了这个情况，调用方不需要特殊处理。而 `io.ReadAll` 读到结尾时也会遇到 `io.EOF`，但 `io.ReadAll` 内部同样能正确处理。
+
+### 最佳实践总结
+
+1. **复用 http.Client**：整个应用共用一个实例，利用连接池
+2. **始终使用 Context**：支持超时和取消，防止 goroutine 泄漏
+3. **立即 defer resp.Body.Close()**：拿到响应后第一时间写 defer
+4. **小响应用 io.ReadAll，大响应用流式解码**：根据数据量选择合适的方式
+5. **Think in io.Reader**：通过包装 Reader 实现日志、进度、限速等横切关注点
+
+---
+
+## 总结
+
+这篇文章从 Go HTTP 请求的标准流程出发，逐步深入到进阶用法：
+
+- **基本流程**：创建 Client → 构建 Request → Do → 解析 Body
+- **连接复用**：`http.Client` 是线程安全的，应该全局复用
+- **非阻塞特性**：`client.Do` 只等连接建立，真正的阻塞在 Body 读取阶段
+- **响应体读取**：小数据用 `io.ReadAll`，大数据用 `json.NewDecoder` 流式处理
+- **日志拦截**：通过实现 `http.RoundTripper` 无侵入地记录请求/响应
+- **进度追踪**：通过包装 `io.Reader`，在传输过程中实时回调
+- **洋葱模型**：`io.Reader` 的层级包装是 Go 流式处理的精髓
+
+Go 的 `net/http` 标准库设计精良，`RoundTripper` 和 `io.Reader` 这两个接口是它的灵魂。理解了它们，你就能写出既优雅又强大的 HTTP 客户端代码。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战\",\"item\":\"https://www.lxpavilion.top/article/155\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战\",\"headline\":\"Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战\",\"description\":\"从标准库 net/http 出发，深入讲解 Go HTTP 请求的完整生命周期、Client 连接复用机制、响应体流式读取，以及如何通过 RoundTripper 实现请求日志拦截、通过 io.Reader 包装实现数据传输进度追踪。\",\"datePublished\":\"2026-07-31T01:39:30.003446\",\"dateCreated\":\"2026-07-31T01:39:30.003446\",\"dateModified\":\"2026-07-31T01:40:10.450212\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/708.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"b98xyMzzRFoyDoccqG-Sn"}
+3:{"id":"155"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

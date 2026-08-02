@@ -8,6 +8,27 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[使用AI开发项目的经历和感受：关于AI 编程的碎碎念]]></title>
+      <link>https://www.lxpavilion.top/article/156/</link>
+      <guid>https://www.lxpavilion.top/article/156/</guid>
+      <pubDate>Mon, 03 Aug 2026 03:20:49 GMT</pubDate>
+      <description><![CDATA[分享我用Cloud Code接入DeepSeek从零开发Git云存储网盘的真实经历。五天的AI辅助开发让我深刻认识到：AI写代码可以，但写好代码不行。本文记录我在开发中遇到的问题和，以及我对Ai 编程的理解 —— 正确使用AI提升效率，而非被其牵着走。]]></description>
+      <category>杂谈</category>
+      <tag>AI应用</tag>
+      <tag>Ai编程</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战]]></title>
+      <link>https://www.lxpavilion.top/article/155/</link>
+      <guid>https://www.lxpavilion.top/article/155/</guid>
+      <pubDate>Fri, 31 Jul 2026 01:39:30 GMT</pubDate>
+      <description><![CDATA[从标准库 net/http 出发，深入讲解 Go HTTP 请求的完整生命周期、Client 连接复用机制、响应体流式读取，以及如何通过 RoundTripper 实现请求日志拦截、通过 io.Reader 包装实现数据传输进度追踪。]]></description>
+      <category>学习笔记</category>
+      <tag>Go</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）]]></title>
       <link>https://www.lxpavilion.top/article/154/</link>
       <guid>https://www.lxpavilion.top/article/154/</guid>
@@ -208,28 +229,6 @@
       <description><![CDATA["Go 的函数支持多返回值、命名返回值，控制流只有 for 没有 while——这些设计让代码更简洁。本文用大量示例带你熟悉 Go 的函数和控制流语法。"]]></description>
       <category>学习笔记</category>
       <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：复杂数据类型——数组、切片、Map、结构体与指针]]></title>
-      <link>https://www.lxpavilion.top/article/138/</link>
-      <guid>https://www.lxpavilion.top/article/138/</guid>
-      <pubDate>Tue, 21 Jul 2026 10:42:52 GMT</pubDate>
-      <description><![CDATA["从数组到切片、从 Map 到结构体，再到 Go 的指针哲学。数组定长、切片灵活、Map 键值查询、struct 组织数据——一次搞懂 Go 的复合数据类型。"]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Codex CLI 完全指南：安装配置与接入 DeepSeek 实战]]></title>
-      <link>https://www.lxpavilion.top/article/132/</link>
-      <guid>https://www.lxpavilion.top/article/132/</guid>
-      <pubDate>Tue, 21 Jul 2026 08:21:56 GMT</pubDate>
-      <description><![CDATA[手把手教你安装 OpenAI Codex CLI，并通过 ccx 路由工具接入 DeepSeek 大模型，在终端、VS Code、JetBrains 中低成本使用 AI 编程助手，告别昂贵 API 账单。]]></description>
-      <category>技术教程</category>
-      <tag>codex</tag>
-      <tag>VS Code</tag>
-      <tag>JetBrains</tag>
       <author>ppc</author>
     </item>
   </channel>

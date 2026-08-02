@@ -7,7 +7,10 @@
   "id": 154,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 155,
+    "title": "Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战"
+  },
   "prev": {
     "id": 153,
     "title": "Elasticsearch 学习笔记：从零到实战（Docker 部署 + Spring Boot 集成）"

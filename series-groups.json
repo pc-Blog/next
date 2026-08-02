@@ -1,5 +1,11 @@
 [
   {
+    "series": "Go学习笔记",
+    "count": 10,
+    "coverImage": "/data/media/708.png",
+    "summary": "从标准库 net/http 出发，深入讲解 Go HTTP 请求的完整生命周期、Client 连接复用机制、响应体流式读取，以及如何通过 RoundTripper 实现请求日志拦截、通过 io.Reader 包装实现数据传输进度追踪。"
+  },
+  {
     "series": "Elasticsearch 学习笔记",
     "count": 2,
     "coverImage": "/data/media/717.png",
@@ -22,12 +28,6 @@
     "count": 5,
     "coverImage": "/data/media/710.png",
     "summary": "从零开始掌握 GitHub Actions，通过循序渐进的实战示例学习 Workflow 编写、触发器配置、Marketplace 生态与 CI/CD 部署，每个阶段都有可验证的测试代码。"
-  },
-  {
-    "series": "Go学习笔记",
-    "count": 9,
-    "coverImage": "/data/media/708.png",
-    "summary": "Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。"
   },
   {
     "series": "Redis学习笔记",

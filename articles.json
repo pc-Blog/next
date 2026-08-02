@@ -1,6 +1,50 @@
 {
-  "total": 82,
+  "total": 84,
   "rows": [
+    {
+      "categoryId": 46,
+      "categoryName": "杂谈",
+      "coverImage": "/data/media/720.png",
+      "createdAt": "2026-08-03T03:20:49.138441",
+      "id": 156,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": null,
+      "summary": "分享我用Cloud Code接入DeepSeek从零开发Git云存储网盘的真实经历。五天的AI辅助开发让我深刻认识到：AI写代码可以，但写好代码不行。本文记录我在开发中遇到的问题和，以及我对Ai 编程的理解 —— 正确使用AI提升效率，而非被其牵着走。",
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        }
+      ],
+      "title": "使用AI开发项目的经历和感受：关于AI 编程的碎碎念",
+      "updateTime": "2026-08-03T03:24:14.061655",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/708.png",
+      "createdAt": "2026-07-31T01:39:30.003446",
+      "id": 155,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Go学习笔记",
+      "summary": "从标准库 net/http 出发，深入讲解 Go HTTP 请求的完整生命周期、Client 连接复用机制、响应体流式读取，以及如何通过 RoundTripper 实现请求日志拦截、通过 io.Reader 包装实现数据传输进度追踪。",
+      "tags": [
+        {
+          "id": 79,
+          "name": "Go"
+        }
+      ],
+      "title": "Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战",
+      "updateTime": "2026-07-31T01:40:10.450212",
+      "viewCount": 0
+    },
     {
       "categoryId": 39,
       "categoryName": "数据库",

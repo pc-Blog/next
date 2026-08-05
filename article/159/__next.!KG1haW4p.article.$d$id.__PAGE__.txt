@@ -1,0 +1,286 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T384f,Rust 已经连续多年蝉联 Stack Overflow 开发者调查报告「最受喜爱编程语言」榜首。它以零成本抽象、内存安全（无需垃圾回收）和出色的并发支持著称，正在系统编程、WebAssembly、命令行工具甚至前端工具链领域快速渗透。2024 年，Rust 更是正式进入 Linux 内核，成为继 C 之后第二个被纳入内核的编程语言——这足以说明它在工业界的地位。
+
+不过，Rust 的安装与环境配置对初学者来说不算「一键式」，尤其是国内网络环境下的镜像配置和自定义安装路径，稍有不慎就会踩坑。本文是 **Rust学习笔记** 系列的第一篇，我会以 Windows 平台为例，完整记录从零搭建 Rust 开发环境、运行第一个程序的全部步骤，以及新手最常用的命令速查表。
+
+---
+
+## 1. Rust 工具链概览
+
+在动手安装之前，先搞清楚「装了些什么」会很有帮助。Rust 的工具链由三件套组成：
+
+| 组件                          | 角色                                         |
+| ----------------------------- | -------------------------------------------- |
+| **rustup**                    | Rust 版本管理器（类似 nvm 之于 Node.js）       |
+| **rustc**                     | Rust 编译器本体                                |
+| **cargo**                     | Rust 的包管理器和构建系统（类似 npm + webpack） |
+
+通常开发者并不直接调用 `rustc`，而是通过 `cargo` 一站式完成依赖管理、编译、测试和发布。`rustup` 则负责在背后管理编译器版本和工具链组件。对新手而言，记住一句话就够了：**用 rustup 装环境，用 cargo 管项目**。
+
+---
+
+## 2. 下载安装器
+
+首先访问 Rust 官网的入门页面：
+
+**[Getting started - Rust Programming Language](https://rust-lang.org/learn/get-started/)**
+
+页面会自动检测操作系统并提供对应的安装器。Windows 用户点击下载 `rustup-init.exe`。
+
+> **⚠️ 注意**：默认安装路径在 C 盘用户目录下。如果你和我一样不想让编译器占用 C 盘空间，请务必在运行安装器**之前**配置好环境变量。
+
+---
+
+## 3. 自定义安装目录（前置环境变量）
+
+Rust 的安装位置由两个环境变量控制，**必须在运行安装器之前设置**，否则安装器会把文件放到默认的 `%USERPROFILE%\.rustup` 和 `%USERPROFILE%\.cargo` 中。
+
+- **`RUSTUP_HOME`**：编译器本体（rustc、标准库等核心文件）的存放目录
+- **`CARGO_HOME`**：Cargo 自身、第三方依赖包、已安装工具的存放目录
+
+以我个人为例，想把 Rust 全部装到 D 盘：
+
+| 变量名          | 变量值               | 说明           |
+| --------------- | -------------------- | -------------- |
+| `RUSTUP_HOME`   | `D:\Rust\.rustup`    | 编译器本体     |
+| `CARGO_HOME`    | `D:\Rust\.cargo`     | 依赖包和工具   |
+
+设置方法：Windows 搜索 →「编辑系统环境变量」→ 高级 → 环境变量 → 系统变量 / 用户变量 → 新建。
+
+> **提示**：如果安装器已经在没有设置这两个变量的情况下运行过一次，把 Rust 卸载后重新设置环境变量再安装即可。干净的安装更重要。
+
+同时，为了让后续能在任意终端中使用 `cargo` 和 `rustc` 命令，建议检查一下 PATH 中是否包含 `%CARGO_HOME%\bin`（rustup 安装器一般会自动添加）。路径应为 `D:\Rust\.cargo\bin`。
+
+---
+
+## 4. 配置国内镜像源（加速必备）
+
+由于 Rust 编译器组件和后续的 crate 依赖包默认从国外服务器下载，国内直连速度非常不理想。推荐在安装前就配置好镜像源。
+
+额外添加两个环境变量：
+
+| 变量名                   | 变量值                                           |
+| ------------------------ | ------------------------------------------------ |
+| `RUSTUP_DIST_SERVER`     | `https://mirrors.ustc.edu.cn/rust-static`        |
+| `RUSTUP_UPDATE_ROOT`     | `https://mirrors.ustc.edu.cn/rust-static/rustup` |
+
+这里使用的是中国科学技术大学（USTC）开源镜像站的 Rust 镜像，稳定性和速度都很出色。其他可选镜像包括清华大学 TUNA 镜像和上海交通大学 SJTUG 镜像，配置逻辑相同。
+
+> **FYI**：这两个变量只影响 `rustup` 下载编译器自身组件时的源。后续通过 `cargo` 拉取第三方依赖库时，还需要单独配置 crates.io 的镜像——这一部分将在本系列后续文章中展开。
+
+---
+
+## 5. 运行安装器
+
+确认上述四个环境变量已经设置好之后，双击运行 `rustup-init.exe`。
+
+安装器会有几个简单的交互步骤：
+
+1. 询问安装选项——直接选择默认的「1」即标准安装
+2. 安装器会自动检测到环境变量中指定的自定义路径，将文件写入 D 盘
+3. 等待几分钟，安装完成后终端会提示 `Rust is installed now. Great!`
+
+---
+
+## 6. 验证安装
+
+打开新的终端（PowerShell 或 CMD），输入：
+
+```bash
+rustc --version
+```
+
+如果输出类似以下版本信息，说明安装成功：
+
+```
+rustc 1.97.1 (8bab26f4f 2026-07-14)
+```
+
+同时检查 cargo 版本：
+
+```bash
+cargo --version
+```
+
+---
+
+## 7. 更新到最新稳定版
+
+Rust 以每六周一个稳定版本的节奏快速迭代。安装完成后建议立即检查更新，确保使用的是最新稳定版：
+
+```bash
+rustup update stable
+```
+
+这个命令会拉取当前最新的 stable 版本编译器及其标准库。如果想追踪安装详情：
+
+```bash
+rustup show
+```
+
+它会列出：当前默认工具链、已安装的工具链版本、以及 `rustup home` 和 `cargo home` 的实际磁盘路径——可以顺便确认 D 盘配置是否生效。
+
+---
+
+## 8. 安装标准库源代码（强烈推荐）
+
+Rust 标准库的源码在 IDE 智能提示和跳转定义时非常有用，建议第一时间安装：
+
+```bash
+rustup component add rust-src
+```
+
+安装后，你在 IDE 中对 `Vec`、`String`、`HashMap` 等标准库类型按 `Ctrl + 左键`，就能直接跳转到源码实现——对学习 Rust 内部机制非常有帮助，也是 RustRover 等 IDE 发挥全力的前提。
+
+---
+
+## 9. IDE：RustRover
+
+JetBrains 出品的 **RustRover** 是目前 Rust 生态中最「开箱即用」的 IDE：
+
+- 对 **非商业用途完全免费**，个人学习、开源项目均可免费使用全部功能
+- 内置 Rust 语言支持、调试器、Cargo 集成、测试运行器
+- 自带 AI Assistant 插件（需单独订阅），但基础功能已经足够强大
+
+下载地址：**[JetBrains RustRover](https://www.jetbrains.com/rust/)**，安装过程为标准 Windows 安装流程，不再赘述。
+
+当然，VSCode 配合 `rust-analyzer` 插件也是很多开发者的首选，两者各有千秋。本系列教程以 RustRover 为演示环境。
+
+---
+
+## 10. 创建第一个项目
+
+### 10.1 项目模板选择
+
+打开 RustRover，点击「New Project」，你会看到三个模板选项：
+
+| 模板                       | 产物            | 用途                                      |
+| ------------------------ | ------------- | --------------------------------------- |
+| **Binary (Application)** | `.exe` 可执行文件  | 独立运行的程序（入门首选）                           |
+| **Library**              | `.rlib` 库文件   | 给别人引用的代码库，没有 `main` 函数，不能直接运行           |
+| **Procedural Macro**     | 编译器插件         | 在编译期自动生成代码，比如 `#[derive(Debug)]` 就属于这一类 |
+| **WebAssembly Lib**      | `.wasm` 浏览器文件 | 把 Rust 编译成浏览器能跑的代码，让高性能逻辑在网页中执行         |
+
+作为初学者，我们选择第一个 **Binary (Application)** 模板。它生成的是一个能直接双击运行的 `.exe` 程序，项目结构最简洁。后三个模板——库、宏、WASM——会在后续学习或实际项目中自然而然接触到，现阶段不必深究。
+
+### 10.2 项目结构一览
+
+假设项目名为 `hello_rust`，Cargo 会自动生成如下结构：
+
+```
+hello_rust/
+├── Cargo.toml          # 项目元数据与依赖配置
+├── Cargo.lock          # 依赖精确版本锁定文件（自动生成，不要手动编辑）
+├── src/
+│   └── main.rs         # 程序入口文件
+└── target/             # 编译产物目录（首次编译后自动生成）
+    ├── debug/          # 开发模式编译产物
+    └── release/        # 发布模式编译产物（cargo build --release 时生成）
+```
+
+**文件说明**：
+
+- **`Cargo.toml`**：项目的「身份证」。存储项目名、版本、作者、Rust edition 以及所有第三方依赖（crate）。格式为 [TOML](https://toml.io/)，简洁易读。
+- **`Cargo.lock`**：锁定所有直接和间接依赖的**精确版本号**，确保在不同机器上编译结果一致。这个文件由 Cargo 自动维护，**不要手动编辑**，但有版本控制的项目应将其纳入 Git。
+- **`src/main.rs`**：程序的入口点。注意，Rust 中 `main` 函数的签名里没有 `args` 参数——命令行参数通过 `std::env::args()` 函数获取，这和 C/Java 的设计有所不同。
+
+### 10.3 自动生成的代码
+
+模板自动生成的 `main.rs` 包含以下内容：
+
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+这里的 `println!` 后面跟着一个感叹号——它不是一个普通函数，而是一个**宏**（macro）。Rust 中带 `!` 的都是宏调用。为什么是宏？因为 `println!` 需要在**编译期**检查格式化字符串与实际参数的数量和类型是否匹配，普通函数没有这个能力。这一点在学习初期多留意即可，后续文章会深入讲解宏机制。
+
+---
+
+## 11. 编译并运行
+
+在项目根目录下打开终端，执行：
+
+```bash
+cargo run
+```
+
+终端输出大致如下：
+
+```
+   Compiling hello_rust v0.1.0 (D:\RustProjects\hello_rust)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.07s
+     Running `target\debug\hello_rust.exe`
+Hello, world!
+```
+
+关键信息解读：
+
+| 阶段             | 说明                                                     |
+| ---------------- | -------------------------------------------------------- |
+| `Compiling`      | 首次编译项目（以及它依赖的标准库），耗时较长                |
+| `Finished`       | 编译完成，使用 `dev` profile，未做优化，包含调试信息       |
+| `Running`        | 执行编译产物 `target\debug\hello_rust.exe`               |
+| `Hello, world!`  | 程序的运行结果                                            |
+
+如果第二次再执行 `cargo run`，由于源码没有变化，Cargo 会直接跳过编译步骤，瞬间启动程序——这正是 Rust 增量编译机制带来的效率优势。
+
+---
+
+## 12. 常用命令速查
+
+这部分是新手最实用的参考资料。理解每一行命令，就不需要每次都去搜「Rust 怎么编译」。
+
+### 12.1 rustup 命令（环境管理）
+
+| 命令                          | 作用                                                    |
+| ----------------------------- | ------------------------------------------------------- |
+| `rustup update`               | 把 Rust 编译器升级到最新稳定版                            |
+| `rustup show`                 | 查看当前默认工具链版本、已安装组件、磁盘路径              |
+| `rustup doc`                  | **⭐ 新手神器**。在浏览器中打开本地完整官方文档（支持离线）  |
+| `rustup component list`       | 列出所有已安装和可安装的组件（如 `rust-src`、`clippy` 等） |
+| `rustup self uninstall`       | 彻底卸载 Rust 工具链                                     |
+
+> **`rustup doc`** 值得专门一提：它打开的是 Rust 官方书籍《The Rust Programming Language》的本地副本，包含从零到一的完整教程和标准库 API 文档。在没有网络的环境下也能学习，可以说是新手最强大的外挂。
+
+### 12.2 cargo 命令（项目日常）
+
+| 命令                          | 作用                                                    |
+| ----------------------------- | ------------------------------------------------------- |
+| `cargo new <项目名>`           | 创建一个新的 Rust 项目（自动生成目录和初始代码）           |
+| `cargo run`                   | 编译 + 运行。日常开发最常用的命令                         |
+| `cargo check`                 | **⭐ 救命稻草**。只检查语法和类型，不生成 exe/二进制文件    |
+| `cargo build`                 | 只编译不运行，生成 dev 版可执行文件（`target/debug/`）     |
+| `cargo build --release`       | 编译发布版（带优化，运行速度大幅提升，但编译时间长）        |
+| `cargo clean`                 | 删除 `target/` 目录，清理所有编译缓存                     |
+| `cargo add <crate名>`         | 给项目添加第三方依赖（如 `cargo add rand`）               |
+| `cargo test`                  | 运行项目中的测试代码                                      |
+
+**`cargo check` 的使用场景**：写 Rust 代码最大的感受之一是「和编译器搏斗」。每次保存后不必马上 `cargo run` 等完整的编译+链接流程，先用 `cargo check` 快速验证代码能否通过类型检查——速度比完整构建快数倍，可以大幅提升「写→改→查」的循环效率。当 `cargo check` 通过后，再 `cargo run` 看运行结果。
+
+---
+
+## 13. 总结与展望
+
+本文从下载安装器开始，到成功运行第一个 Rust 程序，覆盖了环境搭建的完整链路：
+
+1. 用 `rustup` 安装并管理 Rust 工具链
+2. 通过环境变量自定义安装目录，避免 C 盘堆积
+3. 配置 USTC 镜像源加速下载
+4. 安装标准库源码辅助 IDE 智能提示
+5. 使用 RustRover 创建 Binary 项目
+6. 理解 Cargo 项目结构和核心文件的作用
+7. 掌握 `cargo run` / `cargo check` 等高频命令
+
+环境是地基，地基搭得扎实，后续学习才能专注于 Rust 语言本身。本系列的下一篇文章将正式进入 Rust 语法——从变量绑定、所有权（Ownership）和借用（Borrowing）这三大 Rust 独有的核心概念入手，这会是整趟学习之旅中最关键的一站。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：从零搭建开发环境并运行第一个程序\",\"item\":\"https://www.lxpavilion.top/article/159\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：从零搭建开发环境并运行第一个程序\",\"headline\":\"Rust学习笔记：从零搭建开发环境并运行第一个程序\",\"description\":\"面向初学者的 Rust 开发环境搭建完整指南。从官网下载、自定义安装目录、配置国内镜像源加速，到使用 RustRover IDE 创建项目、详解 Cargo 项目结构和常用命令，手把手带你跑通第一个 Hello World 程序。\",\"datePublished\":\"2026-08-05T22:13:09.986687\",\"dateCreated\":\"2026-08-05T22:13:09.986687\",\"dateModified\":\"2026-08-06T02:47:15.785362\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：从零搭建开发环境并运行第一个程序","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"159"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

@@ -1,0 +1,32 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "如果前面三篇是 Rust 的「皮肉」，这一篇就是「骨架」。所有权（Ownership）、借用（Borrowing）和生命周期（Lifetimes）是 Rust 区别于其他所有主流语言的独有机制。它们让 Rust 在不依赖垃圾回收的前提下实现内存安全——没有空指针、没有悬垂引用、没有双重释放。\n\n初次接触可能会觉得反直觉，但一旦理解，你会发现这些规则不是限制，而是编译器在帮你提前排除 bug。\n\n本文所有代码均已实测通过。\n\n---\n\n## 1. 所有权：谁拥有，谁负责\n\nRust 的所有权系统只有三条规则：\n\n1. Rust 中每一个值都有一个**所有者**（owner）\n2. 同一时间**只有一个所有者**\n3. 当所有者离开作用域，值被**自动释放**（drop）\n\n听上去简单，但落实到代码里会有一系列「意料之外」的行为。\n\n### 1.1 String 的移动\n\n`String` 类型的数据存在堆上。把一个 `String` 赋给另一个变量时，**所有权会转移**——旧变量失效：\n\n```rust\nlet s1 = String::from(\"hello\");\nlet s2 = s1;\n// println!(\"{s1}\"); // ❌ s1 已失效\nprintln!(\"{s2}\");     // ✅ s2 有效\n```\n\n这和其他语言完全不同。在 Python 或 Java 里，`s2 = s1` 之后两个变量都能用。Rust 选择了「移动」而非「浅拷贝」，避免了堆上同一块内存被释放两次的问题。\n\n### 1.2 栈上数据的 Copy\n\n标量类型（`i32`、`f64`、`bool`、`char` 等）存在栈上，大小在编译期已知。它们实现了 `Copy` trait，赋值时自动复制而不是移动：\n\n```rust\nlet x = 5;\nlet y = x;\nprintln!(\"x = {x}, y = {y}\"); // ✅ 两个都能用\n```\n\n数组和元组如果全部元素都实现了 `Copy`，它们自己也自动实现 `Copy`：\n\n```rust\nlet arr = [1, 2, 3];\nlet arr2 = arr;\nprintln!(\"{arr:?}, {arr2:?}\"); // ✅ 都能用\n```\n\n**简单记：需要分配堆内存的类型（`String`、`Vec` 等）赋值会移动；栈上类型自动 Copy。**\n\n### 1.3 函数传参同样转移所有权\n\n```rust\nfn take_ownership(s: String) {\n    println!(\"接收: {s}\");\n} // s 离开作用域，被释放\n\nlet s = String::from(\"world\");\ntake_ownership(s);\n// println!(\"{s}\"); // ❌ s 所有权已转移\n```\n\n函数参数和赋值遵循相同的所有权规则。把一个值传给函数，所有权就归函数了。\n\n---\n\n## 2. Clone：显式深拷贝\n\n如果确实需要一份独立的数据副本，用 `.clone()`：\n\n```rust\nlet s1 = String::from(\"hello\");\nlet s2 = s1.clone(); // 在堆上复制一份新数据\nprintln!(\"s1 = {s1}, s2 = {s2}\"); // ✅ 两个独立拥有\n```\n\nRust 的设计哲学是：**昂贵的操作要显式写出来**。`.clone()` 和 `.copy()` 的区别就在于此——`Copy` 是编译器自动做的、零成本的；`Clone` 是程序员手动触发的、可能有开销的。\n\n---\n\n## 3. 借用：不拿所有权的访问\n\n如果每次传参都把所有权交出去，代码会极其繁琐。所以才有了**引用（Reference）**——借用值但不拥有它。\n\n### 3.1 不可变借用 `&T`\n\n```rust\nfn calc_len(s: &String) -> usize {\n    s.len() // 借读，不拿所有权\n}\n\nlet s = String::from(\"hello\");\nlet len = calc_len(&s);  // &s 创建引用\nprintln!(\"'{s}' 的长度是 {len}\");\nprintln!(\"s 仍然可用: {s}\"); // ✅ 所有权没丢\n```\n\n`&s` 创建一个指向 `s` 的引用，把引用传给函数。函数结束时引用失效，但 `s` 本身完好。这叫**借用**——你借给别人看，看完还你。\n\n### 3.2 可变借用 `&mut T`\n\n```rust\nfn append_world(s: &mut String) {\n    s.push_str(\", world!\");\n}\n\nlet mut s = String::from(\"hello\");\nappend_world(&mut s);\nprintln!(\"修改后: {s}\"); // hello, world!\n```\n\n---\n\n## 4. 借用规则（牢记）\n\nRust 的借用检查器（Borrow Checker）遵循两条硬规则：\n\n**规则一：同一时间，只能有一个可变引用，或者任意多个不可变引用——二者不能共存。**\n\n```rust\nlet mut s = String::from(\"hello\");\n\nlet r1 = &s;     // 不可变引用\nlet r2 = &s;     // 多个不可变引用 OK\nprintln!(\"{r1}, {r2}\");\n\n// r1、r2 最后一次使用后，可以创建可变引用\nlet r3 = &mut s;\nr3.push_str(\"!\");\nprintln!(\"{r3}\");\n```\n\n**规则二：引用必须始终有效——不能有悬垂引用。**\n\n```rust\n// fn dangle() -> &String {\n//     let s = String::from(\"hello\");\n//     &s  // ❌ s 离开作用域被释放，返回的引用指向无效内存\n// }\n```\n\n这两条规则在编译期就排除了数据竞争（data race）的可能——多线程下最常见的并发 bug，Rust 直接从语言层面消灭了。\n\n---\n\n## 5. 生命周期：引用活多久\n\n生命周期（lifetime）是编译器用来确保「引用不会活得过它们的值」的标记。\n\n### 5.1 为什么需要生命周期标注\n\n看这个函数：\n\n```rust\nfn longest(x: &str, y: &str) -> &str {\n    if x.len() > y.len() { x } else { y }\n}\n```\n\n编译器不知道返回值引用的是 `x` 还是 `y`，也就无法判断返回的引用是否有效。这时需要生命周期标注：\n\n```rust\nfn longest<'a>(x: &'a str, y: &'a str) -> &'a str {\n    if x.len() > y.len() { x } else { y }\n}\n```\n\n`'a` 的意思是：返回值的引用有效期 = `x` 和 `y` 中**较短的那个**。如果传进来的两个参数生命周期不一致，编译器会用较短的那个来约束返回值：\n\n```rust\nlet s1 = String::from(\"long\");\n{\n    let s2 = String::from(\"short\");\n    let result = longest(&s1, &s2);\n    println!(\"{result}\"); // ✅ 在这个作用域内 OK\n}\n// println!(\"{result}\"); // ❌ s2 已释放，result 也跟着失效\n```\n\n### 5.2 初学者只需要知道\n\n- `'a` 是生命周期标注，不会改变代码的运行时行为，只给编译器看\n- 大部分场景下 Rust 可以**自动推断**生命周期（生命周期省略规则），只有函数返回引用且参数有多个引用时才需要手动标注\n- 现阶段先记住这个用法，后续写项目遇到编译器提示再回来加深理解\n\n---\n\n## 6. 一张图总结\n\n| 操作                     | 所有权变化       | 之后原变量还能用？ |\n| ------------------------ | ---------------- | ------------------ |\n| `let y = x`（x 是 `i32`） | Copy             | ✅                 |\n| `let y = x`（x 是 `String`） | Move            | ❌                 |\n| `x.clone()`              | 深拷贝           | ✅                 |\n| `&x`                     | 不可变借用       | ✅                 |\n| `&mut x`                 | 可变借用         | ✅（但借用期间 `x` 被锁定） |\n\n---\n\n## 总结\n\n所有权、借用和生命周期是 Rust 最难但也最重要的三个概念。核心要点：\n\n1. **所有权**：每个值只有一个所有者，离开作用域自动释放。堆数据赋值会移动所有权\n2. **Copy vs Clone**：Copy 是自动的零成本复制（栈上数据），Clone 是显式的深拷贝（堆上数据）\n3. **借用**：`&T` 只读不拥有，`&mut T` 可写不拥有。同一时间要么一个可变借用，要么多个不可变借用\n4. **生命周期**：编译器确保引用不会活得过它们指向的值。大多数情况自动推断，函数返回引用时才需要 `'a` 标注\n\n理解这些规则后，Rust 编译器就不再是你的对手，而是最严格的队友——它在编译期就把你未来会犯的内存错误全拦住了。\n\n下一篇进入**结构体与枚举**，开始用 Rust 组织真正的业务数据。\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-05T23:29:09.615436",
+  "id": 162,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 163,
+    "title": "Rust学习笔记：结构体与枚举——用Rust组织真正的业务数据"
+  },
+  "prev": {
+    "id": 161,
+    "title": "Rust学习笔记：控制流——if、loop、while、for与match"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Rust 最核心的三大机制详解：所有权规则与移动语义、Copy 与 Clone 的区别、不可变借用 &T 和可变借用 &mut T 的规则、生命周期标注 'a 的基本用法。用可运行的代码理解为什么 Rust 不需要垃圾回收也能保证内存安全。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：所有权、借用与生命周期——Rust的核心机制",
+  "updateTime": "2026-08-06T02:52:00.560008"
+}

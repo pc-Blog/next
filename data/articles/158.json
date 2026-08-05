@@ -7,7 +7,10 @@
   "id": 158,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 159,
+    "title": "Rust学习笔记：从零搭建开发环境并运行第一个程序"
+  },
   "prev": {
     "id": 157,
     "title": "GitHub API 踩坑记：为什么我的 Token 只有 60/h？域名邮箱注册被标记的真相与解决方案"

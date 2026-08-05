@@ -1,0 +1,179 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T13e5,写完前七篇，你应该能写出一段功能完整的 Rust 代码了。但如果想写**可复用**的代码——同一个函数处理不同类型、同一个结构体适配多种数据——就需要泛型和 Trait。这两个概念在 C 里对应的是 `void*` + 函数指针和虚函数表，但在 Rust 里更安全、更直观。
+
+---
+
+## 1. 泛型：一套代码，多种类型
+
+### 1.1 泛型函数
+
+不用泛型的话，求最大值的函数要写好几份：
+
+```rust
+fn largest_i32(list: &[i32]) -> i32 { /* ... */ }
+fn largest_char(list: &[char]) -> char { /* ... */ }
+```
+
+用泛型，一份搞定：
+
+```rust
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
+    let mut largest = list[0];
+    for &item in list {
+        if item > largest {
+            largest = item;
+        }
+    }
+    largest
+}
+
+let nums = vec![34, 50, 25, 100, 65];
+println!("最大数: {}", largest(&nums));   // 100
+
+let chars = vec!['y', 'm', 'a', 'q'];
+println!("最大字符: {}", largest(&chars)); // y
+```
+
+`T` 是类型参数。`T: PartialOrd + Copy` 是说「T 必须能比较大小（`PartialOrd`）且能自动复制（`Copy`）」。这叫 **Trait Bound**——编译器在调用时就检查传入的类型是否满足这些约束。
+
+### 1.2 泛型结构体
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+let p1 = Point { x: 5, y: 10 };    // Point<i32>
+let p2 = Point { x: 3.0, y: 4.0 }; // Point<f64>
+```
+
+泛型方法：
+
+```rust
+impl<T: std::fmt::Display> Point<T> {
+    fn display(&self) -> String {
+        format!("({}, {})", self.x, self.y)
+    }
+}
+```
+
+还可以为特定类型写专用方法：
+
+```rust
+impl Point<f64> {
+    fn distance_from_origin(&self) -> f64 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+let p = Point { x: 3.0, y: 4.0 };
+p.distance_from_origin(); // 5.0 —— 只有 Point<f64> 有这个功能
+```
+
+---
+
+## 2. Trait：共享行为的接口
+
+Trait 定义了类型「能干什么」。C 程序员可以理解为带类型检查的虚函数表。
+
+### 2.1 定义与实现
+
+```rust
+trait Summary {
+    fn summarize(&self) -> String;
+}
+
+struct Article {
+    title: String,
+    content: String,
+}
+
+impl Summary for Article {
+    fn summarize(&self) -> String {
+        format!("《{}》：{}…", self.title, self.content)
+    }
+}
+```
+
+一个类型可以实现多个 Trait，一个 Trait 也可以被多个类型实现——完全解耦。
+
+### 2.2 Trait 作为函数参数
+
+```rust
+fn notify(item: &impl Summary) {
+    println!("通知: {}", item.summarize());
+}
+```
+
+`impl Summary` 表示「任何实现了 `Summary` 的类型都可以传进来」。语法上等价于泛型写法 `fn notify<T: Summary>(item: &T)`，但更简洁。
+
+### 2.3 多重约束
+
+```rust
+fn largest<T: PartialOrd + Copy + Summary>(list: &[T]) -> &T {
+    // T 必须同时满足三个约束
+}
+```
+
+---
+
+## 3. derive：自动实现常见 Trait
+
+很多 Trait 的实现是机械的样板代码，Rust 可以用 `#[derive(...)]` 自动生成：
+
+```rust
+#[derive(Debug, Clone, PartialEq)]
+struct Book {
+    title: String,
+    pages: u32,
+}
+
+let b1 = Book { title: String::from("Rust Book"), pages: 500 };
+let b2 = b1.clone();
+println!("{:?}", b1);           // Debug：打印结构体
+println!("{}", b1 == b2);       // PartialEq：比较相等
+```
+
+常用的 derive：
+
+| derive       | 提供的能力                              |
+| ------------ | --------------------------------------- |
+| `Debug`      | `{:?}` 格式化打印，调试必备              |
+| `Clone`      | `.clone()` 深拷贝                       |
+| `Copy`       | 赋值时自动 Copy 而非移动（仅栈上数据）   |
+| `PartialEq`  | `==` 和 `!=` 比较                       |
+| `Default`    | `Default::default()` 创建默认值        |
+
+---
+
+## 4. 为什么 Rust 的泛型更快
+
+C 语言实现泛型靠 `void*` + 强制转换，类型检查靠程序员自觉。C++ 模板是编译期代码生成（单态化），膨胀但快。Java/C# 靠类型擦除 + 装箱，有运行时开销。
+
+Rust 走的是**编译期单态化**路线：编译器为每个具体类型生成一份专用代码，运行时零开销。用 C 的话说：等于编译器帮你手写了 `largest_i32`、`largest_char`、`largest_f64` 三份函数——但源码你只写了一次。
+
+---
+
+## 总结
+
+| 概念            | 作用                              | C 对应物                 |
+| --------------- | --------------------------------- | ------------------------ |
+| `T` 泛型        | 一套代码处理多种类型               | `void*` + 宏             |
+| Trait           | 定义类型必须实现的行为             | 函数指针表 / 虚表         |
+| `impl Trait`    | 函数参数接受任何实现了该 Trait 的类型 | `void*` + 运行时类型检查 |
+| `#[derive(...)]` | 自动生成样板 Trait 实现            | 无                       |
+
+泛型 + Trait 是 Rust 类型系统的顶点。掌握它们之后，剩下的就是看标准库文档、写项目和踩坑了。
+
+下一篇进入**模块系统**：`mod`、`use`、`pub`，开始把代码分到多个文件里。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：泛型与Trait——写出可复用的Rust代码\",\"item\":\"https://www.lxpavilion.top/article/166\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：泛型与Trait——写出可复用的Rust代码\",\"headline\":\"Rust学习笔记：泛型与Trait——写出可复用的Rust代码\",\"description\":\"Rust 泛型与 Trait 入门教程：泛型函数与结构体的定义、Trait 接口的定义与实现、impl Trait 参数简化、Trait Bound 多重约束、derive 自动实现常见 Trait。从代码重复到类型安全的抽象，一步到位。\",\"datePublished\":\"2026-08-06T00:20:07.766546\",\"dateCreated\":\"2026-08-06T00:20:07.766546\",\"dateModified\":\"2026-08-06T02:51:10.235479\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：泛型与Trait——写出可复用的Rust代码","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"166"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

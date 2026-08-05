@@ -1,0 +1,32 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "基础语法写完了，但真正的项目不可能从零造轮子。这一篇讲 Rust 的包管理工具 Cargo——怎么引入第三方库、版本号怎么写、Cargo.toml 怎么配。\n\n---\n\n## 1. Cargo.toml：项目的身份证\n\n每个 Rust 项目根目录都有一个 `Cargo.toml`：\n\n```toml\n[package]\nname = \"my_project\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\nrand = \"0.8\"\nserde = { version = \"1.0\", features = [\"derive\"] }\n```\n\n三个核心段：\n\n| 段              | 作用                     |\n| --------------- | ------------------------ |\n| `[package]`     | 项目元数据               |\n| `[dependencies]`| 第三方依赖               |\n| `[dev-dependencies]` | 仅测试/基准测试用的依赖     |\n\n---\n\n## 2. 三种加依赖的方式\n\n### 方式一：命令行（推荐）\n\n```bash\ncargo add rand\ncargo add serde --features derive\n```\n\n自动更新 `Cargo.toml` 并下载依赖。\n\n### 方式二：手动写\n\n```toml\n[dependencies]\nrand = \"0.8\"\n```\n\n然后 `cargo build` 自动拉取。\n\n### 方式三：指定来源\n\n```toml\n[dependencies]\nmy_local_lib = { path = \"../my_lib\" }\nmy_git_lib = { git = \"https://github.com/...\" }\nmy_crate = \"0.1\"\n```\n\n---\n\n## 3. 版本号规则\n\n```toml\nrand = \"0.8\"    # 兼容 0.8.x，不自动跨主版本\nrand = \"0.8.5\"  # 至少 0.8.5\nrand = \"*\"      # 任意版本（不推荐）\nrand = \">=0.7, <0.9\"  # 精确范围\n```\n\n默认 `\"0.8\"` 等价于 `^0.8`。`cargo update` 不跨主版本升级。\n\n---\n\n## 4. Cargo.lock：精确锁定\n\n`Cargo.toml` 写需求，`Cargo.lock` 记录实际下载的精确版本（包括所有间接依赖）。\n\n- **可执行项目**：`Cargo.lock` 提交到版本控制\n- **库项目**：不必提交\n\n---\n\n## 5. 实战：引入 rand\n\n**Cargo.toml：**\n```toml\n[dependencies]\nrand = \"0.8\"\n```\n\n**代码：**\n```rust\nuse rand::Rng;\n\nlet secret = rand::thread_rng().gen_range(1..=100);\nprintln!(\"随机数: {secret}\");\n```\n\n---\n\n## 6. 国内镜像\n\ncrates.io 在国内下载很慢，需要配镜像。在 `CARGO_HOME` 下创建 `config.toml`：\n\n```toml\n[source.crates-io]\nreplace-with = 'rsproxy'\n\n[source.rsproxy]\nregistry = \"sparse+https://rsproxy.cn/index/\"\n```\n\nsparse index（`sparse+https://`）比旧式 git 协议快一个量级，`cargo >= 1.68` 都支持。\n\n注意：这是 cargo 的镜像，和 rustup 的镜像（`RUSTUP_DIST_SERVER` / `RUSTUP_UPDATE_ROOT` 环境变量）是两套独立的配置，各管各的。\n\n---\n\n## 7. 三大依赖来源对比\n\n| 来源        | 声明方式                     | 适用场景                |\n| ----------- | ---------------------------- | ----------------------- |\n| crates.io   | `rand = \"0.8\"`               | 公开发布的库            |\n| 本地路径    | `path = \"../my_lib\"`         | 自己写的、尚未发布的库    |\n| Git 仓库    | `git = \"https://...\"`        | 未发布到 crates.io 的库  |\n\n---\n\n## 总结\n\n| 文件/命令       | 作用                               |\n| --------------- | ---------------------------------- |\n| `Cargo.toml`    | 项目配置，声明依赖                  |\n| `Cargo.lock`    | 锁定依赖的精确版本                  |\n| `cargo add`     | 添加依赖                           |\n| `cargo build`   | 编译（自动拉取缺失依赖）            |\n| `cargo update`  | 按 `Cargo.toml` 的版本约束升级依赖  |\n\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-06T02:40:26.291686",
+  "id": 168,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 169,
+    "title": "Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用"
+  },
+  "prev": {
+    "id": 167,
+    "title": "Rust学习笔记：模块系统——mod、use、pub与多文件项目"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Rust Cargo 依赖管理终极教程：Cargo.toml 结构详解、cargo add 添加依赖、语义化版本号规则、Cargo.lock 精确锁定、三种引入第三方库的方式、国内镜像配置。从标准库到 crates.io，开启真正的 Rust 开发生态。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式",
+  "updateTime": "2026-08-06T02:50:31.807956"
+}

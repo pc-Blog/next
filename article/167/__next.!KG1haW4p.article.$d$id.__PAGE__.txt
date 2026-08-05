@@ -1,0 +1,183 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1174,前八篇所有代码都塞在一个 `main.rs` 里。再写下去谁也维护不了。这一篇讲 Rust 的模块系统——`mod`、`use`、`pub`——把代码合理地拆到多个文件中。
+
+---
+
+## 1. 默认私有，pub 公开
+
+Rust 的可见性规则极其简单：**所有东西默认私有，加 `pub` 才公开。**
+
+```rust
+mod kitchen {
+    fn cook() { println!("做菜"); }      // 私有，外部不可见
+    pub fn order() {                     // 公开
+        println!("点菜");
+        cook();  // 模块内可以访问私有函数
+    }
+}
+
+// kitchen::cook();   // ❌ 私有
+kitchen::order();      // ✅ 公开
+```
+
+C 语言里函数默认全局可见，Rust 反过来。好处是接口清晰——你看到 `pub` 就知道这是对外承诺的 API，剩下的都是内部实现。
+
+---
+
+## 2. 三种模块形态
+
+### 2.1 行内模块
+
+```rust
+mod inline {
+    pub fn greet() {
+        println!("Hello!");
+    }
+}
+
+fn main() {
+    inline::greet();
+}
+```
+
+### 2.2 文件模块
+
+`mod my_module;` → 编译器找 `src/my_module.rs`：
+
+```rust
+// main.rs
+mod my_module;
+use my_module::eat;
+
+// src/my_module.rs
+pub fn eat() { println!("吃饭"); }
+```
+
+### 2.3 目录模块（含子模块）
+
+```
+src/
+├── main.rs
+└── nested/
+    ├── mod.rs        # 目录模块的入口
+    └── inner.rs      # 子模块
+```
+
+```rust
+// nested/mod.rs
+pub mod inner;
+pub mod outer { pub fn show() {} }
+```
+
+三种形态可以混搭。文件多了就用目录，文件少就用单文件。
+
+---
+
+## 3. use：简化路径
+
+不想每次都写完整路径，就用 `use` 引入：
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+        pub fn seat_at_table() {}
+    }
+}
+
+// 不用 use：每次都要写全路径
+front_of_house::hosting::add_to_waitlist();
+
+// 用 use：简化
+use front_of_house::hosting;
+hosting::add_to_waitlist();
+hosting::seat_at_table();
+```
+
+路径分两种：
+
+| 路径类型 | 写法                            | 含义               |
+| -------- | ------------------------------- | ------------------ |
+| 绝对路径 | `crate::front_of_house::hosting` | 从 crate 根开始    |
+| 相对路径 | `front_of_house::hosting`        | 从当前模块开始     |
+
+---
+
+## 4. 结构体字段的可见性
+
+`pub` 可以精细到字段级别：
+
+```rust
+pub struct Breakfast {
+    pub toast: String,   // 公开
+    fruit: String,       // 私有
+}
+```
+
+外部可以读写 `breakfast.toast`，但碰不到 `fruit`。这种设计让结构体可以在**保证内部不变式**的同时暴露部分字段。
+
+---
+
+## 5. 实战：餐厅示例
+
+用餐厅场景把模块系统串起来——模拟 Rust 官方书中的例子：
+
+**项目结构：**
+```
+src/
+├── main.rs
+├── my_module.rs      # 餐厅业务逻辑
+└── nested/
+    ├── mod.rs
+    └── inner.rs
+```
+
+**模块层次：**
+```
+crate
+├── inline (行内模块)
+├── my_module (文件模块)
+│   ├── front_of_house::hosting (子模块)
+│   └── back_of_house (子模块)
+└── nested (目录模块)
+    ├── outer
+    └── inner
+```
+
+`crate` 是 Rust 中「当前项目」的根。`crate::my_module::front_of_house::hosting` 就是「从这个项目根开始的绝对路径」。
+
+---
+
+## 6. 一个容易踩的坑
+
+**`mod` 和 `use` 不是一回事。**
+
+```rust
+mod my_module;     // 声明模块存在，编译器去找对应文件
+use my_module::fn; // 引入路径，简化调用
+```
+
+C 程序员容易把 `use` 当 `#include` 用，但实际上 `mod` 才是「引入代码」，`use` 只是「起别名/缩短路径」。先 `mod` 声明模块，再 `use` 引入其中的内容。
+
+---
+
+## 总结
+
+| 关键字 | 作用                                       | C 对应物              |
+| ------ | ------------------------------------------ | --------------------- |
+| `mod`  | 声明模块，引入文件                          | `#include` / 编译单元 |
+| `pub`  | 公开可见                                   | 默认全局（Rust 相反）  |
+| `use`  | 引入路径，简化调用                          | `using` / `import`    |
+| `crate` | 绝对路径的根                              | 项目根命名空间         |
+
+模块系统搞定之后，Rust 基础语法的最后一块拼图就齐了。下一篇也是本系列的收尾篇——**Cargo 依赖管理**：怎么引用第三方 crate、版本号怎么写、Cargo.toml 怎么配。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：模块系统——mod、use、pub与多文件项目\",\"item\":\"https://www.lxpavilion.top/article/167\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：模块系统——mod、use、pub与多文件项目\",\"headline\":\"Rust学习笔记：模块系统——mod、use、pub与多文件项目\",\"description\":\"Rust 模块系统完整教程：行内模块与文件模块的定义、pub 可见性控制私有默认与公开导出、use 路径简化、嵌套模块目录组织、结构体字段级可见性。从单文件到多文件项目，组织 Rust 代码的终极指南。\",\"datePublished\":\"2026-08-06T00:31:11.315752\",\"dateCreated\":\"2026-08-06T00:31:11.315752\",\"dateModified\":\"2026-08-06T02:50:58.88126\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：模块系统——mod、use、pub与多文件项目","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"167"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

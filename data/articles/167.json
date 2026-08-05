@@ -1,0 +1,32 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "前八篇所有代码都塞在一个 `main.rs` 里。再写下去谁也维护不了。这一篇讲 Rust 的模块系统——`mod`、`use`、`pub`——把代码合理地拆到多个文件中。\n\n---\n\n## 1. 默认私有，pub 公开\n\nRust 的可见性规则极其简单：**所有东西默认私有，加 `pub` 才公开。**\n\n```rust\nmod kitchen {\n    fn cook() { println!(\"做菜\"); }      // 私有，外部不可见\n    pub fn order() {                     // 公开\n        println!(\"点菜\");\n        cook();  // 模块内可以访问私有函数\n    }\n}\n\n// kitchen::cook();   // ❌ 私有\nkitchen::order();      // ✅ 公开\n```\n\nC 语言里函数默认全局可见，Rust 反过来。好处是接口清晰——你看到 `pub` 就知道这是对外承诺的 API，剩下的都是内部实现。\n\n---\n\n## 2. 三种模块形态\n\n### 2.1 行内模块\n\n```rust\nmod inline {\n    pub fn greet() {\n        println!(\"Hello!\");\n    }\n}\n\nfn main() {\n    inline::greet();\n}\n```\n\n### 2.2 文件模块\n\n`mod my_module;` → 编译器找 `src/my_module.rs`：\n\n```rust\n// main.rs\nmod my_module;\nuse my_module::eat;\n\n// src/my_module.rs\npub fn eat() { println!(\"吃饭\"); }\n```\n\n### 2.3 目录模块（含子模块）\n\n```\nsrc/\n├── main.rs\n└── nested/\n    ├── mod.rs        # 目录模块的入口\n    └── inner.rs      # 子模块\n```\n\n```rust\n// nested/mod.rs\npub mod inner;\npub mod outer { pub fn show() {} }\n```\n\n三种形态可以混搭。文件多了就用目录，文件少就用单文件。\n\n---\n\n## 3. use：简化路径\n\n不想每次都写完整路径，就用 `use` 引入：\n\n```rust\nmod front_of_house {\n    pub mod hosting {\n        pub fn add_to_waitlist() {}\n        pub fn seat_at_table() {}\n    }\n}\n\n// 不用 use：每次都要写全路径\nfront_of_house::hosting::add_to_waitlist();\n\n// 用 use：简化\nuse front_of_house::hosting;\nhosting::add_to_waitlist();\nhosting::seat_at_table();\n```\n\n路径分两种：\n\n| 路径类型 | 写法                            | 含义               |\n| -------- | ------------------------------- | ------------------ |\n| 绝对路径 | `crate::front_of_house::hosting` | 从 crate 根开始    |\n| 相对路径 | `front_of_house::hosting`        | 从当前模块开始     |\n\n---\n\n## 4. 结构体字段的可见性\n\n`pub` 可以精细到字段级别：\n\n```rust\npub struct Breakfast {\n    pub toast: String,   // 公开\n    fruit: String,       // 私有\n}\n```\n\n外部可以读写 `breakfast.toast`，但碰不到 `fruit`。这种设计让结构体可以在**保证内部不变式**的同时暴露部分字段。\n\n---\n\n## 5. 实战：餐厅示例\n\n用餐厅场景把模块系统串起来——模拟 Rust 官方书中的例子：\n\n**项目结构：**\n```\nsrc/\n├── main.rs\n├── my_module.rs      # 餐厅业务逻辑\n└── nested/\n    ├── mod.rs\n    └── inner.rs\n```\n\n**模块层次：**\n```\ncrate\n├── inline (行内模块)\n├── my_module (文件模块)\n│   ├── front_of_house::hosting (子模块)\n│   └── back_of_house (子模块)\n└── nested (目录模块)\n    ├── outer\n    └── inner\n```\n\n`crate` 是 Rust 中「当前项目」的根。`crate::my_module::front_of_house::hosting` 就是「从这个项目根开始的绝对路径」。\n\n---\n\n## 6. 一个容易踩的坑\n\n**`mod` 和 `use` 不是一回事。**\n\n```rust\nmod my_module;     // 声明模块存在，编译器去找对应文件\nuse my_module::fn; // 引入路径，简化调用\n```\n\nC 程序员容易把 `use` 当 `#include` 用，但实际上 `mod` 才是「引入代码」，`use` 只是「起别名/缩短路径」。先 `mod` 声明模块，再 `use` 引入其中的内容。\n\n---\n\n## 总结\n\n| 关键字 | 作用                                       | C 对应物              |\n| ------ | ------------------------------------------ | --------------------- |\n| `mod`  | 声明模块，引入文件                          | `#include` / 编译单元 |\n| `pub`  | 公开可见                                   | 默认全局（Rust 相反）  |\n| `use`  | 引入路径，简化调用                          | `using` / `import`    |\n| `crate` | 绝对路径的根                              | 项目根命名空间         |\n\n模块系统搞定之后，Rust 基础语法的最后一块拼图就齐了。下一篇也是本系列的收尾篇——**Cargo 依赖管理**：怎么引用第三方 crate、版本号怎么写、Cargo.toml 怎么配。\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-06T00:31:11.315752",
+  "id": 167,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 168,
+    "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式"
+  },
+  "prev": {
+    "id": 166,
+    "title": "Rust学习笔记：泛型与Trait——写出可复用的Rust代码"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Rust 模块系统完整教程：行内模块与文件模块的定义、pub 可见性控制私有默认与公开导出、use 路径简化、嵌套模块目录组织、结构体字段级可见性。从单文件到多文件项目，组织 Rust 代码的终极指南。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：模块系统——mod、use、pub与多文件项目",
+  "updateTime": "2026-08-06T02:50:58.88126"
+}

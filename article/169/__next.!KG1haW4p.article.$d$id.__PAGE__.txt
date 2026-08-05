@@ -1,0 +1,183 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1320,前面十篇学完了 Rust 基础语法，这一篇用 Tauri 做一个真正的桌面应用——**员工表格展示器**。前端写 HTML/CSS/JS，后端 Rust 写业务逻辑，`invoke` 做桥梁。
+
+---
+
+## 1. Tauri 是什么
+
+Electron 用 Chromium + Node.js，打包出来至少 150MB。Tauri 用系统自带 WebView + Rust 后端，打包体积 5-10MB。本质就是一个 Rust 程序，内嵌一个 WebView 窗口，前端 HTML 跑在这个 WebView 里，通过 `invoke()` 调用 Rust 函数。
+
+|            | Electron      | Tauri v2     |
+| ---------- | ------------- | ------------ |
+| 渲染引擎   | Chromium 内嵌  | 系统 WebView  |
+| 后端       | Node.js       | Rust         |
+| 打包体积   | ~150MB        | ~5-10MB      |
+| 前端 API   | `window.electron` | `window.__TAURI__` |
+
+---
+
+## 2. 项目结构
+
+```
+tauri-table-app/
+├── src/                    # 前端
+│   ├── index.html
+│   ├── style.css
+│   └── main.js
+└── src-tauri/              # Rust 后端
+    ├── Cargo.toml
+    ├── build.rs
+    ├── tauri.conf.json
+    ├── capabilities/
+    │   └── default.json
+    ├── icons/
+    │   └── icon.png
+    └── src/
+        └── main.rs
+```
+
+前端和后端完全分离，通过 JSON 通信。
+
+---
+
+## 3. Rust 后端
+
+```rust
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+#[tauri::command]
+fn load_table() -> Vec<Vec<String>> {
+    vec![
+        vec!["张三".into(), "28".into(), "研发部".into(), "2023-03-15".into()],
+        vec!["李四".into(), "32".into(), "产品部".into(), "2022-07-01".into()],
+        vec!["王五".into(), "25".into(), "设计部".into(), "2024-01-10".into()],
+        vec!["赵六".into(), "29".into(), "研发部".into(), "2021-11-23".into()],
+        vec!["孙七".into(), "35".into(), "管理层".into(), "2020-05-18".into()],
+    ]
+}
+
+fn main() {
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![load_table])
+        .run(tauri::generate_context!())
+        .expect("启动失败");
+}
+```
+
+`#[tauri::command]` 把一个普通函数变成前端可调用的命令。`Vec<Vec<String>>` 自动被 serde 序列化为 JSON 二维数组。`generate_handler![]` 注册命令列表。
+
+---
+
+## 4. 前端 JS：调用后端
+
+Tauri v2 中，前端通过 `window.__TAURI__.core.invoke()` 调用 Rust 命令：
+
+```javascript
+const { invoke } = window.__TAURI__.core;
+
+document.getElementById('load-btn').addEventListener('click', async () => {
+    const data = await invoke('load_table');
+    // data = [["张三","28","研发部",...], ...]
+
+    const headers = ['姓名', '年龄', '部门', '入职日期'];
+    const thead = '<thead><tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead>';
+    const tbody = '<tbody>' + data.map(row =>
+        '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>'
+    ).join('') + '</tbody>';
+
+    document.getElementById('table-wrap').innerHTML = '<table>' + thead + tbody + '</table>';
+});
+```
+
+前端不需要 `npm install` 任何东西。只要 `tauri.conf.json` 里配了 `"withGlobalTauri": true`，`window.__TAURI__` 就全局可用。
+
+---
+
+## 5. tauri.conf.json（v2 格式）
+
+```json
+{
+  "productName": "表格展示器",
+  "version": "0.1.0",
+  "identifier": "com.table.demo",
+  "build": {
+    "frontendDist": "../src",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": ""
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [{
+      "title": "表格展示器",
+      "width": 700,
+      "height": 500
+    }],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "icon": ["icons/icon.png"]
+  }
+}
+```
+
+关键字段：`frontendDist` 指向前端文件夹，`withGlobalTauri` 开启全局 API，`csp: null` 允许内联样式。
+
+v2 还需要 `capabilities/default.json`：
+
+```json
+{
+  "identifier": "default",
+  "description": "默认权限",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}
+```
+
+---
+
+## 6. Cargo.toml
+
+```toml
+[dependencies]
+tauri = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[build-dependencies]
+tauri-build = "2"
+```
+
+---
+
+## 7. 运行
+
+```bash
+cargo install tauri-cli   # 首次
+cargo tauri dev           # 开发模式，热更新
+cargo tauri build         # 打包
+```
+
+首次编译会下载约 350 个依赖，耐心等。之后改 Rust 代码增量编译，改前端秒热更。
+
+![image.png](/data/media/739.png)
+
+---
+
+## 总结
+
+- Tauri v2 项目需要 `tauri.conf.json`（v2 格式）+ `capabilities/default.json` + `icons/icon.ico`
+- Rust 命令通过 `#[tauri::command]` + `generate_handler![]` 暴露
+- 前端通过 `window.__TAURI__.core.invoke()` 调用，数据自动 JSON 序列化
+- 开发用 `cargo tauri dev`，打包用 `cargo tauri build`
+
+如果已经会 Rust 和基本三件套，写一个桌面应用的门槛远比你想象的低。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用\",\"item\":\"https://www.lxpavilion.top/article/169\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用\",\"headline\":\"Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用\",\"description\":\"Tauri v2 桌面应用完整工程实践：搭建多文件项目、tauri.conf.json 配置、Rust 后端命令对接、前端 JS 调用 invoke API、前后端数据通信全流程。从零到跑通，踩过的坑一次讲清。\",\"datePublished\":\"2026-08-06T02:41:32.466277\",\"dateCreated\":\"2026-08-06T02:41:32.466277\",\"dateModified\":\"2026-08-06T02:49:30.908483\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"169"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

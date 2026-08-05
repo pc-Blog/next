@@ -8,6 +8,127 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用]]></title>
+      <link>https://www.lxpavilion.top/article/169/</link>
+      <guid>https://www.lxpavilion.top/article/169/</guid>
+      <pubDate>Thu, 06 Aug 2026 02:41:32 GMT</pubDate>
+      <description><![CDATA[Tauri v2 桌面应用完整工程实践：搭建多文件项目、tauri.conf.json 配置、Rust 后端命令对接、前端 JS 调用 invoke API、前后端数据通信全流程。从零到跑通，踩过的坑一次讲清。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式]]></title>
+      <link>https://www.lxpavilion.top/article/168/</link>
+      <guid>https://www.lxpavilion.top/article/168/</guid>
+      <pubDate>Thu, 06 Aug 2026 02:40:26 GMT</pubDate>
+      <description><![CDATA[Rust Cargo 依赖管理终极教程：Cargo.toml 结构详解、cargo add 添加依赖、语义化版本号规则、Cargo.lock 精确锁定、三种引入第三方库的方式、国内镜像配置。从标准库到 crates.io，开启真正的 Rust 开发生态。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：模块系统——mod、use、pub与多文件项目]]></title>
+      <link>https://www.lxpavilion.top/article/167/</link>
+      <guid>https://www.lxpavilion.top/article/167/</guid>
+      <pubDate>Thu, 06 Aug 2026 00:31:11 GMT</pubDate>
+      <description><![CDATA[Rust 模块系统完整教程：行内模块与文件模块的定义、pub 可见性控制私有默认与公开导出、use 路径简化、嵌套模块目录组织、结构体字段级可见性。从单文件到多文件项目，组织 Rust 代码的终极指南。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：泛型与Trait——写出可复用的Rust代码]]></title>
+      <link>https://www.lxpavilion.top/article/166/</link>
+      <guid>https://www.lxpavilion.top/article/166/</guid>
+      <pubDate>Thu, 06 Aug 2026 00:20:07 GMT</pubDate>
+      <description><![CDATA[Rust 泛型与 Trait 入门教程：泛型函数与结构体的定义、Trait 接口的定义与实现、impl Trait 参数简化、Trait Bound 多重约束、derive 自动实现常见 Trait。从代码重复到类型安全的抽象，一步到位。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：错误处理——panic!、Result、Option与?运算符]]></title>
+      <link>https://www.lxpavilion.top/article/165/</link>
+      <guid>https://www.lxpavilion.top/article/165/</guid>
+      <pubDate>Thu, 06 Aug 2026 00:14:26 GMT</pubDate>
+      <description><![CDATA[Rust 错误处理全景：panic! 不可恢复错误、Result<T,E> 可恢复错误的 match/unwrap/expect 处理、? 运算符传播错误的简洁写法、Option 与 Result 互转。从此告别 try-catch，拥抱编译期强制处理的错误哲学。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：集合类型——Vec、String与HashMap]]></title>
+      <link>https://www.lxpavilion.top/article/164/</link>
+      <guid>https://www.lxpavilion.top/article/164/</guid>
+      <pubDate>Thu, 06 Aug 2026 00:07:42 GMT</pubDate>
+      <description><![CDATA[Rust 三大集合类型详解：Vec 动态数组的增删改查与遍历、String 的拼接与 format! 宏、HashMap 键值对操作与 entry 模式。从小数据到真实业务，掌握 Rust 最常用的数据结构。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：结构体与枚举——用Rust组织真正的业务数据]]></title>
+      <link>https://www.lxpavilion.top/article/163/</link>
+      <guid>https://www.lxpavilion.top/article/163/</guid>
+      <pubDate>Wed, 05 Aug 2026 23:51:29 GMT</pubDate>
+      <description><![CDATA[Rust 结构体与枚举完整教程：struct 定义与实例化、impl 方法与关联函数、元组结构体、枚举定义与带数据的变体、Option<T> 代替 null、match 与 if let 解包。从基础语法到实战模式，用可运行代码讲清楚每一处细节。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：所有权、借用与生命周期——Rust的核心机制]]></title>
+      <link>https://www.lxpavilion.top/article/162/</link>
+      <guid>https://www.lxpavilion.top/article/162/</guid>
+      <pubDate>Wed, 05 Aug 2026 23:29:09 GMT</pubDate>
+      <description><![CDATA[Rust 最核心的三大机制详解：所有权规则与移动语义、Copy 与 Clone 的区别、不可变借用 &T 和可变借用 &mut T 的规则、生命周期标注 'a 的基本用法。用可运行的代码理解为什么 Rust 不需要垃圾回收也能保证内存安全。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：控制流——if、loop、while、for与match]]></title>
+      <link>https://www.lxpavilion.top/article/161/</link>
+      <guid>https://www.lxpavilion.top/article/161/</guid>
+      <pubDate>Wed, 05 Aug 2026 23:19:25 GMT</pubDate>
+      <description><![CDATA[Rust 控制流全解：if 作为表达式赋值、loop 循环与 break 返回值、while 条件循环、for 遍历数组和 Range、match 模式匹配与穷尽性检查。每个知识点附带实测输出，适合已掌握基础语法的初学者。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：变量、数据类型与函数——从let讲起的基础语法]]></title>
+      <link>https://www.lxpavilion.top/article/160/</link>
+      <guid>https://www.lxpavilion.top/article/160/</guid>
+      <pubDate>Wed, 05 Aug 2026 23:13:41 GMT</pubDate>
+      <description><![CDATA[Rust 基础语法入门：let 不可变绑定、mut 可变声明、标量类型与复合类型、函数定义与返回值、const 常量与变量隐藏（Shadowing）。用实际代码跑通每个知识点，适合刚搭好环境的初学者。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[Rust学习笔记：从零搭建开发环境并运行第一个程序]]></title>
+      <link>https://www.lxpavilion.top/article/159/</link>
+      <guid>https://www.lxpavilion.top/article/159/</guid>
+      <pubDate>Wed, 05 Aug 2026 22:13:09 GMT</pubDate>
+      <description><![CDATA[面向初学者的 Rust 开发环境搭建完整指南。从官网下载、自定义安装目录、配置国内镜像源加速，到使用 RustRover IDE 创建项目、详解 Cargo 项目结构和常用命令，手把手带你跑通第一个 Hello World 程序。]]></description>
+      <category>学习笔记</category>
+      <tag>Rust</tag>
+      <tag>JetBrains</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[分享一个我发现的免费 AI 资讯 API：AI HOT，无需注册、无需 Token、开箱即用]]></title>
       <link>https://www.lxpavilion.top/article/158/</link>
       <guid>https://www.lxpavilion.top/article/158/</guid>
@@ -112,126 +233,6 @@
       <tag>Docker</tag>
       <tag>Spring Boot</tag>
       <tag>Neo4J</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[从零写出生产级 Dockerfile：核心指令 + 层缓存 + 多阶段构建，告别臃肿镜像]]></title>
-      <link>https://www.lxpavilion.top/article/149/</link>
-      <guid>https://www.lxpavilion.top/article/149/</guid>
-      <pubDate>Wed, 29 Jul 2026 10:44:39 GMT</pubDate>
-      <description><![CDATA[从 FROM 到 HEALTHCHECK，系统学习 Dockerfile 的每一个核心指令。用 Docker 实战验证层缓存、多阶段构建、ARG/ENV/ENTRYPOINT 的原理，理解"构建镜像"的完整流程。]]></description>
-      <category>技术教程</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>Linux</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Nginx 学习笔记：Location 配置详解，五种修饰符与优先级规则实战]]></title>
-      <link>https://www.lxpavilion.top/article/148/</link>
-      <guid>https://www.lxpavilion.top/article/148/</guid>
-      <pubDate>Tue, 28 Jul 2026 17:02:41 GMT</pubDate>
-      <description><![CDATA[深入讲解 Nginx location 的五种修饰符（=、^~、~、~*、无修饰符）的匹配规则与优先级，通过 Docker 实战测试验证每一个配置场景，彻底搞懂 location 的执行顺序和最佳实践。]]></description>
-      <category>学习笔记</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>nginx</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Git学习笔记：GitHub Actions 从零到实战]]></title>
-      <link>https://www.lxpavilion.top/article/147/</link>
-      <guid>https://www.lxpavilion.top/article/147/</guid>
-      <pubDate>Tue, 28 Jul 2026 10:08:40 GMT</pubDate>
-      <description><![CDATA[从零开始掌握 GitHub Actions，通过循序渐进的实战示例学习 Workflow 编写、触发器配置、Marketplace 生态与 CI/CD 部署，每个阶段都有可验证的测试代码。]]></description>
-      <category>学习笔记</category>
-      <tag>Git</tag>
-      <tag>Github</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统]]></title>
-      <link>https://www.lxpavilion.top/article/146/</link>
-      <guid>https://www.lxpavilion.top/article/146/</guid>
-      <pubDate>Mon, 27 Jul 2026 21:20:43 GMT</pubDate>
-      <description><![CDATA[从设计者的角度理解 Git 的核心——内容寻址、不可变对象、快照链，以及 blob、tree、commit、ref 四类对象如何协作。]]></description>
-      <category>学习笔记</category>
-      
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Git学习笔记：GitHub Git Data API 完全指南，用 Go 操控 Git 底层对象]]></title>
-      <link>https://www.lxpavilion.top/article/145/</link>
-      <guid>https://www.lxpavilion.top/article/145/</guid>
-      <pubDate>Mon, 27 Jul 2026 20:32:29 GMT</pubDate>
-      <description><![CDATA[深入掌握 GitHub Git Data API，通过实战示例学会 blob、tree、commit、ref 的创建与读取，理解 Git 底层数据结构并用 Go 实现高级版本控制操作。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <tag>Git</tag>
-      <tag>Github</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件]]></title>
-      <link>https://www.lxpavilion.top/article/144/</link>
-      <guid>https://www.lxpavilion.top/article/144/</guid>
-      <pubDate>Mon, 27 Jul 2026 18:01:02 GMT</pubDate>
-      <description><![CDATA[从零开始掌握 GitHub REST API，通过 12 个实战示例学会用户管理、仓库操作与 Contents API 的文件增删改查，每段代码都附带详细字段说明，是 Go 开发者操作 GitHub 的最佳入门教程。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <tag>Git</tag>
-      <tag>Github</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Git学习笔记：Gitee API 从入门到实战，用 Go 打造你的代码托管自动化工作流]]></title>
-      <link>https://www.lxpavilion.top/article/142/</link>
-      <guid>https://www.lxpavilion.top/article/142/</guid>
-      <pubDate>Sun, 26 Jul 2026 21:34:51 GMT</pubDate>
-      <description><![CDATA[从零开始掌握 Gitee API v5，涵盖用户管理、仓库操作、文件内容管理及提交推送等核心场景。Go 语言实战代码 + Swagger 文档解读，帮你用 API 驱动代码托管工作流自动化。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <tag>Git</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：Wails 入门，安装、创建项目与第一个桌面窗口]]></title>
-      <link>https://www.lxpavilion.top/article/141/</link>
-      <guid>https://www.lxpavilion.top/article/141/</guid>
-      <pubDate>Thu, 23 Jul 2026 10:43:10 GMT</pubDate>
-      <description><![CDATA[Wails 是一个用 Go 写后端、HTML/JS 写前端的桌面框架。本文记录从安装 CLI、创建项目到跑出第一个桌面窗口的完整过程。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：错误处理——没有异常，只有 error]]></title>
-      <link>https://www.lxpavilion.top/article/137/</link>
-      <guid>https://www.lxpavilion.top/article/137/</guid>
-      <pubDate>Wed, 22 Jul 2026 10:42:50 GMT</pubDate>
-      <description><![CDATA["Go 没有 try-catch，错误就是普通的值。本文从哨兵错误、自定义错误类型、错误包装到实战模式，讲透 Go 的错误处理哲学。"]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：并发编程，Go 的王牌特性]]></title>
-      <link>https://www.lxpavilion.top/article/136/</link>
-      <guid>https://www.lxpavilion.top/article/136/</guid>
-      <pubDate>Wed, 22 Jul 2026 10:42:46 GMT</pubDate>
-      <description><![CDATA[goroutine 是 Go 的轻量级线程，channel 是 goroutine 之间的通信管道，select 可以同时等待多个 channel。本文从基础到实战，用代码示例讲透 Go 的并发模型。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：包管理与项目组织——模块、导入导出与 init 执行顺序]]></title>
-      <link>https://www.lxpavilion.top/article/135/</link>
-      <guid>https://www.lxpavilion.top/article/135/</guid>
-      <pubDate>Wed, 22 Jul 2026 10:42:43 GMT</pubDate>
-      <description><![CDATA[Go 的包管理简洁但严格：一个目录一个包、大写导出小写私有、init 自动执行。本文从 go.mod 到子包组织，用一个多包项目讲透 Go 的包系统。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
       <author>ppc</author>
     </item>
   </channel>

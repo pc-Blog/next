@@ -1,0 +1,223 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1d05,如果前面三篇是 Rust 的「皮肉」，这一篇就是「骨架」。所有权（Ownership）、借用（Borrowing）和生命周期（Lifetimes）是 Rust 区别于其他所有主流语言的独有机制。它们让 Rust 在不依赖垃圾回收的前提下实现内存安全——没有空指针、没有悬垂引用、没有双重释放。
+
+初次接触可能会觉得反直觉，但一旦理解，你会发现这些规则不是限制，而是编译器在帮你提前排除 bug。
+
+本文所有代码均已实测通过。
+
+---
+
+## 1. 所有权：谁拥有，谁负责
+
+Rust 的所有权系统只有三条规则：
+
+1. Rust 中每一个值都有一个**所有者**（owner）
+2. 同一时间**只有一个所有者**
+3. 当所有者离开作用域，值被**自动释放**（drop）
+
+听上去简单，但落实到代码里会有一系列「意料之外」的行为。
+
+### 1.1 String 的移动
+
+`String` 类型的数据存在堆上。把一个 `String` 赋给另一个变量时，**所有权会转移**——旧变量失效：
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+// println!("{s1}"); // ❌ s1 已失效
+println!("{s2}");     // ✅ s2 有效
+```
+
+这和其他语言完全不同。在 Python 或 Java 里，`s2 = s1` 之后两个变量都能用。Rust 选择了「移动」而非「浅拷贝」，避免了堆上同一块内存被释放两次的问题。
+
+### 1.2 栈上数据的 Copy
+
+标量类型（`i32`、`f64`、`bool`、`char` 等）存在栈上，大小在编译期已知。它们实现了 `Copy` trait，赋值时自动复制而不是移动：
+
+```rust
+let x = 5;
+let y = x;
+println!("x = {x}, y = {y}"); // ✅ 两个都能用
+```
+
+数组和元组如果全部元素都实现了 `Copy`，它们自己也自动实现 `Copy`：
+
+```rust
+let arr = [1, 2, 3];
+let arr2 = arr;
+println!("{arr:?}, {arr2:?}"); // ✅ 都能用
+```
+
+**简单记：需要分配堆内存的类型（`String`、`Vec` 等）赋值会移动；栈上类型自动 Copy。**
+
+### 1.3 函数传参同样转移所有权
+
+```rust
+fn take_ownership(s: String) {
+    println!("接收: {s}");
+} // s 离开作用域，被释放
+
+let s = String::from("world");
+take_ownership(s);
+// println!("{s}"); // ❌ s 所有权已转移
+```
+
+函数参数和赋值遵循相同的所有权规则。把一个值传给函数，所有权就归函数了。
+
+---
+
+## 2. Clone：显式深拷贝
+
+如果确实需要一份独立的数据副本，用 `.clone()`：
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1.clone(); // 在堆上复制一份新数据
+println!("s1 = {s1}, s2 = {s2}"); // ✅ 两个独立拥有
+```
+
+Rust 的设计哲学是：**昂贵的操作要显式写出来**。`.clone()` 和 `.copy()` 的区别就在于此——`Copy` 是编译器自动做的、零成本的；`Clone` 是程序员手动触发的、可能有开销的。
+
+---
+
+## 3. 借用：不拿所有权的访问
+
+如果每次传参都把所有权交出去，代码会极其繁琐。所以才有了**引用（Reference）**——借用值但不拥有它。
+
+### 3.1 不可变借用 `&T`
+
+```rust
+fn calc_len(s: &String) -> usize {
+    s.len() // 借读，不拿所有权
+}
+
+let s = String::from("hello");
+let len = calc_len(&s);  // &s 创建引用
+println!("'{s}' 的长度是 {len}");
+println!("s 仍然可用: {s}"); // ✅ 所有权没丢
+```
+
+`&s` 创建一个指向 `s` 的引用，把引用传给函数。函数结束时引用失效，但 `s` 本身完好。这叫**借用**——你借给别人看，看完还你。
+
+### 3.2 可变借用 `&mut T`
+
+```rust
+fn append_world(s: &mut String) {
+    s.push_str(", world!");
+}
+
+let mut s = String::from("hello");
+append_world(&mut s);
+println!("修改后: {s}"); // hello, world!
+```
+
+---
+
+## 4. 借用规则（牢记）
+
+Rust 的借用检查器（Borrow Checker）遵循两条硬规则：
+
+**规则一：同一时间，只能有一个可变引用，或者任意多个不可变引用——二者不能共存。**
+
+```rust
+let mut s = String::from("hello");
+
+let r1 = &s;     // 不可变引用
+let r2 = &s;     // 多个不可变引用 OK
+println!("{r1}, {r2}");
+
+// r1、r2 最后一次使用后，可以创建可变引用
+let r3 = &mut s;
+r3.push_str("!");
+println!("{r3}");
+```
+
+**规则二：引用必须始终有效——不能有悬垂引用。**
+
+```rust
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+//     &s  // ❌ s 离开作用域被释放，返回的引用指向无效内存
+// }
+```
+
+这两条规则在编译期就排除了数据竞争（data race）的可能——多线程下最常见的并发 bug，Rust 直接从语言层面消灭了。
+
+---
+
+## 5. 生命周期：引用活多久
+
+生命周期（lifetime）是编译器用来确保「引用不会活得过它们的值」的标记。
+
+### 5.1 为什么需要生命周期标注
+
+看这个函数：
+
+```rust
+fn longest(x: &str, y: &str) -> &str {
+    if x.len() > y.len() { x } else { y }
+}
+```
+
+编译器不知道返回值引用的是 `x` 还是 `y`，也就无法判断返回的引用是否有效。这时需要生命周期标注：
+
+```rust
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() { x } else { y }
+}
+```
+
+`'a` 的意思是：返回值的引用有效期 = `x` 和 `y` 中**较短的那个**。如果传进来的两个参数生命周期不一致，编译器会用较短的那个来约束返回值：
+
+```rust
+let s1 = String::from("long");
+{
+    let s2 = String::from("short");
+    let result = longest(&s1, &s2);
+    println!("{result}"); // ✅ 在这个作用域内 OK
+}
+// println!("{result}"); // ❌ s2 已释放，result 也跟着失效
+```
+
+### 5.2 初学者只需要知道
+
+- `'a` 是生命周期标注，不会改变代码的运行时行为，只给编译器看
+- 大部分场景下 Rust 可以**自动推断**生命周期（生命周期省略规则），只有函数返回引用且参数有多个引用时才需要手动标注
+- 现阶段先记住这个用法，后续写项目遇到编译器提示再回来加深理解
+
+---
+
+## 6. 一张图总结
+
+| 操作                     | 所有权变化       | 之后原变量还能用？ |
+| ------------------------ | ---------------- | ------------------ |
+| `let y = x`（x 是 `i32`） | Copy             | ✅                 |
+| `let y = x`（x 是 `String`） | Move            | ❌                 |
+| `x.clone()`              | 深拷贝           | ✅                 |
+| `&x`                     | 不可变借用       | ✅                 |
+| `&mut x`                 | 可变借用         | ✅（但借用期间 `x` 被锁定） |
+
+---
+
+## 总结
+
+所有权、借用和生命周期是 Rust 最难但也最重要的三个概念。核心要点：
+
+1. **所有权**：每个值只有一个所有者，离开作用域自动释放。堆数据赋值会移动所有权
+2. **Copy vs Clone**：Copy 是自动的零成本复制（栈上数据），Clone 是显式的深拷贝（堆上数据）
+3. **借用**：`&T` 只读不拥有，`&mut T` 可写不拥有。同一时间要么一个可变借用，要么多个不可变借用
+4. **生命周期**：编译器确保引用不会活得过它们指向的值。大多数情况自动推断，函数返回引用时才需要 `'a` 标注
+
+理解这些规则后，Rust 编译器就不再是你的对手，而是最严格的队友——它在编译期就把你未来会犯的内存错误全拦住了。
+
+下一篇进入**结构体与枚举**，开始用 Rust 组织真正的业务数据。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：所有权、借用与生命周期——Rust的核心机制\",\"item\":\"https://www.lxpavilion.top/article/162\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：所有权、借用与生命周期——Rust的核心机制\",\"headline\":\"Rust学习笔记：所有权、借用与生命周期——Rust的核心机制\",\"description\":\"Rust 最核心的三大机制详解：所有权规则与移动语义、Copy 与 Clone 的区别、不可变借用 &T 和可变借用 &mut T 的规则、生命周期标注 'a 的基本用法。用可运行的代码理解为什么 Rust 不需要垃圾回收也能保证内存安全。\",\"datePublished\":\"2026-08-05T23:29:09.615436\",\"dateCreated\":\"2026-08-05T23:29:09.615436\",\"dateModified\":\"2026-08-06T02:52:00.560008\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：所有权、借用与生命周期——Rust的核心机制","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"162"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

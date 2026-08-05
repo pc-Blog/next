@@ -1,0 +1,149 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:Td15,基础语法写完了，但真正的项目不可能从零造轮子。这一篇讲 Rust 的包管理工具 Cargo——怎么引入第三方库、版本号怎么写、Cargo.toml 怎么配。
+
+---
+
+## 1. Cargo.toml：项目的身份证
+
+每个 Rust 项目根目录都有一个 `Cargo.toml`：
+
+```toml
+[package]
+name = "my_project"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+```
+
+三个核心段：
+
+| 段              | 作用                     |
+| --------------- | ------------------------ |
+| `[package]`     | 项目元数据               |
+| `[dependencies]`| 第三方依赖               |
+| `[dev-dependencies]` | 仅测试/基准测试用的依赖     |
+
+---
+
+## 2. 三种加依赖的方式
+
+### 方式一：命令行（推荐）
+
+```bash
+cargo add rand
+cargo add serde --features derive
+```
+
+自动更新 `Cargo.toml` 并下载依赖。
+
+### 方式二：手动写
+
+```toml
+[dependencies]
+rand = "0.8"
+```
+
+然后 `cargo build` 自动拉取。
+
+### 方式三：指定来源
+
+```toml
+[dependencies]
+my_local_lib = { path = "../my_lib" }
+my_git_lib = { git = "https://github.com/..." }
+my_crate = "0.1"
+```
+
+---
+
+## 3. 版本号规则
+
+```toml
+rand = "0.8"    # 兼容 0.8.x，不自动跨主版本
+rand = "0.8.5"  # 至少 0.8.5
+rand = "*"      # 任意版本（不推荐）
+rand = ">=0.7, <0.9"  # 精确范围
+```
+
+默认 `"0.8"` 等价于 `^0.8`。`cargo update` 不跨主版本升级。
+
+---
+
+## 4. Cargo.lock：精确锁定
+
+`Cargo.toml` 写需求，`Cargo.lock` 记录实际下载的精确版本（包括所有间接依赖）。
+
+- **可执行项目**：`Cargo.lock` 提交到版本控制
+- **库项目**：不必提交
+
+---
+
+## 5. 实战：引入 rand
+
+**Cargo.toml：**
+```toml
+[dependencies]
+rand = "0.8"
+```
+
+**代码：**
+```rust
+use rand::Rng;
+
+let secret = rand::thread_rng().gen_range(1..=100);
+println!("随机数: {secret}");
+```
+
+---
+
+## 6. 国内镜像
+
+crates.io 在国内下载很慢，需要配镜像。在 `CARGO_HOME` 下创建 `config.toml`：
+
+```toml
+[source.crates-io]
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "sparse+https://rsproxy.cn/index/"
+```
+
+sparse index（`sparse+https://`）比旧式 git 协议快一个量级，`cargo >= 1.68` 都支持。
+
+注意：这是 cargo 的镜像，和 rustup 的镜像（`RUSTUP_DIST_SERVER` / `RUSTUP_UPDATE_ROOT` 环境变量）是两套独立的配置，各管各的。
+
+---
+
+## 7. 三大依赖来源对比
+
+| 来源        | 声明方式                     | 适用场景                |
+| ----------- | ---------------------------- | ----------------------- |
+| crates.io   | `rand = "0.8"`               | 公开发布的库            |
+| 本地路径    | `path = "../my_lib"`         | 自己写的、尚未发布的库    |
+| Git 仓库    | `git = "https://..."`        | 未发布到 crates.io 的库  |
+
+---
+
+## 总结
+
+| 文件/命令       | 作用                               |
+| --------------- | ---------------------------------- |
+| `Cargo.toml`    | 项目配置，声明依赖                  |
+| `Cargo.lock`    | 锁定依赖的精确版本                  |
+| `cargo add`     | 添加依赖                           |
+| `cargo build`   | 编译（自动拉取缺失依赖）            |
+| `cargo update`  | 按 `Cargo.toml` 的版本约束升级依赖  |
+
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式\",\"item\":\"https://www.lxpavilion.top/article/168\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式\",\"headline\":\"Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式\",\"description\":\"Rust Cargo 依赖管理终极教程：Cargo.toml 结构详解、cargo add 添加依赖、语义化版本号规则、Cargo.lock 精确锁定、三种引入第三方库的方式、国内镜像配置。从标准库到 crates.io，开启真正的 Rust 开发生态。\",\"datePublished\":\"2026-08-06T02:40:26.291686\",\"dateCreated\":\"2026-08-06T02:40:26.291686\",\"dateModified\":\"2026-08-06T02:50:31.807956\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/738.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"p6Djaxjxy_hfeRA8C4hrH"}
+3:{"id":"168"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

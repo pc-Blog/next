@@ -1,0 +1,29 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "前面十篇学完了 Rust 基础语法，这一篇用 Tauri 做一个真正的桌面应用——**员工表格展示器**。前端写 HTML/CSS/JS，后端 Rust 写业务逻辑，`invoke` 做桥梁。\n\n---\n\n## 1. Tauri 是什么\n\nElectron 用 Chromium + Node.js，打包出来至少 150MB。Tauri 用系统自带 WebView + Rust 后端，打包体积 5-10MB。本质就是一个 Rust 程序，内嵌一个 WebView 窗口，前端 HTML 跑在这个 WebView 里，通过 `invoke()` 调用 Rust 函数。\n\n|            | Electron      | Tauri v2     |\n| ---------- | ------------- | ------------ |\n| 渲染引擎   | Chromium 内嵌  | 系统 WebView  |\n| 后端       | Node.js       | Rust         |\n| 打包体积   | ~150MB        | ~5-10MB      |\n| 前端 API   | `window.electron` | `window.__TAURI__` |\n\n---\n\n## 2. 项目结构\n\n```\ntauri-table-app/\n├── src/                    # 前端\n│   ├── index.html\n│   ├── style.css\n│   └── main.js\n└── src-tauri/              # Rust 后端\n    ├── Cargo.toml\n    ├── build.rs\n    ├── tauri.conf.json\n    ├── capabilities/\n    │   └── default.json\n    ├── icons/\n    │   └── icon.png\n    └── src/\n        └── main.rs\n```\n\n前端和后端完全分离，通过 JSON 通信。\n\n---\n\n## 3. Rust 后端\n\n```rust\n#![cfg_attr(not(debug_assertions), windows_subsystem = \"windows\")]\n\n#[tauri::command]\nfn load_table() -> Vec<Vec<String>> {\n    vec![\n        vec![\"张三\".into(), \"28\".into(), \"研发部\".into(), \"2023-03-15\".into()],\n        vec![\"李四\".into(), \"32\".into(), \"产品部\".into(), \"2022-07-01\".into()],\n        vec![\"王五\".into(), \"25\".into(), \"设计部\".into(), \"2024-01-10\".into()],\n        vec![\"赵六\".into(), \"29\".into(), \"研发部\".into(), \"2021-11-23\".into()],\n        vec![\"孙七\".into(), \"35\".into(), \"管理层\".into(), \"2020-05-18\".into()],\n    ]\n}\n\nfn main() {\n    tauri::Builder::default()\n        .invoke_handler(tauri::generate_handler![load_table])\n        .run(tauri::generate_context!())\n        .expect(\"启动失败\");\n}\n```\n\n`#[tauri::command]` 把一个普通函数变成前端可调用的命令。`Vec<Vec<String>>` 自动被 serde 序列化为 JSON 二维数组。`generate_handler![]` 注册命令列表。\n\n---\n\n## 4. 前端 JS：调用后端\n\nTauri v2 中，前端通过 `window.__TAURI__.core.invoke()` 调用 Rust 命令：\n\n```javascript\nconst { invoke } = window.__TAURI__.core;\n\ndocument.getElementById('load-btn').addEventListener('click', async () => {\n    const data = await invoke('load_table');\n    // data = [[\"张三\",\"28\",\"研发部\",...], ...]\n\n    const headers = ['姓名', '年龄', '部门', '入职日期'];\n    const thead = '<thead><tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead>';\n    const tbody = '<tbody>' + data.map(row =>\n        '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>'\n    ).join('') + '</tbody>';\n\n    document.getElementById('table-wrap').innerHTML = '<table>' + thead + tbody + '</table>';\n});\n```\n\n前端不需要 `npm install` 任何东西。只要 `tauri.conf.json` 里配了 `\"withGlobalTauri\": true`，`window.__TAURI__` 就全局可用。\n\n---\n\n## 5. tauri.conf.json（v2 格式）\n\n```json\n{\n  \"productName\": \"表格展示器\",\n  \"version\": \"0.1.0\",\n  \"identifier\": \"com.table.demo\",\n  \"build\": {\n    \"frontendDist\": \"../src\",\n    \"beforeDevCommand\": \"\",\n    \"beforeBuildCommand\": \"\"\n  },\n  \"app\": {\n    \"withGlobalTauri\": true,\n    \"windows\": [{\n      \"title\": \"表格展示器\",\n      \"width\": 700,\n      \"height\": 500\n    }],\n    \"security\": { \"csp\": null }\n  },\n  \"bundle\": {\n    \"icon\": [\"icons/icon.png\"]\n  }\n}\n```\n\n关键字段：`frontendDist` 指向前端文件夹，`withGlobalTauri` 开启全局 API，`csp: null` 允许内联样式。\n\nv2 还需要 `capabilities/default.json`：\n\n```json\n{\n  \"identifier\": \"default\",\n  \"description\": \"默认权限\",\n  \"windows\": [\"main\"],\n  \"permissions\": [\"core:default\"]\n}\n```\n\n---\n\n## 6. Cargo.toml\n\n```toml\n[dependencies]\ntauri = \"2\"\nserde = { version = \"1\", features = [\"derive\"] }\nserde_json = \"1\"\n\n[build-dependencies]\ntauri-build = \"2\"\n```\n\n---\n\n## 7. 运行\n\n```bash\ncargo install tauri-cli   # 首次\ncargo tauri dev           # 开发模式，热更新\ncargo tauri build         # 打包\n```\n\n首次编译会下载约 350 个依赖，耐心等。之后改 Rust 代码增量编译，改前端秒热更。\n\n![image.png](/data/media/739.png)\n\n---\n\n## 总结\n\n- Tauri v2 项目需要 `tauri.conf.json`（v2 格式）+ `capabilities/default.json` + `icons/icon.ico`\n- Rust 命令通过 `#[tauri::command]` + `generate_handler![]` 暴露\n- 前端通过 `window.__TAURI__.core.invoke()` 调用，数据自动 JSON 序列化\n- 开发用 `cargo tauri dev`，打包用 `cargo tauri build`\n\n如果已经会 Rust 和基本三件套，写一个桌面应用的门槛远比你想象的低。\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-06T02:41:32.466277",
+  "id": 169,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": null,
+  "prev": {
+    "id": 168,
+    "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Tauri v2 桌面应用完整工程实践：搭建多文件项目、tauri.conf.json 配置、Rust 后端命令对接、前端 JS 调用 invoke API、前后端数据通信全流程。从零到跑通，踩过的坑一次讲清。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用",
+  "updateTime": "2026-08-06T02:49:30.908483"
+}

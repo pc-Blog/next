@@ -1,5 +1,5 @@
 {
-  "articleCount": 85,
+  "articleCount": 86,
   "projectCount": 9,
   "skillCount": 8,
   "timelineCount": 6,
@@ -7,6 +7,11 @@
     {
       "id": 61,
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
+      "viewCount": 14
+    },
+    {
+      "id": 53,
+      "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "viewCount": 8
     },
     {
@@ -22,14 +27,9 @@
     {
       "id": 46,
       "title": "为我的博客自建评论系统，摆脱 Giscus 局限",
-      "viewCount": 5
-    },
-    {
-      "id": 45,
-      "title": "为博客搭建 GitHub 登录系统，打通 OAuth 完整流程",
-      "viewCount": 4
+      "viewCount": 6
     }
   ],
-  "totalViews": 72,
+  "totalViews": 103,
   "commentCount": 3
 }

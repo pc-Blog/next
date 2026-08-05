@@ -1,0 +1,32 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "上一篇我们搞定了变量、数据类型和函数，这一篇进入程序逻辑的核心——**控制流**。Rust 的控制流语句有一个贯穿始终的特点：**它们几乎都是表达式，能返回值**。这一点和 C/Java 等语言差异很大，值得单独写一篇理清楚。\n\n本文所有代码均已实测通过，运行输出贴在对应小节末尾。\n\n---\n\n## 1. if 表达式\n\n### 1.1 基本用法\n\n```rust\nlet n = 7;\nif n > 5 {\n    println!(\"{n} 大于5\");\n} else {\n    println!(\"{n} 小于等于5\");\n}\n```\n\n条件**必须是 `bool` 类型**，Rust 不会像 C 那样把 `0` 当 `false`、把非零当 `true`：\n\n```rust\n// if 1 { }  // ❌ 编译错误：expected `bool`, found integer\n```\n\n这个设计排除了 C 系语言中一大类隐式类型转换导致的 bug。\n\n### 1.2 if 是表达式，可以赋值\n\nRust 的 `if` 整体是一个表达式，可以直接赋值给变量——不需要 C 语言的三元运算符 `?:`：\n\n```rust\nlet result = if n > 5 { \"大于5\" } else { \"小于等于5\" };\n```\n\n每个分支的返回值类型必须一致，否则编译不过：\n\n```rust\n// let x = if true { 1 } else { \"hello\" };  // ❌ 类型不匹配\n```\n\n### 1.3 多分支\n\n```rust\nlet grade = if n >= 9 {\n    'A'\n} else if n >= 7 {\n    'B'\n} else if n >= 5 {\n    'C'\n} else {\n    'D'\n};\n```\n\n**运行输出：**\n```\n7 大于5\n分数 7 -> 等级 B\n```\n\n---\n\n## 2. loop 无限循环\n\n`loop` 会一直循环，直到遇到 `break`。它最独特的能力是 **`break` 可以带一个返回值，这个值就是整个 `loop` 表达式的结果**：\n\n```rust\nlet mut count = 0;\nlet result = loop {\n    count += 1;\n    if count == 5 {\n        break count * 2;  // loop 返回 10\n    }\n};\nprintln!(\"loop 循环了 {count} 次，返回 {result}\");\n```\n\n这种写法在需要「重复尝试直到成功，然后取出结果」的场景下非常自然——比如重试网络请求、等待某个条件满足。\n\n**运行输出：**\n```\nloop 循环了 5 次，返回 10\n```\n\n---\n\n## 3. while 条件循环\n\n和大多数语言一样，条件为真时执行循环体。Rust 的 `while` 没有额外的语法糖：\n\n```rust\nlet mut n = 3;\nwhile n > 0 {\n    println!(\"{n}...\");\n    n -= 1;\n}\nprintln!(\"发射!\");\n```\n\n**运行输出：**\n```\n倒计时: 3... 2... 1... 发射!\n```\n\n---\n\n## 4. for 遍历\n\n`for` 是 Rust 中最常用的循环——安全、简洁，不存在数组越界的风险。\n\n### 4.1 遍历数组\n\n```rust\nlet arr = [10, 20, 30, 40, 50];\nfor elem in arr {\n    println!(\"{elem}\");\n}\n```\n\n这里 `elem` 是数组元素的副本（标量类型实现了 `Copy`）。对复杂类型，用 `for elem in &arr` 可以借用而不转移所有权——这一点后面所有权章节会详细展开。\n\n### 4.2 Range：灵活的整数序列\n\n```rust\n// 0..5  不含 5 → 0, 1, 2, 3, 4\nfor i in 0..5 { }\n\n// 0..=5 包含 5 → 0, 1, 2, 3, 4, 5\nfor i in 0..=5 { }\n\n// 反向\nfor i in (1..=5).rev() { }  // 5, 4, 3, 2, 1\n```\n\nRust 没有 C 风格的三段式 `for (int i = 0; i < n; i++)`，Range 替代了这个角色，而且更安全——不会写错终止条件。\n\n**运行输出：**\n```\n数组元素: 10 20 30 40 50\n0..5:  0 1 2 3 4\n0..=5: 0 1 2 3 4 5\n反向:  5 4 3 2 1\n```\n\n---\n\n## 5. match 模式匹配\n\n`match` 是 Rust 控制流的「王牌」——比 C 的 `switch` 强大得多。\n\n### 5.1 基本匹配\n\n```rust\nlet num = 3;\nmatch num {\n    1 => println!(\"一\"),\n    2 => println!(\"二\"),\n    3 => println!(\"三\"),\n    _ => println!(\"其他\"),\n}\n```\n\n几个关键点：\n\n- **`_` 是通配符**，匹配所有未被前面分支覆盖的值。如果去掉 `_` 分支，编译器会报错——因为 `num` 可能是 4、5、100……\n- `match` 不会「穿透」（fall-through），匹配到一个分支就停，不需要 `break`\n\n### 5.2 match 也是表达式\n\n和 `if`、`loop` 一样，`match` 整体可以返回值：\n\n```rust\nlet desc = match num {\n    1 => \"最小\",\n    2 | 3 | 5 | 7 => \"质数\",   // | 表示「或」\n    4 | 6 | 8 | 9 | 10 => \"合数\",\n    _ => \"超出范围\",\n};\n```\n\n### 5.3 穷尽性检查——Rust 的安全底线\n\n`match` 最强大的设计是**编译器强制你处理所有可能的情况**。如果漏了一个分支：\n\n```rust\n// match num {\n//     1 => \"一\",\n//     2 => \"二\",\n// }  // ❌ 编译错误：non-exhaustive patterns\n```\n\n编译器会直接拒绝编译，并提示你哪些值没被覆盖。这意味着 `match` 本质上是**编译期安全网**——只要你用了 `match` 而不是 `if-else`，就永远不会漏掉边界情况。\n\n**运行输出：**\n```\n三\n7 是质数\n```\n\n---\n\n## 6. 五种控制流对比\n\n| 语句       | 是否表达式 | 典型用途                         |\n| ---------- | ---------- | -------------------------------- |\n| `if`       | 是         | 条件判断、分支赋值                 |\n| `loop`     | 是         | 无限循环、重试逻辑、break 返回值   |\n| `while`    | 否         | 条件驱动的循环                    |\n| `for`      | 否         | 遍历集合、Range                   |\n| `match`    | 是         | 穷举匹配、编译器安全保障           |\n\n---\n\n## 总结\n\n这一篇覆盖了 Rust 五种控制流：\n\n1. **`if` 是表达式**——不需要三元运算符，分支返回值类型必须一致，条件必须是 `bool`\n2. **`loop`**——`break` 可以带返回值，适合「循环直到成功」的场景\n3. **`while`**——和主流语言一致，没有额外概念\n4. **`for`**——配合 Range 替代 C 风格三段式 for，安全且直观\n5. **`match`**——穷尽性检查是编译期的安全网，`_` 是通配符，`|` 表示或\n\n下一篇即将进入 Rust 的「灵魂」——**所有权、借用与生命周期**。这是整个学习过程中最重要、也是最需要时间消化的一篇。\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-05T23:19:25.293616",
+  "id": 161,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 162,
+    "title": "Rust学习笔记：所有权、借用与生命周期——Rust的核心机制"
+  },
+  "prev": {
+    "id": 160,
+    "title": "Rust学习笔记：变量、数据类型与函数——从let讲起的基础语法"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Rust 控制流全解：if 作为表达式赋值、loop 循环与 break 返回值、while 条件循环、for 遍历数组和 Range、match 模式匹配与穷尽性检查。每个知识点附带实测输出，适合已掌握基础语法的初学者。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：控制流——if、loop、while、for与match",
+  "updateTime": "2026-08-06T02:52:18.662839"
+}

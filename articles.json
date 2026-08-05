@@ -1,6 +1,270 @@
 {
-  "total": 86,
+  "total": 97,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T02:41:32.466277",
+      "id": 169,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Tauri v2 桌面应用完整工程实践：搭建多文件项目、tauri.conf.json 配置、Rust 后端命令对接、前端 JS 调用 invoke API、前后端数据通信全流程。从零到跑通，踩过的坑一次讲清。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：Tauri实战——用Rust + Web技术构建桌面应用",
+      "updateTime": "2026-08-06T02:49:30.908483",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T02:40:26.291686",
+      "id": 168,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust Cargo 依赖管理终极教程：Cargo.toml 结构详解、cargo add 添加依赖、语义化版本号规则、Cargo.lock 精确锁定、三种引入第三方库的方式、国内镜像配置。从标准库到 crates.io，开启真正的 Rust 开发生态。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式",
+      "updateTime": "2026-08-06T02:50:31.807956",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T00:31:11.315752",
+      "id": 167,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 模块系统完整教程：行内模块与文件模块的定义、pub 可见性控制私有默认与公开导出、use 路径简化、嵌套模块目录组织、结构体字段级可见性。从单文件到多文件项目，组织 Rust 代码的终极指南。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：模块系统——mod、use、pub与多文件项目",
+      "updateTime": "2026-08-06T02:50:58.88126",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T00:20:07.766546",
+      "id": 166,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 泛型与 Trait 入门教程：泛型函数与结构体的定义、Trait 接口的定义与实现、impl Trait 参数简化、Trait Bound 多重约束、derive 自动实现常见 Trait。从代码重复到类型安全的抽象，一步到位。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：泛型与Trait——写出可复用的Rust代码",
+      "updateTime": "2026-08-06T02:51:10.235479",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T00:14:26.041826",
+      "id": 165,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 错误处理全景：panic! 不可恢复错误、Result<T,E> 可恢复错误的 match/unwrap/expect 处理、? 运算符传播错误的简洁写法、Option 与 Result 互转。从此告别 try-catch，拥抱编译期强制处理的错误哲学。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：错误处理——panic!、Result、Option与?运算符",
+      "updateTime": "2026-08-06T02:51:24.788092",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-06T00:07:42.676921",
+      "id": 164,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 三大集合类型详解：Vec 动态数组的增删改查与遍历、String 的拼接与 format! 宏、HashMap 键值对操作与 entry 模式。从小数据到真实业务，掌握 Rust 最常用的数据结构。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：集合类型——Vec、String与HashMap",
+      "updateTime": "2026-08-06T02:51:41.97114",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-05T23:51:29.158366",
+      "id": 163,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 结构体与枚举完整教程：struct 定义与实例化、impl 方法与关联函数、元组结构体、枚举定义与带数据的变体、Option<T> 代替 null、match 与 if let 解包。从基础语法到实战模式，用可运行代码讲清楚每一处细节。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：结构体与枚举——用Rust组织真正的业务数据",
+      "updateTime": "2026-08-06T02:54:07.302423",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-05T23:29:09.615436",
+      "id": 162,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 最核心的三大机制详解：所有权规则与移动语义、Copy 与 Clone 的区别、不可变借用 &T 和可变借用 &mut T 的规则、生命周期标注 'a 的基本用法。用可运行的代码理解为什么 Rust 不需要垃圾回收也能保证内存安全。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：所有权、借用与生命周期——Rust的核心机制",
+      "updateTime": "2026-08-06T02:52:00.560008",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-05T23:19:25.293616",
+      "id": 161,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 控制流全解：if 作为表达式赋值、loop 循环与 break 返回值、while 条件循环、for 遍历数组和 Range、match 模式匹配与穷尽性检查。每个知识点附带实测输出，适合已掌握基础语法的初学者。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：控制流——if、loop、while、for与match",
+      "updateTime": "2026-08-06T02:52:18.662839",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-05T23:13:41.832792",
+      "id": 160,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "Rust 基础语法入门：let 不可变绑定、mut 可变声明、标量类型与复合类型、函数定义与返回值、const 常量与变量隐藏（Shadowing）。用实际代码跑通每个知识点，适合刚搭好环境的初学者。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：变量、数据类型与函数——从let讲起的基础语法",
+      "updateTime": "2026-08-06T02:52:31.893803",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/738.png",
+      "createdAt": "2026-08-05T22:13:09.986687",
+      "id": 159,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "Rust学习笔记",
+      "summary": "面向初学者的 Rust 开发环境搭建完整指南。从官网下载、自定义安装目录、配置国内镜像源加速，到使用 RustRover IDE 创建项目、详解 Cargo 项目结构和常用命令，手把手带你跑通第一个 Hello World 程序。",
+      "tags": [
+        {
+          "id": 86,
+          "name": "Rust"
+        },
+        {
+          "id": 34,
+          "name": "JetBrains"
+        }
+      ],
+      "title": "Rust学习笔记：从零搭建开发环境并运行第一个程序",
+      "updateTime": "2026-08-06T02:47:15.785362",
+      "viewCount": 0
+    },
     {
       "categoryId": 45,
       "categoryName": "工具教程",

@@ -1,5 +1,11 @@
 [
   {
+    "series": "Rust学习笔记",
+    "count": 11,
+    "coverImage": "/data/media/738.png",
+    "summary": "Tauri v2 桌面应用完整工程实践：搭建多文件项目、tauri.conf.json 配置、Rust 后端命令对接、前端 JS 调用 invoke API、前后端数据通信全流程。从零到跑通，踩过的坑一次讲清。"
+  },
+  {
     "series": "Go学习笔记",
     "count": 10,
     "coverImage": "/data/media/708.png",

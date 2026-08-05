@@ -1,0 +1,32 @@
+{
+  "categoryId": 44,
+  "categoryName": "学习笔记",
+  "content": "Rust 没有 try-catch，没有异常。它的错误处理分两类：**不可恢复**的直接崩（`panic!`），**可恢复**的用 `Result<T, E>` 返回值，编译器强制你处理。这一篇把两种方式讲透。\n\n---\n\n## 1. panic!：不可恢复的错误\n\n`panic!` 是 Rust 的「崩了」——遇到无法继续的情况，程序直接终止：\n\n```rust\nlet v = vec![1, 2, 3];\n// let x = v[99]; // panic: index out of bounds\n```\n\n和 C 的段错误不同，`panic!` 会打印调用栈，告诉你崩在第几行。**只在真正的 bug（数组越界、除零）时才 panic，业务错误别用。**\n\n---\n\n## 2. Result<T, E>：可恢复的错误\n\n文件不存在、网络超时、输入格式不对——这些不该崩，应该返回错误让调用方决定怎么办。`Result` 就是干这个的：\n\n```rust\nenum Result<T, E> {\n    Ok(T),   // 成功，带返回值\n    Err(E),  // 失败，带错误信息\n}\n```\n\n### 2.1 match 处理\n\n```rust\nlet f = File::open(\"hello.txt\");\n\nmatch f {\n    Ok(file) => println!(\"文件打开成功\"),\n    Err(error) => println!(\"文件打开失败: {error}\"),\n}\n```\n\n编译器知道你收到了 `Result`，不处理两种情况之一就编译不过——和 `Option` 一样，编译期安全网。\n\n### 2.2 快捷方法\n\n```rust\n// unwrap：成功返回值，失败直接 panic\n// let f = File::open(\"not_exist.txt\").unwrap(); // panic!\n\n// expect：和 unwrap 一样，但可以自定义 panic 信息\n// let f = File::open(\"not_exist.txt\").expect(\"必须存在这个文件\");\n\n// unwrap_or_else：失败时执行一个闭包\nlet f = File::open(\"not_exist.txt\").unwrap_or_else(|err| {\n    println!(\"无法打开: {err}\");\n    File::create(\"fallback.txt\").unwrap() // 创建替代文件\n});\n```\n\n`unwrap` 和 `expect` 适合原型阶段快速验证，生产代码建议用 `match` 或 `?`。\n\n---\n\n## 3. `?` 运算符：错误传播\n\n多层函数调用时，每层都写 `match` 来处理错误再 `return Err(...)` 会很冗长。`?` 做了这件事——如果值是 `Err`，直接 `return Err`；如果是 `Ok`，就把里面的值取出来：\n\n```rust\nfn read_file_content() -> Result<String, io::Error> {\n    let mut f = File::open(\"hello.txt\")?; // 失败就直接 return Err\n    let mut content = String::new();\n    f.read_to_string(&mut content)?;\n    Ok(content)\n}\n```\n\n没有 `?` 的话要写成：\n\n```rust\nlet mut f = match File::open(\"hello.txt\") {\n    Ok(file) => file,\n    Err(e) => return Err(e),\n};\n```\n\n`?` 把它压缩成了 `File::open(\"hello.txt\")?` 一行。链式调用更简洁：\n\n```rust\nfn read_file_short() -> Result<String, io::Error> {\n    let mut content = String::new();\n    File::open(\"hello.txt\")?.read_to_string(&mut content)?;\n    Ok(content)\n}\n```\n\n**关键：`?` 只能用在返回 `Result` 或 `Option` 的函数里。** 在 `main` 函数或其他返回 `()` 的地方不能直接用 `?`。\n\n---\n\n## 4. Option 与 Result 互转\n\n`Option` 也可以配合 `?`，但只能在返回 `Option` 的函数中：\n\n```rust\nfn find_first_even(nums: &[i32]) -> Option<i32> {\n    for &n in nums {\n        if n % 2 == 0 {\n            return Some(n);\n        }\n    }\n    None\n}\n```\n\n`Option` 转 `Result`——`.ok_or()`：\n\n```rust\nlet result = find_first_even(&nums).ok_or(\"没找到偶数\");\n// Ok(8) 或 Err(\"没找到偶数\")\n```\n\n`Result` 转 `Option`——`.ok()`：\n\n```rust\nlet opt = File::open(\"hello.txt\").ok(); // 成功变 Some(file)，失败变 None\n```\n\n---\n\n## 5. 链式组合\n\n多个可能出错的操作用 `?` 串起来，逻辑清晰：\n\n```rust\nfn process_data() -> Result<i32, String> {\n    let nums = vec![10, 20, 30];\n    let first = nums.get(0).ok_or(\"列表为空\")?;\n    let second = nums.get(1).ok_or(\"只有1个元素\")?;\n    Ok(first + second)\n}\n```\n\n每一步都可能失败，但代码读起来像成功路径一样流畅。这比嵌套 `if-else` 或 try-catch 块要舒服得多。\n\n---\n\n## 总结\n\n| 机制        | 用途                       | 编译期检查？ |\n| ----------- | -------------------------- | ------------ |\n| `panic!`    | 不可恢复的 bug             | 否（运行时） |\n| `Result`    | 可恢复的错误，调用方处理   | 是           |\n| `Option`    | 值可能不存在               | 是           |\n| `?`         | 简化 `Result`/`Option` 传播 | 是           |\n\n核心思想：**能用 `Result`/`Option` 就别用 `panic!`**，能用 `?` 就别堆 `match`。\n\n至此，Rust 基础语法的「必修课」已经全部覆盖。下一篇进入**泛型与 Trait**，开始写真正可复用的 Rust 代码。\n",
+  "coverImage": "/data/media/738.png",
+  "createdAt": "2026-08-06T00:14:26.041826",
+  "id": 165,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 166,
+    "title": "Rust学习笔记：泛型与Trait——写出可复用的Rust代码"
+  },
+  "prev": {
+    "id": 164,
+    "title": "Rust学习笔记：集合类型——Vec、String与HashMap"
+  },
+  "series": "Rust学习笔记",
+  "summary": "Rust 错误处理全景：panic! 不可恢复错误、Result<T,E> 可恢复错误的 match/unwrap/expect 处理、? 运算符传播错误的简洁写法、Option 与 Result 互转。从此告别 try-catch，拥抱编译期强制处理的错误哲学。",
+  "tags": [
+    {
+      "id": 86,
+      "name": "Rust"
+    },
+    {
+      "id": 34,
+      "name": "JetBrains"
+    }
+  ],
+  "title": "Rust学习笔记：错误处理——panic!、Result、Option与?运算符",
+  "updateTime": "2026-08-06T02:51:24.788092"
+}

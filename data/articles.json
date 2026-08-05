@@ -1,6 +1,34 @@
 {
-  "total": 85,
+  "total": 86,
   "rows": [
+    {
+      "categoryId": 45,
+      "categoryName": "工具教程",
+      "coverImage": "/data/media/737.png",
+      "createdAt": "2026-08-05T17:32:59.134765",
+      "id": 158,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": null,
+      "summary": "在找 AI 资讯数据源的过程中发现了 AI HOT——一个中文 AI 动态聚合平台，开放了 8 个免费 REST 接口，不用注册、不用 Token、前端直连无跨域。本文逐一实测了全部接口的用法与返回字段，附真实响应数据，供需要的朋友参考。",
+      "tags": [
+        {
+          "id": 54,
+          "name": "热点爬取"
+        },
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        }
+      ],
+      "title": "分享一个我发现的免费 AI 资讯 API：AI HOT，无需注册、无需 Token、开箱即用",
+      "updateTime": "2026-08-05T17:32:59.141087",
+      "viewCount": 0
+    },
     {
       "categoryId": 43,
       "categoryName": "开发拾遗",
@@ -47,7 +75,7 @@
       ],
       "title": "使用AI开发项目的经历和感受：关于AI 编程的碎碎念",
       "updateTime": "2026-08-03T03:24:14.061655",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -99,7 +127,7 @@
       ],
       "title": "Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）",
       "updateTime": "2026-07-30T16:05:21.938866",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 39,
@@ -114,7 +142,7 @@
       "tags": [],
       "title": "Elasticsearch 学习笔记：从零到实战（Docker 部署 + Spring Boot 集成）",
       "updateTime": "2026-07-30T16:04:46.457563",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -294,7 +322,7 @@
       ],
       "title": "Git学习笔记：GitHub Actions 从零到实战",
       "updateTime": "2026-07-28T10:09:10.060199",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -734,7 +762,7 @@
       "tags": [],
       "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
       "updateTime": "2026-07-16T19:48:58.038132",
-      "viewCount": 2
+      "viewCount": 4
     },
     {
       "categoryId": 39,
@@ -1032,7 +1060,7 @@
       ],
       "title": "Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程",
       "updateTime": "2026-07-10T12:04:20.921973",
-      "viewCount": 0
+      "viewCount": 3
     },
     {
       "categoryId": 44,
@@ -1270,7 +1298,7 @@
       ],
       "title": "KubeSphere学习笔记：部署mysql",
       "updateTime": "2026-07-06T15:03:07.975213",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -1390,7 +1418,7 @@
       ],
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
       "updateTime": "2026-07-02T16:48:48.139246",
-      "viewCount": 8
+      "viewCount": 14
     },
     {
       "categoryId": 43,
@@ -1502,7 +1530,7 @@
       ],
       "title": "Hotspot 技术实现全解：从零搭建自动化热点追踪系统",
       "updateTime": "2026-07-01T13:57:24.431101",
-      "viewCount": 0
+      "viewCount": 3
     },
     {
       "categoryId": 37,
@@ -1530,7 +1558,7 @@
       ],
       "title": "告别无效刷榜：免费 AI 工具，自动追踪纯技术热点生成报告",
       "updateTime": "2026-07-01T13:59:30.358941",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 41,
@@ -1586,7 +1614,7 @@
       ],
       "title": "为什么 TrendRadar 的社交热榜满足不了技术博客——我的热点方案选型记录",
       "updateTime": "2026-07-01T10:02:07.745102",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 41,
@@ -1610,7 +1638,7 @@
       ],
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "updateTime": "2026-07-01T09:58:38.436744",
-      "viewCount": 4
+      "viewCount": 8
     },
     {
       "categoryId": 42,
@@ -1642,7 +1670,7 @@
       ],
       "title": "博客、API、邮箱全掌控：Cloudflare 让一个域名的价值彻底放大",
       "updateTime": "2026-07-01T15:18:37.317621",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -1674,7 +1702,7 @@
       ],
       "title": "免费订阅服务升级：MailerLite 完全指南（与 Buttondown 对比）",
       "updateTime": "2026-06-28T21:52:40.011553",
-      "viewCount": 3
+      "viewCount": 4
     },
     {
       "categoryId": 41,
@@ -1754,7 +1782,7 @@
       ],
       "title": "选择cloudflare，给我的博客带来了什么",
       "updateTime": "2026-07-01T15:18:49.782057",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 42,
@@ -1782,7 +1810,7 @@
       ],
       "title": "你的邮件你做主：手把手打造永不绑定服务商的私人邮件中转站",
       "updateTime": "2026-07-01T15:19:00.680919",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 40,
@@ -1850,7 +1878,7 @@
       ],
       "title": "为我的博客自建评论系统，摆脱 Giscus 局限",
       "updateTime": "2026-06-27T22:01:52.468013",
-      "viewCount": 5
+      "viewCount": 6
     },
     {
       "categoryId": 40,

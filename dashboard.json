@@ -7,12 +7,12 @@
     {
       "id": 61,
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
-      "viewCount": 14
+      "viewCount": 15
     },
     {
       "id": 53,
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
-      "viewCount": 8
+      "viewCount": 9
     },
     {
       "id": 43,
@@ -22,7 +22,7 @@
     {
       "id": 66,
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
-      "viewCount": 6
+      "viewCount": 7
     },
     {
       "id": 46,
@@ -30,6 +30,6 @@
       "viewCount": 6
     }
   ],
-  "totalViews": 105,
+  "totalViews": 135,
   "commentCount": 5
 }

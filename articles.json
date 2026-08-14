@@ -11,9 +11,22 @@
       "isPublished": 1,
       "series": null,
       "summary": "dsh-pet 是一个开源的 DeepSeek Harness 桌面宠物插件：25 个手绘风格动画、链式随机行为、屏幕漫游、点击拖拽交互，安装即用。本文介绍它的功能设计、安装方法，以及从提示词到透明动画的开源素材链。",
-      "tags": [],
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
       "title": "在 DeepSeek Harness 里养一只桌面宠物：dsh-pet 插件分享",
-      "updateTime": "2026-08-14T17:34:17.178739",
+      "updateTime": "2026-08-14T18:00:24.757357",
       "viewCount": 0
     },
     {
@@ -142,7 +155,7 @@
       ],
       "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式",
       "updateTime": "2026-08-06T02:50:31.807956",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -434,7 +447,7 @@
       ],
       "title": "使用AI开发项目的经历和感受：关于AI 编程的碎碎念",
       "updateTime": "2026-08-03T03:24:14.061655",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -696,7 +709,7 @@
       "tags": [],
       "title": "Git学习笔记：Git 底层存储设计 — blob、tree、commit、ref 如何组成一个版本控制系统",
       "updateTime": "2026-07-27T21:32:06.29921",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -752,7 +765,7 @@
       ],
       "title": "Git学习笔记：GitHub Contents API 完全指南，用 Go 轻松管理仓库文件",
       "updateTime": "2026-07-27T21:33:27.484189",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -1121,7 +1134,7 @@
       "tags": [],
       "title": "Qdrant 向量数据库从入门到实战：Docker 部署 + Web 控制台 + Java 客户端完整教程",
       "updateTime": "2026-07-16T19:48:58.038132",
-      "viewCount": 4
+      "viewCount": 5
     },
     {
       "categoryId": 39,
@@ -1153,7 +1166,7 @@
       ],
       "title": "PgVector从入门到实战：用PostgreSQL做向量检索，附SpringBoot+MyBatisPlus整合",
       "updateTime": "2026-07-27T22:25:31.386681",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -1168,7 +1181,7 @@
       "tags": [],
       "title": "Redis学习笔记：缓存必知必会 —— 穿透、击穿、雪崩、一致性，从原理到实战",
       "updateTime": "2026-07-15T23:28:22.349392",
-      "viewCount": 0
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -1198,7 +1211,7 @@
       "tags": [],
       "title": "Redis学习笔记：Cluster 分片集群从原理到实战部署",
       "updateTime": "2026-07-15T17:52:56.945662",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -1312,7 +1325,7 @@
       ],
       "title": "MySQL学习笔记：GTID 主从复制，从原理到实践，告别传统 Binlog+Position 的痛点",
       "updateTime": "2026-07-11T08:57:03.861121",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -1419,7 +1432,7 @@
       ],
       "title": "Resend 邮件服务接入指南：免费的开发者邮件 API 使用教程",
       "updateTime": "2026-07-10T12:04:20.921973",
-      "viewCount": 4
+      "viewCount": 5
     },
     {
       "categoryId": 44,
@@ -1434,7 +1447,7 @@
       "tags": [],
       "title": "KubeSphere学习笔记：从 Gitee 拉取代码到部署到 K8s",
       "updateTime": "2026-07-29T15:02:05.868947",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -1585,7 +1598,7 @@
       "tags": [],
       "title": "FinalShell 自定义背景图片教程",
       "updateTime": "2026-07-05T17:26:28.731088",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 39,
@@ -1621,7 +1634,7 @@
       ],
       "title": "从零上手 openGauss：Docker 部署 + 全场景连接教程",
       "updateTime": "2026-07-05T17:24:04.305224",
-      "viewCount": 6
+      "viewCount": 7
     },
     {
       "categoryId": 44,
@@ -1657,7 +1670,7 @@
       ],
       "title": "KubeSphere学习笔记：部署mysql",
       "updateTime": "2026-07-06T15:03:07.975213",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 41,
@@ -1753,7 +1766,7 @@
       ],
       "title": "Windows 下 WSL2 + Docker Desktop + Ubuntu 开发环境搭建指南",
       "updateTime": "2026-07-04T08:29:34.920937",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 43,
@@ -1777,7 +1790,7 @@
       ],
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
       "updateTime": "2026-07-02T16:48:48.139246",
-      "viewCount": 14
+      "viewCount": 15
     },
     {
       "categoryId": 43,
@@ -1917,7 +1930,7 @@
       ],
       "title": "告别无效刷榜：免费 AI 工具，自动追踪纯技术热点生成报告",
       "updateTime": "2026-07-01T13:59:30.358941",
-      "viewCount": 2
+      "viewCount": 5
     },
     {
       "categoryId": 41,
@@ -1997,7 +2010,7 @@
       ],
       "title": "别让你的域名邮箱 \"裸奔\"！3 分钟添上专属头像",
       "updateTime": "2026-07-01T09:58:38.436744",
-      "viewCount": 8
+      "viewCount": 9
     },
     {
       "categoryId": 42,
@@ -2141,7 +2154,7 @@
       ],
       "title": "选择cloudflare，给我的博客带来了什么",
       "updateTime": "2026-07-01T15:18:49.782057",
-      "viewCount": 3
+      "viewCount": 6
     },
     {
       "categoryId": 42,
@@ -2297,7 +2310,7 @@
       ],
       "title": "上手 Cloudflare D1：无服务器数据库入门与博客实战",
       "updateTime": "2026-06-27T21:53:04.420937",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 38,
@@ -2389,7 +2402,7 @@
       ],
       "title": "让 Claude Code 白嫖 DeepSeek 网页版：一个 API 中转代理的诞生",
       "updateTime": "2026-06-16T16:27:16.266701",
-      "viewCount": 3
+      "viewCount": 5
     },
     {
       "categoryId": 38,
@@ -2537,7 +2550,7 @@
       ],
       "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
       "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 3
+      "viewCount": 4
     },
     {
       "categoryId": 38,

@@ -14,7 +14,20 @@
   },
   "series": null,
   "summary": "dsh-pet 是一个开源的 DeepSeek Harness 桌面宠物插件：25 个手绘风格动画、链式随机行为、屏幕漫游、点击拖拽交互，安装即用。本文介绍它的功能设计、安装方法，以及从提示词到透明动画的开源素材链。",
-  "tags": [],
+  "tags": [
+    {
+      "id": 55,
+      "name": "AI应用"
+    },
+    {
+      "id": 85,
+      "name": "Ai编程"
+    },
+    {
+      "id": 24,
+      "name": "deepseek"
+    }
+  ],
   "title": "在 DeepSeek Harness 里养一只桌面宠物：dsh-pet 插件分享",
-  "updateTime": "2026-08-14T17:34:17.178739"
+  "updateTime": "2026-08-14T18:00:24.757357"
 }

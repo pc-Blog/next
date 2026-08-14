@@ -1,5 +1,11 @@
 [
   {
+    "series": "DeepSeek Harness 体验",
+    "count": 5,
+    "coverImage": "/data/media/779.png",
+    "summary": "DeepSeek 涨价后，我把 DeepSeek Harness 的主对话模型切到了 opencode，却意外发现联网搜索仍在消耗 DeepSeek 额度。本文记录这次切换的实测体验，扒一下联网搜索的真实机制，确认 opencode 是否支持替换搜索供应商，并附上几条实际可行的处理方案。"
+  },
+  {
     "series": "Rust学习笔记",
     "count": 11,
     "coverImage": "/data/media/738.png",

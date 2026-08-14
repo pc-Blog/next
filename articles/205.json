@@ -7,7 +7,10 @@
   "id": 205,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 206,
+    "title": "DeepSeek Harness 创建 skill 指南：结构、安装、使用"
+  },
   "prev": {
     "id": 204,
     "title": "DeepSeek Harness 插件开发实战：从设计理念到 npm 发布"

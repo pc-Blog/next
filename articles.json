@@ -1,6 +1,90 @@
 {
-  "total": 101,
+  "total": 104,
   "rows": [
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "coverImage": "/data/media/779.png",
+      "createdAt": "2026-08-15T01:47:39.614785",
+      "id": 208,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "DeepSeek Harness 体验",
+      "summary": "DeepSeek 涨价后，我把 DeepSeek Harness 的主对话模型切到了 opencode，却意外发现联网搜索仍在消耗 DeepSeek 额度。本文记录这次切换的实测体验，扒一下联网搜索的真实机制，确认 opencode 是否支持替换搜索供应商，并附上几条实际可行的处理方案。",
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "DeepSeek Harness 初体验：主模型换到 opencode，联网搜索却绕不开 DeepSeek",
+      "updateTime": "2026-08-15T01:49:38.388299",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "coverImage": "/data/media/779.png",
+      "createdAt": "2026-08-15T01:47:12.54108",
+      "id": 207,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "DeepSeek Harness 体验",
+      "summary": "试用 DeepSeek Harness 时，我发现它写入文件前会检查文件是否被外部修改，版本不一致就拒绝写入。用同样的指令实测 Claude Code、Trae 和 Codex，发现只有 DSH 会拦下覆盖。本文记录这个发现、背后的机制与多工具对比结果。",
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "DeepSeek Harness 试用发现：AI 会不会覆盖你手动改的文件？",
+      "updateTime": "2026-08-15T01:49:29.820526",
+      "viewCount": 0
+    },
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "coverImage": "/data/media/779.png",
+      "createdAt": "2026-08-15T01:46:13.677403",
+      "id": 206,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "DeepSeek Harness 体验",
+      "summary": "手把手教你在 DeepSeek Harness 中创建 skill：SKILL.md 结构、安装位置、两种调用方式。重点分享一个真实踩坑——frontmatter 里的冒号+空格会让 skill 被静默丢弃，表现为目录为空、工具报 unknown，附完整排查过程与避坑清单。",
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "DeepSeek Harness 创建 skill 指南：结构、安装、使用",
+      "updateTime": "2026-08-15T01:49:21.207587",
+      "viewCount": 0
+    },
     {
       "categoryId": 45,
       "categoryName": "工具教程",
@@ -37,7 +121,7 @@
       "id": 204,
       "isPinned": 0,
       "isPublished": 1,
-      "series": null,
+      "series": "DeepSeek Harness 体验",
       "summary": "从“一切皆插件”的设计理念出发，本文带你完整走一遍 DeepSeek Harness 插件开发的实战路径：插件架构组成、安装与编写、AI 可调用工具、自定义 Web UI，再到 npm 发布上线，并附实战踩坑记录。",
       "tags": [
         {
@@ -54,18 +138,18 @@
         }
       ],
       "title": "DeepSeek Harness 插件开发实战：从设计理念到 npm 发布",
-      "updateTime": "2026-08-14T17:13:20.259028",
+      "updateTime": "2026-08-15T01:48:34.429941",
       "viewCount": 0
     },
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
-      "coverImage": "/data/media/778.png",
+      "coverImage": "/data/media/779.png",
       "createdAt": "2026-08-14T17:10:00.911434",
       "id": 203,
       "isPinned": 0,
       "isPublished": 1,
-      "series": null,
+      "series": "DeepSeek Harness 体验",
       "summary": "DeepSeek Harness（dsh）是 DeepSeek AI 开源的智能体框架，以“一切皆插件”为核心理念，由 Cordis 驱动。本文从环境准备、安装启动、端口配置、四种内置模式，到常用操作与插件系统，带你从零上手这款可高度定制的 Agent 开发平台，并分享官方插件源码这一最佳学习资料。",
       "tags": [
         {
@@ -82,7 +166,7 @@
         }
       ],
       "title": "DeepSeek Harness 上手指南：一切皆插件的 AI 智能体框架",
-      "updateTime": "2026-08-14T17:10:00.984532",
+      "updateTime": "2026-08-15T01:48:51.285708",
       "viewCount": 0
     },
     {
@@ -2490,90 +2574,6 @@
       ],
       "title": "用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本",
       "updateTime": "2026-06-11T08:22:31.298244",
-      "viewCount": 2
-    },
-    {
-      "categoryId": 38,
-      "categoryName": "网站部署",
-      "coverImage": "/data/media/317.webp",
-      "createdAt": "2026-06-10T21:20:34.516448",
-      "id": 37,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "介绍了三种获取 Cloudflare 网站流量数据的方式：Cloudflare 控制台直接查看（零代码）、GraphQL API 编程获取（Python 示例）、部署 Worker 作为数据中间层。涵盖 Zone ID 和 API Token 的获取、GraphQL 查询语句编写、API 维度说明（按天/按小时/按国家），以及通过 Wrangler 本地构建 Worker 的完整流程。适合首次接触 Cloudflare Analytics 的读者。",
-      "tags": [
-        {
-          "id": 28,
-          "name": "Cloudflare"
-        },
-        {
-          "id": 29,
-          "name": "域名"
-        },
-        {
-          "id": 30,
-          "name": "博客"
-        }
-      ],
-      "title": "给我的博客添加监控板块：使用 Cloudflare API 获取网站流量信息",
-      "updateTime": "2026-06-11T08:26:47.002639",
-      "viewCount": 2
-    },
-    {
-      "categoryId": 38,
-      "categoryName": "网站部署",
-      "coverImage": "/data/media/283.jpg",
-      "createdAt": "2026-06-09T12:41:52.583618",
-      "id": 36,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "在阿里云购买域名，交给 Cloudflare 托管 DNS 并开启 CDN 加速，最后绑定到 GitHub Pages——手把手教你让你的博客拥有自定义域名，兼顾专业感与访问速度。全文涵盖域名购买、DNS 托管、解析配置、SSL 证书、性能优化及常见排错。",
-      "tags": [
-        {
-          "id": 27,
-          "name": "Github"
-        },
-        {
-          "id": 28,
-          "name": "Cloudflare"
-        },
-        {
-          "id": 29,
-          "name": "域名"
-        },
-        {
-          "id": 30,
-          "name": "博客"
-        }
-      ],
-      "title": "为 GitHub Pages 博客配置自定义域名与 Cloudflare 加速",
-      "updateTime": "2026-06-10T14:42:38.102608",
-      "viewCount": 4
-    },
-    {
-      "categoryId": 38,
-      "categoryName": "网站部署",
-      "coverImage": "/data/media/47.jpg",
-      "createdAt": "2026-05-26T20:16:47.720519",
-      "id": 35,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "本教程将指导你如何将个人网站/博客提交到 Bing 搜索引擎，让 Bing 用户能够搜索到你的内容",
-      "tags": [
-        {
-          "id": 25,
-          "name": "Bing"
-        },
-        {
-          "id": 26,
-          "name": "SEO"
-        }
-      ],
-      "title": "将个人网址录入Bing搜索引擎",
-      "updateTime": "2026-06-10T14:42:38.102608",
       "viewCount": 2
     }
   ]

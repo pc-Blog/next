@@ -1,0 +1,104 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T13ff,## 一、前言：skill 能干什么
+
+**skill 是 DSH 里"给 AI 预装技能"的机制**：一个 Markdown 文件，就能教会模型一套固定的做事规范——比如"按琉璃风格写页面""写规范 commit message""整理 Obsidian 笔记"。之后只要对话匹配到它，模型就会自动加载并按规范执行，不用每次重复交代。
+
+它有三个特点，决定了它很实用：
+
+- **一个文件就是一个技能**：创建零成本，随时改、随时生效（热加载，不用重启）；
+- **两种触发方式**：模型自动发现调用，或你手动 `/skill名` 强制注入；
+- **可精细控制**：可以设置"模型不可见、只能手动调"，或"模型可见、手动不可调"。
+
+## 二、skill 是什么：结构、存放目录、使用方式
+
+### 结构：一个带元数据的 Markdown 文件
+
+skill 本质是 **YAML frontmatter + Markdown 正文**。frontmatter 告诉系统"这个技能叫什么、干什么、什么时候用"：
+
+```markdown
+---
+name: my-skill            # 必填：kebab-case（小写+连字符）
+description: 一句话说明这个 skill 做什么，模型靠它决定何时调用
+whenToUse: 可选：补充使用时机
+disable-model-invocation: false   # true 则模型目录里隐藏
+user-invocable: true              # false 则 /命令 里隐藏
+---
+# 正文：给模型的具体操作指令
+```
+
+- **必填**只有 `name` 和 `description`；`name` 必须 kebab-case（`mySkill` 会直接失效）；
+- 支持两种存放格式：**目录 bundle**（`<root>/<skill名>/SKILL.md`，可带 scripts/assets 资源）或**扁平文件**（`<root>/<skill名>.md`）；
+- ⚠️ 只扫描**一层**，不支持嵌套目录。
+
+### 存放目录与优先级
+
+skill 没有"安装"动作，**放进扫描目录即被发现**。按优先级：
+
+| 优先级 | 位置 | 说明 |
+|---|---|---|
+| 100 | `<项目根>/.dsh/skills/` | 项目级，项目根 = 最近的 `.git` 祖先 |
+| 200 | `<项目根>/.agents/skills/` | 项目级（通用 agent 目录） |
+| 300 | `customSkillDirs` 配置的目录 | 自定义 |
+| 400 | **`~/.dsh/skills/`** | 用户级，任何会话都可见 |
+| 500 | `~/.agents/skills/` | 用户级 |
+
+**个人常用 skill 放 `~/.dsh/skills/`**；项目专用放项目目录——注意项目级 skill 只在那个项目下的会话可见（解析跟随 cwd）。
+
+### 使用方式
+
+- **模型自动调用**：会话开始注入一份 skill 目录（`<available_skills>`，列出 name + description），请求匹配时模型调 `skill` 工具加载并执行——你正常对话即可；
+- **手动触发**：输入框输 `/skill名`，完整内容直接注入对话；也是 `disable-model-invocation: true` 的 skill 唯一入口。
+
+## 三、创建自己的 skill：过程与坑
+
+### 过程（三步）
+
+1. **写文件**：按上面结构写 `SKILL.md`，正文写清操作规范（最好附反例）；
+2. **放目录**：拷到 `~/.dsh/skills/<skill名>/SKILL.md`（用户级）或项目 `.dsh/skills/`；
+3. **验证**：新会话问"你有哪些可用 skill"，或直接 `/skill名` 试一次。
+
+### 坑：skill 会被"静默丢弃"
+
+我第一次建 skill 时翻了个大车：文件放好后，新会话没有目录、`/skill名` 无反应、但 `skill` 工具明明在工具列表里——**没有任何报错**。
+
+排查过程：
+
+1. 解压会话日志（zstd 分帧，逐个解压搜索），确认从未注入 `<available_skills>`——工具在、发现列表空；
+2. 直接调 `skill` 工具加载，返回 `unknown or no longer available`——确认是发现层问题；
+3. 用 YAML 解析器直接解析 SKILL.md，报错：
+
+   ```
+   Nested mappings are not allowed in compact mappings at line 3, column 14
+   ```
+
+**根因**：我的 `description` 里写了 `design: semantic`、`CSS variables, ...`——**冒号+空格在 YAML 里是映射分隔符**，frontmatter 整个解析失败。而 skill-filesystem 对解析失败的条目**只记警告、静默丢弃**，于是目录空、工具报 unknown，毫无提示。
+
+**修复**：给含特殊字符的字段加引号：
+
+```yaml
+description: "HTML/CSS style guide for modern, gradient-rich, glassmorphism (琉璃/毛玻璃) design: semantic markup, ..."
+whenToUse: "When the user asks to write HTML/CSS, ..."
+```
+
+保存后目录自动刷新，新会话立即可用。
+
+### 避坑清单
+
+1. frontmatter 值含**冒号+空格、括号、逗号、长英文**时，务必加引号；
+2. skill 被丢弃是**静默**的（目录空 + 工具报 unknown），遇到先怀疑 frontmatter；
+3. `name` 用 kebab-case，别用驼峰；
+4. 目录只扫一层，别建嵌套；
+5. `description` 尽量简短（模型靠它判断调用时机），复杂说明放正文。
+
+## 四、总结
+
+skill 是 DSH 里成本最低、收益最直接的自定义能力：一个文件就是一个可复用技能，放对目录即生效，支持自动/手动两种调用。唯一要注意的是 frontmatter 的 YAML 陷阱——它会导致 skill 被静默丢弃且毫无提示，这也是希望 DSH 后续版本能改进的地方（至少把解析警告暴露到界面上）。0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"DeepSeek Harness 创建 skill 指南：结构、安装、使用\",\"item\":\"https://www.lxpavilion.top/article/206\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"DeepSeek Harness 创建 skill 指南：结构、安装、使用\",\"headline\":\"DeepSeek Harness 创建 skill 指南：结构、安装、使用\",\"description\":\"手把手教你在 DeepSeek Harness 中创建 skill：SKILL.md 结构、安装位置、两种调用方式。重点分享一个真实踩坑——frontmatter 里的冒号+空格会让 skill 被静默丢弃，表现为目录为空、工具报 unknown，附完整排查过程与避坑清单。\",\"datePublished\":\"2026-08-15T01:46:13.677403\",\"dateCreated\":\"2026-08-15T01:46:13.677403\",\"dateModified\":\"2026-08-15T01:49:21.207587\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/779.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"DeepSeek Harness 创建 skill 指南：结构、安装、使用","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Xy_9VomUrdK4-ttIp-tXj"}
+3:{"id":"206"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

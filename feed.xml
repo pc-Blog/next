@@ -8,6 +8,42 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[DeepSeek Harness 初体验：主模型换到 opencode，联网搜索却绕不开 DeepSeek]]></title>
+      <link>https://www.lxpavilion.top/article/208/</link>
+      <guid>https://www.lxpavilion.top/article/208/</guid>
+      <pubDate>Sat, 15 Aug 2026 01:47:39 GMT</pubDate>
+      <description><![CDATA[DeepSeek 涨价后，我把 DeepSeek Harness 的主对话模型切到了 opencode，却意外发现联网搜索仍在消耗 DeepSeek 额度。本文记录这次切换的实测体验，扒一下联网搜索的真实机制，确认 opencode 是否支持替换搜索供应商，并附上几条实际可行的处理方案。]]></description>
+      <category>Ai编程</category>
+      <tag>AI应用</tag>
+      <tag>Ai编程</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[DeepSeek Harness 试用发现：AI 会不会覆盖你手动改的文件？]]></title>
+      <link>https://www.lxpavilion.top/article/207/</link>
+      <guid>https://www.lxpavilion.top/article/207/</guid>
+      <pubDate>Sat, 15 Aug 2026 01:47:12 GMT</pubDate>
+      <description><![CDATA[试用 DeepSeek Harness 时，我发现它写入文件前会检查文件是否被外部修改，版本不一致就拒绝写入。用同样的指令实测 Claude Code、Trae 和 Codex，发现只有 DSH 会拦下覆盖。本文记录这个发现、背后的机制与多工具对比结果。]]></description>
+      <category>Ai编程</category>
+      <tag>AI应用</tag>
+      <tag>Ai编程</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
+      <title><![CDATA[DeepSeek Harness 创建 skill 指南：结构、安装、使用]]></title>
+      <link>https://www.lxpavilion.top/article/206/</link>
+      <guid>https://www.lxpavilion.top/article/206/</guid>
+      <pubDate>Sat, 15 Aug 2026 01:46:13 GMT</pubDate>
+      <description><![CDATA[手把手教你在 DeepSeek Harness 中创建 skill：SKILL.md 结构、安装位置、两种调用方式。重点分享一个真实踩坑——frontmatter 里的冒号+空格会让 skill 被静默丢弃，表现为目录为空、工具报 unknown，附完整排查过程与避坑清单。]]></description>
+      <category>Ai编程</category>
+      <tag>AI应用</tag>
+      <tag>Ai编程</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[在 DeepSeek Harness 里养一只桌面宠物：dsh-pet 插件分享]]></title>
       <link>https://www.lxpavilion.top/article/205/</link>
       <guid>https://www.lxpavilion.top/article/205/</guid>
@@ -196,40 +232,6 @@
       <category>开发拾遗</category>
       <tag>Github</tag>
       <tag>域名</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[使用AI开发项目的经历和感受：关于AI 编程的碎碎念]]></title>
-      <link>https://www.lxpavilion.top/article/156/</link>
-      <guid>https://www.lxpavilion.top/article/156/</guid>
-      <pubDate>Mon, 03 Aug 2026 03:20:49 GMT</pubDate>
-      <description><![CDATA[分享我用Cloud Code接入DeepSeek从零开发Git云存储网盘的真实经历。五天的AI辅助开发让我深刻认识到：AI写代码可以，但写好代码不行。本文记录我在开发中遇到的问题和，以及我对Ai 编程的理解 —— 正确使用AI提升效率，而非被其牵着走。]]></description>
-      <category>杂谈</category>
-      <tag>AI应用</tag>
-      <tag>Ai编程</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Go学习笔记：HTTP请求从入门到进阶——Client、RoundTripper与流式处理实战]]></title>
-      <link>https://www.lxpavilion.top/article/155/</link>
-      <guid>https://www.lxpavilion.top/article/155/</guid>
-      <pubDate>Fri, 31 Jul 2026 01:39:30 GMT</pubDate>
-      <description><![CDATA[从标准库 net/http 出发，深入讲解 Go HTTP 请求的完整生命周期、Client 连接复用机制、响应体流式读取，以及如何通过 RoundTripper 实现请求日志拦截、通过 io.Reader 包装实现数据传输进度追踪。]]></description>
-      <category>学习笔记</category>
-      <tag>Go</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）]]></title>
-      <link>https://www.lxpavilion.top/article/154/</link>
-      <guid>https://www.lxpavilion.top/article/154/</guid>
-      <pubDate>Thu, 30 Jul 2026 16:04:12 GMT</pubDate>
-      <description><![CDATA[手把手搭建 ES 6 节点集群，深入理解 Master 和 Data 节点的角色分工，并通过节点宕机实测验证集群的故障转移与自愈能力，适合已经掌握 ES 基础的开发者进阶学习。]]></description>
-      <category>数据库</category>
-      <tag>WSL</tag>
-      <tag>Docker</tag>
-      <tag>集群</tag>
-      <tag>Elasticsearch</tag>
       <author>ppc</author>
     </item>
   </channel>

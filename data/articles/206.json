@@ -1,0 +1,36 @@
+{
+  "categoryId": 37,
+  "categoryName": "Ai编程",
+  "content": "## 一、前言：skill 能干什么\n\n**skill 是 DSH 里\"给 AI 预装技能\"的机制**：一个 Markdown 文件，就能教会模型一套固定的做事规范——比如\"按琉璃风格写页面\"\"写规范 commit message\"\"整理 Obsidian 笔记\"。之后只要对话匹配到它，模型就会自动加载并按规范执行，不用每次重复交代。\n\n它有三个特点，决定了它很实用：\n\n- **一个文件就是一个技能**：创建零成本，随时改、随时生效（热加载，不用重启）；\n- **两种触发方式**：模型自动发现调用，或你手动 `/skill名` 强制注入；\n- **可精细控制**：可以设置\"模型不可见、只能手动调\"，或\"模型可见、手动不可调\"。\n\n## 二、skill 是什么：结构、存放目录、使用方式\n\n### 结构：一个带元数据的 Markdown 文件\n\nskill 本质是 **YAML frontmatter + Markdown 正文**。frontmatter 告诉系统\"这个技能叫什么、干什么、什么时候用\"：\n\n```markdown\n---\nname: my-skill            # 必填：kebab-case（小写+连字符）\ndescription: 一句话说明这个 skill 做什么，模型靠它决定何时调用\nwhenToUse: 可选：补充使用时机\ndisable-model-invocation: false   # true 则模型目录里隐藏\nuser-invocable: true              # false 则 /命令 里隐藏\n---\n# 正文：给模型的具体操作指令\n```\n\n- **必填**只有 `name` 和 `description`；`name` 必须 kebab-case（`mySkill` 会直接失效）；\n- 支持两种存放格式：**目录 bundle**（`<root>/<skill名>/SKILL.md`，可带 scripts/assets 资源）或**扁平文件**（`<root>/<skill名>.md`）；\n- ⚠️ 只扫描**一层**，不支持嵌套目录。\n\n### 存放目录与优先级\n\nskill 没有\"安装\"动作，**放进扫描目录即被发现**。按优先级：\n\n| 优先级 | 位置 | 说明 |\n|---|---|---|\n| 100 | `<项目根>/.dsh/skills/` | 项目级，项目根 = 最近的 `.git` 祖先 |\n| 200 | `<项目根>/.agents/skills/` | 项目级（通用 agent 目录） |\n| 300 | `customSkillDirs` 配置的目录 | 自定义 |\n| 400 | **`~/.dsh/skills/`** | 用户级，任何会话都可见 |\n| 500 | `~/.agents/skills/` | 用户级 |\n\n**个人常用 skill 放 `~/.dsh/skills/`**；项目专用放项目目录——注意项目级 skill 只在那个项目下的会话可见（解析跟随 cwd）。\n\n### 使用方式\n\n- **模型自动调用**：会话开始注入一份 skill 目录（`<available_skills>`，列出 name + description），请求匹配时模型调 `skill` 工具加载并执行——你正常对话即可；\n- **手动触发**：输入框输 `/skill名`，完整内容直接注入对话；也是 `disable-model-invocation: true` 的 skill 唯一入口。\n\n## 三、创建自己的 skill：过程与坑\n\n### 过程（三步）\n\n1. **写文件**：按上面结构写 `SKILL.md`，正文写清操作规范（最好附反例）；\n2. **放目录**：拷到 `~/.dsh/skills/<skill名>/SKILL.md`（用户级）或项目 `.dsh/skills/`；\n3. **验证**：新会话问\"你有哪些可用 skill\"，或直接 `/skill名` 试一次。\n\n### 坑：skill 会被\"静默丢弃\"\n\n我第一次建 skill 时翻了个大车：文件放好后，新会话没有目录、`/skill名` 无反应、但 `skill` 工具明明在工具列表里——**没有任何报错**。\n\n排查过程：\n\n1. 解压会话日志（zstd 分帧，逐个解压搜索），确认从未注入 `<available_skills>`——工具在、发现列表空；\n2. 直接调 `skill` 工具加载，返回 `unknown or no longer available`——确认是发现层问题；\n3. 用 YAML 解析器直接解析 SKILL.md，报错：\n\n   ```\n   Nested mappings are not allowed in compact mappings at line 3, column 14\n   ```\n\n**根因**：我的 `description` 里写了 `design: semantic`、`CSS variables, ...`——**冒号+空格在 YAML 里是映射分隔符**，frontmatter 整个解析失败。而 skill-filesystem 对解析失败的条目**只记警告、静默丢弃**，于是目录空、工具报 unknown，毫无提示。\n\n**修复**：给含特殊字符的字段加引号：\n\n```yaml\ndescription: \"HTML/CSS style guide for modern, gradient-rich, glassmorphism (琉璃/毛玻璃) design: semantic markup, ...\"\nwhenToUse: \"When the user asks to write HTML/CSS, ...\"\n```\n\n保存后目录自动刷新，新会话立即可用。\n\n### 避坑清单\n\n1. frontmatter 值含**冒号+空格、括号、逗号、长英文**时，务必加引号；\n2. skill 被丢弃是**静默**的（目录空 + 工具报 unknown），遇到先怀疑 frontmatter；\n3. `name` 用 kebab-case，别用驼峰；\n4. 目录只扫一层，别建嵌套；\n5. `description` 尽量简短（模型靠它判断调用时机），复杂说明放正文。\n\n## 四、总结\n\nskill 是 DSH 里成本最低、收益最直接的自定义能力：一个文件就是一个可复用技能，放对目录即生效，支持自动/手动两种调用。唯一要注意的是 frontmatter 的 YAML 陷阱——它会导致 skill 被静默丢弃且毫无提示，这也是希望 DSH 后续版本能改进的地方（至少把解析警告暴露到界面上）。",
+  "coverImage": "/data/media/779.png",
+  "createdAt": "2026-08-15T01:46:13.677403",
+  "id": 206,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": {
+    "id": 207,
+    "title": "DeepSeek Harness 试用发现：AI 会不会覆盖你手动改的文件？"
+  },
+  "prev": {
+    "id": 205,
+    "title": "在 DeepSeek Harness 里养一只桌面宠物：dsh-pet 插件分享"
+  },
+  "series": "DeepSeek Harness 体验",
+  "summary": "手把手教你在 DeepSeek Harness 中创建 skill：SKILL.md 结构、安装位置、两种调用方式。重点分享一个真实踩坑——frontmatter 里的冒号+空格会让 skill 被静默丢弃，表现为目录为空、工具报 unknown，附完整排查过程与避坑清单。",
+  "tags": [
+    {
+      "id": 55,
+      "name": "AI应用"
+    },
+    {
+      "id": 85,
+      "name": "Ai编程"
+    },
+    {
+      "id": 24,
+      "name": "deepseek"
+    }
+  ],
+  "title": "DeepSeek Harness 创建 skill 指南：结构、安装、使用",
+  "updateTime": "2026-08-15T01:49:21.207587"
+}

@@ -1,5 +1,5 @@
 {
-  "total": 547,
+  "total": 545,
   "rows": [
     {
       "createTime": "2026-08-14T17:31:37.95008",
@@ -54,19 +54,6 @@
       "updateTime": "2026-08-14T17:13:05.413457"
     },
     {
-      "createTime": "2026-08-14T17:09:36.184291",
-      "deleted": 0,
-      "filePath": "202608/5fa23f46e570428e91342f0e4d3645f0.png",
-      "fileSize": 29783,
-      "fileUrl": "/data/media/778.png",
-      "filename": "5fa23f46e570428e91342f0e4d3645f0.png",
-      "id": 778,
-      "mimeType": "image/png",
-      "originalFilename": "OIF-C_processed.png",
-      "relationType": null,
-      "updateTime": "2026-08-14T17:09:36.193485"
-    },
-    {
       "createTime": "2026-08-14T03:15:14.508567",
       "deleted": 0,
       "filePath": "202608/3e141d4a3e48461c8d3097140de794ff.png",
@@ -117,19 +104,6 @@
       "originalFilename": "image.png",
       "relationType": null,
       "updateTime": "2026-08-12T21:56:25.321061"
-    },
-    {
-      "createTime": "2026-08-12T21:39:48.780136",
-      "deleted": 0,
-      "filePath": "202608/0f7f28d664bc4c3f92015b0d47333f50.png",
-      "fileSize": 179490,
-      "fileUrl": "/data/media/741.png",
-      "filename": "0f7f28d664bc4c3f92015b0d47333f50.png",
-      "id": 741,
-      "mimeType": "image/png",
-      "originalFilename": "image.png",
-      "relationType": null,
-      "updateTime": "2026-08-12T21:39:48.781304"
     },
     {
       "createTime": "2026-08-06T16:36:14.315742",

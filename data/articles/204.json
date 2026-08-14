@@ -15,7 +15,7 @@
     "id": 203,
     "title": "DeepSeek Harness 上手指南：一切皆插件的 AI 智能体框架"
   },
-  "series": null,
+  "series": "DeepSeek Harness 体验",
   "summary": "从“一切皆插件”的设计理念出发，本文带你完整走一遍 DeepSeek Harness 插件开发的实战路径：插件架构组成、安装与编写、AI 可调用工具、自定义 Web UI，再到 npm 发布上线，并附实战踩坑记录。",
   "tags": [
     {
@@ -32,5 +32,5 @@
     }
   ],
   "title": "DeepSeek Harness 插件开发实战：从设计理念到 npm 发布",
-  "updateTime": "2026-08-14T17:13:20.259028"
+  "updateTime": "2026-08-15T01:48:34.429941"
 }

@@ -1,0 +1,33 @@
+{
+  "categoryId": 37,
+  "categoryName": "Ai编程",
+  "content": "## 一、起因：DeepSeek 涨价，想试试别的路子\n\nDeepSeek 最近宣布了涨价，幅度不小。恰逢官方推出了 **DeepSeek Harness**（以下简称 DSH），一个开源的 AI 智能体框架，主打\"一切皆插件\"。一边是涨价，一边是新工具，作为一个重度使用者，我自然想趁这个机会看看有没有更划算的用法。\n\n第一个试的就是 **opencode**。\n\n## 二、opencode：两种计费模式，体验不错\n\nopencode 是一款 Go 语言实现的终端 AI 编程工具，生态成熟、配置灵活。它对 DeepSeek 用户很友好，提供了两种计费模式：\n\n### 模式一：API Token 用量\n\n按 token 计费，丰俭由人。比较惊喜的是 **deepseek flash 目前免费用**——日常编码、问答这类场景完全够用。\n\n### 模式二：Go 订阅服务\n\n- 价格：**10 美元/月**，门槛很低；\n- 额度：**deepseek flash 双倍额度**；\n- 实测：我用了一整个晚上，**5 小时重置的额度进度竟然是 0%**——普通使用强度下，这个订阅基本用不完。\n\n于是我把 DSH 的主对话模型切到了 opencode（走 `llm-pi-ai` 适配器），日常使用没遇到什么问题。\n\n## 三、一个让人困惑的设计：联网搜索仍在消耗 DeepSeek 额度\n\n切换本来一帆风顺，直到我发现了一个奇怪的现象：\n\n> 在 DeepSeek Harness 中，即使主对话模型已经切换到 opencode，**内置的联网搜索（web_search）依然走 DeepSeek 官方 API，继续消耗 DeepSeek 额度**。\n\n也就是说，**主对话和联网搜索是两套完全独立的东西**——对话走你的新通道，搜索却绕不开 DeepSeek 的账单。\n\n### 联网搜索的本质：一次特定提示词的 API 对话\n\n很多人以为联网搜索是 Harness 自带的能力，其实不然。我扒了一下 DSH 的源码（`dsh-web-search-deepseek` 插件），真相是：\n\n**一次联网搜索 = 一次固定提示词的模型 API 调用**，请求体大致长这样：\n\n```js\n{\n  model: \"deepseek-v4-flash\",        // 默认模型，不是 pro\n  max_tokens: 4096,                  // 输出上限\n  messages: [{\n    role: \"user\",\n    content: [{\n      type: \"text\",\n      text: \"Perform a web search for the query: <你的搜索词>\"  // 唯一的提示词\n    }]\n  }],\n  tools: [{ type: \"web_search_20250305\", name: \"web_search\", max_uses: 5 }]\n}\n```\n\n也就是说：\n\n- 搜索**不是**本地实现的，而是把\"Perform a web search for the query: xxx\"当作一条用户消息，发给 DeepSeek 的 **Anthropic 兼容端点**（`api.deepseek.com/anthropic/v1/messages`）；\n- DeepSeek 在**服务端**执行原生搜索，返回结构化的 `web_search_tool_result` 块；\n- 每次搜索都是一次**单轮、独立、全额计费**的模型调用，与主对话的上下文完全隔离，KV cache 也无法复用——**每搜一次，就多一份账单**。\n\n### 也想换搜索供应商，但 opencode 不支持\n\n查了一圈发现，DSH 其实**提供了搜索供应商的配置入口**：在图形界面的设置页（web-search-deepseek 段）里，可以修改搜索用的 API 端点、Key 和模型，而且改动对下一次搜索即时生效。所以理论上，搜索也可以指向其他服务商。\n\n我第一个想到的就是 opencode——既然主对话已经切过去了，搜索也一起切过去多好。但实测下来：**opencode 不支持联网搜索**。我用 CC Switch 给 Codex、Claude Code 配置 opencode Go 时，对话都正常，唯独一调用 WebSearch 工具就报错（\"api 上游有问题\"）；DSH 这边同样无法把搜索指向它。也就是说，**这不是 DSH 不让你换，而是 opencode 这个\"供应商\"本身就没有联网搜索这个能力**。\n\n## 四、另一个谜团：web_fetch 也被禁用了\n\n更让我不解的是，DSH 的 `web_fetch`（抓取指定网页内容）能力在默认配置下是**禁用**的——查了宿主组合配置，`tool-web` 插件被显式设置为 `fetch: false`，且默认没有挂载任何 fetch provider。\n\n源码注释给出的理由是 **SSRF（服务器端请求伪造）防护**：当前发行版刻意不提供 fetch provider，因为让模型自行选择抓取目标 URL 存在安全风险。禁用原因清楚了，但副作用也很现实：**连\"只抓网页、不烧模型额度\"这条路径也没有了**，想联网就只剩搜索这一条路。\n\n## 五、几条路都试过，最终还是用回原来的\n\n如果你也遇到同样的情况，这几条路我都实际试过：\n\n### 方案一：直接关闭联网搜索（最省事）\n\n在 DSH 的配置文件（如 `cordis.patch.yml`）中禁用搜索工具：\n\n```yaml\n- id: tool-web\n  config:\n    search: false\n```\n\n代价是模型失去\"发现式\"联网能力，但**不再消耗 DeepSeek 额度**。\n\n### 方案二：换免费的搜索后端插件（保留搜索能力）\n\n社区已有现成插件，例如 **DeepSeek-Harness-Web-Tools**：基于 DuckDuckGo、无需任何 API key 的免费 `web_search`/`web_fetch`。装上后把 DSH 的 `searchProvider` 指向它，搜索就走 DuckDuckGo，**彻底绕开 DeepSeek API**。类似的还有 `dsh-web-search-pro`、`dsh-all-search` 等，可以在 awesome-deepseek-harness 插件清单里淘一淘。\n\n### 方案三：自己配置搜索服务商（实测走不通）\n\n理论上 DSH 允许把搜索指向任何兼容 Anthropic 协议的服务商，我也试过自己配置——但 opencode 不支持联网搜索，其他兼容方案又需要额外的 key 和折腾成本。这条路实测走不通。\n\n### 最终的选择：保持使用原来的\n\n试了一圈，我最终决定**保持使用原来的 DeepSeek 官方搜索**：\n\n- 搜索用的是 `deepseek-v4-flash`，单次成本不算高；\n- 关闭搜索会失去联网能力，插件方案又需要额外折腾；\n- 我平时搜索用得不多，这点开销完全可以接受。\n\n对话已经切到 opencode，搜索保持原样，用起来反而最省心。如果你搜索用得多，再考虑方案一或方案二。\n",
+  "coverImage": "/data/media/779.png",
+  "createdAt": "2026-08-15T01:47:39.614785",
+  "id": 208,
+  "isPinned": 0,
+  "isPublished": 1,
+  "next": null,
+  "prev": {
+    "id": 207,
+    "title": "DeepSeek Harness 试用发现：AI 会不会覆盖你手动改的文件？"
+  },
+  "series": "DeepSeek Harness 体验",
+  "summary": "DeepSeek 涨价后，我把 DeepSeek Harness 的主对话模型切到了 opencode，却意外发现联网搜索仍在消耗 DeepSeek 额度。本文记录这次切换的实测体验，扒一下联网搜索的真实机制，确认 opencode 是否支持替换搜索供应商，并附上几条实际可行的处理方案。",
+  "tags": [
+    {
+      "id": 55,
+      "name": "AI应用"
+    },
+    {
+      "id": 85,
+      "name": "Ai编程"
+    },
+    {
+      "id": 24,
+      "name": "deepseek"
+    }
+  ],
+  "title": "DeepSeek Harness 初体验：主模型换到 opencode，联网搜索却绕不开 DeepSeek",
+  "updateTime": "2026-08-15T01:49:38.388299"
+}

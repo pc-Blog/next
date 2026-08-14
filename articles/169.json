@@ -7,7 +7,10 @@
   "id": 169,
   "isPinned": 0,
   "isPublished": 1,
-  "next": null,
+  "next": {
+    "id": 170,
+    "title": "豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月"
+  },
   "prev": {
     "id": 168,
     "title": "Rust学习笔记：Cargo与第三方依赖——Rust生态的正确打开方式"

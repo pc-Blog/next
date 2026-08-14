@@ -1,0 +1,74 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+5:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+4:Tcec,# 豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月
+
+新学期刚开始，AI 工具的用量一下就上来了——论文、作业、资料整理、科研分析、代码辅助，样样都离不开。就在 8 月 12 日，豆包正式面向全国在校大学生开启了学生认证，认证之后能拿到两项实打实的优惠：
+
+- **免费额度提升到 2.5 倍**，日常高频使用基本不用再省着用；
+- **专业版标准套餐 38 元/月**，原价 68 元，降幅超过四成。
+
+这篇文章把优惠内容、领取条件和具体步骤一次讲清楚，照着做就行。
+
+## 一、学生优惠有哪些
+
+豆包这次的学生权益一共两部分：
+
+**1. 学生专属免费额度（2.5 倍）**
+
+完成学生认证并领取权益后，免费额度直接变成原来的 2.5 倍。论文写作、资料整理、科研分析、文案创作、代码辅助这些高频场景，基本都能覆盖。
+
+**2. 专业版标准套餐学生特惠价**
+
+原价 68 元/月的专业版标准套餐，学生连续包月价只要 38 元/月。作为对比，豆包专业版目前共有三档：
+
+| 套餐 | 连续包月价 |
+| --- | --- |
+| 标准套餐 | 68 元/月（学生价 38 元/月）|
+| 加强套餐 | 200 元/月 |
+| 高级套餐 | 500 元/月（搭载豆包 2.1 Pro 旗舰大模型）|
+
+这次优惠覆盖全国在校大学生，专科、本科、研究生都在范围内。
+
+## 二、领取前置条件
+
+领取前先确认自己满足条件：
+
+1. **豆包账号已绑定抖音账号**——认证走的是抖音的学生身份通道；
+2. **抖音账号完成学生身份认证**——需要用到有效的学生证（带注册章）或学信网在线验证报告；
+3. **一张身份证只能绑定一个豆包账号**——已被其他账号使用过的证件无法再次提交。
+
+如果条件没满足也不用急，豆包在认证流程里会给出对应的补全步骤，按提示操作即可。
+
+## 三、领取步骤（两种方法）
+
+**方法一：工作任务模式（最省事）**
+
+1. 把豆包电脑端更新到最新版本；
+2. 打开「工作任务模式」，新建任务；
+3. 输入"我要领取学生优惠"；
+4. 豆包会给出认证教程，并引导你完成认证、自动领取权益。
+
+![image.png](/data/media/742.png)
+
+**方法二：设置界面手动领取**
+
+1. 登录豆包电脑端；
+2. 进入「设置」→「豆包专业版订阅」；
+3. 在页面右上方选择「学生权益」入口；
+4. 通过抖音账号完成学生身份验证，验证通过后优惠即刻生效。
+
+## 四、注意事项
+
+- 领取前请确认豆包电脑端已更新到**最新版本**，旧版本可能找不到学生权益入口；
+- 认证材料要提前准备好：学生证内页（学校名称、姓名、学号、注册章）或学信网在线验证报告（在有效期内）；
+- 认证审核期间无法重复提交，提交前务必核对信息，一次填准；
+- 优惠面向在校大学生，趁开学季尽快领取更划算，毕业后再想用 38 元/月的价格订阅基本就不行了。
+
+---
+
+以上就是豆包学生认证的全部信息。开学季豆包还在持续更新迭代，如果后续权益有变化，我会再更新这篇文章。有领取成功的小伙伴，也欢迎在评论区分享你的体验。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月\",\"item\":\"https://www.lxpavilion.top/article/170\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月\",\"headline\":\"豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月\",\"description\":\"豆包于 2026 年 8 月 12 日正式开启学生认证，全国在校大学生完成认证即可领取 2.5 倍免费使用额度，并以 38 元/月学生特惠价订阅原价 68 元/月的专业版标准套餐。本文整理优惠详情、认证前置条件、两种领取方法及注意事项。\",\"datePublished\":\"2026-08-12T22:41:55.201252\",\"dateCreated\":\"2026-08-12T22:41:55.201252\",\"dateModified\":\"2026-08-12T22:41:55.209968\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/743.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"豆包开启学生认证，大学生可享 2.5 倍免费额度、专业版 38 元/月","initialContent":"$4"}]],[["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"i_NXc8PQssiA_8qhwM100"}
+3:{"id":"170"}
+7:null

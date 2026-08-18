@@ -1,6 +1,21 @@
 {
-  "total": 105,
+  "total": 106,
   "rows": [
+    {
+      "categoryId": 44,
+      "categoryName": "学习笔记",
+      "coverImage": "/data/media/779.png",
+      "createdAt": "2026-08-18T22:44:36.319373",
+      "id": 210,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "DeepSeek Harness 体验",
+      "summary": "拆解 DeepSeek Harness(DSH) 的三层沙箱架构和三种权限模式，并用一次真实排查说明：沙箱并不隔离网络——是 Windows 受限令牌让 Schannel 取不到 TLS 凭据，才导致所有 HTTPS 请求在受限模式下失败。",
+      "tags": [],
+      "title": "DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求",
+      "updateTime": "2026-08-18T22:45:01.801655",
+      "viewCount": 0
+    },
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
@@ -2530,38 +2545,6 @@
       "title": "Cloudflare R2 使用指南：零成本管理博客媒体文件",
       "updateTime": "2026-06-15T09:00:57.939972",
       "viewCount": 1
-    },
-    {
-      "categoryId": 37,
-      "categoryName": "Ai编程",
-      "coverImage": "/data/media/340.png",
-      "createdAt": "2026-06-14T15:14:11.487329",
-      "id": 39,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "详细介绍 Claude Code CLI 的安装、通过 CC Switch 中转接入 DeepSeek 模型的完整流程，以及在终端、VS Code、JetBrains 中的使用配置。",
-      "tags": [
-        {
-          "id": 24,
-          "name": "deepseek"
-        },
-        {
-          "id": 32,
-          "name": "Claude Code"
-        },
-        {
-          "id": 33,
-          "name": "VS Code"
-        },
-        {
-          "id": 34,
-          "name": "JetBrains"
-        }
-      ],
-      "title": "Claude Code 安装及接入 DeepSeek 教程",
-      "updateTime": "2026-06-14T15:17:20.027216",
-      "viewCount": 2
     }
   ]
 }

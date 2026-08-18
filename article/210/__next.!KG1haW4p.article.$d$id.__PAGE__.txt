@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[17467,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js","/_next/static/chunks/0can3rjmlq38k.js","/_next/static/chunks/12h6y..znn6u~.js","/_next/static/chunks/116yp~mrtmvyn.js","/_next/static/chunks/05hxwoutgi7z8.js"],"default"]
+9:I[97367,["/_next/static/chunks/0k5~8fl8d4hgz.js","/_next/static/chunks/0~r8x2txo..2b.js","/_next/static/chunks/148ko75-ihlmp.js","/_next/static/chunks/10odz-6irn5el.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1f78,# 背景：先入为主的"沙箱=管文件"
+
+我用的 agent 是 DSH（DeepSeek Harness）。坦白说，很长一段时间我都把它的沙箱理解成一件很简单的事：就是限制文件读写呗。read-only 就是不能写，workspace-write 就是只能在某个目录里写，danger-full-access 就是随便搞。
+
+直到我频繁让 agent 去访问外网——比如用 GitHub API 拉仓库信息、去 npm 上查包——才不断撞上沙箱报错。明明我只是想读个网页数据，跟文件读写八竿子打不着，怎么就卡住了？这才逼我认真去看它到底是怎么工作的。
+
+这篇文章就是把拆解过程记下来。会偏原理一点，适合想搞懂"它为什么不让我干这件事"的读者。
+
+# 什么是沙箱：DSH 的"能力缝"
+
+先纠正一个我之前的错误认知：DSH 的沙箱不是一个孤立的组件，而是一套"能力缝"（capability seam）。
+
+它做的是两件事：
+- 给**执行命令**（bash/PowerShell）套一层隔离；
+- 给**读写文件**套一层隔离。
+
+两层共享同一个策略决策：每个调用该用什么权限、允不允许写、允不允许升级。所以它是"层层嵌套 + 统一口径"，不是一条规则管到底。
+
+这一点是 DSH 设计里我最欣赏的地方：**bash 命令能写的地方，和 write/edit 工具能写的地方，用的是同一份"可写根"定义**。你不可能出现"用 bash 能写 /tmp 但用文件工具又不行"这种左右手打架的割裂。
+
+# DSH 提供的三种模式
+
+DSH 全系统只有三个档位，语义统一：
+
+| 模式 | 含义 | 能写哪儿 |
+|------|------|----------|
+| readonly | 一切写入都被拒 | 哪儿都写不了 |
+| workspace-write | 只允许写"工作区 + 平台临时区" | workspace 根 + /tmp + tmpdir |
+| danger-full-access | 不设限 | 想写哪写哪 |
+
+关键点在"workspace-write 能写哪儿"这一行——它的可写集合在代码里是个函数 `writableRoots()`，bash 和文件系统都从这里取，保证了所有执行路径的授权口径永不漂移。
+
+模式怎么来的也有优先级：**临时升级授权 > 会话模式覆盖 > 部署默认值**。会话覆盖不是存配置文件，而是作为一个消息事件写进会话日志里，恢复会话时回放即得，很干净。
+
+还有一条严格限制：升级只能"越来越宽"，不允许跳级。read-only 只能升到 workspace-write 或 danger-full-access，workspace-write 只能升到 danger-full-access。升一次，作用范围只限那一次调用，不是永久放开。
+
+# 底层后端：同一套语义，不同的落点
+
+这是 DSH 沙箱最有意思的地方——**对外是一套统一的模式词汇表，对内每个平台用完全不同的底层机制**：
+
+- **Linux**：优先 bubblewrap（把整个文件系统 `--ro-bind / /` 只读挂载，再把工作区 bind 回去），降级用 Landlock LSM 做 allow-list。
+- **macOS**：用 Seatbelt / sandbox-exec，生成 SBPL 规则：先 `(deny file-write*)` 全拒写，再对可写根放行。
+- **Windows**：走 ACL 受限令牌（WRITE_RESTRICTED），这个最复杂，也是本文重点。
+
+更重要的是：每个后端都带一个可用性探测，探测不过就 **fail-closed**——直接抛"沙箱后端不可用"，命令绝不裸跑。这个"宁可拒绝、绝不裸奔"的原则贯穿了整个实现。
+
+# 重点：Windows 上的受限令牌到底是什么
+
+Windows 上 DSH 不用容器、不用 AppContainer，而是用 Windows 原生能力：**WRITE_RESTRICTED 令牌**。它通过 FFI 直接调 Win32 API（OpenProcessToken、CreateRestrictedToken、SetEntriesInAclW、CreateProcessAsUserW 这些）。
+
+原理可以这样理解。每个"某个工作区的写身份"是一个从工作区路径确定性派生的 SID（叫能力 SID）。具体执行时：
+1. 把这些能力 SID 加进进程的受限令牌限制列表；
+2. 给工作区目录的 DACL 上写上这几个 SID 的写授权 ACE；
+3. 命令就在这个受限令牌下跑。
+
+WRITE_RESTRICTED 的妙处在于"双重检查"：写一个文件，既要你原本的用户组权限允许（Pass 1），又要某**一个受限列表里的 SID** 对目标有授权（Pass 2）。所以：
+- read-only 的限制列表里没有任何能力 SID → Pass 2 永远过不了 → 哪儿都写不了。
+- workspace-write 的限制列表里塞进了工作区 SID 和临时区 SID，并对相应目录放了 ACE → 只有在工作区和私有临时区能过 Pass 2。
+
+注意，这俩其实**都是受限令牌**，区别只是限制列表里有没有那两张"外卡"。这对后面讲网络特别重要。
+
+# 真正让我卡住的地方：网络怎么也不通了
+
+回到开头的问题。我让 agent 去访问 GitHub API，结果：
+
+- `curl.exe` 报 `curl: (35) schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS`；
+- PowerShell 的 `Invoke-RestMethod` 报"基础连接已经关闭：接收时发生错误"；
+- 但换成 `danger-full-access` 就一切正常。
+
+当时第一反应是"这沙箱连网络都管"。于是我做了一组对照测试，结果很有意思：
+
+| 测试 | 受限模式 | danger-full-access |
+|------|----------|--------------------|
+| DNS 解析 api.github.com | 正常 | 正常 |
+| 原始 TCP 连 github.com:443 | 能连上 | 能连上 |
+| 纯 HTTP（example.com:80，不走 TLS） | `HTTP/1.1 200 OK` | 正常 |
+| HTTPS / TLS（GitHub API） | 失败 | 成功 |
+
+看到这组结果，我立刻明白了两件事：
+
+1. 网络根本没被挡。TCP 能连、DNS 能解析、纯 HTTP 能拿到 200 和真实 JSON——如果真"挡网络"，这些不可能成功。
+2. 断点精确卡在 TLS 凭据获取。报错码 `SEC_E_NO_CREDENTIALS (0x8009030E)` 已经写得很明白：Schannel 拿不到加密凭据。
+
+为什么？因为受限令牌相比完整令牌被拿掉了一部分用户组成员身份。TLS 握手的凭据要从本地安全机构（LSA）的加密库里"借"，借的时候系统按进程令牌的用户组做 ACL 校验——受限令牌不够格，所以干脆拒绝。
+
+所以这**不是"沙箱限制了网络"，而是"文件沙箱的受限令牌，顺带把 TLS 凭据这条路给堵死了"**。它是副作用，不是设计好的网络隔离。
+
+更实锤的证据在后面。切到 danger-full-access 后，同一个 GitHub API 请求立刻通了；而原本在 HTTPS 上报"基础连接已经关闭"的那个接口，失败方式从"TLS 层直接挂"变成了"返回一个 403 应用层响应"——说明 TLS 握手已经成功、请求真的到了服务器，只是服务端业务上拒绝。失败"层级"从 TLS 层挪到应用层，恰好印证断点就在 TLS 凭据这一环。
+
+# 影响面：哪些会挂，哪些不会
+
+在受限模式（read-only / workspace-write）下，凡是依赖 TLS 凭据的出站请求基本都会挂：
+- `curl` / `Invoke-RestMethod` / `Invoke-WebRequest` 访问 `https://`；
+- `git clone https://…`、`pip install`、`npm install` 这类走 HTTPS 的工具；
+- 一切用 Schannel / WinHTTP / WinINET 的 HTTPS 客户端。
+
+不受影响的：
+- 纯 HTTP（`http://`）；
+- TCP / UDP 套接字、ping、DNS。
+
+有个前提必须说清楚：**这是 Windows 特有的现象**。只有 Windows 走受限令牌这条路。Linux 上 bwrap 的 profile 没加 `--unshare-net`（没隔离网络命名空间），HTTPS 照常能用；macOS 当前 Seatbelt 配置也没有网络规则。同一套代码，在这台机器上断 HTTPS、在那台机器上不断，完全取决于平台后端。
+
+# 总结
+
+回头看看，这次排查给我最深刻的一个教训：**"沙箱管文件"这个直觉没错，但太窄了**。DSH 的沙箱在模式层面统一了文件与命令的权限口径，而在 Windows 上，它的受限令牌在文件层面之外，还悄悄影响了 TLS 凭据的获取。
+
+所以如果你哪天遇到"AI 代理突然连不上网、但 TCP 和 HTTP 都通"，别急着怪网络——先想想是不是沙箱模式下的受限令牌把 TLS 卡住了。切到 danger-full-access 试一下，多半当场就能验证。
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://www.lxpavilion.top/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"技术文章\",\"item\":\"https://www.lxpavilion.top/article\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求\",\"item\":\"https://www.lxpavilion.top/article/210\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"name\":\"DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求\",\"headline\":\"DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求\",\"description\":\"拆解 DeepSeek Harness(DSH) 的三层沙箱架构和三种权限模式，并用一次真实排查说明：沙箱并不隔离网络——是 Windows 受限令牌让 Schannel 取不到 TLS 凭据，才导致所有 HTTPS 请求在受限模式下失败。\",\"datePublished\":\"2026-08-18T22:44:36.319373\",\"dateCreated\":\"2026-08-18T22:44:36.319373\",\"dateModified\":\"2026-08-18T22:45:01.801655\",\"author\":{\"@type\":\"Person\",\"name\":\"ppc\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"栏轩·阁\",\"url\":\"https://www.lxpavilion.top\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.lxpavilion.top/seo/logo.jpeg\"}},\"image\":\"https://www.lxpavilion.top/data/media/779.png\"}"}}],["$","$L2",null,{"params":"$@3","articleTitle":"DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求","initialContent":"$4"}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MC1Nok4fssZOhxtzbU9s-"}
+3:{"id":"210"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/12h6y..znn6u~.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/116yp~mrtmvyn.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/05hxwoutgi7z8.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

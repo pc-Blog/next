@@ -8,6 +8,16 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[DSH 沙箱机制拆解：受限令牌为何会掐断 HTTPS 请求]]></title>
+      <link>https://www.lxpavilion.top/article/210/</link>
+      <guid>https://www.lxpavilion.top/article/210/</guid>
+      <pubDate>Tue, 18 Aug 2026 22:44:36 GMT</pubDate>
+      <description><![CDATA[拆解 DeepSeek Harness(DSH) 的三层沙箱架构和三种权限模式，并用一次真实排查说明：沙箱并不隔离网络——是 Windows 受限令牌让 Schannel 取不到 TLS 凭据，才导致所有 HTTPS 请求在受限模式下失败。]]></description>
+      <category>学习笔记</category>
+      
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[DSH 记忆模块源码解析：AI 是如何长期记住项目规范的]]></title>
       <link>https://www.lxpavilion.top/article/209/</link>
       <guid>https://www.lxpavilion.top/article/209/</guid>
@@ -219,18 +229,6 @@
       <category>学习笔记</category>
       <tag>Rust</tag>
       <tag>JetBrains</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[分享一个我发现的免费 AI 资讯 API：AI HOT，无需注册、无需 Token、开箱即用]]></title>
-      <link>https://www.lxpavilion.top/article/158/</link>
-      <guid>https://www.lxpavilion.top/article/158/</guid>
-      <pubDate>Wed, 05 Aug 2026 17:32:59 GMT</pubDate>
-      <description><![CDATA[在找 AI 资讯数据源的过程中发现了 AI HOT——一个中文 AI 动态聚合平台，开放了 8 个免费 REST 接口，不用注册、不用 Token、前端直连无跨域。本文逐一实测了全部接口的用法与返回字段，附真实响应数据，供需要的朋友参考。]]></description>
-      <category>工具教程</category>
-      <tag>热点爬取</tag>
-      <tag>AI应用</tag>
-      <tag>Ai编程</tag>
       <author>ppc</author>
     </item>
   </channel>

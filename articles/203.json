@@ -17,20 +17,7 @@
   },
   "series": "DeepSeek Harness 体验",
   "summary": "DeepSeek Harness（dsh）是 DeepSeek AI 开源的智能体框架，以“一切皆插件”为核心理念，由 Cordis 驱动。本文从环境准备、安装启动、端口配置、四种内置模式，到常用操作与插件系统，带你从零上手这款可高度定制的 Agent 开发平台，并分享官方插件源码这一最佳学习资料。",
-  "tags": [
-    {
-      "id": 55,
-      "name": "AI应用"
-    },
-    {
-      "id": 85,
-      "name": "Ai编程"
-    },
-    {
-      "id": 24,
-      "name": "deepseek"
-    }
-  ],
+  "tags": [],
   "title": "DeepSeek Harness 上手指南：一切皆插件的 AI 智能体框架",
-  "updateTime": "2026-08-15T01:48:51.285708"
+  "updateTime": "2026-08-18T18:54:02.546803"
 }

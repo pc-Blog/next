@@ -1,9 +1,9 @@
 [
   {
     "series": "DeepSeek Harness 体验",
-    "count": 5,
+    "count": 6,
     "coverImage": "/data/media/779.png",
-    "summary": "DeepSeek 涨价后，我把 DeepSeek Harness 的主对话模型切到了 opencode，却意外发现联网搜索仍在消耗 DeepSeek 额度。本文记录这次切换的实测体验，扒一下联网搜索的真实机制，确认 opencode 是否支持替换搜索供应商，并附上几条实际可行的处理方案。"
+    "summary": "DeepSeek Harness 把“让 AI 记住”拆成了很多子模块。这篇文章从源码出发，讲清它的记忆存落在哪、以什么形式存，以及 AGENTS.md、CLAUDE.md 是怎么被加载、按什么优先级生效、又是在哪一步注入进上下文的，顺带说清遇到压缩和超预算时它又会怎样。"
   },
   {
     "series": "Rust学习笔记",

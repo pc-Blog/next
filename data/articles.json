@@ -1,6 +1,34 @@
 {
-  "total": 104,
+  "total": 105,
   "rows": [
+    {
+      "categoryId": 37,
+      "categoryName": "Ai编程",
+      "coverImage": "/data/media/779.png",
+      "createdAt": "2026-08-18T20:01:47.630767",
+      "id": 209,
+      "isPinned": 0,
+      "isPublished": 1,
+      "series": "DeepSeek Harness 体验",
+      "summary": "DeepSeek Harness 把“让 AI 记住”拆成了很多子模块。这篇文章从源码出发，讲清它的记忆存落在哪、以什么形式存，以及 AGENTS.md、CLAUDE.md 是怎么被加载、按什么优先级生效、又是在哪一步注入进上下文的，顺带说清遇到压缩和超预算时它又会怎样。",
+      "tags": [
+        {
+          "id": 55,
+          "name": "AI应用"
+        },
+        {
+          "id": 85,
+          "name": "Ai编程"
+        },
+        {
+          "id": 24,
+          "name": "deepseek"
+        }
+      ],
+      "title": "DSH 记忆模块源码解析：AI 是如何长期记住项目规范的",
+      "updateTime": "2026-08-18T20:02:43.472503",
+      "viewCount": 0
+    },
     {
       "categoryId": 37,
       "categoryName": "Ai编程",
@@ -111,7 +139,7 @@
       ],
       "title": "在 DeepSeek Harness 里养一只桌面宠物：dsh-pet 插件分享",
       "updateTime": "2026-08-14T18:00:24.757357",
-      "viewCount": 0
+      "viewCount": 3
     },
     {
       "categoryId": 37,
@@ -151,23 +179,10 @@
       "isPublished": 1,
       "series": "DeepSeek Harness 体验",
       "summary": "DeepSeek Harness（dsh）是 DeepSeek AI 开源的智能体框架，以“一切皆插件”为核心理念，由 Cordis 驱动。本文从环境准备、安装启动、端口配置、四种内置模式，到常用操作与插件系统，带你从零上手这款可高度定制的 Agent 开发平台，并分享官方插件源码这一最佳学习资料。",
-      "tags": [
-        {
-          "id": 55,
-          "name": "AI应用"
-        },
-        {
-          "id": 85,
-          "name": "Ai编程"
-        },
-        {
-          "id": 24,
-          "name": "deepseek"
-        }
-      ],
+      "tags": [],
       "title": "DeepSeek Harness 上手指南：一切皆插件的 AI 智能体框架",
-      "updateTime": "2026-08-15T01:48:51.285708",
-      "viewCount": 0
+      "updateTime": "2026-08-18T18:54:02.546803",
+      "viewCount": 1
     },
     {
       "categoryId": 45,
@@ -583,7 +598,7 @@
       ],
       "title": "Elasticsearch 学习笔记：集群实战（3 控制节点 + 3 数据节点部署与故障转移）",
       "updateTime": "2026-07-30T16:05:21.938866",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 39,
@@ -598,7 +613,7 @@
       "tags": [],
       "title": "Elasticsearch 学习笔记：从零到实战（Docker 部署 + Spring Boot 集成）",
       "updateTime": "2026-07-30T16:04:46.457563",
-      "viewCount": 1
+      "viewCount": 2
     },
     {
       "categoryId": 44,
@@ -698,7 +713,7 @@
       ],
       "title": "Neo4j 从 0 到 1：图数据库入门与 Spring Boot 实战",
       "updateTime": "2026-07-29T14:29:09.176335",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 41,
@@ -1280,7 +1295,7 @@
       "tags": [],
       "title": "Redis学习笔记：Cluster 集群读写分离实战，Lettuce + Spring Boot 从配置到验证",
       "updateTime": "2026-07-15T22:57:22.611842",
-      "viewCount": 0
+      "viewCount": 1
     },
     {
       "categoryId": 44,
@@ -1682,7 +1697,7 @@
       "tags": [],
       "title": "FinalShell 自定义背景图片教程",
       "updateTime": "2026-07-05T17:26:28.731088",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 39,
@@ -1874,7 +1889,7 @@
       ],
       "title": "别再靠猜了：给 Cloudflare Worker 加上日志，问题一眼就知道",
       "updateTime": "2026-07-02T16:48:48.139246",
-      "viewCount": 15
+      "viewCount": 17
     },
     {
       "categoryId": 43,
@@ -2190,7 +2205,7 @@
       ],
       "title": "我如何用 Buttondown 从零搭建 Newsletter：一个内容创作者的订阅增长实录",
       "updateTime": "2026-06-28T21:57:28.305078",
-      "viewCount": 2
+      "viewCount": 3
     },
     {
       "categoryId": 42,
@@ -2546,34 +2561,6 @@
       ],
       "title": "Claude Code 安装及接入 DeepSeek 教程",
       "updateTime": "2026-06-14T15:17:20.027216",
-      "viewCount": 2
-    },
-    {
-      "categoryId": 38,
-      "categoryName": "网站部署",
-      "coverImage": "/data/media/322.webp",
-      "createdAt": "2026-06-10T21:32:19.236002",
-      "id": 38,
-      "isPinned": 0,
-      "isPublished": 1,
-      "series": null,
-      "summary": "基于博客实际在用的生产级 Worker 脚本（约 270 行），围绕三个核心主题展开：并发拉取（pMapSerial 分片限流，30 天 × 6 维度数据逐天拉取汇总）、缓存策略（SHA-256 作为 POST 请求的缓存 key，Cache API + ctx.waitUntil 异步写入）、数据处理管线（从原始 GraphQL 响应到前端可直接消费的 JSON，涵盖缓存命中率计算、带宽换算、多维度分布汇总）。同时覆盖 wrangler 配置、CORS 处理、前端 TypeScript 类型定义与调用函数。适合已经掌握基础操作、想了解生产级 Worker 设计的读者。",
-      "tags": [
-        {
-          "id": 28,
-          "name": "Cloudflare"
-        },
-        {
-          "id": 29,
-          "name": "域名"
-        },
-        {
-          "id": 30,
-          "name": "博客"
-        }
-      ],
-      "title": "用 Cloudflare Worker 构建博客流量分析 API——从入门到生产级脚本",
-      "updateTime": "2026-06-11T08:22:31.298244",
       "viewCount": 2
     }
   ]

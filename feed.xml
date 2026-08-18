@@ -8,6 +8,18 @@
     <atom:link href="https://www.lxpavilion.top/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title><![CDATA[DSH 记忆模块源码解析：AI 是如何长期记住项目规范的]]></title>
+      <link>https://www.lxpavilion.top/article/209/</link>
+      <guid>https://www.lxpavilion.top/article/209/</guid>
+      <pubDate>Tue, 18 Aug 2026 20:01:47 GMT</pubDate>
+      <description><![CDATA[DeepSeek Harness 把“让 AI 记住”拆成了很多子模块。这篇文章从源码出发，讲清它的记忆存落在哪、以什么形式存，以及 AGENTS.md、CLAUDE.md 是怎么被加载、按什么优先级生效、又是在哪一步注入进上下文的，顺带说清遇到压缩和超预算时它又会怎样。]]></description>
+      <category>Ai编程</category>
+      <tag>AI应用</tag>
+      <tag>Ai编程</tag>
+      <tag>deepseek</tag>
+      <author>ppc</author>
+    </item>
+    <item>
       <title><![CDATA[DeepSeek Harness 初体验：主模型换到 opencode，联网搜索却绕不开 DeepSeek]]></title>
       <link>https://www.lxpavilion.top/article/208/</link>
       <guid>https://www.lxpavilion.top/article/208/</guid>
@@ -74,9 +86,7 @@
       <pubDate>Fri, 14 Aug 2026 17:10:00 GMT</pubDate>
       <description><![CDATA[DeepSeek Harness（dsh）是 DeepSeek AI 开源的智能体框架，以“一切皆插件”为核心理念，由 Cordis 驱动。本文从环境准备、安装启动、端口配置、四种内置模式，到常用操作与插件系统，带你从零上手这款可高度定制的 Agent 开发平台，并分享官方插件源码这一最佳学习资料。]]></description>
       <category>Ai编程</category>
-      <tag>AI应用</tag>
-      <tag>Ai编程</tag>
-      <tag>deepseek</tag>
+      
       <author>ppc</author>
     </item>
     <item>
@@ -221,17 +231,6 @@
       <tag>热点爬取</tag>
       <tag>AI应用</tag>
       <tag>Ai编程</tag>
-      <author>ppc</author>
-    </item>
-    <item>
-      <title><![CDATA[GitHub API 踩坑记：为什么我的 Token 只有 60/h？域名邮箱注册被标记的真相与解决方案]]></title>
-      <link>https://www.lxpavilion.top/article/157/</link>
-      <guid>https://www.lxpavilion.top/article/157/</guid>
-      <pubDate>Wed, 05 Aug 2026 00:04:59 GMT</pubDate>
-      <description><![CDATA[使用个人域名邮箱注册 GitHub 账号时，可能刚注册就被平台标记为可疑，导致 API 额度从 5000/h 掉到 60/h。本文从实际项目经验出发，分析账号被标记的原因、影响，并提供切实可行的解决与规避方案。]]></description>
-      <category>开发拾遗</category>
-      <tag>Github</tag>
-      <tag>域名</tag>
       <author>ppc</author>
     </item>
   </channel>
